@@ -1,3 +1,3 @@
-# ai counsellor
+<h1 align="center">AI counsellor</h1>
 
-Finetuned SLM for counselling, served with RAG over South Asian techniques, with a voice interface layer. No agentic work.
+<p align="center">Finetuned SLM for counselling, served with RAG over South Asian techniques, with a voice interface layer. No agentic work.</p>
