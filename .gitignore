@@ -12,3 +12,4 @@ amod-counseling/
 counsel-chat/
 psychopref/
 *.ipynb_checkpoints/
+*.pdf

@@ -1,0 +1,993 @@
+# hku-preview
+# source PDF: raw/hku-preview.pdf | pages: 20 | ~5362 words
+
+Early Buddhist Teachings
+A Foundation for Counseling
+Kin Cheung George Lee
+Adrian J. Davis
+Sabin Maharjan
+Hong Kong University Press
+The University of Hong Kong
+Pok Fu Lam Road
+Hong Kong
+https://hkupress.hku.hk
+© 2025 Hong Kong University Press
+ISBN 978-988-8876-84-6 (Hardback)
+All rights reserved. No portion of this publication may be reproduced or transmitted in 
+any form or by any means, electronic or mechanical, including photocopying, recording, 
+or any information storage or retrieval system, without prior permission in writing from 
+the publisher.
+British Library Cataloguing-in-Publication Data
+A catalogue record for this book is available from the British Library.
+10 9 8 7 6 5 4 3 2 1
+Printed and bound by New Century Printing Industrial Ltd., Hong Kong, China
+Contents
+Lists of Figures and Tables viii
+Preface ix
+Abbreviations x
+1. Introduction 1
+1.1 Background and Rationale of the Study 1
+1.2 Literature Review 9
+1.3 Statement of the Problem 30
+1.4 Research Questions 31
+1.5 Methodology 32
+1.6 Scope of the Study 34
+1.7	 Significance	of	the	Study	 36
+1.8 Summary of the Chapters 37
+1.9 Conclusion 41
+2. The Idea of a Theoretical Orientation 43
+2.1 Introduction to Theoretical Orientation 43
+2.2 Theoretical Orientation: The Backbone of Counseling Practice 44
+2.3	 Review	of	Definitions	and	Dimensions	of	a	Theoretical	Orientation	 46
+2.4	 Proposed	Definition	and	Dimensions	of	a	Theoretical	Orientation	 50
+3. Theoretical Orientation Dimension I: Basic Philosophy 54
+3.1 An Explanation of Dependent Co-arising 55
+3.2 The Twelve Factors of Dependent Co-arising 58
+3.3 The Three-Life Model of Dependent Co-arising and Its Rebuttals 62
+vi Contents
+3.4 The Implications of Dependent Co-arising for the Existence of Self 64
+3.5 Commentary on Dependent Co-arising According to Professional 
+Psychology 66
+3.6 The Implications of Dependent Co-arising for Buddhist Counseling 70
+3.7 Conclusion 80
+4. Theoretical Orientation Dimension II: Central Theoretical 
+Constructs of Human Nature and Human Motivation 81
+4.1 Non-self 81
+4.2 Five Aggregates 85
+4.3 The Formation of Human Identity: Clinging to the Five Aggregates 93
+4.4 Implications of the Five Aggregates for Counseling 96
+4.5 Commentary on Non-self in Professional Psychology 97
+4.6 Implications of Non-self for Buddhist Counseling 99
+4.7 Conclusion 102
+5. Theoretical Orientation Dimension III: Theory of Human 
+Development 104
+5.1 The Development of Unskillful Qualities in an Uncultivated Individual 104
+5.2 Human Development on the Spiritual Path 109
+5.3 Ideal Human Development in Early Buddhist Teachings 112
+5.4 Commentary on Human Development According to Professional 
+Psychology 116
+5.5 The Healthy Ideal in Professional Psychology 119
+5.6 Implications of Mind Development for Buddhist Counseling Practice 121
+5.7 Conclusion 127
+6. Theoretical Orientation Dimension IV: Health and  
+Dysfunction 128
+6.1 Dukkha 128
+6.2 Commentary on Dukkha and Its Causes According to Psychology 131
+6.3 Implications of Dukkha and Its Causes for Buddhist Counseling 136
+6.4 Conclusion 140
+Contents vii
+7. Theoretical Orientation Dimension V: Interventions and 
+Techniques 141
+7.1 Intervention in Buddhism 141
+7.2 The Noble Eightfold Path as a Threefold Training Intervention 143
+7.3 Right View as the Core Intervention 149
+7.4 The Cultivation of Right View 153
+7.5 View and Right View According to the Perspective of Psychology 161
+7.6 Implications of Right View for Buddhist Counseling 163
+7.7 Conclusion 176
+8. Early Buddhist Teachings as a Complete Model of  
+Theoretical Orientation 177
+8.1 The Complete Model 177
+8.2 Building a Foundation for Buddhist-inspired Counseling 181
+8.3 Buddhist-Inspired Counseling Assessment 182
+8.4 Buddhist-Inspired Counseling Conceptualization 183
+8.5 Buddhist-Inspired Interventions 186
+8.6 Conclusion 195
+Bibliography 197
+Index 209
+Ye keci osadhā loke vijjanti vividhā bahū,
+dhammosadhasamaṁ natthi; etaṁ pivatha bhikkhavo.
+(Anumānapañho, Milindapañha)
+“Of the many kinds of medicines in the world, none is greater when com-
+pared to the medicine of the Dhamma. Drink this, O monks.”
+This book presents our humble interpretations of Early Buddhist Teachings 
+in the form of a theoretical framework for Buddhist counseling. In so doing, our 
+ultimate aim is to invite scholars, mental health professionals, students, and other 
+interested individuals to explore and embody the wise and compassionate teach -
+ings	of	the	Buddha,	leading	to	the	use	of	skillful	means	for	alleviating	suffering	
+in the world.
+We thank you for opening this book and walking this path with us. Together, 
+let us navigate the teachings and insights within as we seek to cultivate wisdom 
+and compassion in ourselves and others.
+In the shadows of our minds,
+Where doubts and fears reside,
+The ancient teachings of the Buddha,
+Are a beacon of light to guide.
+Buddhist counseling is a means,
+To spread this light in modern times,
+To expose the Dhamma’ s wisdom,
+To those who seek to find.
+Preface
+1
+Introduction
+Early Buddhist teachings, consisting of the fundamental insights and theories 
+revealed	by	the	historical	Buddha	as	documented	in	the	Pāli	Nikāyas, Chinese 
+Āgamas, and Gandhāran texts, provide the key principles and practices required 
+in	attaining	liberation	from	suffering.	This	wisdom	from	more	than	2,500	years	
+ago has been adapted over the centuries in numerous ways, one recent form 
+being the secularization and inclusion of Buddhist mindfulness into psychologi-
+cal techniques for counseling purposes. Regardless of the success and popular -
+ity of mindfulness, however, there have been increasing criticisms and doubts 
+expressed regarding the secularization of mindfulness in particular and Buddhism 
+in general. In response, a number of scholars and practitioners in psychology and 
+Buddhism started to examine whether Buddhism can work alone as a counseling 
+method	to	alleviate	suffering	in	the	contemporary	world,	thereby	giving	rise	to	new	
+Buddhist-teaching based interventions, such as the Awareness Training Program 
+(Wu et al. 2019) and Cognitively-Based Compassion Training (Negi et al. 2014). 
+However, even these interventions did not address the essence of an archetypal 
+counseling model: a valid and comprehensive theoretical orientation with which 
+to	understand	different	presenting	problems	and	intervene	in	a	specialized	and	
+individual manner for a given client and their particular situation. The aim of this 
+book therefore is to integrate Early Buddhist teachings into the development of a 
+theoretical counseling orientation, with the present introductory chapter providing 
+the reader with an overview of the entire therapeutic journey by introducing the 
+background, methodology, and summary of all the chapters of the text.
+1.1 Background and Rationale of the Study
+In recent times, professional psychology has experienced heated controversy 
+over secularized Buddhist-derived interventions, especially mindfulness-based 
+ones (Lee et al., 2017, 113). Buddhist-derived interventions are an attempt to 
+2  Early Buddhist Teachings
+extract certain components of Buddhist-inspired theories and practices in order 
+to apply them to a secular mental health treatment model. Noteworthy progress 
+has been made in the development of evidence-based treatments that incorporate 
+Buddhist concepts and practices—including mindfulness-based stress reduction 
+(MBSR), mindfulness-based cognitive therapy (MBCT), trauma-focused cog-
+nitive behavioral therapy (CBT), and dialectical behavior therapy (DBT)—for 
+various psychological disorders (Lee et al. 2017, 113–15). Neurological, quan-
+titative,	and	qualitative	research	findings	have	also	provided	promising	evidence	
+showing	the	benefits	of	mindfulness-based	interventions	for	a	variety	of	mental	
+health disturbances (e.g. Fix and Fix 2013; Luders, Cherbuin, and Gaser 2016). 
+However, critics of these partial applications of Buddhist practice have noted 
+several challenges in doing so: the danger of dissociating mindfulness practice 
+from the Buddhist ethical framework (Harrington and Dunne 2015, 621), the 
+oversimplification	of	original	Buddhist	practice	(Sun	2014,	395–96),	the	possibil-
+ity of causing harm to clients through improper guidance and practice (Shonin, 
+Van	Gordon,	and	Griffiths	2013,	131),	and	the	dilution	of	treatment	effects	(Neale	
+2011, 2–3). For example, Dobkin, Irving, and Amar (2012, 46) conducted a litera-
+ture review on MBSR, the most common secular mindfulness intervention, and 
+demonstrated	such	possible	adverse	effects	as	increased	anxiety,	depressed	mood,	
+and perceived stress after the MBSR program. These voices at each pole of the 
+discussion	have	created	significant	ambiguity	in	the	application	of	Buddhism	to	
+mental health treatments.
+Perhaps one reason for the ambiguity is the question of how much of the 
+Buddhist teachings a contemporary intervention model should adopt. Regardless 
+of	acceptance	and	integration	of	Buddhist	concepts	and	practices	into	different	
+treatment approaches, most of the contemporary psychotherapy models, such 
+as MBCT, acceptance and commitment therapy (ACT), and DBT, maintain an 
+approach which selectively extracts relevant components of Buddhism instead of 
+using all Buddhist tenets as the foundation for treatment. Van Gordon and Shonin 
+(2013) termed such interventions as mindfulness-based interventions (MBIs), 
+which	are	secularized	treatment	approaches	that	have	emerged	from	different	
+Buddhist schools, although the integration of key Buddhist doctrines is limited 
+(2–3). In addition to Edo Shonin and William Van Gordon, a number of scholars 
+in psychology and Buddhism, such as Alan Wallace, Andreas Schmidt, Bhikkhu 
+Bodhi, and Ron Purser have participated in an ongoing dialogue about the MBIs 
+and their relationship to Buddhist teachings, as well as the potentiality to develop 
+intervention models primarily based on those teachings.
+Ron	Purser	was	one	of	the	first	researchers	to	harshly	criticize	the	oversim-
+plification	and	overuse	of	mindfulness	that	began	with	the	emergence	of	MBSR.	
+Using the catchy term “McMindfulness,” Purser criticized the secularization of 
+mindfulness into a business product which has been decontextualized from the 
+Introduction  3
+original Buddhist teachings (Purser and Loy 2013, 14). The article pinpointed 
+the	difference	between	Right	Mindfulness	and	wrong	mindfulness	by	assess-
+ing whether the practice of mindfulness encompasses the quality of awareness 
+characterized by wholesome intentions and positive mental qualities leading to 
+optimal wellness for self and others. Such a conscious consideration contrasts 
+with the McMindfulness applications that are mainly marketable projects without 
+ethical concern, such as fostering one-pointedness concentration to support the 
+violent work of terrorists or assassins. The article also implied that certain thera -
+pies could be considered part of the McMindfulness approach, thereby criticizing 
+certain mindfulness-based interventions. Such arguments are some of the most 
+blatant criticisms of the secularization of mindfulness to date. Furthermore, in his 
+book McMindfulness: How Mindfulness Became the New Capitalist Spirituality, 
+Purser	(2019)	shared	his	observation	that	mindfulness	had	been	commodified,	
+leading to a capitalization of spirituality in the world (9–13). He even made refer-
+ences to leading global corporates, such as Google’s mindfulness program known 
+as “Search Inside Yourself” (Purser 2019, 96), as well as the use of mindfulness 
+by the military establishment (Purser 2019, 150) to illustrate the application of 
+mindfulness	for	financial,	political,	or	other	inappropriate	reasons.	In	addition,	in	
+a direct attack on MBSR, Purser wrote the following criticism of Jon Kabat-Zinn 
+(Purser 2019, 177):
+Calling this (mindfulness) a theory of social change, as Kabat-Zinn does, is not 
+only misleading, it encourages people to bury their heads in the sand.
+In response, Purser proposed the solution of teaching mindfulness within 
+the Buddhist context, thereby disillusioning people with the fairy tale of secular 
+mindfulness and moving towards the realization of the emptiness of self (Purser 
+2019, 183–89). In summary, Purser’s viewpoint is that mindfulness should not 
+be treated as a solitary cure-it-all technique; rather, it was time to go beyond 
+McMindfulness by returning to the original Buddhist teachings.
+As	one	of	the	most	prolific	scholars	in	evaluating	MBIs,	Edo	Shonin	and	
+his team criticized many applications of mindfulness as misappropriations of 
+Buddhist teaching, which can easily misguide and confuse practitioners (Van 
+Gordon and Shonin 2020, 1). Shonin, originally trained as a Buddhist monk as 
+well as a chartered psychologist in the UK, developed meditation awareness train-
+ing (MAT), which claims to “incorporate practices that would be traditionally 
+followed	by	meditation	practitioners”	(Shonin,	Van	Gordon,	and	Griffiths	2013,	
+852–53). As a group-based intervention consisting of guided meditation, work-
+shops, seminars, and one-on-one support sessions, MAT integrates key Buddhist 
+concepts such as impermanence, emptiness, and compassion as part of its treat -
+ment	(Shonin,	Van	Gordon,	and	Griffiths	2013,	853).	Such	efforts	move	beyond	
+8
+Early Buddhist Teachings as a 
+Complete Model of Theoretical 
+Orientation
+The penultimate chapter of this book aims to demonstrate an application of the 
+complete theoretical orientation of our Buddhist-inspired model of counseling. 
+This	chapter	briefly	summarizes	the	theory-informed	model	of	Buddhist	teaching	
+and psychology and uses a case vignette to illustrate how it might be employed 
+in practice.
+8.1 The Complete Model
+Table	8.1	briefly	summarizes	the	five	components	of	a	theoretical	orientation	for	
+Buddhist counseling discussed in this book together with suggested applications:
+To further illustrate the practicality of the proposed theoretical orientation 
+for Buddhist counseling, this chapter will focus on a hypothetical case vignette 
+woven together using actual information from various clients. The process of 
+counseling will follow a common three-step model consisting of assessment, con-
+ceptualization, and intervention, and this process will integrate the components of 
+the theoretical orientation. First, let us understand the client’s background.
+Anson Lau (pseudonym) is a 49-year-old Chinese man, born and raised in 
+Hong Kong. He completed secondary school in Hong Kong and worked as a bank 
+teller for a few years. Afterwards, his family supported his studies and he earned 
+a	bachelor’s	degree	in	fine	art	at	an	Australian	university.	He	returned	to	Hong	
+Kong after completing his degree and has been working as a graphic designer 
+since	then.	Anson	identifies	himself	as	an	atheist,	but	he	is	open	to	Buddhist	
+teachings. He was self-referred to the Buddhist counseling center because he felt 
+depressed, was lost without a direction in life, found work meaningless, and had 
+relationship problems with his girlfriend.
+Upon	meeting	Anson	in	the	first	session,	I	was	struck	by	his	handsome	
+appearance and youthful-looking face that belied his chronological age. Even so, 
+he	was	also	clearly	lacking	in	energy,	had	difficulty	concentrating,	and	looked	
+178  Early Buddhist Teachings
+Table 8.1: The Proposed Theoretical Framework for a Buddhist-Inspired 
+Counseling Model
+Dimension Integration of Buddhism Proposed Applications
+Basic Philosophy Dependent co-arising is the 
+key principle in understanding 
+human nature and the world.
+Dependent co-arising can be 
+transformed into practical 
+assessment tools and counseling 
+techniques to raise clients’ 
+awareness of the multiple causes 
+and conditions that sustain the 
+experience	of	suffering.
+Central Theoretical 
+Constructs of 
+Human Nature and 
+Human Motivation 
+Under the law of dependent 
+co-arising, the self does not 
+possess an inherently existing 
+nature. Driven by craving 
+and ignorance, the human 
+mind clings on to the notion 
+of self through subjective 
+configurations,	which	is	the	
+core	cause	of	suffering.	Thus,	
+attaining the realization of 
+non-self	can	cause	suffering	to	
+cease.
+Based on the teaching of non-
+self, the overarching treatment 
+goal for Buddhist counseling is 
+the realization of non-self, or the 
+liberation from clinging to the 
+notion of self.
+Theory of Human 
+Development
+Mundane human growth, 
+maturation, and development 
+are not the primary concerns 
+of Buddhism; rather, it is 
+liberation	from	suffering.	
+With this as an end goal, 
+the Buddhist understanding 
+of human development can 
+be considered as a process 
+of mind cultivation towards 
+non-self.
+To gauge a client’s advancement 
+in mental cultivation, use 
+evaluation scales to measure 
+particular domains and 
+attainments.
+(continued on p. 179)
+“a little emptiness” exercise, 41, 191, 192
+Abhidhamma, 32, 63, 156
+Abhidharma, 63, 108
+acceptance and commitment therapy 
+(ACT), 2, 13–15, 40–41, 48, 66, 
+98–99, 161–62
+action (kamma), 61–63, 73, 107, 127, 158, 
+167–68. See also Right Action
+Adler, Alfred, 45
+Āgamas, 1, 31
+aggregates,	five.	See Five Aggregates
+aggregates, three. See three aggregates
+Ajātasattu	(King),	147
+Ālārakālāma,	147
+Amar, Simon, 2, 17
+Ambalaṭṭhika-Rāhulovāda-sutta, 106–7
+Anālayo,	Bhikkhu,	32,	147
+Ānanda,	Venerable,	83,	168
+Anattalakkhaṇa-sutta, 83
+Aṅgulimāla,	Venerable,	73
+Aṅgulimāla-sutta, 73
+Aṅguttara Nikāya, 110
+annihilationism, materialistic, 55–57, 83, 
+99–100, 155, 158
+anxiety, 2, 7–9, 132–35
+arahathood/ship, 113–14, 118, 122
+A-Tjak, Jacqueline G. L., 14
+attachment, 61, 70, 83–84, 93, 138–39, 
+154–57. See also clinging; 
+non-attachment
+attention, 4, 9–10, 92–93, 163. See also 
+wise	reflection
+Auckenthaler, Anna, 44
+avijjā. See ignorance
+awareness, 3, 10–11, 20–22, 68–69, 97
+Awareness Training Program (ATP), 1, 
+21–22, 31
+Ayurvedic therapy, 24
+Beck, Aaron, 41, 45
+Beck, Judith, 51
+becoming (bhava), 61, 78–79
+behavioral therapy, 45
+behaviorism, 46, 66
+Benish, Steven G., 7
+Bhayabherava-sutta, 115
+birth, 61–63, 104–6
+Bodhi, Bhikkhu, 2, 5, 17, 32, 54–55, 58, 
+62, 65, 87, 95, 156
+body, the, 8–12, 86–87, 145
+borderline personality disorder (BPD), 
+12–13
+Bornaetxea, Fernando Rodríguez, 66–67
+Borschmann, Rohan, 11
+Brahm, Adjan, 171
+Brahma, 5
+Brahmanism, 107
+Brown, Daniel, 9
+Buddha, the, 34, 35, 105, 112; teachings. 
+See various suttas
+Buddhadāsa	Bhikkhu,	63
+Buddhadhamma, 27, 30
+Buddhism, background, 7–8, 26–27. See 
+also schools of Buddhism
+Index
+Note: Page numbers in bold	refer	to	figures	and	tables.
+210  Index
+Buddhist chaplaincy, 28–29, 36
+Buddhist counseling: counselors, 27–29, 
+37;	definition,	25–27;	limitations,	
+29–30; problems, 30–31; rise of, 
+24–25
+Buddhist Derived Interventions (BDI), 18
+Buddhist-inspired counseling. See 
+Buddhist counseling
+Buddhist teaching–based interventions 
+(BTBIs), 20–21
+Buddho-education, 170–71, 179, 188
+Caṅkī-sutta, 159
+causal attribution, 66
+causation, 56–58, 63, 65, 73
+Centre of Buddhist Studies (HKU), 28
+Chan Buddhism, 8, 118n18
+Chaudhuri, Rachita, 108–9
+child development. See development, 
+human
+childhood	conflict,	8,	26,	39,	133
+Chinese Buddhism, 8, 22, 34, 72
+Classification of Mental and Behavioral 
+Disorders, The (ICD-10), 131
+client-centered therapy (humanistic), 45, 
+48, 68, 98, 120, 134
+clients, 2, 5–8, 16, 26–27
+clinging, 14, 57, 78–79, 138–39, 168. See 
+also Five Aggregates
+cognitive behavioral therapy (CBT), 2, 10, 
+45, 51, 52–53, 120–21, 134–35, 138, 
+141, 161–62, 170
+cognitive therapy, 10
+Cognitively-Based Compassion Training 
+(CBCT), 1, 21–22, 31, 163
+compassion, 3, 10, 17, 21–22, 66
+Comtois, Katherine Anne, 12
+concentration (samādhi), 144–47
+conceptualization	model	of	suffering,	
+136–40, 137
+configurations.	See volitional formations
+consciousness (viññāṇa), 58, 60, 62–63, 
+65, 71, 92–93
+contact (six-fold), 60, 67, 85–87
+counseling,	definition,	25–26,	27,	35
+Cox, Collett, 63–64
+craving (taṇhā), 15, 61, 68, 78, 130, 
+138–39
+Crosby, Kate, 105, 107
+cultural competency, 5–8, 11–12, 36
+Dasabala-sutta, 55–56
+Dasadhamma-sutta, 73
+Davidson, Richard, 9
+Deatherage, Gary, 9
+DeCou, Christopher, 12
+dependent co-arising, 14, 37–38, 54–59, 
+90, 100, 167; Buddhist counselling 
+and, 57, 64–65, 68–80; case studies, 
+75–77, 79–80; conditions, 58, 74–76; 
+exercise, 74–75, 74; existence of self, 
+64–66; factors, twelve, 55, 58–64, 
+67–68, 70, 76–78, 136; law of, 15, 21, 
+37, 57, 65–66, 84, 91; professional 
+psychology and, 66–70; three-life 
+model, 62–63, 71–72
+depression, 2, 10, 11, 65–66, 73–75, 
+100–101, 170–72; case study, 75–77, 
+79–80
+de Silva, Padmasiri, 24, 25, 88
+Descartes, René, 66
+Dessein, Bart, 63
+Devadatta, 147
+development, human, 35, 51, 52, 105–27; 
+Buddhist counselling and, 121–26; 
+Early Buddhist teaching, 105–6, 
+109–18; goals, four, 123, 124; libera-
+tion	from	suffering,	104,	109–16,	121;	
+mental, 110–12, 118–19, 121–26; 
+mindfulness cultivation scale, 
+125–26; professional psychology 
+and, 116–22; spiritual path, 109–15; 
+unskillful qualities, 104–9
+Dhamma (the Buddha’s teaching), 7, 
+18–19, 27–30, 35, 54, 56, 63, 105, 
+106, 109, 114, 123, 128, 141, 149, 
+150, 156, 169, 170; therapy, 24, 31
+dhamma (reality), 59, 167. See also reality
+Index  211
+dhammas (phenomena), 145, 149, 155
+dhammatā, 132
+Dhammacakkappavattana-sutta, 61, 128, 
+142
+dhammanijjhānakkhanti, 167
+Dhammapada, 81, 110, 132, 167–68; 
+Citta-vagga, 110
+Dhammasaṅgaṇī, 32, 59, 156
+Dhanañjāni,	Brahmin,	5
+Dhanañjāni-sutta, 5
+Dharma therapy, 21–23, 31, 69–70
+Diagnostic and Statistical Manual of 
+Mental Disorders,	fifth	edition	(DSM-
+5), 119, 131
+dialectical behavior therapy (DBT), 2, 
+12–13, 31, 98–99, 162
+dilution	of	treatment	effects,	2,	16
+Dobkin, Patricia L., 2, 17
+dualism, 55, 152
+dukkha, 14, 18, 22, 35, 39, 55, 63–64, 100, 
+167; Buddhist counseling and, 101–2; 
+categorization, 129; causes, 128–40, 
+150; characteristics, 129–30; concep-
+tualization model, 137; dysfunction 
+and, 128–36; secular psychology and, 
+131–36
+Dutiyasāriputta-sutta, 122
+Dvedhāvitakka-sutta, 147
+dysfunction, psychological (dimension 
+IV), 51–53, 52, 128–40; Buddhist 
+counselling and, 132–35, 136–40; 
+case study, 133–35; causes, 128–40; 
+classification,	131;	conceptualiza-
+tion model, 136–40, 137;	definition,	
+128; dukkha, 128–31, 132; secular 
+psychology and, 131–36
+Early Buddhist teaching, complete model, 
+177, 178–79; assessment, 182–83; 
+building a foundation, 181; case 
+study, 177, 180–95, 192; conceptual-
+ization, 183–85, 184–85; intervention, 
+186–95, 190
+education, 107–9, 122. See also India
+ego, 65, 82, 97, 120, 131
+elements, four great, 60, 86, 93
+elements of cognition, eighteen, 56
+Ellis, Albert, 45
+emptiness, 3, 19–20, 191–92, 192
+Engler, Jack, 9
+enlightenment, 54, 81–83, 112–15
+Epictetus, 45, 161
+ethics, 2–4, 17, 19, 27
+existence, 38, 56–57, 85, 152
+feeling (vedanā), 60–61, 87–89, 93–94, 
+145
+Feliu-Soler, Albert, 121
+Fiedler, Fred E, 43, 47
+First Turning of the Dhamma Wheel, 
+128–29
+Five Aggregates, 56, 64–65, 84–93, 94, 
+128–31; Buddhist counseling and, 
+96–97, 99; clinging to, 57, 82–84, 
+91–96, 130–31; consciousness, 58, 
+60, 62–63, 65, 71, 92–93; feeling 
+(vedanā), 60–61, 87–89, 93–94, 145; 
+matter/form (rūpa), 60, 65, 82, 86–87, 
+92–93; perception (saññā), 60–61, 65, 
+89–94; phases of, 82–83; volitional 
+formations	(configurations),	58–60,	
+65, 68, 85–86, 90–92
+flexibility,	psychological,	14,	40–41,	84,	
+153, 157, 162, 164, 168
+forgiveness, 72–73, 152
+form/matter (rūpa), 60, 65, 82, 86–87, 
+92–93
+Four Immeasurables meditation, 5
+Four Noble Truths, 16, 54, 59, 128, 136, 
+150;	First	(suffering),	128–30,	141;	
+Second	(arising	of	suffering),	130–31,	
+142;	Third	(cessation	of	suffer-
+ing), 142; Fourth (Noble Eightfold 
+Path), 142; problem solving model 
+(FNTBPS), 23–24. See also Noble 
+Eightfold	Path;	suffering
+Frank, Jerome, 6
+Frank, Julia, 6
+212  Index
+Frankl, Viktor, 48
+Freud, Sigmund, 26, 41, 45, 67–68, 97
+Fuller, Paul, 154, 156, 159
+functional contextualism, 13–14
+Gabriel, Ellis, 68
+Gaddula-sutta, 95
+Gandhāran, 1, 31
+Gehart, Diane, 47, 102
+Gestalt therapy, 45
+Gethin, Rupert, 59, 114, 118, 154, 156, 
+159–60
+Gil, Antonio Arrébola, 66–67
+Goleman, Daniel, 9
+Gómez,	Luis	O.,	155
+grasping. See clinging
+Griffiths,	Mark	D.,	20
+Grossman, Paul, 10
+Hansen, James C., 48–49
+happiness, 57, 95, 101, 112, 121, 159, 
+185–88
+Harter, Susan, 97
+Hasan, Omar, 12
+Hayes, Steven C., 13, 15, 98, 162
+health and dysfunction. See dysfunction, 
+psychological
+Ho, S. Shaun, 69
+Hougaard, Esben, 11
+human nature (dimension II), 51, 52, 
+81–103; Five Aggregates, 85–97, 
+94; identity, 93–96; non-self, 81–84, 
+97–102
+Hunter, Murray, 58
+Husband, Richard, 46
+Huxter, Malcolm John, 16
+“I” / “me”, 64–65, 69, 71, 82, 84, 90–94, 
+97–99, 162
+id, 97, 120
+identity, personal, 38, 65, 67, 70–71, 84, 
+93–96, 99
+ignorance (avijjā), 58–59, 62–63, 95–96, 
+114, 130, 135–36, 142, 149–51
+impermanence (anicca), 3, 19–20, 94, 
+96, 99–101, 129–30, 160–61, 167, 
+171–73
+India, 57, 107–9, 146–47
+Infancy, Childhood, and Relationship 
+Enrichment (ICARE) assessment 
+form, 117
+insight (vipassanā), 24, 84, 146, 160,  
+167
+intellectual learning, 41, 170–72, 188–89
+intersubjectivity, 68–69
+interventions (dimension V), 1–10, 
+18–25, 51, 53, 141–76; Buddhism 
+and, 141–42; Noble Eightfold Path, 
+143–49, 144; Right View, 149–75, 
+151, 165–66. See also techniques
+Irving, Julie A., 2, 17
+Ivey, Allen E., 46
+Ivey, Mary Bradford, 46
+Jackson, John W., 12
+Jacob, Piet, 11
+James, William, 97
+jhāna, 114–16, 118, 146–47
+Jones, Dhivan Thomas, 63
+Jones-Smith, Elsie, 49, 50
+Jonutytė,	Kristina,	24
+Jung, Carl, 45
+Kabat-Zinn, Jon, 3, 9–10, 18–19
+Kaccānagotta-sutta, 149, 152–53, 157
+Kālāma-sutta, 173
+kamma (action), 61–63, 73, 107, 127, 158, 
+167–68
+Karunadasa, 54–57, 64, 82, 86–87, 90, 
+95–96, 114
+Kelley, George, 66
+khandhas (mass), 85
+Khandha-sutta, 85
+Khandhavagga, 85
+Klein, Melanie, 45
+knowledge, 54–55, 66, 89, 112, 114, 148, 
+173
+Kuppili, Pooja Patnaik, 11
+Index  213
+Landes, Sara J., 12
+law of actuality, 37
+Law of Dependent Co-arising. See depend-
+ent co-arising
+letting go, 20, 68, 73, 78, 94, 134, 152,  
+192
+Linehan, Marsha, 12–13
+logotherapy, 48
+Madhupiṇḍika-sutta, 23, 60, 89
+Magga-saṃyutta, 143–49, 160, 168
+Magga-vibhaṅga-sutta, 143, 148
+Mahācattārīsaka-sutta, 147–49, 154, 157
+Mahāhatthipadopama-sutta, 82
+Mahānidāna-sutta, 55
+Mahāparinibbāṇa-sutta, 5
+Mahātaṇhāsaṅkhaya-sutta, 39, 71, 104–5
+Mahāthera,	Nārada,	62
+Mahāvedalla-sutta, 156, 164
+Mahāyāna,	4,	9,	13,	22,	31
+Majjhe-sutta, 155
+matching, 5, 17
+materialistic annihilationism. See annihila-
+tionism, materialistic
+matter/form (rūpa), 60, 65, 82, 86–87, 
+92–93
+McCartney, Mark, 11
+McLennan, Jim, 43–44, 47, 49–50
+McWilliams, Spencer A., 16
+Meares, Russell, 98
+meditation, 4–5, 9–10, 17, 124–26
+meditation awareness training (MAT), 3, 
+19–20, 31, 163
+mental	health,	definitions,	119–21
+methodology, 32–34
+Metta-sutta, 154
+Middle Way, 55–57, 64, 128, 152, 153, 
+155
+mind: acts, 76, 102; cultivation scale, 
+125–26; cultivation/training, 68, 
+110–12
+mindfulness, 1–5, 7–20, 123–24; 
+McMindfulness, 2–3, 16; 
+military uses, 3, 4, 17, 146; Right 
+Mindfulness, 3, 10–12, 16, 19, 113, 
+142, 144–46; secularization of, 1, 3, 
+10, 16–19, 36; Wrong Mindfulness, 
+3, 16
+mindfulness-based cognitive therapy 
+(MBCT), 2, 10–12, 19–20, 98–99
+mindfulness-based interventions (MBIs), 
+2–5, 7, 9, 14, 16–21, 31, 98–99
+mindfulness-based stress reduction 
+(MBSR), 2–3, 9–10, 17–20
+Molloy, Andrew Alexander Hastings, 
+66–67
+monastic order, Buddhist (Sangha), 107–9
+Mookerji, Radhakumud, 107–8
+morality (sīla), 17, 24, 60
+motivation, human (dimension II), 38, 51, 
+52, 81. See also human nature
+Murdock, Nancy L., 50, 204
+Nagara-sutta, 54, 113, 132
+Nakagawa, Yasuyoshi, 105
+Nakulapitu-sutta, 82
+name (nāma), 58, 60, 92–93
+Ñāṇamoli,	Bhikkhu,	156–57
+Ñāṇavīra	Thera,	Bhikkhu,	63
+Neale, Miles, 16
+Negi, Lobsang Tenzin, 163
+Nelson-Jones, Richard, 47–48, 50
+Ng, Siu-man, 121
+Nibbāna. See enlightenment
+Nibbedhika-sutta, 82
+Niemann, Ludger, 10
+Nikāyas, 1, 8, 31–34, 58, 60, 82
+Noble Eightfold path, 15, 40, 113, 142–49, 
+144, 164, 168; threefold training, 
+16–18, 142–49
+Noble Truths, Four. See Four Noble Truths
+non-attachment, 115–16, 121, 139, 154. 
+See also un-clinging
+Nonattachment Scale (NAS), 121
+non-dualism, 13, 152. See also dualism
+nonexistence, 56, 152
+non-self (anattā), 14–15, 37–42, 81–84, 
+168; Buddhist counseling and, 
+214  Index
+96–103; professional psychology and, 
+97–99
+Note, Know, Choose model, 23
+nutriments, 86, 149–50, 151
+Ox-herding pictures, ten, 39, 118n18
+Paccaya-sutta, 54
+Pahārāda-sutta, 30, 35
+pain, chronic, 9, 10
+Panos, Angelea, 12
+Panos, Patrick T., 12
+parenting, 68–69, 122
+perception (saññā), 60–61, 89–94
+Perls, Fritz, 45
+person-centered therapy. See client-
+centered therapy
+philosophy, basic (dimension 1), 51–80, 
+52. See also dependent co-arising
+Piaget, Jean, 116–18
+pleasure, 94, 101–2, 106, 115, 139
+Poznanski, Joseph J., 43–44, 47, 49–50
+Prior, Seamus, 24–25
+Priyadarshana, Wasantha, 24
+progressive muscle relaxation (PMR), 175
+psychoanalysis, 6, 25–27, 45, 68, 97–98, 
+120
+psychodynamic therapy, 11, 45, 97–98, 
+133
+psychotherapy, 6–8, 10–13, 23–27, 44–47, 
+66–68, 97–99
+Purser, Ron, 2–3, 10
+Quintana, Stephen, 7
+Rāhula,	105–7,	122
+Rāmaputta,	Uddaka,	147
+rational emotive behavioral therapy 
+(REBT), 45
+reality, 18, 25, 38, 56, 59, 64, 66, 79, 81, 
+83–84, 91, 93–95, 96, 110, 123, 131, 
+134, 135–36, 138, 142, 149, 155, 
+159–61, 167, 173, 176, 189 
+Reality Therapy, 138
+Reddy, M. S., 13
+reflection.	See	wise	reflection
+reification,	65,	95–96
+relational frame theory, 13–14, 161
+relaxation, 9, 17, 175
+religious ties in counseling, 4, 7, 19, 35–36
+Right Action, 113, 142, 147–48
+Right Concentration, 113, 142, 144, 
+146–47
+Right	Effort,	15,	113,	142,	144–46
+Right Intention, 113, 142–44, 147
+Right Livelihood, 113, 142, 144, 147–48
+Right Mindfulness, 3, 10–12, 16, 19, 113, 
+142, 144–46
+Right Speech, 113, 142, 147–48
+Right View (sammā-diṭṭhi), 40–41, 
+115–16, 118, 123, 142–43, 147–49; 
+aspects of, 151; Buddhist counseling 
+and, 163–75; as core intervention, 
+40–41, 149–52; cultivation of, 
+153–60; in Kaccānagotta-sutta, 
+152–53, 157; psychology perspective, 
+160–63; self-perceived scale, 165–66, 
+167–68. See also view, Wrong View
+rigidity, psychological, 14, 40–41, 69, 162
+Rogers, Carl, 41, 45, 67–68, 98
+Rungreangkulkij, Somporn, 24–25
+rūpa. See matter/form
+Sabbāsava-sutta, 186
+Sallatha-sutta, 110–11
+samādhi. See concentration
+Sammādiṭṭhi-sutta, 149, 151, 154
+Sammappadhāna-saṃyutta, 145
+Saṃsāra, 39, 62
+saṃsāric	flow,	78–79
+Saṃyutta Nikāya, 85
+Sandhinirmocana-sūtra, 22
+Saṅgha (monastic order), 107–9
+saṅkhāra. See volitional formations
+Sāriputta,	5,	149–50
+Sarvāstivāda	Abhidharma, 63
+Sasson, Vanessa R., 105
+satipaṭṭhāna practice, 78
+Index  215
+Satipaṭṭhāna-sutta, 9, 124, 125–26, 145
+Sautrāntika,	34
+Schmidt, Andreas, 2, 4, 7
+Schmidt, Stefan, 10
+“Search Inside Yourself”, 3
+self, 41, 67, 84; Buddhist counseling and, 
+70–71; delusion of, 14, 22, 38, 71, 
+96, 99–100; dependent co-arising 
+and, 64–66; nature of, 70, 82, 96–97, 
+99–100; permanent, 65, 70, 99–100; 
+psychology and, 66–70; self-notion, 
+81–82, 99–101, 116; sense of, 15, 
+97–100, 162
+self-perceived Right View scale (SPRVS), 
+165–66
+sense-bases, six, 58, 60, 87
+sense-bases, twelve, 56
+senses, 86–87, 89, 105–6
+Shah, Monica, 99
+Shonin, Edo, 2–4, 16–20, 31, 163
+Shulman, Eviatar, 62–64
+Sik, Venerable Hin Hung, 20–22, 69, 171
+sīla (morality), 19, 24, 60, 142, 146. See 
+also virtuous conduct
+Simek-Downing, Lynn, 46
+Siṃsapā-sutta, 112, 114–15
+skepticism, 55, 57, 114
+skillfulness, 39, 84, 149–50
+Skinner, B. F., 45, 66
+Somaratne, G. A., 32, 54, 57, 64–66, 88, 
+90–91, 93–94
+Sotāpatti saṃyutta, 123
+spiritual eternalism, 55–57, 83
+Sri Lankan tradition, 34
+Srichannil, Chomphunut, 24–25
+Stevic, Richard R., 48–49
+Stoicism, 11, 45, 161
+stream-entry, 114, 122–23, 160
+stress, 2, 9, 10, 102
+Sue, Stanley, 6
+suffering.	See dukkha 
+sukha (permanent happiness), 101–2, 
+187–88
+Sun, Jessie, 16–18, 146
+superego, 97, 120
+talk therapy. See psychoanalysis
+Tamura,	Yoshirō,	7
+Thai tradition, 34
+Thanissaro, Bhikkhu, 32
+Thapaliya, Suresh, 11
+theoretical orientation (model for counsel-
+ling): characteristics, 30–32; counsel-
+ling	and,	32,	44–46;	definitions.	See 
+entry below; dimensions. See entry 
+below; idea of/history, 43; importance 
+of, 32, 36–37, 45–46; introduction to, 
+43–44; methodology, 32–44
+theoretical	orientation,	definitions,	32–33;	
+Hansen et al., 48–49; Jones-Smith, 
+49–50; Lee et al., 50–51; Murdock, 
+50–51; Nelson-Jones, 47–50; 
+Poznanski and McLennan, 43–44, 
+49–50
+theoretical orientation, dimensions 52–53. 
+See also development, human; 
+dysfunction, psychological; human 
+nature; interventions; motivation; 
+philosophy, basic
+Theravada Buddhism, 4, 8, 9, 23–24, 
+62–63, 67, 156
+Thích,	Nĥát	Hạnh,	171,	188
+three aggregates, 142. See also concentra-
+tion; virtue; wisdom
+Threefold Training, 16–18, 142–49
+three-life model of dependent co-arising, 
+62–64, 71–72
+Tibetan Buddhism, 8, 21, 31, 163
+time, 95–96
+Tipiṭaka, 108
+Tissametteyyamāṇavapucchā, 155
+trauma-focused CBT. See cognitive 
+behavioral therapy
+un-clinging, 39, 121
+Un-clinging Scale, 121–22
+unskillfulness, 104–9, 149–52
+Upādanaparipavatta-sutta, 82
+216  Index
+Upādāna-sutta, 78
+Upaḍḍha-sutta, 168
+Upadhyaya, Kapil Dev, 11
+Upādiyamāna-sutta, 157
+Uthayaratana, 23
+Vacchagotta, 83
+Vacchagotta-sutta, 83
+Vaibhāṣika	school,	154
+Vajirā-sutta, 85
+Van Gordon, William, 2, 16–20, 31, 163
+Vedic culture, 107
+Vibhaṅga, 32, 59
+view, 154; non-grasped/no view, 155–57, 
+167; psychology perspective, 161–63
+Vijay, Starlin M., 13
+virtue, 142, 155
+Virtuous Conduct (sīla), 146, 147–49
+Vitakkasaṇṭhānasutta, 173
+volitional formations, 58–60, 68, 85–86, 
+90–92
+Walach, Harald, 10
+Wallace, Alan, 2, 4–5
+Walpola, Piyal L., 67–68
+Walshe, Maurice, 32
+Wampold, Bruce E., 7
+Warner, Richard W., 48–49
+Williams, Paul, 63
+wisdom (paññā), 22, 96, 121, 142–44, 146, 
+163–64, 167–69
+wise	reflection	(yonisomanasikāra), 123, 
+134, 156, 160, 163–64, 168, 173
+Wolff,	Sabine,	44
+Wongtakee, Wiwat, 24–25
+World Health Organization (WHO), 119, 
+131
+Wrong View, 40–41, 67, 116, 152, 154–60, 
+168–70, 186–88
+Wu, Bonnie, 20
+Wundt, Wilhelm, 66
+Xue, Ke-qiao, 7
+Yim, Jennifer, 22–23, 69–70
+yoga, 9, 10, 12
+Yogācāra,	34
+yonisomanasikāra. See	wise	reflection
+Zen Buddhism, 8–9, 12–13, 31, 118n18
+16.2mm 146mm146mm 15mm15mm
+235mm
+5mm 5mm
+15mm15mm 5mm5mm
+12mm12mm
+Printed and bound in Hong Kong, China
+“This book draws on the Pāli canon to demonstrate the practical application of early Buddhist teachings 
+in counseling and psychotherapy. It integrates Buddhist principles with Western psychological counseling, 
+addressing a notable gap in contemporary counseling approaches and off  ering a valuable interdisciplinary 
+resource. ”
+—Henry C.H. Shiu, The University of Toronto
+ “This seminal work masterfully bridges the timeless wisdom of the Buddha with the pressing needs of modern 
+mental health care. The book’s dialogue with Western psychology enriches therapeutic practice and honors 
+the cultural roots of millions connected to Buddhism. A vital resource for scholars and practitioners seeking 
+to integrate authentic Dharma principles into healing. Truly, a signiﬁ  cant step toward establishing Buddhist 
+counseling as a credible and recognized treatment model for alleviating suff  ering in today’s fragmented 
+world. ”
+—Ven. Sik Hin Hung, The University of Hong Kong
+Mindfulness and meditation, practices that are rooted in Buddhism, have become mainstream treatments in 
+counseling and psychotherapy that provide evidence of successful outcomes among secular clients. However, 
+for clients from non -Western backgrounds, dissociating mindfulness practice from the core Buddhist 
+teachings can dilute the transformative power of these practices, causing cultural confusion and lowering the 
+eff ectiveness of treatment.
+This book is the ﬁ  rst to present Early Buddhist Teachings as a theoretical orientation for the millions of 
+individuals affi  liated with Buddhism to create a culturally congruent counseling model. Using original sources 
+in Pāli, it explores key Buddhist concepts such as dependent co -arising, non-self, impermanence, and many 
+others. The authors then compare them with Western psychological concepts, furthering ongoing dialogue 
+between Buddhism and psychotherapy and fostering powerful integrations.
+This volume also demonstrates how to use the Buddhist counseling model through practical assessment 
+scales, sample dialogues, and detailed descriptions of interventions designed for mental health professionals. 
+It is a valuable resource for mental health professionals, scholars, and psychology students seeking to explore 
+the intersection of Buddhism and counseling psychology.
+Kin Cheung George Lee is senior lecturer at the Centre of Buddhist Studies at the University of Hong Kong 
+and a licensed psychologist.
+Adrian J. Davis  is associate professor of education at Macao Polytechnic University and a qualiﬁ  ed play 
+therapist and art therapist.
+Sabin Maharjan is a research assistant at the Centre of Buddhist Studies at the University of Hong Kong.
+Cover image by Karen Lau
+Cover design by Regina Humphrey
+Counseling / Buddhist Studies
+hƩ ps://hkupress.hku.hk
+EARLY BUDDHIST TEACHINGS
+A Foundation for Counseling
+Kin Cheung George Lee, Adrian J. Davis, 
+and Sabin Maharjan
+Kin Cheung George Lee, Adrian J. Davis, 
+and Sabin Maharjan
+EARLY BUDDHIST TEACHINGS
+A Foundation for Counseling
+EARLY BUDDHIST TEACHINGS
+A Foundation for Counseling

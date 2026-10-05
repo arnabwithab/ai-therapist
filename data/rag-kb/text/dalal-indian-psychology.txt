@@ -1,0 +1,1420 @@
+# dalal-indian-psychology
+# source PDF: raw/dalal-indian-psychology.pdf | pages: 36 | ~15250 words
+
+http://pds.sagepub.com
+Societies 
+Psychology & Developing
+DOI: 10.1177/097133360902200105 
+ 2010; 22; 121 Psychology Developing Societies
+Ajit K. Dalal and Girishwar Misra 
+ The Core and Context of Indian Psychology
+http://pds.sagepub.com/cgi/content/abstract/22/1/121
+ The online version of this article can be found at:
+ Published by:
+http://www.sagepublications.com
+ at:
+can be foundPsychology & Developing Societies Additional services and information for 
+ http://pds.sagepub.com/cgi/alerts Email Alerts:
+ http://pds.sagepub.com/subscriptions Subscriptions:
+ http://www.sagepub.com/journalsReprints.navReprints: 
+ http://www.sagepub.in/about/permissions.aspPermissions: 
+ http://pds.sagepub.com/cgi/content/refs/22/1/121 Citations
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+Psychology and Developing Societies  22, 1 (2010): 121–155
+SAGE Publications Los Angeles/London/New Delhi/Singapore/Washington DC
+DOI: 10.1177/097133360902200105
+This article makes an effort to conceptualise the emerging ﬁ eld of scholarship called Indian Psychology 
+(IP) in the backdrop of the disciplinary developments. After situating IP in the disciplinary matrix, 
+the article articulates the meaning and scope of IP , its critical features and misconceptions about its 
+conceptualisation. It is argued that IP is a school of psychology primarily rooted in the diverse Indian 
+thought systems with panhuman appeal. It has potential to offer an encompassing vision which covers 
+the vast expanse of the human consciousness from a dynamic experiential vantage point. As a theory 
+and practice, IP is practical and transcendental in nature. While IP chieﬂ  y addresses the existential 
+issues from a ﬁ rst person perspective, it is inclusive in approach and does not ignore the mundane 
+concerns of everyday life and social welfare.
+The Core and Context 
+of Indian Psychology
+AJIT K. DALAL
+University of Allahabad, Allahabad
+GIRISHWAR MISRA
+University of Delhi, Delhi
+Keywords: Indian psychology, experiential knowledge, transcendental, 
+tradition, self
+Acknowledgements: The authors are highly grateful to two anonymous reviewers and also to 
+Anand C. Paranjpe, R.C. T ripathi and Matthijs Cornelissen for their constructive criticism of 
+the  earlier versions of this article. 
+Address correspondence concerning this article to Ajit K. Dalal, Department of Psychology, 
+University of Allahabad, Allahabad – 211 002, India. ajitdalal@hotmail.com
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+122 / AJIT K. DALAL and GIRISHWAR MISRA
+Psychology and Developing Societies 22, 1 (2010): 121–155
+The Core and Context of Indian Psychology
+Indian Psychology (IP) has its roots in the diverse traditions of knowledge 
+deliberated upon in various texts (Shastra), as well as the practices, artifacts 
+and meanings embodied in various forms, shared by the people (Loka) in the 
+zone of Indian civilisation. It is part of a living tradition which has continued 
+unabated since time immemorial. As Thapar (2002) has remarked “at certain 
+levels there are aspects of cultural traditions in India that can be traced to 
+roots as far back as a few thousand years” (p. xxv) (see also Basham, 1954). 
+Therefore, IP is different and broader than the academic psychology as it 
+began in India in the beginning of the last century under the aegis of the 
+scheme of Western domination. IP characterises the Indian psychological 
+viewpoints which are rooted in the Indian civilisation. IP has evolved through 
+rigorous observation, experimentation and reﬂ  ection, through training 
+under Gurus, continuous contemplation and sharing of personal accounts of 
+inner experiences. This knowledge base has grown, diversiﬁ ed and survived 
+through many challenges and upheavals. It still continues, in a plural mode, 
+to shape in explicit, as well as, implicit ways the dominant cultural ethos 
+of the Indian people. 
+The thought systems and practices of IP , however, are panhuman in their 
+basic conceptual orientation (Nakamura, 1997). Integrally bound with 
+Eastern philosophies, IP has evolved not as a moralistic but as a cultural dis-
+course on world views and epistemologies, which offers an alternative to the 
+logico-positivistic enterprise of Western psychology. Though originated in 
+the Indian subcontinent, the concern has been to free human beings from 
+bondages and suffering, wherever they are located and whatever their sources 
+are. This discourse has grown around the essential nature of one’s being and 
+the various paths through which one comes to know about it. IP has en-
+deavoured for creating choices, ﬁ nding out one’s own dharma (duty) and 
+pursuing one’s own path of evolution in a wider time–space framework. It 
+situates human functioning in the cosmic context within which are embedded 
+the personal, interpersonal and communal level engagements. Such an ethos 
+tends to promote democracy in ideas. It offers freedom to engage in diverse 
+modes in a spirit of pluralistic enquiry and engagement. Indeed IP is built 
+on the ediﬁ ce of diverse schools of materialistic/realistic as well as idealistic 
+thoughts. They offer disparate perspectives on understanding life and its 
+potential for participatory growth and evolution in an interdependent 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+The Core and Context of Indian Psychology / 123
+Psychology and Developing Societies 22, 1 (2010): 121–155
+world of existence. Menon (2005) takes the view that IP has expanded the 
+conventional deﬁ nition of psychology from the “science of human behaviour” 
+to “human possibility and progress”. It has nurtured a world view informed 
+by continuity, interdependence and connectivity across all life forms. It em-
+phasises an inclusive notion of ﬁ  eld rather than individual as the centre 
+of reality. The ﬁ eld (Kshetra) and knower of the ﬁ  eld (Kshetrajya) are not 
+mutually excusive. By situating humans in a wider space–time continuum, 
+this tradition offers a whole range of theories and concepts pregnant with 
+many exciting hypotheses about human nature, their life course and modal-
+ities of worldly engagements. 
+Indian sages and thinkers were struck by the immensity of the universe 
+and the empirically inexhaustible mystery of life. This wonder of ex-
+istence is portrayed in the hymns of the Vedas, which attribute divinity to 
+the striking aspects of nature (Radhakrishnan, 1953) and the human mind 
+(Sri Aurobindo, 1939/2006). In the Vedic texts it was held that the universe 
+has evolved out of One. This ﬁ rst principle of “that One” (tad ekam) is con-
+sidered uncharacterisable. It is without qualities or attributes, neither positive 
+nor negative. Any attempt to describe it is to delimit and bind that which 
+is limitless and unbounded. All gods and deities are of late or secondary 
+origin ( R¸ g Veda, Nasadiya Sukta 10:129). What is important here is the 
+view that holds continuity (Avyaya Bhava) and complimentarity in various 
+forms or manifestations of reality. It leads one to perceive unity in diversity 
+and seeing no contradiction between the opposites. Thus, though all later 
+thinkers derived their inspiration from the Vedas, they were open minded 
+and exercised freedom to interpret and elaborate the text(s) in different ways. 
+The Upanishads are not the thoughts of a single thinker; they evolved over 
+a period of time through scholarly discourses and contemplation. In the 
+Upanishads, the interest shifted from objective to the subjective, from outside 
+world to self in whose inﬁ nite depths the universe is reﬂ ected in its entirety. 
+The Upanishads give in some detail the path of the inner ascent, the inward 
+journey towards ultimate reality. The Upanishadic seers extended the tenets 
+of spirituality to the utmost bounds of human existence. The diversity of 
+ideas, concepts and visions encapsuled in the verses of the Upanishads has 
+inspired generations of thinkers and has laid the foundations of IP .
+It may be mentioned in this context that the Vedic seers admitted in 
+all humility that their proposition of the creation was only a surmise, 
+for it is not possible to be sure of the events that occurred in the distant 
+past. They also conceded that the perfect and absolute cannot be known 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+124 / AJIT K. DALAL and GIRISHWAR MISRA
+Psychology and Developing Societies 22, 1 (2010): 121–155
+through the imperfect human mind. What is known about life and existence 
+is therefore conjectural, logical and intuitive in most of the cases. Skepticism 
+and questioning is very much built-in in the mode of inquiry in the R¸ g Veda 
+itself. It is said of Indra, “Of whom they ask, where is he? Of him indeed 
+they also say, he is not.” (the R¸ g Veda II 12). Such doubts are frequently raised 
+throughout the classical texts and subsequently a whole system of inquiry 
+called the Nya¯ya was developed to ensure errorless thinking. Systematic 
+dialogue (Samva¯d ) has been a potent method of advancing understanding 
+about life and the universe. In the case of testing premises about self and 
+transcendental knowledge, self-veriﬁ cation by using ﬁ rst-person experiential 
+methods, like meditation, was considered to be the best option. This tradition 
+of questioning and free thinking provided impetus to IP for centuries, and 
+with many ups and downs, and setbacks it kept prospering till the recent 
+times. In what follows, we present a brief history of IP and then note the 
+changing perceptions of IP . We trace the disciplinary contours of IP and note 
+its distinguishing features. T o clarify the nature of IP we then discuss what 
+is not the core of IP , before concluding the article.
+Brief Historical Background
+For the last 100 years of its existence, the contents and practices of teaching–
+learning of psychology in India has been dominated by the Euro-American 
+tradition. The ﬁ rst department of psychology established at Calcutta University 
+in 1916 was a discipline imported from the West but was supposedly universal 
+in contents and theories. This incarnation of psychology was imbued with a 
+Western spirit of objective knowledge and other-oriented methodology. Even 
+after the political independence of India in 1947, psychology continued to 
+grow in the same institutional framework and learning paradigm with its 
+anchor deeply entrenched in behaviourist ideology. It has been alien in the 
+sense that the teaching was primarily in terms of sharing and propagating the 
+Euro-American principles and practices, rather than applying and linking to 
+social reality with an open mind. Though it did expand rapidly in the Indian 
+universities and institutes of higher learning and professional training, it 
+mainly served the purpose of substantiating and illustrating the principles of 
+Western scientiﬁ c psychology taking Indian samples with little contribution 
+to the (supposedly universal) body of knowledge pool called psychology. 
+While some scholars did try to relate to Indian ethos and attended to explicate 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+The Core and Context of Indian Psychology / 125
+Psychology and Developing Societies 22, 1 (2010): 121–155
+indigenous sources of knowledge they did that privately, and the public 
+face projected in curriculum and teaching programme did not incorporate 
+that as legitimate and worthwhile. The idea of psychology and its preferred 
+way of categorisation and conceptualisation was held pre- or a-cultural and 
+culture was given no place in the constitution of psychological materials 
+or elements. For example, motives, drives, needs, perceptual learning and 
+various cognitive phenomena were kept separate from the cultural tradition. 
+The dynamics of creating a niche for a new discipline and the pressures to 
+form a identity amid physical science disciplines might have led to this. By the 
+mid-1970s, discontentment was brewing among some Indian psychologists 
+who cared for application and relevance of their efforts (Dalal, 1996). T o 
+the vast majority, a psychology patterned after physical science model was 
+treated as intrinsically universal in which there was no scope for Indian or 
+for that matter any other non-Western perspective. 
+The trinity of materialism, quantiﬁ  cation and objectivity of Western 
+psychology and commitment to the very goal of science to control and mani-
+pulate others fascinated Indian psychologists. This ethos of a new science 
+of psychology was so captivating that most of the courses became immune 
+to the cultural context. For instance, the courses offered at Masters level 
+had a compulsory component of history of psychology but they were silent 
+about Indian contributions, nor was there any disciplinary engagement with 
+Indian culture and society but Greek, British, other European and American 
+philosophical contributions captured the entire space. Such a decontextual-
+ised training could survive merely on the ground of metatheoretical sup-
+positions of the universality of the basic principles of psychology, its way 
+of categorisation and understanding. It subscribed to a mechanistic and 
+reductionist framework supported by an empiricist methodology. 
+It may be noted that the growth of scientiﬁ c psychology has resulted in 
+losing the essential constituents, such as psyche and consciousness, and making 
+the enterprise an empirical discipline, which is composed of things borrowed 
+from various disciplines and nothing of its own. As such psychology is so 
+disintegrated and fragmented that a meaningful deﬁ nition of the discipline 
+is next to impossible. T oday psychology is experiencing fragmentation and its 
+diverse applications make it contingent on variable contexts (Misra & Kumar, 
+in press). The illusion of developing grand empirically derived theories and 
+principles of human behaviour and action could not sustain for long. One 
+ﬁ nds distinct changes in the academic scenario in the ﬁ  eld of psychology 
+that have created avenues for an engagement with culture. The emergence 
+of cross-cultural, ethno, indigenous and cultural psychological approaches 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+126 / AJIT K. DALAL and GIRISHWAR MISRA
+Psychology and Developing Societies 22, 1 (2010): 121–155
+brought into focus the signiﬁ  cance of culture in understanding psycho-
+logical processes. Also, the supremacy of physical science as the prototype of 
+inquiry into human affairs has been questioned by the philosophers of science 
+(Derrida, 1982; Foucault, 1977; Gergen, 1989). This has led to revision 
+of the nature of understanding of science and scientiﬁ c enterprise. A related 
+development has been the increasing use of qualitative methods which rely 
+on subjectivity, human experience and a constructivist approach to human 
+understanding. These developments facilitated the emergence of a critical 
+look at the disciplinary affairs and various possibilities have emerged. 
+The realisations within the community of psychologists in India emanating 
+from self-reﬂ ection and growing discomfort with the limitations of academic 
+engagements within the received paradigm, at conceptual as well as societal 
+planes, led to nationwide reﬂ ection and debate among Indian psychologists. 
+The result was a distinct clamour to indigenise the prevailing Euro-American 
+discipline and to make it culturally sensitive. D. Sinha (1965) gave a call for 
+integration of modern psychology with Indian thought. Many signiﬁ  cant 
+works involving critique and reconstruction have come out in the following 
+decades. Sinha’s writings (1981, 1986, 1997, 1998) persistently endeavoured 
+to make the point that psychology has to be culturally relevant and called 
+for indigenisation of the discipline. A large number of publications have 
+come out during this period critically reviewing the state of psychology in 
+India and urging psychologists to make it socially relevant and compatible 
+with the Indian ethos (Dalal, 1996; Gergen et al., 1996; Misra & Gergen, 
+1993; Misra & Mohanty, 2002; Misra et al., 1999; Pandey, 2001, 2004; 
+D. Sinha, 2000). Amid much confusion and lack of self-conﬁ  dence the 
+move to articulate and nurture psychology with Indian concepts and theories 
+took considerable time in gathering momentum. However, these efforts to 
+rejuvenate psychology in the ancient texts intensiﬁ ed in the 1980s and 1990s. 
+Some notable publications of this period are by Paranjpe (1984, 1998), 
+Chakraborty (1995), Saraswathi (1999) and Rao (1988, 2002a, 2002b). 
+This stream has built not only on the interpretation of traditional concepts 
+and theories in contemporary idiom, but also on their integration within a 
+broader, global perspective. A comprehensive approach to IP involves issues 
+of justice and dana (Krishnan, 2005), poverty (Misra & T ripathi, 2004), 
+interpersonal relationship (Kakar & Kakar, 2007), organisational develop-
+ment (Singh-Sengupta, 2001, creativity (Bhawuk, 2003), concept of self 
+(Bhawuk, 2005), pain and suffering (Anand, 2004, 2006), emotions and 
+affect (Bhawuk, 2008a; Jain, 2002; Misra, 2004, 2005; Paranjpe, 2009) 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+The Core and Context of Indian Psychology / 127
+Psychology and Developing Societies 22, 1 (2010): 121–155
+religious behaviour and devotion (Paranjpe, 2006) and peace and well being 
+(Bhawuk, 1999; Dalal & Misra, 2006; Kumar, 2004), to name just a few.
+In more recent times, efforts to build IP as a vibrant discipline have in-
+tensiﬁ ed. Several conferences (Puducherry, 2001, 2002, 2004; Kollam, 2001; 
+Delhi, 2002, 2003, 2007; Vishakhapatnam, 2002, 2003, 2006; Bengaluru, 
+2007) have given impetus to this movement of IP . The publication of the 
+Journal of Indian psychology  since 1976, National Academy of Psychology 
+(NAOP) Conventions at Kanpur (2007) and Guahati (2008), refresher 
+courses in IP at Mysore, courses at IP Institute at Puducherry for the last four 
+years, publications, such as Misra and Mohanty’s Perspectives on Indigenous 
+Psychology (2002), Joshi and Cornelissen’s edited volume, Consciousness, 
+Indian Psychology and Yoga (2004); Rao and Marwaha’s T owards a Spiritual 
+Psychology (2005); Rao, Paranjpe and Dalal’s Handbook of Indian Psychology 
+(2008) has made rich source material on IP available. 
+The newly emerging psychology is rooted in traditional Indian thought 
+and practices that have existed at least for the last 2,500 years as a holistic 
+human science. The plurality of the Indian intellectual tradition and an ethos 
+of accommodating diverse thought systems extend immense opportunity 
+for creatively building a new psychology. As stated in the Pondy Manifesto 
+(Cornelissen, 2002), “Rich in content, sophisticated in its methods and valuable 
+in its applied aspects, Indian psychology is pregnant with possibilities for the birth 
+of new models in psychology that would have relevance not only for India but 
+also for psychology in general.” This manifesto signed by the delegates at the 
+IP conference at Puducherry was a landmark event in the history of IP . 
+It needs to be made explicit that the purpose of identifying, developing and 
+testing Indian concepts and theories is not to prove their intrinsic superiority. 
+It is a theoretical and methodological movement towards contemporising 
+Indian theories and testing their relevance for enhancing human potential, 
+enhancing well being and making this world a better place to live. It is 
+against this backdrop that IP is gearing itself to usher into a new era of many 
+exciting possibilities. 
+The Changing Perceptions of IP
+Ostensibly, there is a change in attitude and perception of IP in the last 
+decade or so. That IP is growing in popularity among academic psychologists 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+128 / AJIT K. DALAL and GIRISHWAR MISRA
+Psychology and Developing Societies 22, 1 (2010): 121–155
+as well as among practitioners is evident from the quantum of research and 
+professional activities in this ﬁ eld. Three factors that have contributed to this 
+change in attitudes towards and perceptions of IP are discussed here. 
+First, Western psychology has failed in dealing with the societal problems 
+that are faced by the people in non-Western world. It has increasingly been 
+realised that psychology driven by the positivist paradigm only provides a 
+fragmented and superﬁ cial account of human feelings, behaviour and the 
+dynamics of action of an isolated individual (Nandy, 1988). The growing 
+problems of social and family violence, mental ill health, moral decay, etc., 
+have brought out the gross limitations of the mainstream Western psychology 
+to the Western scholars also. The concept of human being as epicentre of the 
+universe and container of myriads of psychological attributes (e.g., abilities, 
+motives, interests, goals, dispositions, cognitions, aptitudes) is ﬂ awed as it 
+does not capture the totality of existential context of life. The principles 
+thus derived were largely framed within a deﬁ cit model and ignored certain 
+important and afﬁ rmative human phenomena (e.g., religion, spirituality, 
+suffering, values, authenticity, creativity, love, collectivism, forgiveness), 
+which have emerged under the rubric of positive psychology (Snyder & 
+Lopez, 2002). As a movement within positivistic epistemological tradition, 
+positive psychology too is not equipped to handle inner, personal, cultural 
+and subjective aspects of life. These issues were either left unattended or 
+appropriated in a trivial fashion that made them less appealing.
+It is interesting to note that the limitations of the practices of positivist 
+psychology were noted in the Western world too. For instance, Worchel and 
+Cooper (1989) had discussed the crisis in modern social psychology and 
+its limitations in dealing with the contemporary social problems. Humanistic 
+and transpersonal movements in the 1960s were largely protest movements 
+against scientism which is primarily concerned about control and pre-
+diction, ignoring phenomenological perspective in psychological research 
+(Wertz, 1998). Modern psychotherapies too are going through a crisis of 
+identity and a debate is raging about their goals, philosophy and moral 
+vision (VandenBos, 1996). A need is felt to bring back spirituality and 
+religiosity in psychological research and theorisation (Bhawuk, 2003), 
+which was banished from psychology for about a century (see special issue 
+of the American Psychologist, January 2004). All these contemporary devel-
+opments are in response to the acutely felt limitations of psychology developed 
+and practised within the framework of modern science. Modelled on the 
+mechanistic–reductionistic paradigm of physical sciences, Western psychology 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+The Core and Context of Indian Psychology / 129
+Psychology and Developing Societies 22, 1 (2010): 121–155
+is very restrictive in its assumptions about human nature and cannot deal 
+with larger human concerns. A rethinking has led to the emergence of new 
+perspectives and paradigms in psychology (i.e., in terms of feminism, social 
+constructionism, postmodernism) (Gergen 2007, 2009; Stanley, 1990), 
+which in certain ways bridges the gap between Eastern and Western under-
+standing of human nature. 
+Second, there is growing popularity of Yoga and other spiritual systems 
+in the West. In the past few decades, more and more people with spiritual 
+training and experiences from India have been visiting other countries and have 
+acquired a large following. They have been responsible for disseminating the 
+Indian spiritual tradition. Among them, Maharishi Mahesh Yogi and Swami 
+Rama who have been able to draw the attention of academic psychologists 
+are prominent. Sri Aurobindo’s Integral Yoga and Integral Psychology have 
+attracted worldwide attention (Sri Aurobindo, The Integral Yoga, The Life 
+Divine in 2 volumes). Mahesh Yogi’s T ranscendental Meditation (TM) went 
+through rigorous experimental testing at Harvard and other universities. 
+Swami Rama offered himself to extensive medical testing at the Menninger 
+Foundation Laboratory, New York, where he demonstrated many yogic 
+feats (Swami Ram et al., 1976). These Indian masters were able to demonstrate 
+convincingly the power of mind over body and have contributed signiﬁ cantly 
+towards evoking interest in the explication of Indian perspectives. The 
+presence of Ram Krishna Mission, Swami Narayan, Shivanand, Muktanand 
+and Sikh saints and many who settled in the West have also contributed to 
+generate interest in IP . Publications of Sri Aurobindo Ashram, Puducherry, 
+and the Himalayan International Institute for Yoga Sciences, Philosophy, 
+and Religion in Honesdale, Pennsylvania, founded by Swami Rama, are 
+valuable for their signiﬁ cant role in expounding the psychological insights 
+of Vedanta, Yoga, Samkhya and other systems of Indian thought. These 
+and many other accomplished spiritual masters of the Indian tradition have 
+played an important role in popularising IP across the globe (Paranjpe, 2006). 
+Mahatma Gandhi’s life and works have also inspired modern thinking on 
+peace, development and conﬂ ict resolution (Bondurant, 1965; Horsburgh, 
+1968; Pelton, 1974). 
+Though rooted in Indian scriptures and philosophical texts, IP does not 
+promote any religious faith, nor is it based on any particular metaphysics; 
+rather it has a quality that transcends all religious boundaries and does not 
+offend any faith or ideology. Various schools of thought within Indian 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+130 / AJIT K. DALAL and GIRISHWAR MISRA
+Psychology and Developing Societies 22, 1 (2010): 121–155
+system cover the whole range of theistic and atheistic (for example, Sankhya 
+and Charvak) postulates of life. Also, IP has drawn not only from ideology 
+and scriptures of Hinduism but also from other schools of thought, including 
+Buddhism, Jainism and Suﬁ sm. Yoga and meditation, for example, are not 
+limited to any particular religious faith and can be tested and practised by 
+the people of all faiths anywhere. IP has much to offer in terms of self-
+growth, independent of any speciﬁ  c religious tradition. How to liberate 
+human beings from the bondage of ignorance, suffering and to create a social 
+order of harmony, peace and personal growth constitute its major agenda. 
+A human being in such a conceptualisation is not merely an intelligent 
+live structure interested in survival and self growth. Instead he or she is an 
+active and responsible part (or partner) of nature and its growth and survival 
+are contingent upon the growth and survival of other co-inhabitants of this 
+universe. T o this end one’s consciousness itself operates as a great asset. In 
+the West, interest in the study of altered states of consciousness since the 
+1960s and the founding of transpersonal psychology as a sub-discipline 
+encouraged psychologists to examine some of the indigenous perspectives. It 
+was recognised clearly that Western psychology has nothing to offer regarding 
+the spiritual/transcendental dimension of human nature, to understand others 
+or for self-realisation (Tart, 1975, 2009). 
+Third, with India emerging as a major economic power in the world, 
+there is a renewed interest in Indian thought systems, values and practices, 
+as well as in the strength and resilience of Indian society. Till the 17th and 
+18th centuries when India was one of the richest countries in the world, 
+European opinion about India was unequivocally positive. Indian philosophy, 
+mysticism, art and literature were looked upon with awe and appreciation. 
+It was in the later period when Indian civilisation was in decadence and 
+became impoverished due to colonisation, reducing India to one of the 
+poorest countries, that the Western indologists (Mccaulay 1835/1972, 
+James Mill1) started debunking Indian culture and philosophy for India’s 
+poverty and backwardness. Western scholarship had unique reading of 
+Indian culture that attributes India’s underdevelopment to the lack of traits 
+1 James Mill (1848), in an inﬂ uential book on the history of British India, throughout referred 
+to Indians as “rude”, “lazy”, “timid”, “ignorant”, and “prone to ﬂ attery”. These claims to Hindu 
+inferiority and British superiority, as reﬂ ected in Mill’s (1848, republished by Atlantic Publishers, 
+London, 2007) work, were largely based on cultural and religious comparisons rather than on 
+racial or physiological differences.
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+The Core and Context of Indian Psychology / 131
+Psychology and Developing Societies 22, 1 (2010): 121–155
+and characteristics found in the industrialised Western societies. Thus, low 
+n-Ach (McClelland, 1961), dependence proneness (Doi, 1973), hierarchy 
+and relational orientation (Hofstede, 1980) were treated as negative at-
+tributes. Interestingly the situation has changed in recent years. The same 
+Indian culture and its philosophy are now seen behind India’s economic 
+success. With Indian economy going from strength to strength and with 
+the visibility of Indian IT professionals at strategic locations worldwide, the 
+attitudes and perceptions about the Indian way of thinking have changed 
+(Varma, 2004). The number of courses taught in American and European 
+universities on Indian culture, philosophy, spirituality, art and music has 
+increased signiﬁ cantly. Indian research acquired greater respectability and is 
+now taken more seriously by the Western psychologists and as a consequence 
+(ironically), by Indian psychologists themselves. 
+The Disciplinary Contours
+What is Indian in IP? In terms of ﬁ eld, content and methodology IP maintains 
+distinct position, which differs from the widely held assumptions of Western 
+psychology. Even when consciousness, mind and intuition are included as the 
+subject matter, IP stands as a body of knowledge rooted and pursued with 
+different ontological and epistemological premises. More than materialistic–
+deterministic aspects of human existence, IP takes a more inclusive spiritual-
+growth perspective on human existence. In this sense no clear distinction is 
+made between psychology, philosophy and spirituality,2 as conjointly they 
+constitute a comprehensive and practical knowledge or wisdom about human 
+life. Another point to be noted is that IP has originated and prospered in the 
+larger geographical region of Indian subcontinent and is compatible with 
+the cultural and social life of the people, it has, never been restricted to any 
+given region. It fashioned itself on an existential plane which aspired for the 
+upliftment of humanity in general instead of the people of Indian origin 
+only. IP thrived on protest movements, as Buddhism and Jainism were and 
+2 In this article, a distinction is made between spirituality and religion. Whereas religion 
+is an organised, institutionalised activity, spirituality is taken as an individual’s quest to know 
+own-self and to carve out their own path to liberation. This has created confusion in Western 
+psychology in which these two terms are used interchangeably. If we can replace religion with 
+spirituality, a synthesis of science and spirituality is a possibility. 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+132 / AJIT K. DALAL and GIRISHWAR MISRA
+Psychology and Developing Societies 22, 1 (2010): 121–155
+also on other philosophies of the region, such as Zoroastrianism and Suﬁ sm. 
+Its inﬂ uence in the ancient times was far beyond the borders of greater India, 
+Tibet, China, Japan and Korea and in the south up to Sri Lanka, Malaysia 
+and Indonesia. In the west, Afghanistan, Iran and up to middle Asia came 
+under its inﬂ uence (Winternitz, 1927). IP was in communion with other 
+contemporary philosophies of the East, such as Tao, Zen Buddhism; and 
+this mutual inﬂ uence is very much visible even today. They provided the 
+intellectual and spiritual ﬁ rmament to generate new ideas and explanations 
+as evident in post-Upanishad texts (such as Shankar’s non-dualism). Theories 
+and practices of IP address wider existential issues and are relevant for the 
+humanity at large in an inclusive manner. Though the term “Indian Psy-
+chology” implies a psychology of Indian origin, or a psychology that has 
+grown in the Indian subcontinent, it functions at a level of abstraction 
+which covers the humanity in general. It is only a coincidence that the term 
+Indian Psychology is used by the pioneers in this ﬁ eld, like Jadunath Sinha 
+who brought out three volumes entitled Indian Psychology (1933–1958), 
+Rhys Davids’s book, The Birth of Indian Psychology and its Development in 
+Buddhism (1936/1978), Raghunath Safaya’s Indian Psychology (1975) and 
+Kuppuswami’s book Elements of Ancient Indian Psychology (1985) . The latest 
+in this sequel is Handbook of Indian Psychology , an edited volume by Rao, 
+Paranjpe and Dalal (2008). The term IP has thus come to stay. 
+Furthermore, as mentioned earlier, although no clear distinction was made 
+between psychology and philosophy in the earlier times, IP is psychology, 
+not just pure philosophical exposition of truth and intellectual debates. It 
+is an applied and practical science which leads to testable hypotheses and 
+experimentation aiming at inner transformation. As a science of a multi-
+layered being, comprising subtle inner being, physical being and social being 
+(Bhawuk, 2005, 2008a; Kumar, 2008); its propositions could not be tested 
+by the accepted empirical methods of inquiry alone but require a broad 
+spectrum of methodologies, calling for a wise and balanced deployment 
+of ﬁ  rst person, second person and third person perspectives (Bhawuk, 
+2008b). The process of knowing is informed by an encompassing world 
+view and pattern of social life weaved with the threads of the Self and the 
+sacred/divinity. From this vantage point, IP is a living science, formulated, 
+tested, modiﬁ ed and contextualised in the course of challenges encountered 
+during struggles and tensions experienced in real life. It is an enterprise con-
+cerning spiritual development with rich epistemological tradition. It grew 
+in tradition of critical examination where scholars and sages continuously 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+The Core and Context of Indian Psychology / 133
+Psychology and Developing Societies 22, 1 (2010): 121–155
+proposed, analysed, interpreted, reﬁ ned and transmitted knowledge to the 
+worthy disciples. It is remarkable that these institutions survived all along 
+without much state support. Apparently IP is a complex ﬁ eld of knowledge 
+comprising philosophy ( Darshana), life science ( A¯ yurveda), principles of 
+personal and social conduct ( Dharma Sha¯stra, Neeti, Artha Sha ¯stra, Ka¯ma 
+Sha¯stra ), spirituality ( A¯ dhya¯tma Vidya¯ ), Jain and Buddhist scriptures, and 
+texts of various socio-spiritual movements. The Muslim inﬂ uence, particularly 
+that of Suﬁ sm and Bahai, is also visible. 
+After centuries of unabated growth, the new educational policy in British 
+India in the nineteenth century brought forth a wholesale replacement of 
+Indian “knowledge-culture” by the Western, in the ﬁ eld of education par-
+ticularly (Dharampal, 2000). When universities were established in India 
+on the British pattern, the concerns and contents of IP survived in some of 
+the philosophy departments. As Cornelissen (2003) has observed, as long 
+as philosophy and psychology were considered two sides of the same quest, 
+there were philosophy departments where psychologists could possibly have 
+access to the Indian tradition. But in the late 1950s when philosophy and 
+psychology departments separated in Indian universities, psychologists turned 
+en-mass toward Freud and behaviourism, and even this weak link was severed. 
+Psychology as a discipline conﬁ ned itself to the analysis of the visible world 
+of concrete behaviour like any static, non living physical object that can be 
+measured and manipulated without any resistance. 
+The endogenous psychology, which underlines the contemporary relevance 
+of cultural heritage and native theories is what constitutes “IP”. The plurality 
+of Indian tradition and an ethos of accommodating diverse thought systems 
+(e.g., Veda¯nt, Sa¯mkhya,Yoga, A¯yurveda, Mima¯nsa, Jainism, Buddhism, 
+Suﬁ sm, Sikhism) offer a gold mine for building a more comprehensive and 
+efﬁ cacious psychology. The precepts of IP encompass the entire range of 
+human concerns and it is not possible to enumerate all of them here. However, 
+as a point of departure from the accepted Western framework it seems in 
+order to brieﬂ y mention a select few of them.
+1. The four Purusharthas (life pursuits), which are dharma (virtues and 
+rightful obligations/duty), artha (material prosperity), ka¯ma  (ful-
+ﬁ lment of desires) and moksha (liberation) cover the entire range of 
+human possibilities and strivings, irrespective of caste, creed or religion. 
+For a happy and fulﬁ lling life these strivings should be pursued in 
+harmony with Dharma (social ethos). T o this end it is held that the 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+134 / AJIT K. DALAL and GIRISHWAR MISRA
+Psychology and Developing Societies 22, 1 (2010): 121–155
+pursuit of goals like artha and ka¯ma  have to be made compatible 
+with the requirements of dharma. Also, the idea of equanimity with 
+respect to life experiences, positive or negative, is a major learning in 
+the Bhagavad-Gita. Attachment with worldly objects and experiences 
+are purely temporary and are of binding nature. Attachment to them 
+ultimately destroys one’s life. The Bhagavad-Gita draws a temporal 
+sequence of mental events as: Attachment → Desire → Anger →
+Mindlessness → Loss of memory → Loss of life (Bhawuk, 1999, 
+and also in this issue for a psychological model that captures these 
+ideas). 
+2. It studies consciousness in its multifaceted manifestations and retains 
+the core identity as a basic attribute. It recognises multilayered ex-
+istence (Panch Koshas) of human being, which has the potential to 
+evolve and move towards higher levels of existence. The mere physical 
+level ( A¯ nnamaya kosha ) is the lowest level, and gradually through 
+other levels Pra¯namaya , Manomaya, Vijñanmaya , it goes to the level 
+of A¯ nandamaya Kosha. The true identity (A¯tman) of sat-chit-a¯nand  
+entails the highest level of existence (for a synthesis of pancha kosha 
+and physical, social and metaphysical self, see Bhawuk 2008a). The 
+contingent and acquired identities/superimposed attributes (upa¯dhis ) 
+need not be confused with the core identity (A¯ tman) which remains 
+unaffected and functions as a witness ( sa¯kshi ) (see Shankara in 
+Vivekchudamani verse 501). This is the reason why there has been an 
+emphasis on wise discrimination between permanent and impermanent 
+(Nityanitya Viveka). The apparent existence is often considered as 
+illusion (Ma¯ya¯/Prakriti) within which normal life is carried. It is the 
+manifestation of the A¯ tman that is often given independent and greater 
+signiﬁ cance than A¯ tman because of misunderstanding (avidya¯ ). This 
+avidya¯  is the main cause of attachments and consequent suffering. The 
+existence of the same A¯ tman in every human being offers a new way to 
+see the prospects of humanity that deemphasises the differences and 
+draws attention to the intrinsic oneness of the humanity. It furnishes 
+a rich ground for a spiritual psychology with Jiva (embodied A¯ tman) 
+as the functioning unit. Its deliberations aim at developing principles 
+that transform human beings for higher level of evolution. 
+  The purpose of knowledge in traditional terminology, therefore, 
+is liberation ( mukti) from various attachments and overcoming the 
+various kinds of suffering (kleshas) and ignorance. This, however, is not 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+The Core and Context of Indian Psychology / 135
+Psychology and Developing Societies 22, 1 (2010): 121–155
+“otherworldly” as the ideal personhood is to be Jivanmukta—living 
+a life with liberation. Expansion of identity for making it more 
+encompassing and inclusive is the core of learning in this thinking. 
+This implies that one must transcend the boundaries of ego since 
+ego is not the real/true identity of a person. Coming out of the grips 
+of egoistic attachments and engaging with non-egoistic or spiritual 
+pursuits is a proposition, which is worth considering in the context of 
+global challenge of sustainable development. Indian classical theories 
+provide insight into the crisis caused by competition, consumerism 
+and selﬁ shness.
+3. IP recognises the interplay of the manifest and unmanifest parts 
+of our existence in shaping the events in this world. This makes 
+room for going beyond strict determinism, accepting the emergent 
+nature of reality. It suggests plausible explanations and strategies to 
+deal with uncertainty. An important illustration of this is found in 
+terms of classiﬁ cation of human action ( Karma) in terms of Sanchit 
+(accumulated) and Pra¯rabdha  (in-action) Karma. This classiﬁ cation 
+implies that human action/behaviour is an evolving process, one that 
+unfolds in the course of time. Also important is the idea of distributed 
+notion of locus of control. IP has also expanded the notion of causality 
+beyond self and non-self (internal–external) categories of perceived 
+causes. Any action depends on the contribution of ﬁ  ve factors, i.e., 
+karta¯  (agent), karma (action), adhistha¯na  (body), karana (instruments) 
+and daivam ( providence)—The Bhagavad-Gita (Ch. 18.14). The actor 
+is one of them and contributes just a part of the total. This is in contrast 
+to the usual categories of internal and external attribution, which lies 
+within the domain of egoistic self. 
+4. IP emphasises an organic view often explained in terms of the metaphor 
+of seed and tree. This implies that continuity and transformation are 
+inherent characteristics of life processes. In a major departure from 
+linear mode of thinking this metaphor underlines non-linear or cyclical 
+mode of life functioning. It also implies the signiﬁ cance of unmanifest 
+in shaping one’s life. 
+5. The human experience is complex and its study requires multiple 
+methods, including the third person, second person and ﬁ  rst per-
+son methods. IP is not opposed to empirical methods as pratyaksha 
+(perception) is one method (prama¯na ) accepted by all the schools of 
+Indian thought but it is certainly not sufﬁ cient, particularly when we 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+136 / AJIT K. DALAL and GIRISHWAR MISRA
+Psychology and Developing Societies 22, 1 (2010): 121–155
+aim at both para¯  (self) and apara¯  (empirical) vidyas (knowledge). Being 
+and knowing become one once we venture towards transcendental 
+realm. The empirical methods are not enough to address the entire 
+range of human experiences. 
+6. IP does not view human action as neutral, value free or a-moral. Instead 
+it brings out the essential interdependence and interconnectedness 
+of the worlds of human experience in which human beings are re-
+sponsible players. At one level it proclaims essential unity and asserts 
+that self and non-self are identical in their constitution (i.e., yat pinde 
+tad brahmande). This expands the scope of a discourse on human 
+action. 
+7. While explaining human action, IP takes into account not only the 
+actor but also the linkages among the person, time and place. With 
+emphasis on dèsh  (space), ka¯l  (time) and pa¯tra  (participant/person) it 
+recognises the non-linear and emergent nature of action that deﬁ  es 
+simple descriptions in terms of binary categories of cause and effect 
+(e.g., independent and dependent variables, predictors and criterion). 
+It is largely discursive and narrative, and cannot be reduced to simple 
+binary categories. It is supplemented by the position taken by one 
+Indian school of thought that assumes continuity between cause and 
+effect (satkarya vada). It is reﬂ ected in the principle of Karma held 
+by a vast majority of the Indians that refers to the sequence of actions 
+constituting cause and effect. Thus, actions necessarily entail certain 
+consequences. This scheme also empowers the actor to shape the 
+future course of events by engaging in a responsible action. One lives 
+life in obligational relationship (r.ina¯s ) with (guru, r.ish, pitri, bhuta). 
+Life therefore is a kind of sacriﬁ ce (yajna), a sacriﬁ ce of one’s desires 
+and ego. 
+8. Instead of merely describing reality, IP emphasises on and promotes 
+self positive qualities through personal training and practice. The goal 
+of such training is to nurture a balanced personality, which primarily 
+involves sa¯tvik, ra ¯jasic and ta¯msik gunas  or qualities. Interestingly 
+enough the objects in the surrounding environment also share these 
+three properties and ﬁ nally transcend them. Therefore, the life style 
+should involve a harmonious relationship with one’s environment and 
+not by subjugating the environment. Such a relationship is mutually 
+supportive for person and environment and does not tax any one of 
+them. The A¯ yurveda talks of this harmony at the level of diet, action 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+The Core and Context of Indian Psychology / 137
+Psychology and Developing Societies 22, 1 (2010): 121–155
+and leisure to maintain health. Health is a state of balance (samatva) 
+and a healthy person is one who is self-anchored (swastha) in a world 
+of ﬂ ux (samsa¯r ) with a body ( sharira) that decays. It must be noted 
+that while everyone has all the three gunas, they exist in different 
+combinations leading to a state of (im)balance reﬂ ected in the choice 
+of actions and ensuring the health of mind, body and spirit. A dis-
+tinction has also been made between godlike and demonic qualities 
+(daivi and asuri sampat ) and it is recommended to evolve in the 
+direction of godlike qualities. One’s well being requires adhering to 
+a personal and social conduct rooted in virtuous life (sukhasya mulah 
+dharmah—Chanakya). 
+9. The aspiration for transcendental existence helps overcome the body-
+centred egoistic strivings and offers a decentred view of self. It has 
+implications for work and social relationships. It allows one to be 
+motivated to treat work as a natural duty (dharma) to be performed 
+with reference to the demands of the location in one’s life space rather 
+than any extrinsic incentive. It is one’s humble contribution to the 
+worldly operations. Instead of emphasising on the outcome or reward 
+outside the work context, this kind of thinking promotes competence 
+in action as yoga ( yogah karmasu kaushalam ). Such competence re-
+quires sustained and detached action (anasakti). As indicated earlier, 
+any action is made possible by several factors therefore attributing 
+causality to self is ignorance. A person is a mere instrument (nimitta) 
+of divinity and, therefore, it is heightened egotism, which assigns 
+personal causality. 
+Some Distinguishing Features of IP
+Despite all diversity and distinctiveness, there are some features common 
+across all systems and schools relevant to IP . Some of these common features, 
+which give IP a distinct identity, are brieﬂ y discussed here. 
+IP is deemed to be a universal psychology. It cannot be subsumed under the 
+labels of indigenous, folk or cultural psychology, if that purports to delimit 
+the scope of psychological inquiry. For want of a new term it has been also 
+labelled as Greater Psychology (Dalal, 2000). The vast expanse of IP attends 
+to the perennial issues of human existence (e.g., human strivings, virtues, 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+138 / AJIT K. DALAL and GIRISHWAR MISRA
+Psychology and Developing Societies 22, 1 (2010): 121–155
+self-understanding, self-control, Yoga, meditation, human conduct, pain, 
+misery, kleshas, happiness, bliss, health, well being, justice, morality, conﬂ ict) 
+which are not bound by any geographical region or time period. Centuries 
+back the sages and thinkers were raising questions and attempted to address 
+problems that are pertinent even today. In this sense, IP is both ancient 
+and contemporary at the same time. Indeed, the use of the term “Indian 
+psychology” is more of a convenience; may be a more appropriate term is 
+“psychology of Indian origin” (Rao, 2008). While the roots of IP are decidedly 
+Indian, it was never proposed as the psychology of the Indian people. For 
+instance, Buddhist psychology,3 which is an integral part of IP , ﬂ ourished in 
+Sri Lanka, Tibet and Japan among other countries. Most of these theories are 
+propounded as trans-historical, dealing with the intrinsic state and ways to 
+enhance the human potential. It can be mentioned in this context that the 
+teachings and training in IP are not intended for any particular class, caste or 
+creed, but people from all strata of the society can make themselves worthy 
+of these pursuits (Radhakrishnan, 1953). Contrary to the misperception that 
+traditional wisdom is accessible to men or Brahmins only, many women and 
+non-Brahmins have attained the highest level of knowledge. The declaration 
+“aham bramha¯smi ” (I am brahman) is always followed by the phrase “ tat 
+tvam asi” (you are the same), which refers not only to all mankind but also 
+to all living beings. 
+Another important feature of IP is that it primarily deals with the inner 
+states of a person, taking consciousness as the primary subject matter of study. 
+Instead of emphasising numerous contingent and non-contingent variations 
+in acquired role-related behaviour, the stress is on unchanging identity. In the 
+Upanis¸ads consciousness as a state of being is not an object but is conceived 
+as undifferentiated subjectivity (Chit) without any content (Radhakrishnan, 
+1953). In the Indian tradition, consciousness happens to be the ground con-
+dition without which no reality is conceivable. It is the knowledge side of the 
+universe, more than being a light source for apprehending sensations. The 
+Chandogya Upanishad expounds four states of consciousness—waking, dream, 
+deep sleep and turia (illumined), the most desirable one being the last one. 
+When the mind withdraws itself from participation in sensory processes by 
+deliberate intent and empties itself of all content, it would be the illumined 
+3 It may be interesting to note that the term Buddhist Psychology was ﬁ  rst used in the 
+translation of Buddhist texts by British Indologists. Goleman expressed it as follows, “It was 
+news that Buddhism—like many of the world’s great spiritual traditions—harbored a theory 
+of mind and its workings” (2004, p. 72).
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+The Core and Context of Indian Psychology / 139
+Psychology and Developing Societies 22, 1 (2010): 121–155
+state of consciousness. When this happens there arises unmediated direct 
+knowledge, characterising knowing by being. It involves identity with existence 
+and its knowledge. As the Upanishadic saying goes, “to know Brahman is 
+to be Brahman” (The Mundaka Upanishad III 3.2.9). Buddhism refers to 
+the stream of consciousness as the basis of subjective feeling of continuity 
+and identity which affects our perceptions, thoughts, actions and emotions. 
+While formulating ﬁ ve modes of knowing in Buddhism the focus has been 
+on inner transformation, with the ultimate goal being liberation (Premasiri, 
+2008). The ﬁ ve modes of knowing are: sensory, extra-sensory, holistic, in-
+sightful and ethical. According to Buddhism, the knowing should not be 
+based on authority, faith, belief or speculation, but on personal experience. 
+Sensory experiences leading to phenomenal awareness are intentional, 
+i.e., they are of objects. Distortions in this case are due to active interference 
+of mind and body, which limits our awareness, and obscures our know-
+ledge and feelings. The goal of life is to attain a state of pure consciousness 
+where knowledge is direct, immediate and intuitive, and not mediated 
+by sensory inputs. Human consciousness is considered hierarchical, the 
+highest state being that of truth, pure consciousness and bliss ( Sat, Chit 
+and Anand). Yoga and meditation are the processes for movement towards 
+this transcendental state of pure consciousness. The engagement with pure 
+consciousness makes IP transcendental in its orientation. T ranscendence is a 
+movement from mundane to sublime, from sensory to intuitive and from self 
+(ego) to Self (enlightened). It is a psychological process of rising from narrow, 
+personal reference of a problem that causes suffering to a transpersonal, holistic 
+understanding, wherein the problem loses its sting. The transcendental view 
+implies a position of self (ego)—decentring and taking into consideration 
+the whole range of progression in past, present and future. It draws attention 
+to non-egoistic and non-body centred encompassing vision of life and its 
+processes. It enlarges or expands one’s identity to incorporate others or 
+anything or everything that exists (Self or all encompassing Brahman!). 
+The Upanishadic Mahavakyas (great sentences) like Aham Brahmasmi (I am 
+Brahman) or Sarvam khalvidam Brahman  (Everything is only Brahman) 
+emphasise the value of ever expanding and inclusive identity. It sets the 
+stage of an evolutionary journey in which the division of self and other or 
+I/Me and you/they becomes meaningless as there is no other except one single 
+I or Brahman. T ranscendence, therefore, transforms the person in totality and 
+engages in a sincere seeking of higher order truth. T ranscendence and state of 
+pure consciousness are held as attainable experiential realities, giving one a 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+140 / AJIT K. DALAL and GIRISHWAR MISRA
+Psychology and Developing Societies 22, 1 (2010): 121–155
+sense of freedom and liberation. Both transcendence and spirituality are as-
+pects of the same reality and share this common pursuit. Spirituality furthers 
+development of comprehensive theories of human existence to understand 
+creativity, intuitive thinking and extraordinary achievements (Bhawuk, 
+2003). Spirituality however goes with the sacred and divine, as Indian 
+thought does not maintain any dichotomy between science and spirituality. 
+They are grounded in the experiences of many and are attainable for anyone 
+who follows systematic procedures and practices. Though transcendence 
+and spirituality are at the core of most of the Indian theories, these are not 
+bound by any particular faith or ism, and serve to provide a secular account 
+of human nature. 
+IP is based on veridical methods. It should be clear that as a human science 
+of consciousness its methods are ought to be different from the methods of 
+natural/physical/material sciences. This, however, does not make it a less 
+stringent science. Methods of observation and experimentation have also 
+evolved to study the inner functioning of a person. In these methods of self-
+observation, no distinction is made between experience and observation, 
+where true knowledge is not considered as abstract and impersonal but as 
+realisation of one’s being (Rao, 2008). There are methods of direct observation 
+(e.g., intuition) in contrast to methods that rely on sensory and mental 
+mediation. These methods rely on the blending of ﬁ rst person and second 
+person perspectives (collective). Taken together, these two perspectives 
+allow personal, subjective and non-relational veriﬁ  cation and in-group 
+inter-subjective validity. These methods work well within Guru (second 
+person)–Shisya or pupil (ﬁ rst person) methodologies. 
+Needless to say the methods of Yoga and meditation have been used for 
+centuries to test, experiment and experiential validation of the higher mental 
+states. The various systems of yoga in India have developed rigorous and 
+effective methods of enquiry in the domains of consciousness studies and 
+psychology that may help us to ﬁ  nd answers to our deepest questions re-
+garding values, truth, love, meaning and beauty. They can offer to modern 
+science not only a wealth of philosophical and psychological theories, but 
+also a rich store of practical techniques to raise our individual and collective 
+levels of consciousness.
+It is relevant to mention here that in the Indian tradition a distinction is 
+made between para¯ vidya  (knowledge of the Self) and a-para¯ vidya  (empirical 
+knowledge). A-para¯ vidya  constitutes the knowledge of social-physical world 
+we live in and includes science and technology. This knowledge is also 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+The Core and Context of Indian Psychology / 141
+Psychology and Developing Societies 22, 1 (2010): 121–155
+relevant to the problems and challenges of the world we live in. The methods 
+of knowing in the empirical world ( prama¯na ) are diverse and treat mind 
+(ma¯nas  or antahkaran) as one sensory channel, which allows the understanding 
+of pleasure and pain. They include methods such as perception (pratyksha), 
+inference ( anuma¯na ), comparison ( upama¯na ), verbal testimony ( sabda), 
+attribution of meaning (arthapatti) and historicity (aitihya). The system of 
+Vedanta proposes methods of sravana, manana and nididhya¯sana,  which 
+correspond to sense-based knowledge, intellect-based knowledge and intuitive 
+knowledge, respectively (Rao, 2008).
+IP is applied in its nature and objectives. It is not just concerned about 
+testing theoretical positions or engaging in speculative metaphysical inquiry. 
+It raises important questions about the ideal state of being and deals with the 
+methods one can follow to attain that state. It discusses the practices through 
+which people can transform their own lives to attain perfection, and thereby 
+change the world they live in. The goal of IP is to help a person move from a 
+conditioned state (mechanical and habitual thinking and responding) to an 
+unconditioned state of freedom and liberation. This transformation, in more 
+mundane terms, implies becoming more objective, discretionary, equipoise 
+and aware about the potential sources of distortion. IP extensively deals with 
+the ways of handling human suffering and leads one on a path of growth, 
+which does not create any hurdle for other co-travellers. The techniques of 
+yoga and meditation have contributed signiﬁ cantly towards self control of 
+mind and feelings. Such techniques are diverse to suit people of various ori-
+entations. Thus, Bhakti (devotion), Karma (action) or Jnana (knowledge lead-
+ing to renunciation) yoga can be used by any person depending upon his or 
+her temperament or dispositional orientation (svabha¯va ) (see Bhawuk’s article 
+on methodology in this issue). The theories and practices of A¯yurveda are 
+ﬁ ne examples of how the mundane can be blended with the transcendental. 
+The plurality in constitution, action and context is enunciated with the help 
+of the theory of trigunas of sattva, rajas and tamas.
+However, it should not be misconstrued that IP is only concerned with 
+inner transformation and does not deal with the mundane problems of this 
+world. It has a vision of a social order in which conﬂ ict, violence, injustice 
+and exploitation have no place. It offers mechanisms to address the problems 
+arising from human greed, attachment and egotism, which culminate in 
+poverty, injustice and pain. IP is equally concerned with the challenges of 
+education, mental and physical health, and social institutions and have offered 
+alternative models and methods. IP does not dismiss the empirical approach in 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+142 / AJIT K. DALAL and GIRISHWAR MISRA
+Psychology and Developing Societies 22, 1 (2010): 121–155
+these areas but by being positioned at an appropriate level provides a broader 
+perspective within which its ﬁ ndings would make sense.
+What is Not the Core of Indian Psychology?
+As mentioned earlier, a distinction is generally made between Indian Psychology 
+(Psychology of Indian origin) and Psychology in India (academic/western 
+psychology in India), though there is some overlap in the usage of these two 
+terms. Part of the problem stems from the fact that in other social sciences 
+such a distinction is of little consequence. For example, Indian sociology or 
+Indian philosophy is same as sociology or philosophy in India. These terms 
+were coined by the British scholars who were engaged in studying Indian 
+society and philosophy in the later part of the eighteenth century. Moreover, 
+Indian sociology and Indian Philosophy as academic disciplines have a long 
+history of more than 150 years and there is no misconception about their 
+subject matter. This is not so in the case of IP . Psychology in India has a history 
+that spans the beginning of the last century, but in comparison IP has yet 
+to re-establish itself in the academic portals. Psychological knowledge has 
+a long tradition and a clear identity as an independent ﬁ  eld of inquiry. As 
+mentioned earlier, though there were writings in this area for many decades, 
+it has emerged as a domain of serious research in academia only in the last 
+decade or so. We still do not have any critical historical document about 
+the beginning and growth of IP , though we have many writings in the case 
+of psychology in India.  Another reason for confusion about the usage of 
+the terms is that courses on IP were introduced in many Indian universities 
+(e.g., BHU, Mysore, Jodhpur, Andhra Universities) in the mid-1960s. These 
+courses were primarily imported from philosophy and their subject matter 
+and pedagogy were incompatible with the general ethos of psychology de-
+partments, which was more tuned to laboratory research.  Courses on IP 
+therefore could not survive for long and within a decade they were withdrawn 
+from most of the places. Incidentally, the view still persists that IP is nothing 
+but Indian Philosophy. This is yet another reason why IP is not part of the 
+academic curriculum at most of the Indian universities.
+In this backdrop it is quite natural to encounter many misconceptions  
+about what IP stands for, or does not stand for. T o deﬁ ne IP as psychological 
+knowledge rooted in Indian cultural heritage and scriptures dating back to more 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+The Core and Context of Indian Psychology / 143
+Psychology and Developing Societies 22, 1 (2010): 121–155
+than three millennia and relevant to the contemporary world is not enough. 
+As a growing science of Indian origin, IP is often held as a conglomeration 
+of several, sometimes even contradictory ﬁ elds of investigation. IP maintains 
+its distinct assumptions about ontology, epistemology and content. T o arrive 
+at some clarity about the subject matter of IP there is a need to engage in a 
+dialogue about “what constitutes IP and what does not”. We have already 
+discussed what IP is; next we propose to discuss what IP possibly is not. 
+IP is Not Just a Psychology of Indian People
+Due to common historical, social and cultural background, it is natural that 
+Indian people share many dispositional and behavioural characteristics. On 
+the very grounds, Indian people would differ from Americans, Chinese or 
+any other ethnic group. Study of these cultural differences has been a very 
+productive area of research in cross-cultural psychology. Being primarily a 
+methodological ﬁ eld, cross-cultural psychology has taken the etic approach 
+to establish equivalence of psychological phenomena for cross-cultural com-
+parisons (Berry, 1989). On the other side, there is the emic approach which 
+is employed when culture-speciﬁ c phenomena are investigated. Gergen et al., 
+(1996, p. 501) stated, “Cross-cultural psychologists were unable to abandon 
+mainstream scientism in general and remain loyal to empiricism and test 
+western theories with ‘culturally’ (i.e., geographically) diverse data.” 
+Both cross-cultural psychology and cultural psychology have examined 
+how Indian people differ from other cultural groups. The ﬁ ndings are often 
+empirical generalisations and tend to make sweeping statements about the 
+populations under investigation. Given India’s vast ethnic diversity, these 
+studies often fail to unravel enduring patterns and differences. Such research 
+often ends up creating stereotypes about cultural groups. A good example is 
+the debate about collectivism–individualism, in which countries are put in 
+these two dichotomous categories (T riandis, 1984). As J.B.P . Sinha (2000b) 
+has argued individualism–collectivism is a matter of sampling situations or 
+persons and involves co-existing orientations (Sinha & T ripathi, 1994). In 
+the absence of theoretical advancement and cultural constructs to interpret 
+the results, such ﬁ ndings often remain tentative. Making such comparisons 
+and cataloguing psycho-social, emotional and dispositional characteristics 
+of the Indian people have been attempted in many studies. Kakar’s work on 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+144 / AJIT K. DALAL and GIRISHWAR MISRA
+Psychology and Developing Societies 22, 1 (2010): 121–155
+Indian psyche (Kakar, 1996; Kakar & Kakar, 2007) is a case in point in which 
+the psychoanalytic framework has been used to interpret the ﬁ ndings. Such 
+studies are at best tentative—interpretable only within a space–time matrix. 
+On the other hand, IP endeavours to identify enduring human attributes 
+and help people discover their essential nature and their relationship with 
+the transcendental. IP strives to unravel a-temporal and trans-cultural models 
+of human ontology. 
+IP is Not Indigenous Psychology
+D. Sinha (1996) has reminded us about two types of indigenisation. The 
+ﬁ rst is an outcome of adaptation of the mainstream (Western) psychology 
+to a different cultural setup. This adaptation is along the lines argued by 
+John Adair (1989). A large body of research in India can be included in this 
+kind of indigenisation in which cultural concepts and practices are examined 
+employing Western theories and approaches. A large number of Western 
+tests of personality, intelligence, motives, values, health and well being are 
+indigenised taking this approach. Such indigenisation is likely to continue 
+in a global world where there is a constant ﬂ  ow of models and concepts 
+across cultures, particularly from the west. The other kind of indigenisation 
+is that which is based on a systematic analysis of culture-bound concepts and 
+categories. Such indigenisation focuses on the contemporary relevance of 
+cultural heritage and native theories which comes within the rubric of “IP”. 
+Misra and Mohanty’s volume (2002) Perspectives on Indigenous Psychology 
+includes Indian research that belongs to both the categories. Srivastava 
+and Misra (2007) have undertaken the study of intelligence which is an 
+example of the second kind of indigenisation. They use multiple sources, i.e., 
+traditional texts, popular idioms and lay people’s understanding and usage to 
+develop a new model of intelligence. Indigenous psychology, in this sense, is 
+synonymous to folk psychology, a disciplinary knowledge that has evolved 
+in a particular societal context, which is used by lay people to organise the 
+conduct of their lives.
+Many psychologists believe that “ Indigenous psychologies” is a more apt 
+term in this context. The plural term takes in its fold tribal, subaltern and 
+other communities that differ in their history, beliefs and social practices. 
+Indigenous psychologies offer models and theories that can enrich our 
+understanding of human psychology across cultures. Not acknowledging it 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+The Core and Context of Indian Psychology / 145
+Psychology and Developing Societies 22, 1 (2010): 121–155
+is akin to conceding to the position of Western psychologists that only they 
+are developing universal theories, others are special cases of their theories. 
+IP is more than such indigenous (or folk) psychologies for the reason that 
+it offers psychological models and theories, derived from classical Indian 
+thought, that hold promise of panhuman interest.
+IP is Not Faith Psychology
+It is argued that science builds on doubting and questioning. It is part of 
+the training of a scientist to be a skeptic and question the veracity of the 
+existing ﬁ ndings, i.e., not to accept anything unless it is empirically tested. 
+Faith has no place in scientiﬁ c diction, “when you observe you trust”. IP 
+takes a position that its reverse is also true: “when you trust you observe”. 
+For example, when you trust that there is an observer ( purusha) inside you 
+who is watching everything you tend to experience it. Similar is the case of 
+the sixth sense; when you believe in its existence, then you notice it. This is 
+how faith works. 
+It can be argued that all scientiﬁ c theories have some basic assumptions 
+at the core. There is no inquiry that is not based on some assumptions. 
+Western science (psychology in particular) has also built on a long tradition of 
+socio-religious beliefs and practices. These assumptions are never questioned 
+but without understanding them many theories would make no sense. For 
+example, hedonism (that man seeks pleasure and avoids pain) is at the core of 
+many social learning theories. Any assumptions can be held as a statement of 
+faith and the two terms have the same connotation for research. Assumptions 
+lead to metaphors, which determine the methodology to be employed and 
+conclusions to be drawn. The behaviouristic psychology considered man as a 
+machine, which suited its mechanistic models of learning and behaviour. The 
+metaphor of the “man as computer” changed the concerns and methodology 
+of research, taking the human being as information processor. Similarly, the 
+“man as soul” metaphor holds human being as capable of rising above their 
+physical limitations and attaining their transcendental state. Within this 
+framework, the Bhagavad-Gita propositions based on this metaphor in IP 
+should be testable and experientially veriﬁ able. The “Man as soul” metaphor 
+calls for a different ontological and epistemological position in formulation of 
+research questions but it certainly does not render IP as faith psychology. 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+146 / AJIT K. DALAL and GIRISHWAR MISRA
+Psychology and Developing Societies 22, 1 (2010): 121–155
+IP is Not Otherworldly
+IP is not obsessed with otherworldly matters as it is often misunderstood. It 
+does transcend the boundaries of the mundane and does not draw a rigid line 
+between the physical and metaphysical. But still the life after life is not the 
+subject matter of IP , nor is it a discourse on metaphysics. The primary focus 
+is on how people can lead a purposeful and wholesome life. Both para¯-vidya¯  
+(knowledge of the Self) and a-para¯ vidya¯ (empirical knowledge) are considered 
+necessary to live a harmonious life in this world. Even transcendence, which 
+is often taken in an otherworldly sense, has worldly aspects. In mundane 
+terms, it signiﬁ es transformation of an individual such that one is able to 
+know the truth, become objective by freeing oneself from biases and mental 
+conditioning. In this sense, transcendence implies overcoming the existential 
+constraints of one’s mind–body complex (Rao, 2008). It is always considered 
+possible to attain the highest state of consciousness (turia¯ ) in this life itself.
+Self-growth is a major objective of IP but not in an otherworldly sense. IP 
+deals with existential issues here and now even though it sees the relevance 
+of the past experience for the present condition and the consequences of 
+the present situation for the future, keeping open all possibilities without 
+foreclosing any in haste. IP recognises that physical processes inﬂ  uence 
+mental functions, but it also stresses that mental functions inﬂ uence bodily 
+processes. It emphasises the integral connection between consciousness, mind 
+and body. Therefore, neurophysiological studies are not considered irrelevant 
+to IP , but are regarded as insufﬁ cient to give us a complete understanding 
+of human nature.
+IP is Not a Prescriptive Science
+All social and psychological theories are shaped by the cultural ﬁ rmament. 
+The values, priorities and ethics of that culture provide the ingredients on 
+which these theories are built and sustained. No social science can thus be 
+prescription-free. Many of these prescriptions could be implicit in hypotheses, 
+designs and interpretations of the ﬁ  ndings. For example, an innocuous 
+experiment of Asch (1951) on social conformity in which the effect of peer 
+pressure upon modiﬁ cation and distortion of judgement on a perceptual task 
+was studied. Asch demonstrated that when there is group pressure (other 
+members are deliberately making wrong judgements) the subject tends to 
+make distorted judgements. His work apart from demonstrating social 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+The Core and Context of Indian Psychology / 147
+Psychology and Developing Societies 22, 1 (2010): 121–155
+conformity has a clear message that conformity is bad as it results in wrong 
+judgements. Western theories are the product of a value system of individu-
+alism, capitalism and materialism as IP is a product of Indian value system 
+of idealising another social order. IP which grew in a different historical 
+and cultural context is also a prescriptive science, having a vision of an ideal 
+society and an ideal person. Accordingly, the methods that are developed 
+are also designed to attain that desirable state. Keeping that in view, IP is 
+sacred and spiritual, yet endorses a secular cultural ethos that highly values 
+a transcendental state of being. The goal of Indian self-psychology is to 
+examine one’s state of consciousness and understand the metamorphosis 
+that one goes through.
+Notwithstanding, IP is as descriptive and conﬁ rmatory as any other social 
+science could be, it has evolved a well laid out methodology to test and 
+describe human conditions and conditioning. It has sophisticated theories 
+of mind and consciousness that are based on intersubjective validations. 
+The process of understanding the reality, which is not mediated by sensory 
+inputs or the conditioned mind, gives rise to the ultimate knowledge. 
+This knowledge transcends, according to IP , the prescriptive–descriptive 
+dichotomy, as well as all language barriers, as one understands the truth at a 
+direct intuitive and experiential level. 
+IP is Not Just a Study of Ancient Wisdom
+IP is not merely a historical documentation of the ancient Indian wisdom. 
+Scriptures dating back thousands of years are, of course, a vast treasure-
+house of wisdom that has remained hidden and inaccessible to academic 
+psychology. As academic psychology in India has begun to explore this 
+symbolic and conceptual resource, it has opened up varied possibilities of 
+exciting research propositions. It may be relevant to add in this context that 
+this ancient knowledge has been extended, elaborated, even questioned in the 
+long history. Thinkers and sages of modern times have added and commented 
+on what we know from Vedas, Upanishads and different schools of thought. 
+Sri Aurobindo, Ramakrishna, Krishnamurthi, Gandhi are names of a few 
+modern thinkers who have vastly contributed to this ancient wisdom and 
+have been able to present it in a language, which we understand. 
+IP is not revivalist, if revivalism means reassertion of the ancient order 
+in the present world. It cannot be an exercise to reconﬁ rm the theories pro-
+pounded in the ancient texts through scientiﬁ  c methodology, nor does it 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+148 / AJIT K. DALAL and GIRISHWAR MISRA
+Psychology and Developing Societies 22, 1 (2010): 121–155
+aim to establish its superiority over other knowledge systems. The challenge 
+before IP is to carve out the core of this ancient wisdom and develop test-
+able propositions. The study of ancient human science is not merely an 
+academic exercise but it aims to transform self and build a happy, healthy and 
+harmonious social order. IP is part of a movement toward contemporising 
+Indian theories and testing their relevance for enhancing human competencies 
+and well being. It is the a-temporal nature of IP and its proximity to our 
+essential human nature across ages and geographies that sustain its appeal 
+in the modern times. 
+IP is Not a Distinct Branch of Psychology
+It may be posited here that IP does not aspire to be a distinct branch of 
+psychology, like social, personality, clinical and the like. Conﬁ  ning IP to 
+a speciﬁ c content domain will do injustice to its vast potential and may 
+deprive psychology of its diversity and richness. IP covers the whole range 
+of human possibilities and, therefore, as a school of thought has relevance 
+for all branches of psychology. It creates new possibilities of looking at 
+the age-old human problems of social conﬂ icts and violence, emotional and 
+mental health, human greed and need for individual growth. 
+Should IP be bracketed with other cultural psychologies, like Chicano 
+Psychology, Chinese Psychology, African Psychology, Filipino Psychology, 
+etc.? It may eventually put it in an absurd situation in which there are a 
+plethora of psychologies competing with each other for recognition. As 
+discussed earlier, IP is not conceived as the psychology of Indian people, 
+as many other cultural psychologies are. Second, IP spills over to all other 
+branches of psychology and as a holistic ﬁ eld covers the entire psychology 
+tree, be it health, social, mental health, organisational or any other branch. 
+It is concern about human growth and welfare to which other psychologies 
+can equally contribute.
+Summary and Conclusion
+IP is as old as the Indian civilisation but its history as a modern discipline is 
+also as old as that of the Western psychology in India. The new beginning 
+of IP in the modern times can be traced in the work of Swami Vivekananda, 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+The Core and Context of Indian Psychology / 149
+Psychology and Developing Societies 22, 1 (2010): 121–155
+Ramana Maharishi and Sri Aurobindo in the early part of the last century. 
+Subsequently, the monumental work of Jadunath Sinha (1958) on IP , a 
+compilation of psychological concepts and theories in scriptures and other 
+ancient texts, laid its ﬁ rm foundation. However, it took much longer time 
+for IP research to build up. It is only in the last decade or so that research in 
+this area has picked up momentum and many important publications have 
+come out. Looking at the plethora of research and publication activities going 
+on at present, it is likely that IP will have a critical mass sooner than later. As 
+discussed earlier, it is a misnomer that Western psychology is universal and IP 
+is not. IP is neither competing nor striving to replace Western psychology as 
+universal science. It only intends to offer an alternative perspective. Whereas 
+Western science has focused on the human problematic, IP primarily looks at 
+the growth aspects, i.e., on how human beings can actualise their full potential 
+and can free themselves from their mental conditioning. In this sense, Western 
+psychology and IP can complement each other by bringing into the fold of 
+research a whole range of human possibilities. It is in this respect that IP 
+claims its legitimate place in a truly global mainstream psychology. 
+However, despite all possibilities and provocations, IP is still struggling 
+to make inroads into the academic citadels of Indian universities. There are 
+hardly a few places where courses on IP are being taught, and there is still a 
+good deal of resistance to the introduction of IP into teaching programmes. 
+Ostensibly, a larger body of Indian psychologists is still wary of the nature 
+and agenda of IP . There are wide ranges of apprehensions which have stalled 
+the acceptance of a psychology of Indian origin. Some such misconceptions 
+are brieﬂ y noted here. 
+First, Indian theories of mind and consciousness are often held to be 
+subjective and not amenable to scientiﬁ c testing. Consequently, IP is con-
+sidered as not amenable to empirical research using the established scientiﬁ c 
+methodology. As such, IP is considered a regressive step, which may reduce 
+the science of psychology to a non-scientiﬁ c enterprise. Second, the bulk of 
+Indian psychologists are concerned about keeping pace with advancements 
+in empirical research methodology and statistical techniques, which give psy-
+chology the status of a highly sophisticated scientiﬁ  c enterprise among all 
+social sciences. Indian psychologists are trained in positivistic methods and are 
+more at ease in employing them. Third, scientiﬁ cally minded psychologists 
+still consider IP as part of a religious (worse, revivalist) movement. Many are 
+of the view that the subject matter of IP is esoteric, mystical and metaphysical. 
+Therefore, there is an anxiety that including IP in the academic curriculum 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+150 / AJIT K. DALAL and GIRISHWAR MISRA
+Psychology and Developing Societies 22, 1 (2010): 121–155
+would undermine the secular credentials of their scientiﬁ  c pursuits; that 
+such a move may offend the sensibilities of the scientists of other faiths. 
+Fourth, working within the domain of IP will cut them off from the rest of 
+the world and may label them as being parochial or ethnocentric. This may 
+deprive their research wider trans-national recognition and may foreclose 
+the possibilities of international collaboration and support. In fact, many 
+yoga research institutes like SVYASA, Bangalore, are getting international 
+attention on par with the best research institutes in the world. Lastly, there 
+is a practical reason for sticking to Western psychology in academia. There 
+is no tangible incentive to the academic community to change their areas of 
+specialisation. It may be more rewarding to do research, for example, in the 
+area of emotional intelligence than, say, detachment. IP requires sustained 
+efforts to re-educate themselves, which is hard without peer support, reading 
+material and training programmes. Nandy (1995) has argued that conducting 
+experiments, developing and adapting psychological tests, mindlessly 
+replicating Western research is what has kept Indian psychologists occupied 
+without any clarity of purpose. These Indian psychologists are often aware 
+that the psychology they are pursuing does not address the real issues of 
+change and development, both at social and individual level. They know 
+that no in-depth analysis of the socio-psychological problems of Indian 
+society will yield from this endeavour. A discontentment is brewing among 
+the psychology fraternity about the state of psychology in India. An urgent 
+need is felt to reorchestrate the processes of teaching, training and research 
+in psychology with an open mind and cultural sensibility.
+Despite all resistance and setbacks, the IP movement seems to be gathering 
+momentum if attendance at IP conferences, workshops and research pub-
+lications is taken as an index. There is a good deal of excitement and sense 
+of purpose in the section of psychologists who are pursuing IP . It can be 
+easily discerned that this newly emerging science of IP calls for a paradigm 
+shift. We need a serious and sustained debate on nature, characteristics 
+and implication of this new paradigm. A dominant view is that the Western 
+and the Indian paradigms are irreconcilable and cannot have a meeting 
+ground. Indian concepts and theories are grounded in different notions of the 
+human nature, epistemology, values and world view, than the Western ones. 
+However, the range of problems suggests the need for both the paradigms. 
+Whereas the methodology of Western psychology focuses on the study of 
+the “other” person, IP (as other Eastern psychologies) focuses on the study of 
+one’s “own-self”. We need both ﬁ rst person and third person approaches to 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+The Core and Context of Indian Psychology / 151
+Psychology and Developing Societies 22, 1 (2010): 121–155
+bring about the desired changes in human condition. IP’s experiential basis of 
+knowledge generation is common to the theories and practices of many other 
+Eastern philosophies, including Zen, Tao and Buddhism. The proponents 
+of this position hold that building a more harmonious and conﬂ  ict-free 
+world order where people are able to actualise their inner potential can be a 
+valid goal. It is hoped that turning towards IP would help the discipline by 
+expanding the scope of psychological inquiry and offering technologies for 
+self-transformation leading to a better quality of life. 
+REFERENCES
+Adair, J.G. (1989). Indigenous developments in Indian psychology: A quantitative assessment.  
+Paper presented at the Annual Meeting of the Canadian Psychological Association, 
+Halifax, Nova Scotia.
+American Psychologist (January 2004). Special issue on Health and Spirituality/Religion.
+Anand, J. (2004). Working through emotional pain: A narrative study of the healing process. 
+Psychological Studies, 49, 185–192.
+Anand, J. (2006). T oward a conceptual formulation of psychological healing. Psychological 
+Studies, 51(2), 119–125.
+Asch, S.E. (1951). Effect of group pressure upon the modiﬁ cation and distortion of judgment. 
+In H. Guetzkow (Ed.), Groups, leadership and men. Pittsburgh: Carnegie. 
+Basham, A.L. (1954). The wonder that was India. New York: Grove Press. 
+Berry, J.W . (1989). Imposed etics-emics-derived etics: The operationalization of a compelling 
+idea. International Journal of Psychology, 24, 721–735. 
+Bhawuk, D.P .S. (1999). Who attains peace: An Indian Model of Personal Harmony. Indian 
+Psychological Review, 52(2 & 3), 40–48.
+Bhawuk, D.P .S. (2003). Culture’s inﬂ uence on creativity: The case of Indian spirituality. 
+International Journal of Intercultural Relations, 27(1), 1–22.
+Bhawuk, D.P .S. (2005). A model of self, work, and spirituality from the Bhagavad-Gita: 
+Implications for self-efﬁ cacy, goal setting, and global psychology. In K. Ramakrishna Rao 
+and Sonali B. Marwaha (Eds), T oward a spiritual psychology: Essays in Indian psychology 
+(pp. 41–71). New Delhi, India: Samvad India Foundation.
+Bhawuk, D.P .S. (2008a) Anchoring cognition, emotion, and behaviour in desire: A model from 
+the Bhagavad-Gita. In K.R. Rao, A.C. Paranjpe, & A.K. Dalal (Eds), Handbook of Indian 
+Psychology (pp. 390–413). New Delhi, India: Cambridge University Press.
+Bhawuk, D.P .S. (2008b). Science of culture and culture of science: Worldview and choice of 
+conceptual models and methodology. The social engineer, 11(2), 26–43.
+Bondurant, J.V . (1965). Conquest of violence: The Gandhian philosophy of conﬂ  ict. Berkeley 
+and Los Angles: University of California Press.
+Chakraborty, S.K. (1995). Ethics in management: Vedantic perspectives . Delhi: Oxford 
+University Press.
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+152 / AJIT K. DALAL and GIRISHWAR MISRA
+Psychology and Developing Societies 22, 1 (2010): 121–155
+Cornelissen, M.  (2002). Pondicherry Manifesto of psychology. Psychological Studies, 47 , 
+168–169.
+Cornelissen, M. (2003). Indian psychology series–vol. 2: A short note to initiate the discussion. 
+Indian Psychology Book Meeting held at the Park, Visakhapatnam from 7 to 8 December 
+2003. 
+Cornelissen, M. (2004). The farther reaches of human identity an exploration based on the 
+work of Sri Aurobindo. Psychological Studies, 50, 226–232. 
+Dalal, A.K. (1996). A science in search of its identity: T wentieth Century psychology in India. 
+Indian Psychological Abstracts and Reviews, 4, 1–41.
+Dalal, A.K. (2002). Psychology in India: A historical introduction. In G. Misra & A.K. Mohanty 
+(Eds), Perspectives on indigenous psychology (pp. 79–107). New Delhi: Concept.
+Dalal, A.K., & Misra, G. (2006). Psychology of health and well-being: Some emerging 
+perspectives. Psychological Studies, 51(2–3), 91–104.
+Dalal, A.S. (2000). Greater Psychology. Pondicherry: Sri Aurobindo Ashram.
+Davids, C.A.F .R. (1936/1978). The birth of Indian psychology and its development in Buddhism. 
+Munshiram Manoharlal Publications, reprint Oriental Books. 
+Derrida, J. (1982). Margins of philosophy. (A. Boss, T rans.). Chicago: Chicago University Press.
+Dharampal. (2000). The Beautiful Tree: Indigenous Indian education in the Eighteenth Century. 
+Mapusa: The Other India Press.
+Doi, T . (1973). The anatomy of dependence. T okyo: Kodansha International.
+Foucault, M. (1977). The archaeology of knowledge. London: Tavistock.
+Gergen, K.J. (1989). Social psychology and the wrong revolution. European Journal of Social 
+Psychology, 19, 463–484. 
+Gergen, K.J. (2007). An invitation to social construction. London: SAGE Publications.
+Gergen, K.J. (2009). Relational being. New York: Oxford University Press. 
+Gergen, K.J., Gulerce, A., Lock, A., & Misra, G. (1996). Psychological science in cultural 
+context. American Psychologist, 51, 496–503.
+Goleman, D. (2004). Destructive Emotions: A Scientiﬁ c Dialogue with the Dalai Lama . NY: 
+Bantam Dell.
+Hofstede, G. (1980). Culture’s consequences: International dif ferences in work-related values. 
+Beverly Hills, CA: SAGE Publications.
+Horsburgh, H.J.N. (1968). Non-violence and aggression: A study of Gandhi’s moral equivalent 
+of war. London: Oxford University Press.
+Jain, U. (2002). An Indian perspective on emotions. In  G. Misra & A.K. Mohanty (Eds), 
+Perspectives on Indian psychology (pp. 281–291). New Delhi: Concept.
+Joshi K., & Cornellisen, M. (2004). Consciousness, Indian psychology and yoga. New Delhi: 
+Centre for Studies in Civilizations. 
+Kakar, S. (1996). The Indian psyche. New Delhi: Oxford University Press.
+Kakar, S., & Kakar, K. (2007). The Indians: Portrait of a people. New Delhi: Penguin Books.
+Krishnan, L. (2005). Concepts of social behavior in India: Daan and distributive justice. 
+Psychological Studies, 50(1), 21–31. 
+Kumar, S.K.K. (2004). Perspectives on well-being in the Indian tradition. Journal of Indian 
+Psychology, 22(2), 18–31.
+Kumar, S.K.K. (2008). Indian thought and tradition: A psycho-historical perspective. In 
+K.R. Rao, A.C. Paranjpe & A.K. Dalal (Eds), Handbook of Indian Psychology (pp. 19–52). 
+New Delhi: Cambridge University Press.
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+The Core and Context of Indian Psychology / 153
+Psychology and Developing Societies 22, 1 (2010): 121–155
+Kuppuswami, B. (1985). Elements of ancient Indian psychology . New Delhi: Vikas Publishing 
+House. 
+Macaulay, T .B. (1835/1972). Minute on Indian education. In T .B. Macaulay, Selected writings 
+(pp. 237–251). J. Clive & T . Pinney (Eds). Chicago: University of Chicago Press. (Original 
+“minute” presented in 1835). 
+McClelland, D.C. (1961). The achieving society. Princeton: Van Nostrand.
+Menon, S. (2005). What is Indian psychology: T ranscendence in and while thinking. Journal 
+of Transpersonal psychology, 37(2), 83–89.
+Misra G. (2004). Emotion in modern psychology and Indian thought. In Kirit Joshi & 
+Matthijs Cornellissen (Eds), Consciousness, science society and yoga. New Delhi: Centre 
+for the Studies of Civilization.
+Misra, G. (2005). The science of affect: Some Indian insights. In K. Ramakrishna Rao & 
+Sonali Bhatt-Marwah (Eds), T owards a spiritual Psychology: Essays in Indian psychology 
+(pp. 229–248). New Delhi: Samvad India Foundation.
+Misra, G. (2007). Psychology and societal development: Paradigmatic and social concerns. 
+New Delhi: Concept.
+Misra, G., & Gergen, K.J. (1993). On the place of culture in psychological science. International 
+Journal of Psychology, 28, 225–243.
+Misra, G., & Kumar, (in press). Psychology in India: retrospect and prospect. In G. Misra (Ed.), 
+Psychology in India: advances in research vol. 4. New Delhi: Pearson Education. 
+Misra, G., & Mohanty, A. (Eds). (2002). Perspectives on indigenous psychology . New Delhi: 
+Concept.
+Misra, G., Prakash, A., & Varma, S. (1999). Psychology in India: Perceptions and perspectives. 
+Psychology and Developing Societies, 11, 25–53.
+Misra, G., & T ripathi, K.N. (2004). Psychological dimensions of poverty and deprivation. 
+In J. Pandey (Ed.), Psychology in India revisited: Development in the discipline  (Vol. 3) 
+(pp. 118–215). New Delhi: SAGE Publications. 
+Nakamura, H. (1997). Ways of thinking of eastern peoples: India, China, Tibet and Japan . 
+London: Kegun Paul. 
+Nandy, A. (Ed.). (1988). Science, hegemony and violence: A requiem for modernity. New Delhi: 
+Oxford University Press.
+Nandy, A. (1995). The savage Freud: The ﬁ rst non-Western psychoanalysts and the politics 
+of secret-selves in colonial India. In A. Nandy (Ed.), The Savage Freud and other essays on 
+possible and retrievable selves (pp. 81–144). New Delhi: Oxford University Press.
+Pandey, J. (Ed.). (1988).  Psychology in India: The state-of-the art (Vols.1, 2, 3). New Delhi: 
+SAGE Publications.
+Pandey, J. (Ed.). (2001). Psychology in India revisited, Vol. 1. New Delhi: SAGE Publications.
+Pandey, J. (Ed.). (2002). Psychology in India revisited, Vol. 2. New Delhi: SAGE Publications.
+Pandey, J. (2004). Psychology in India enters the twenty-ﬁ rst century: Movement toward an 
+indigenous discipline. In J. Pandey (Ed.), Psychology in India revisited: Developments in 
+the discipline (vol. 3, pp. 342–370). New Delhi: SAGE Publications.
+Paranjpe, A.C. (1984). Theoretical psychology: The meeting of east and west. New York: Plenum 
+Press. 
+Paranjpe, A.C. (1998). Self and identity in modern psychology and Indian thought . New York: 
+Plenum. 
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+154 / AJIT K. DALAL and GIRISHWAR MISRA
+Psychology and Developing Societies 22, 1 (2010): 121–155
+Paranjpe, A.C. (2006). From tradition through colonialism to globalization: Reﬂ  ections on 
+the history of psychology in India. In A.C. Brock (Ed.), Internationalizing the history of 
+psychology. New York: New York University Press.
+Paranjpe, A.C. (2009). In defence of an Indian approach to the psychology of emotion. 
+Psychological Studies, 54(1), 3–22.
+Pelton, L.H. (1974). The psychology of nonviolence. NewYork: Pergamon Press. 
+Premasiri, P .D. (2008). Verities of cognition in early Buddhism. In K.R. Rao, A.C. Paranjpe 
+& A.K. Dalal (Eds), Handbook of Indian Psychology (pp. 85–104). New Delhi: Cambridge 
+University Press.
+Radhakrishnan, S. (1953). The principal Upanishads. London: Allen & Unwind. 
+Rao, K.R. (1988). What is Indian psychology? Journal of Indian Psychology, 7(1), 37–57.
+Rao, K.R. (2002a). Consciousness studies: Cross-cultural perspectives. Jefferson, NC: 
+McFarland.
+Rao, K.R. (2002b). Consciousness studies: A survey of perspectives and research. In J. Pandey 
+(Ed.), Psychology in India revisited, Vol. 2 (pp. 19–162). New Delhi: SAGE Publications.
+Rao, K.R. (2008). Prologue: Introducing Indian psychology. In K.R. Rao, A.C. Paranjpe & 
+A.K. Dalal (Eds), Handbook of Indian Psychology (pp. 1–18). New Delhi: Cambridge 
+University Press.
+Rao, K.R., & Marwaha, S.B. (Eds). (2005). T owards a spiritual psychology: Essays on Indian 
+psychology. New Delhi: Samvad Indian Foundation.
+Rao, K.R., Paranjpe, A.C., & Dalal, A.K. (Eds). (2008). Handbook of Indian Psychology . 
+New Delhi: Cambridge University Press.
+Rao, R. (1962). Development of psychological thought in India. Mysore: Kavyalaya. 
+Safaya, R. (1975). Indian psychology: A critical and historical analysis of psychological speculation 
+in India philosophical literature. New Delhi: Munshiram Manoharlal.
+Saraswathi, T .S. (1999). Culture, socialization and human development: Theory, research and 
+applications in India. New Delhi: SAGE Publications.
+Singh-Sengupta, S. (2001). Management of power: Ascent from self to self. Social Science 
+International, 17(1), 59–73.
+Sinha, D. (1965). Integration of modern psychology with modern thought. In A.J. Sutchi & 
+M.A. Vick (Eds), Readings in humanistic psychology . (pp. 265–279). New York: Free 
+Press.
+Sinha D. (1981). Non-western perspectives in psychology: Why, what and whiter? Journal of 
+Indian Psychology, 3, 1–9.
+Sinha, D. (1986). Psychology in a third world country: An Indian experience. New Delhi: SAGE 
+Publications.
+Sinha, D. (1996). Culturally rooted psychology in India: Dangers and developments. Inter-
+national Journal of Psychology, 30, 99–110.
+Sinha, D. (1997). Indigenizing psychology. In J.W . Berry, Y. Poortinga & J. Pandey (Eds), 
+Handbook of cross-cultural psychology: Theoretical and methodological perspectives (Vol. 1). 
+Boston: Allyn & Bacon.
+Sinha, D. (1998). Changing perspectives in social psychology in India: A journey towards 
+indigenization. Asian Journal of Social Psychology, 1, 17–31.
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from 
+The Core and Context of Indian Psychology / 155
+Psychology and Developing Societies 22, 1 (2010): 121–155
+Sinha, D., & T ripathi, R.C. (1994). Individualism in a collectivist culture: A case of coexistence 
+of the opposites. In U. Kim, H.C. T riandis, C. Kagitcibasi, S.C. Choi, & G. Yoon (Eds), 
+Individualism and collectivism: Theory, method and application (pp. 123–136). Thousand 
+Oaks, CA: SAGE Publications.
+Sinha, J. (1958). Indian psychology, Vol. 1 & 2. Calcutta: Jadunath Sinha Foundation.
+Sinha, J.B.P . (2000a). Patterns of Work Culture: Cases and Strategies for Culture Building . 
+New Delhi: SAGE Publications.
+Sinha, J.B.P . (2000b). Indigenization of psychology in India. Psychological Studies, 45, 3–13. 
+Snyder, C.R., & Lopez, S. (2002). Handbook of positive psychology.  New York: Academic 
+Press.
+Sri Aurobindo (1939/2006). The life divine. Puducherry: Sri Aurobindo Ashram.
+Srivastava , A.K., & Misra, G. (2003). Going beyond the model of economic man: An indi-
+genous perspective on happiness. Journal of Indian Psychology, 21, 12–29.
+Srivastava, A.K., & Misra, G. (2007). Rethinking intelligence: Conceptualizing human competence 
+in cultural context. New Delhi: Concept.
+Stanley, L. (Ed.). (1990). Feminist praxis: Research, theory and epistemology in feminist sociology. 
+London: Routledge.
+Swami Rama, Ballentine, R., & Ajay, S. (1976).  Yoga and psychotherapy . Honesdale, PA: 
+Himalayan Institute.
+Tart, C. (1975). Transpersonal psychologies. San Francisco: Harper & Row.
+Tart, C. (2009). The end of materialism. Oakland, CA: Neotic Books.
+Thapar, R. (2002). The Penguin History of Early India. New Delhi: Penguin.
+T riandis, H.C. (1984). T oward a psychological theory of economic growth. International 
+Journal of Psychology, 19, 79–96.
+VandenBos, G.R. (Ed.). (1996). Outcome assessment of psychotherapy. American Psychologist, 
+51(10), 17–25.
+Varma, P .K. (2004). Being Indian. New Delhi: Penguin. 
+Wertz, F .J. (1998). The role of the humanistic movement in the history of psychology. Journal 
+of Humanistic Psychology, 38(1), 42–70.
+Winternitz, M. (1927). A history of Indian literature, Vol. 1 . (S. Ketkar, T rans.). Kolkata: 
+University of Calcutta Press. 
+Worchel, S., & Cooper, J. (1989). Understanding social psychology . Homewood, IL: The 
+Dorsey Press.
+Ajit K. Dalal is Professor of Psychology at the University of Allahabad, India. He has published in the 
+areas of health beliefs, psychological healing and Indian psychology. His major books are Attribution 
+Theory and Research, New Directions in Indian Psychology (vol. 1) and Social Dimensions of Health 
+and Handbook of Indian Psychology.
+Girishwar Misra is currently Professor of Psychology at University of Delhi, India. He has under-
+taken major research projects and written extensively in the areas of poverty, stress, environment, 
+cultural Psychology of self and emotions, creativity, psychological theory and well-being.
+ at DELHI UNIVERSITY on April 17, 2010 http://pds.sagepub.comDownloaded from

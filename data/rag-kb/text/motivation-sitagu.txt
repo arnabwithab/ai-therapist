@@ -1,0 +1,627 @@
+# motivation-sitagu
+# source PDF: raw/motivation-sitagu.pdf | pages: 18 | ~6420 words
+
+1
+The Wonder of Intrinsic Motivation
+Bhikkhu Cintita
+© 2020
+During my days in graduate school, where I studied theoretical linguistics (of 
+all things), I happened to have a conversation with a young man outside my 
+normal circle that went something like this:
+“So, what do you do?”
+“I am a linguistics graduate student.”
+“Oh? What is linguistics?” 
+“Well, …,” I very briefly explained that linguistics is the science that 
+studies human language as a natural phenomenon and how much it fascinated 
+me.
+“Is it, um, something you can make a lot of money doing?” he asked.
+“Hmmm, I've never thought about it. I suppose not.”
+“Why would you do something that takes so much work if you can't 
+make a lot of money? And why would you not think about it?”
+Why indeed? Nothing I said from that point on made the least sense to him. 
+What he said made sense to me, but had a twisted logic to it, and the 
+conversation quickly devolved into mutual bewilderment.  For me, after all, 
+this was human language we were talking about. Where was this guy's sense of
+wonder?
+I didn't realize it at the time, but the two of us were talking from opposite sides 
+of a chasm, a deep gash through the middle of our culture with profound 
+implications for human psychological and spiritual well-being, for the very 
+direction of people's lives, for the structure of our economy, and for the way 
+children are brought up and educated. This guy represented what seems to be 
+the dominant, utilitarian view in our culture, one that speaks of maturity, 
+rationality and purpose. Mine was the more foolhardy, silly view that 
+something can be worth doing for its own sake. I consider myself fortunate to 
+have since lived a life of “silliness,” which, many years later as a rather elderly,
+2
+scholarly Buddhist monk, I continue to live to this day.
+The dichotomy here has acquired the names, in modern psychological research,
+“intrinsic motivation” and “extrinsic motivation.” In extrinsic motivation a task
+is performed in order to achieve some goal outside of the task itself, for 
+instance, receiving a reward or avoiding a punishment, as when we work for 
+pay, and we work even harder in order not to be fired. In intrinsic motivation a 
+task is satisfying and worth pursuing in itself, as when children play with 
+nothing further in mind than to play, and then as adults raise children with 
+nothing further in mind than to raise children, and then still later to knit or fly-
+fish just to knit or fly-fish. Psychological research indicates some astonishing 
+differences between intrinsic and extrinsic motivation in terms not only the 
+greater degree of satisfaction, meaning and well-being enjoyed by the 
+intrinsically engaged, but also in terms of the greater proficiency and creativity 
+they bring to their engagement. 
+As I only recently became familiar with some of this research, it struck me how
+closely these conclusions resonated with a Buddhist understanding of such 
+matters. Even though the distinction goes unnamed in Buddhism, it seems that 
+Buddhist practice across the board is a push toward what modern psychology 
+identifies as intrinsic, and that Buddhist psychology predicts many of the same 
+virtues of intrinsic motivation demonstrated experimentally in modern 
+psychological research. 
+My intention here is twofold. First, I would like to introduce intrinsic 
+motivation to other students of Buddhism as a valuable perspective from which
+to better understand the logic of Buddhist practice and understanding. Second, 
+I would like to introduce relevant aspects of Buddhist psychology to students 
+of motivational theory, particularly to point out some striking contrasts 
+between the Buddhist model and the modern model advanced in modern 
+psychology that may be worth further investigation. In this way I hope, 
+moreover, to make a contribution to the growing literature on the connections 
+between Buddhism and modern science.
+Examples and benefits of intrinsic motivation
+The difference between intrinsic and extrinsic motivation is easy to grasp 
+intuitively. I will provide a range of examples in this section and to discuss 
+3
+actual experimental evidence for the contrasting consequences for human well-
+being, but leave theory aside until later. Most of these examples come from the 
+modern research.
+People in general love the intellectual challenge of solving puzzles – 
+crossword, jigsaw, Rubik's – with no immediate purpose in mind other than 
+that it seems interesting. Significantly, this seems to be a drive shared by other 
+primates, for even monkeys, given an apparatus with hasps, hooks and hinges, 
+will take great interest in figuring out for many hours how to open and close 
+parts. Focused and determined, they require no tangible reward outside of 
+obvious enjoyment in the activity itself.1 Cats may have some of this quality as 
+well, for they are notoriously curious. This is intrinsic motivation.
+Now, what happens if we reward such behavior, for instance by paying cash for
+a successful solution to such a puzzle? This would be an extrinsic motivation. 
+Do we get twice the motivation by laying an extrinsic motivation on top of an 
+intrinsic? A number of experiments demonstrate that this is not the case: 
+extrinsic motivation in fact displaces intrinsic motivation rather than 
+supplementing it. In one experiment, each member of groups A and B is 
+presented with a puzzle intrinsically interesting in itself. A is offered a 
+monetary rewarded for good performance, while B, the control group, is 
+unrewarded. Once they have been paid, members of A will no longer have 
+interest in the puzzles during a free choice period, whereas members of B will 
+continue to play with the puzzles.2 In another experiment each member of A 
+was instead given a punishment for poor performance rather than a reward for 
+good. The results were much the same. (Deci 1995, 31). In another experiment,
+the extrinsic motivation given to A was that of beating a competitor. The results
+were much the same.3
+An illustrative Jewish fable recounts a Jewish tailor who moves into town. The 
+town's bigots encourage some ruffians to jeer at the tailor each day, which they 
+were apparently delighted to do. But the tailor was very clever. He offered each
+ruffian a reward each time he came to jear, say 50¢. Each day they came, 
+jeered and received their payment. Then the tailor reduced the payment to 10¢, 
+and then finally to 1¢. 1¢ was not enough payment for their valuable time and 
+skill, so they stopped coming. The extrinsic motivation displaced the intrinsic 
+motivation, the extrinsic motivation was then removed, and the ruffians were 
+left with no motivation at all.4
+4
+Children, like monkeys, are fonts of intrinsic motivation. Naturally curious, 
+they are learning machines in their early years. Shouldn't this be good news for
+educator who need only to direct and deepen this reservoir of motivation? 
+Unfortunately, education, at least in the US, has relied heavily on extrinsic 
+motivators, doubled down with the introduction in 2002 of mandated testing 
+nation-wide. In spite of expectations, our schools tend to be dreary and 
+uninspiring places for future scientists, artists and explorers.
+In a typical experiment, group A of young eager minds was told that they 
+would be given a test to evaluate their comprehension of a passage they were 
+asked to read. Group B, the control, was asked to read the passage did not 
+know that they also would be tested. But then both A and B received the same 
+test. It was found that, although A had better rote recollection, B was found to 
+have a better conceptual understanding. Moreover, one week later a second, 
+unannounced test was administered to both groups. B had superior recollection
+of the passage.5
+In another experiment, more advanced students were asked to learn some 
+complex material on neurophysiology. Members of group A were told they 
+would be tested and graded on the material, members of group B that they 
+would be asked to teach the material to others. Group B was found to have 
+acquired greater conceptual understanding.6 (Actually it is not clear why 
+preparing to teach is an intrinsic motivation under our current definition. I'll 
+come back to this later.)
+Similarly group A students' artwork, produced under extrinsically motivating 
+conditions, was found to be, under objective criteria for evaluating such things,
+of poorer quality than group B's artwork, produced under intrinsic conditions.7 
+Consistently intrinsic motivation is discovered to lead to improved problem-
+solving, to better conceptual understanding, to greater creativity, and to a richer
+more satisfying learning experience.8
+Intrinsic and extrinsic orientation have become key concepts in modern 
+psychology of religion. Religion and modern psychology started off on the 
+wrong foot after Freud bluntly declared that religion is not only associated 
+with mental illness, but that religion is mental illness.9 Although Jung had a 
+different take than Freud, for years empirical evidence that religion produces 
+any substantial benefit to mental health remained elusive. A major shift in our 
+5
+understanding of the psychology of religion began with Allport (1956), who 
+qualified what it is to be religious in terms of “mature” religion and “immature 
+religion,” which in later works he renamed “intrinsic” and “extrinsic” religion 
+respectively. It seems that, regardless of how much one attends church, one can
+relate to one's religion in either of these two distinct ways.
+The intrinsically religious sees religion as an end in itself. Her attitude is 
+variously described as genuine, heartfelt, devout and living her religion. They 
+find in their religion the master motivation in life, harmonizing all other needs 
+with this master motivation. Experimental studies show that intrinsically 
+religious people experience more meaning in life.10 A more recent meta-
+analysis of many studies in psychology of religion11 shows, with certain 
+exceptions, an overall highly significant correlation between intrinsic religion 
+and mental health.
+The extrinsically religious, on the other had, sees religion as instrumental in 
+satisfying non-religious goals. It provides social connections, sometimes status,
+and often self-justification. Religion has a way of attracting scoundrels 
+alongside the devout who find therein excuses for their own unethical acts and 
+attitudes. Rather than living their religion, the extrinsically religious use their 
+religion. We all know of Christians who cherry-pick the Bible, for instance, for 
+ways to justify much of the hatred and prejudice they in all likelihood had prior
+to picking up the Bible. 
+Allport12 asserts that most of the popular criticism of religion applies to its 
+immature or extrinsic forms that have not evolved past self-centered interests, 
+that are unreflexive and provide no context of meaning in which the individual 
+can locate oneself and assess one's own conduct. They don't get it. He also 
+points out13 that the religiously immature tend uniformly to exhibit similar lack 
+of reflection toward their parents, political issues and social institutions. He 
+speculates that the preoccupation of many schizophrenic or depressed people 
+with religion is the effect of mental breakdown, not the cause. 
+Much of the early research in the psychology of religion in the USA had been 
+concerned with its relationship to “prejudice,” particularly racial prejudice, and
+pointed to a positive correlation between general religion and prejudice, with a 
+punitive attitude toward criminality and drug abuse, and with general 
+intolerance and bigotry.14 The flaw was that this research failed to distinguish 
+6
+between these two types of religiosity. In fact the high prejudice of the 
+extrinsically religious majority was masking the relatively low prejudice of the 
+intrinsically religious minority.15
+It is perhaps significant in this regard that intrinsic motivation in non-religious 
+contexts is described by some researchers as often turning into spiritual-like 
+experiences of vitality, dedication, transcendence, hightened awareness and 
+flow.16
+Consumerism is the master-motivator in our culture, encouraged by modern 
+marketing, and manifesting as desire for wealth, fame, attractiveness, power, 
+and so on. Materialism or consumerism is such a dominant motivator that it is 
+regarded by many critics as having taken on the role of religion in defining the 
+ultimate values and strategies of many of our lives. It belongs, by definition, 
+solidly within extrinsic orientation, and has accordingly been discovered to 
+have many adverse consequences for the well-being of people in our society. 
+Psychologist Tim Kasser (2002) reviews extensive research of the qualities of 
+those of materialism orientation.
+Merely aspiring to wealth is associated with lower levels of vitality, and higher 
+levels of depression or anxiety (Kasser 2002, 7-8). Those oriented toward 
+possessions, popularity and attractiveness tend to suffer more frequent 
+headaches, back-aches, sore muscles and sore throats.17 The materially oriented
+have higher levels of alcohol and drug consumption and fewer positive 
+emotions.18 Materialistic teens tend to be more socially isolated and suspicious 
+of others' intentions.19 Death is a theme in the 20.5% of the dreams of 
+materialistic people, and in only 3% for the non-materialistic.20 Beyond 
+satisfying basic needs, such as food and shelter, reaching goals of attaining 
+wealth, possessions or status yields no long-term increase in well-being 
+whatever. Rather such success tends to feel empty and unsatisfying.21 Lottery 
+winners end up on average being no more happy and tend to find less pleasure 
+in everyday events.22 Materialism is associated with chronically low self-
+esteem.23 Materialists have lower quality relations and tend to be more 
+aggressive.24 Even goal-oriented people who actually manage to achieve their 
+goals – often exalted as celebrities in our society – experience no measurable 
+increase in happiness.25 We are such fools.
+Nonetheless, we cannot entirely eliminate goals from our lives. How would we
+7
+become educated, build a career or find a partner? Once these goals once 
+become established, they become extrinsic motivations for whatever activities 
+are necessary to satisfy these goals. Fortunately, it turns out that we can often 
+moderate our goal-orientation mentally, sometimes quite easily, in favor of 
+wholesome, selfless motivations, without substantially changing the outer form
+of the pursuit, nor completely sacrificing the goal, but in a way that benefits 
+our enthusiasm and well-being.  Often this is simply a matter of how we frame 
+our goal.  For example, dieting: 
+Most typically one diets with the explicit goal of a sexier, slimmer 20-pounds-
+lighter “me” on the beach next summer. This goal is achieved by keeping eyes 
+on the prize while undergoing starvation and exercise, a process that provides 
+little satisfaction in itself, for as any dieter knows, there is a lot of emoting and 
+suffering in the process, constantly weighing oneself, continually prodded by 
+shame and longing for the end result. Moreover, when the goal is reached, 
+satisfaction is short-lived, for now one must by the same means maintain one's 
+sexier, slimmer and healthier “me” for the following summer.
+Alternatively, one might instead frame the same pursuit in terms of a simple 
+health standard to bear in mind, that of living an optimal lifestyle with daily 
+nutritional intake and bodily activity optimized for one's body type. The 
+standard never lies in the future, but is achieved each day. In case of lapse, one 
+acknow-ledges it and determines to do better the next day. There is  effort 
+involved, but no striving or emoting. In fact, as one inhabits this practice, one 
+is very likely to become an expert on nutrition, on exercise and on the other 
+real needs of the human body, to which one's attention is directed in lieu of 
+standing on the scale each day and emoting accordingly. One finds satisfaction 
+in the process itself. One becomes devoted to this aspect of health and joyful. 
+As an extra benefit, one attains, and maintains, with ease the goal one gave up 
+in the first place. “If you dare to be fat, then you can be thin.”26
+There seems to be a process of development whereby extrinsic motivation 
+takes on the character of intrinsic motivation. For instance, most non-religious, 
+extrinsically religious, and incipient religious people see devout religious 
+standards as an imposition, finding no delight in its series of do's and don't's. 
+However, with maturity, the devout generally experiences these same 
+restrictions positively as part of a freely chosen path of spiritual development. 
+At some point and in some way the devout must have reconcep-tualized and 
+8
+internalized the same content in an intrinsic way. Similarly, at some point a 
+child may give up his reluctance to go to school or help arount the house and 
+actually internalize values of responsibility and scholarship. 
+So, how do we choose to live our lives?
+Self-determination theory
+The dominant view of human motivation for many years, well represented in 
+psychoanalytic and behavioral theories, seems to have been that human 
+motivation comes from discomfort or dissatisfaction with one's current 
+circumstances, followed by the desire to do something about it. Without 
+discomfort we are not motivated. This was challenged beginning in the 1950's 
+with research on curiosity and problem-solving, and the discovery of intrinsic 
+motivation.27 Self-determination theory was developed as a further explication 
+of intrinsic motivation. I should caution that my knowledge of this field is very 
+limited and perhaps naive, but I'll do my best.
+In self-determination theory the difference between intrinsic and extrinsic 
+motivation is primarily a matter of who is in charge. It identifies three 
+fundamental needs necessary for the health and well-being of the individual: 
+competence, relatedness and autonomy. Briefly, we have a need to do well, to 
+interact with and care for others, and to be the author of our own actions. This 
+last need, autonomy, stands in opposition to control, in which some external 
+agency or external circumstance dictates our own actions. Control means our 
+own behavior has no personal endorsement, it is not an “expression of one's 
+self.” Authenticity refers to actions for which one is the author, in accord with 
+one's “true inner self.”
+So, for example, rewards or threats can be sources of control, of coercion, of 
+getting us to do things we would not otherwise be inclined to do. Social norms 
+can also be a source of control, primarily by restricting our choices. Presented 
+with such control we respond by complying or by defying, both of which reveal
+lack of autonomy. On the other hand, our actions are authentic if they come 
+from deep within ourselves, from our own initiative. This is when we are most 
+alive and fully engaged. Self-motivation is the heart of creativity, responsibility
+and healthy behaviors.
+Now, it is not so clear-cut as we might like to separate what part of our 
+9
+motivations come from external sources and what part comes from within. 
+Children are self-motivated in their play, but much of the content of their play 
+may be informed by television shows they have watched, for instance. Parents 
+may try to coerce their good-for-nothing kid for years to help around the house 
+evoking defiance or at best reluctant compliance, but in the end produce an 
+adult authentically delighted to help others in any situation. For this reason, 
+much attention has given within self-determination theory to personal 
+development, to how we internalize external influences to the point of personal
+endorse-ment, particularly social standards and values. Internalization can go 
+through stages including introjection – in which compliance is accepted 
+without new reinforcement, but in which one nonetheless still feels pushed 
+around – and integration – in which compliance is brought into harmony with 
+one's innate, core self. Self-knowledge, commitment and rationale have been 
+identified as contributing factors in integration.28
+Self-motivation is put forward as the locus of mental health and well-being. 
+Critics however point out that this presents a problem with respect to psychotic
+behaviors, self-indulgence and irresponsibility.29 Aren't intrinsically motivated 
+people those who do as they please?  Isn't authenticity a justification for 
+irresponsible, selfish, self-indulgent or egoistic behaviors? Such behaviors do 
+not seem to be particularly controlled. Rather we must assume that they violate
+some other innate human need, and that this need has some kind of ethical 
+sensibility. This brings us to the Buddhist approach to intrinsic motivation.
+Intrinsic motivation in Buddhist psychology
+Buddhism provides an alternative model that accounts for the most if not all of 
+the remarkable differences observed between intrinsic and extrinsic 
+motivations, including differences in mental health and human well-being. 
+Whereas self-determination theory sees these differences primarily in terms of 
+autonomy and control, Buddhism would account for the differences primarily 
+in terms of ethics.
+Buddhism really has three interlocked systems of ethics: precepts, giving and 
+purity of mind.30 Precepts are rules of thumb whose primary function is to 
+avoid harm. Giving is a complementary practice of bringing benefit to the 
+world. Whereas precepts and giving characterize outward behaviors, purity is 
+psychologically rooted, and the most characteristically Buddhist. 
+10
+Purity is the quality of character developed in Buddhist practice through which 
+we cannot be other than harmless and of benefit to the world. Purity is broadly 
+defined in Buddhism in terms of wholesome or skillful (in Pali, kusala) 
+intentionality as opposed to unwholesome or unskillful (in Pali, akusala) 
+intentionality.31 For example, kindness is wholesome and anger is 
+unwholesome. Most attention is given in Buddhism to reducing what is 
+unwholesome, under the assumption that it will be naturally replaced by what 
+is wholesome. The Buddha observed that unwholesome intentions or 
+motivations have five qualities in common, all of which are absent in 
+wholesome intentions:32
+(1) Unwholesome intentions are rooted in grasping, in aversion or in 
+delusion.
+(2) When unwholesome intentions give rise to bodily or verbal actions, 
+those actions generally cause harm.
+(3) Unwholesome intentions give rise to misperception.
+(4) Unwholesome intentions give rise to personal suffering.
+(5) Unwholesome intentions are an obstruction to positive personal 
+development. 
+We will find the three roots of the unwholesome also translated as greed, 
+hatred and delusion in English Buddhist literature. The roots of the wholesome 
+are their opposites: renunciation, kindness and wisdom. Grasping and aversion 
+put us in personal relation to the things of the world as to be sought out or as to
+be avoided. They are tied in with craving, attachment and the quest for 
+personal advantage. We grasp at wealth, fame, a sexy partner or chocolate. We 
+avert shame, poverty or ugly twiddle bugs. Delusion is harder to pinpoint 
+because we are, uh, deluded about it. It is found in erroneous views or 
+justifications, conceptualizations, misperceptions, ignorance and denial.33
+We act on the basis of our wholesome and unwholesome intentions, with 
+beneficial or harmful results. For instance, when we act out of desire we tend 
+to steal, swindle or otherwise deprive others. When we act out of aversion we 
+tend to assault, kill, insult and so on. We generally do not see these 
+consequences for what they are because we usually distort, or are blinded to, 
+11
+reality according to our own interests. 
+The last two qualities of the unwholesome are particularly relevant because 
+they involve our own personal experience and well-being. We experience 
+immediate discomfort or even pain when we are caught up in an unwholesome 
+intention. When we have habituated that unwholesome intention we tend to 
+relive it and shape our character accordingly, to our own detriment. We suffer 
+emotionally, but also spiritually. 
+Somehow we humans have an innate ethical sensitivity even when it does not 
+manifest in our thinking and action. What obscures the identification of our 
+own benefit with our own purity of mind is delusion.
+Let’s take “fear of being fired from employment” as an example. Fear is a 
+particularly strong form of aversion, with an element of loss of control. It can 
+drive one to cheat customers, backbite colleagues, lie to shift blame from 
+oneself and so on. Anyone who disrupts productivity or reputation becomes a 
+demon and subject to one's wrath; the world is viewed with suspicion. A high 
+level of tension associated with fear that can lead to depression, and even 
+degrade one's physical health, weaking one's immune system, and so on. 
+Moreover, with persistent fear, it will become increasingly difficult to bring the
+mind into states of calm and insight necessary for contemplation and spiritual 
+development.
+The key point to notice is: Extrinsic motivations are across the board 
+unwholesome for Buddhists. They are based in grasping or aversion. This is not
+to say they are dispensable in a Buddhist life; only the fully awakened can be 
+expected to dispense with them entirely. But this is to say the we try to 
+minimize and mitigate extrinsic motivations where possible for our own and 
+others' well-being and for our own spiritual progress. Buddhism can be seen as 
+consistently turning us toward the intrinsic. We will find that Buddhist practice 
+across the board has a systematic leaning away from extrinsic and toward 
+intrinsic motivation. 
+Let's consider mindfulness. Mindfulness is part of the infra-structure of 
+Buddhism in that it is engaged as a part of almost every other practice. It also 
+has a characteristic motivational structure. To explain this, I will rely on the 
+definition of mindfulness found in the early texts, which on the surface differs 
+markedly from definitions current in modern psychology, which are something 
+12
+like “bare, non-judgmental, present moment awareness.”34   
+The word we translate as “mindfulness” means memory. It is having learned 
+something in the past, bringing it to mind, and keeping it in mind.35 What do 
+we bring to mind? In Buddhism, primarily the Dharma. But for any activity we
+might engage in, we can bring to mind whatever knowledge or skill is relevant 
+to that activity, for instance, for bird-watching what we know about birds, for 
+pottery what we know about clay and the use of various tools. Part of the skill 
+of mindfulness in Buddhism is to hold distractions at bay; we easily forget 
+what is really relevant to the present task when we are distracted. For 
+Buddhists distractions are primarily unwholesome factors: lust, ill-will, sloth 
+and torpor, restlessness and doubt. 
+It might seem odd that in modern literature mindfulness has to do with the 
+present moment, when in fact mindfulness recollects the past. In fact, avoiding 
+distractions in mindfulness induces an important shift in our relationship to the 
+present moment. The present is suspended between past and future and any 
+task we perform there is potentially conditioned by either past or future 
+concerns, or both. The past concerns, communicated through mindfulness, are 
+typically the learned values, standards and skills that define the “how” of the 
+present task. The future concerns, on the other hand, generally take the form of 
+self-concerned “striving,” which is just grasping and aversion that define the 
+“why” of the task. 
+Ideally, mindfulness attends to the needs of the task at hand, while striving 
+attends to the neediness of “me.” While mindfulness upholds, striving 
+contrives. Significantly, striving counts as an unwholesome distraction. As we 
+practice mindfulness without distraction, the “why” tends to drop out of mind, 
+nudging the motivational structure of the task: We “inhabit” the task as 
+something satisfying in pursuing well, rather than “utilizing” the task for some 
+purpose outside of the task itself.36
+                              how?              why?
+The present task shares concerns of past and future.
+PAST      mindfulness                             striving         FUTURE
+13
+For instance, if our action is washing dishes, mindfulness brings to mind an 
+array of knowledge and experience about which implement to scrub with, 
+about how much detergent to use, about how much force to exert, about how 
+hot the water should be, and so on. Without mindfulness, our future concerns 
+might induce us to hurry through the job so that we don't get fired, or to look 
+forward to the praise we will receive when people behold sparkling clean 
+dishes. Thich Nhat Hanh tells us37 that it is best if we wash the dishes in order 
+to wash the dishes, rather than in order to have clean dishes. This makes 
+washing the dishes more an act of devotion rather than a utilitarian act. In 
+washing in order to wash, mindfulness rather than striving becomes the guide.
+Similarly, a sales employee named Bob in a clothing store can be mindful of 
+the inventory, color schemes, current fashions, etc., but also be intent on 
+getting a commission for a successful sale and worried about doing something 
+that will get him fired. When Bob is worried about being fired or anxious for a 
+bonus, he has, in his striving, been known to cut corners and lie a little to the 
+customer, sometimes to overcharge. But with mindfulness training, Bob is 
+more likely to be diligent, upright and honest in his approach to his job. He 
+might still get fired, but it is actually more likely for his boss, admiring his 
+greater competence and the acclaim of customers, to give him a raise.
+Although its nudge gives general mindfulness a somewhat upright quality, the 
+mindful practice of virtue provides a broader context for practice that points to 
+the difference between “mindfulness” and “right mindfulness.” A sniper or a 
+jewel thief can engage his skill mindfully by holding striving momentarily at 
+bay, but at the same time be engaged in a plan frought with wickedness, that is,
+without regard to the standards of virtue. Right mindfulness, on the other hand, 
+recollects the entire Dharma as needed, and so will never neglect the standards 
+of virtue. 
+Accounting for intrinsic motivations in terms of ethics predicts connectedness 
+and responsibility as aspects of intrinsically motivated activities. It also puts 
+strict limits on “self-indulgence.” In Buddhism sensual pleasures are in 
+themselves not unwhole-some. But it is well understood that we humans have a
+strong tendency to spin easily out of control when our enjoyment triggers the 
+desire for more of the same, or the aversion toward the inevitable end of our 
+enjoyment. The modern marketing industry understands this perhaps better 
+than Buddhists. Much Buddhist practice centers around guarding the senses to 
+14
+avoid spinning out in this extrinsic way.
+It is revealing to recall an experiment described earlier in which group A was 
+motivated to prepare for a test and group B was motivated to prepare to teach 
+the learned material. Group B exhibited the conceptual understanding and 
+satisfaction characteristic of the intrinsically motivated. Strictly speaking the 
+goal of teaching is also extrinsic, but we note that teaching is in service to 
+others, and therefore generally a wholesome act of kindness. The Buddhist 
+account makes the correct distinction.
+Devotion is a sense of wholehearted commitment that motivates Buddhist 
+practice as meaningful and satisfying in itself. Devotion has a similar 
+motivational structure as mindfulness and virtue, but at the higher level of 
+overall life-commitment. The meaning of the Pali word for devotion ranges 
+over “clear,” “bright” and “glad” as well as “pious.”38 It is through devotion 
+that we completely inhabit Buddhist practice and understanding. Rather than 
+“utilizing” the practice of Dharma by striving toward some goal outside of the 
+Dharma itself we settle into this simply as a way of life. Devotion or faith is 
+also described in terms of refuge, refuge in “the Buddha, the Dharma and the 
+Sangha,” a safe dwelling place, rather than a place we would rather be.39 When 
+we practice for its own sake, with no goal in mind, simply out of devotion, that 
+is best.
+None of us starts out with this level of devotion, we have to develop it. Many 
+of us, particularly in the beginning years of Buddhist practice, show great 
+pride, compare ourselves to others, excel in debate and boast great attainments 
+in the higher meditations. When we apply the higher meditations to achieving 
+mystical states, perhaps known only to ourselves, we are also striving, craving 
+and suffering, which are actually impediments to the calm and composed mind.
+Moreover, we may respond to many elements of practice with either defiance 
+or reluctant compliance. We see many Buddhist values and standards as 
+restrictive. This is natural if we don't see the point of our effort.
+The development of a more mature devotion to practice is attained primarily 
+through contemplation, through the knowledge and vision which results from 
+clear comprehension and dispels delusion. When we see clearly what makes 
+our lives so problematic, we begin to let go of our cravings and attachments, 
+much as an alcoholic needs to acknowledge his problem clearly before he is 
+15
+willing to do something about it. We recognize that there is a more beneficial 
+way to live our lives.
+As we flee from suffering into the arms of intrinsically motivated Buddhist 
+practice, we are further encouraged by the delight we find there. For instance, 
+as we settle into the practice of giving, we will begin to observe delight in 
+giving. We experience many sensual pleasures in our life – food, music, sex, 
+jewels and zombie movies – but we should become aware as well of the great 
+delight, a supra-mundane pleasure beyond the sensual, that comes with giving. 
+This delight is greatest when our intentions are purest. If this delight is the 
+direct experience of giving with a pure mind, consider how much joy there 
+must be in a lifetime dedicated to giving. We also find delight in refuge, in 
+contemplative practice itself,  in simple mindfulness and in whatever is 
+wholesome. 
+Delight does not stop there, but gives natural rise to tranquility and tranquility 
+easily gives rise to mental composure (meditative states, aka as concentration 
+or samādhi). The Buddha speaks of this as a natural progression that arises 
+effortlessly in the virtuous person. Mental composure is then put to good use in
+improving the quality of our contemplation, and thereby of wisdom.
+The need for competence, identified in self-determination theory, belongs to 
+the “how” of our activities. It is not fully predicted from these ethical 
+considerations alone, although mindfulness seems to highlight the “how,” as 
+we have seen. It is noteworthy that the Buddha, in advising  laypeople 
+concerning livelihood, repeatedly puts emphasis on the way we inhabit our 
+work, on carrying it out in an upright, responsible and harmless way, on 
+diligence, on proficiency and on protecting the results of our labor, rather than 
+on getting rich. In the Mangala Sutta (Blessings Discourse) he extols “much 
+learning and handicraft” as among the highest blessings. Elsewhere, he also 
+states, 
+What is the accomplishment of persistent effort? Herein … by 
+whatsoever activity a householder earns his living …, at that he 
+becomes skillful and is not lazy. He is endowed with the power of 
+discernment as to the proper ways and means; he is able to carry out 
+and allocate (duties).40
+This is to work mindfully and competently, and to put aside extrinsic striving. 
+16
+Conclusions
+An aspect of self-determination theory raises red flags for the Buddhist. This is
+the use of “self,” and its various qualifications like “true self,” “authentic self.”
+Most people have heard that Buddhism teaches “non-self.” There is an 
+experienced self in Buddhism, but it is a delusion. Losing that delusion is what 
+makes our behavior selfless. So there is nothing like a “true self.” Nonetheless, 
+there are ways in which we talk about human character and what is common to 
+all humans, what is learned, what is culturally conditioned and so on. So I 
+assume phrases like “true self” as denoting common aspects of the human 
+character, or what it is to be human. Whatever it is, it seems to have an ethical 
+sensibility in both Buddhism and self-determination theory, that somehow 
+commonly gets lost, to our own detriment and to the detriment of others, by the
+time it comes to behavior in the world. In Buddhism this is a result of our own 
+delusion. Isn't it weird that people should be like that? In short, the true self 
+seems to be non-self.
+That said, I would like to speculate that the distinction between autonomy and 
+control might not be necessary in explaining intrinsic and extrinsic motivation. 
+That ethical criteria might be enough, along with the tendency to resist effort 
+when we do not appreciate its value.
+Most modern Buddhists are staunch believers in science. I feel that Buddhist 
+readers will find inspiration in pointing out some strong parallels between age-
+old Buddhist ideas and the hugely important conclusions of this area of 
+experimental psychology and find their further ramifications useful in our own 
+understanding. Most experimental psychologists are not Buddhists, but I hope 
+that these readers will also find inspiration in pointing out some of these 
+parallels, and that they will find in the alternative ways of looking at the data 
+provided in Buddhist psychology some new research ideas.  I would be 
+delighted if these reflections were to provide some aspiring Ph.D. candidate 
+with one foot in each of these domains a cool dissertation topic.
+References
+Allport, Gordon W., 1956, The Individual and his Religion: a psychological 
+interpretation, McMillan.
+Batson, C. Daniel; Patricia Schoenrade; W. Larry Ventis, 1993, Religion and 
+17
+the Individual: a social-psychological perspective, Oxford University Press.
+Cintita, Bhikkhu, 2019, “How did mindfulness become 'Bare, non-judgmental, 
+present-moment awareness'?” In With Needle and Thread: essays in early 
+Buddhism, pp. 99-112,  Sitagu Buddhist Vihara, available on-line.
+Cintita, Bhikkhu, 2020, Mindfulness, where Dharma meets Practice, Sitagu 
+Buddhist Vihara, available on-line at sitagu.org/quicklinks/mindful/.
+Deci, Edward L.. 1995, Why We Do What We Do: understanding self-
+motivation, Penguin.
+Hari, Johann, 2018, Lost Connections: uncovering the real causes of 
+depression–and the unexpected solutions, Bloomsbury.
+Hackney, Charles H.; Glenn S. Sanders, 2003, “Religiosity and Mental Health: 
+a Meta-Analysis of Recent Studies,” Journal for the Scientific Study of 
+Religion 42:1, 43-55.
+Kasser, Tim, 2002, The High Price of Materialism, MIT Press.
+1 Deci (1995, 18).
+2 Deci (1995, 24).
+3 Deci,(1995, 32).
+4 Deci (1995, 26).
+5 Deci, (1995, 48-9).
+6 Deci, (1995, 47).
+7 Deci, (1995, 49-50).
+8 Deci, (1995, 51).
+9 Batson (1993, 232).
+10 Batson (1993, 199).
+11 Hackney (2003).
+12 Allport (1956, 54).
+13 Allport (1956, 59).
+14 Batson (1993, 296).
+15 Batson (1993, 303-4).
+16 Deci (1995, 45).
+17 Kasser (2002, 11).
+18 Kasser (2002, 12).
+19 Kasser (2002, 17).
+20 Kasser (2002, 38).
+21 Kasser (2002, 43).
+22 Kasser (2002, 44).
+23 Kasser (2002, 49).
+24 Kasser (2002, 62-3)
+25 Hari (2018, 95).
+26 Deci (1995 ,116-7).
+27 Batson (1993, 237).
+28 Deci (1995, 136, 162, 165).
+29 Deci (1995, 33, 103).
+30 Cintita (2020, 31-2).
+31 Cintita (2020, 14).
+32 Cintita (2020, 44).
+33 Cintita (2020, 42-3).
+34 The current definitions of 
+mindfulness cannot be found in 
+any Buddhist sources before the 
+mid-twentieth century, and, in fact,
+seem to conflate a number of 
+factors as a matter of subjective 
+experience that are more clearly 
+differentiated in early Buddhism. I 
+would recommend that modern 
+researchers take a closer look at the
+early definition, because it seems 
+to be much more precise. Cintita 
+(2019) discusses the origins of the 
+modern definition of mindfulness 
+and how it relates to the ancient 
+tradition.
+35 Mindfulness is a translation of the 
+Pali word sati, which literally 
+means memory. See Cintita (2020, 
+14-5).
+36 Cintita (2020, 28-9).
+37 Nhat Hanh (1987, 3-4).
+38 Cintita (2020, 52-3).
+39 Cintita (2020, 56-7).
+40 Cintita (2020, 100).

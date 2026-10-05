@@ -1,0 +1,570 @@
+# pageplace-preview
+# source PDF: raw/pageplace-preview.pdf | pages: 22 | ~6629 words
+
+‘This book is the bridge between the ideas of early Buddhism and the practice of Western style 
+psychological counseling. It is an excellent introduction to early Buddhist ideas, integrating 
+them as the theoretical backbone into a contemporary framework for professional counseling.’
+Liang Tien , Psy.D., ABPP, Professor, Illumination of Mindfulness Institute,  
+Alliant International University
+‘The Guide to Buddhist Counseling  is an excellent guide for therapists and caregivers, 
+ contextualizing contemporary psychological practices with Buddhist principles. It provides 
+real-world insights and case studies for anyone seeking to understand the workings of the 
+mind and emotions through a Buddhist lens.’
+Elaine J. Yuen , Educator and Chaplain, USA, Past Chair, Department of Wisdom Traditions, 
+Naropa University
+The Guide to Buddhist Counseling
+Buddhist concepts and practices have become increasingly popular and integrated into profes-
+sional psychology. This book is the first to propose a theoretical orientation for counseling 
+based on Early Buddhist teaching, and introduce it to counseling professionals for use in 
+mental health treatment and practice.
+Lee begins his book by outlining the essential concepts required to understand the 
+Buddhist view of human nature and the world. He presents the Buddhist counseling model 
+and suggests practices for the spiritual advancement of counselors, including self-cultivation 
+plans, contemplative exercises, and different types of meditation. Lastly, he discusses how 
+to apply the model in assessment, conceptualization, and intervention, and uses several case 
+examples to illustrate the actual process.
+As a go-to book in Buddhist counseling, this book is a valuable resource for Buddhist 
+chaplains, counselors, and mental health professionals interested in using Buddhism in their 
+clinical practice, as well as graduate students in religious studies and counseling.
+Kin Cheung (George) Lee is a Lecturer in the Centre of Buddhist Studies at the University 
+of Hong Kong and a Licensed Psychologist in the State of California (PSY28022). He was 
+previously the Director of Clinical Training at California School of Professional Psychology, 
+Hong Kong campus, and the Assistant Chair of the Department of Psychology, University 
+of the West.
+The Guide to Buddhist 
+Counseling
+Kin Cheung Lee
+Designed cover image: Karen Lau
+First published 2023
+by Routledge
+4 Park Square, Milton Park, Abingdon, Oxon OX14 4RN
+and by Routledge
+605 Third Avenue, New York, NY 10158
+Routledge is an imprint of the Taylor & Francis Group, an informa business
+© 2023 Kin Cheung Lee
+The right of Kin Cheung Lee to be identified as author of this work has been asserted 
+in accordance with sections 77 and 78 of the Copyright, Designs and Patents Act 1988.
+All rights reserved. No part of this book may be reprinted or reproduced or utilised in 
+any form or by any electronic, mechanical, or other means, now known or hereafter 
+invented, including photocopying and recording, or in any information storage or 
+retrieval system, without permission in writing from the publishers.
+Trademark notice : Product or corporate names may be trademarks or registered 
+trademarks, and are used only for identification and explanation without intent to 
+infringe.
+British Library Cataloguing-in-Publication Data
+A catalogue record for this book is available from the British Library
+ISBN: 9780367458041 (hbk)
+ISBN: 9780367458058 (pbk)
+ISBN: 9781003025450 (ebk)
+DOI: 10.4324/9781003025450
+Typeset in Bembo Std
+by KnowledgeWorks Global Ltd.
+Contents
+List of Figures vi
+List of Tables vii
+Preface viii
+Acknowledgements  xi ii
+ 1 Brief History of Buddhism as an Indigenous Psychology  1
+ 2 Buddhism and Science: Implications to Buddhist Counseling  10
+ 3 Major Theoretical Assumptions in Buddhist Counseling  25
+ 4 Overview of the Note, Know, Choose Intervention Model  38
+ 5 Buddhist Spiritual Formation as a Counselor  56
+ 6 Assessment in Buddhist Counseling  68
+ 7 Buddhist Counseling Case Conceptualization  88
+ 8 Intervention and Techniques: Note  108
+ 9 Intervention and Techniques: Know  127
+ 10 Intervention and Techniques: Choose  150
+ 11 Termination 176
+ 12 Ethical Considerations in Buddhist Counseling  187
+Index 197
+List of Figures
+ 4.1 Process of Buddhist Counseling 41
+ 4.2 The Note, Know, Choose Model 48
+ 5.1 Sample Guidance for Foundational Mindfulness Practice  61
+ 5.2 Sample Guidance for Self-Compassion Meditation Practice  63
+ 6.1 An Application of Dependent Co-Arising to Cognitively Deconstruct 
+Conditions of Suffering 83
+ 7.1 Diagram of Conceptualization of the Note, Know, Choose Model 90
+ 7.2 Reality vs. Fabrications: The Two Arrows 97
+ 7.3 Case Conceptualization Diagram of Cindy 100
+ 7.4 Treatment Plan for Cindy 102
+ 7.5 Self-Notion Conceptualization Diagram 104
+ 9.1 Levels of Insights in Buddhist Counseling 128
+ 9.2 Detachment Art Technique I: “How do people see you?” 136
+ 9.3 Detachment Art Technique II: “How do you wish to be seen by people?”  136
+ 9.4 Detachment Art Technique III: “How you really are” 137
+10.1 Non-I Statement 1  167
+10.2 Non-I Statement 2  168
+10.3 Good Kamma List  171
+11.1 Self-Cultivation Plan  183
+List of Tables
+ 3.1 The Five Aggregates as described in Early Buddhism 28
+ 4.1 Application of the Four Noble Truths to Buddhist Counseling 40
+ 4.2 Application of the Noble Eightfold Path to Note, Know, Choose 47
+ 7.1 Diagram of Initial Conceptualization of Cindy 91
+ 9.1 The Two Arrows Exercise with Sample 141
+10.1 The Nine Steps Mind Moment Analysis 153
+10.2 The Four Immeasurables Recollection Exercise 165
+Preface
+BACKGROUND OF THIS BOOK
+The past two decades have been an exciting time for Buddhism and the field of mental 
+health. Since the emergence of mindfulness, all fields of psychology and counseling seem 
+to have found a new panacea to all sorts of problems, thereby improving existing treatment 
+modalities. This evolution of the field has also sparked a strong interest in Buddhism, result -
+ing in a popularization of Buddhist concepts and practices in counseling across the globe. 
+In other words, many mental health professionals want to go beyond mindfulness and learn 
+Buddhism to benefit their counseling practice. At the same time, many Buddhist spiritual 
+care providers, including monastic members and Buddhist chaplains, hope to learn more 
+about how Buddhism can support their professional counseling practices and services. In the 
+last few years, many voices have suggested promising approaches for applying Buddhism to 
+counseling. Several remarkable approaches, based on major concepts of Buddhist teaching, 
+integrated significant portions of Buddhist teaching into a counseling model. In this regard, 
+this book raises one overriding question: Can we boldly develop a primary counseling 
+approach using Buddhism as the theoretical orientation?
+I believe Buddhism offers a comprehensive understanding of human psychology, pos -
+sessing sufficient theoretical and pragmatic components to formulate a complete theoretical 
+orientation for counseling. In particular, the foundational teaching provided by the historical 
+Buddha posits a clear worldview, a comprehensive account of human nature, a well-defined list 
+and explanation of the causes of suffering, and practical ways to eliminate such suffering. Even 
+further, I am confident that this theoretical backbone can integrate well with a contemporary 
+framework of professional counseling. Like a tried and tested recipe, all the best ingredients 
+are there, so all we need to do is to cook them skillfully and present them accordingly to the 
+customer. This is why I bring to you this book, the first guidebook that uses Buddhism as 
+a theoretical orientation to formulate a counseling model, The Guide to Buddhist Counseling .
+PURPOSE OF THIS BOOK
+In introducing a complete model of Buddhist counseling, three components will be 
+offered and explained to the reader: (1) The essential Buddhist knowledge required to 
+PreF aCe ix
+understand the Buddhist view of human nature and the world, (2) Buddhist practices 
+for the spiritual advancement of counselors, and (3) A treatment model with assessment, 
+conceptualization, and intervention. This book was written for a broad audience of mental 
+health professionals, ranging from graduate students who have never been exposed to 
+Buddhism or Buddhist counseling, to practitioners of Buddhist-informed treatments who 
+hope to learn a new interpretation of Buddhist counseling. The language is straightfor -
+ward, and case examples support the techniques to ensure the model is as practical as 
+possible. Hopefully, this book can serve as a clear and solid first step into the world of 
+Buddhist counseling.
+BRIEF SUMMARY OF CHAPTERS
+You may use the following summary as a “roadmap” to get an overarching sense of this 
+book and select materials that resonate with you.
+Chapter 1: Brief History of Buddhism as an Indigenous Psychology
+The first chapter starts off with a brief discussion of the history and development of Buddhism 
+in order to build a foundation to introduce Buddhism as a form of psychology. The chapter 
+also begins to introduce some overarching concepts in Buddhism, such as Non-self and The 
+Middle Path, to help readers step into the Buddhist worldview.
+Chapter 2: Buddhism and Science: Implications to Buddhist 
+Counseling
+Chapter 2 shifts the focus to address a hot topic in the field of psychology in the last two 
+decades: the intersections and interactions between Buddhism and science. Special atten -
+tion was paid to the emergence of Buddhist counseling as an up and coming field as well as 
+existing models of treatment.
+Chapter 3: Major Theoretical Assumptions in Buddhist Counseling
+The third chapter returns to the worldview of Buddhism by introducing some of the 
+most important theoretical assumptions in Buddhist teaching, such as the Three Marks of 
+Existence, the Five Aggregates, and the Four Noble Truth. This chapter provides the key 
+theoretical framework to the model of Buddhist counseling.
+Chapter 4: Overview of the Note, Know, Choose Intervention Model
+Chapter 4 takes a further step to introduce the Buddhist counseling model for this book, 
+Note, Know, Choose. It gives an overview of the process of Buddhist counseling as well as 
+the theoretical rationale of Note , Know, Choose to portray a picture of practically applied 
+Buddhism in counseling.
+PreF aCex
+Chapter 5: Buddhist Spiritual Formation as a Counselor
+To start the process of Buddhist counseling, Chapter 5 emphasizes the need for counselors 
+to begin the healing journey from oneself. The chapter includes a number of methods on 
+mind cultivation for mental health professionals.
+Chapter 6: Assessment in Buddhist Counseling
+As a first step of Buddhist counseling, this chapter explains the theory and practice of assessment 
+in Buddhist counseling. There are a number of examples and sample dialogue between counselors 
+and clients to illustrate potential applications. Starting from this chapter, the book will consist-
+ently use the case example of Cindy to demonstrate the application of concepts in each chapter.
+Chapter 7: Buddhist Counseling Case Conceptualization
+Chapter 7 addresses a critical topic in any intervention model, case conceptualization, and 
+illustrates how to apply Buddhist teaching to comprehend and analyze the suffering of clients. 
+The chapter introduces a specific model of conceptualization of Note , Know, Choose and uses 
+case examples for illustration.
+Chapter 8: Intervention and Techniques: Note
+Chapter 8 introduces the first intervention phase, Note, to foster stability of mind. The key is 
+to help the client develop a mindful haven and heightened awareness of their body and mind.
+Chapter 9: Intervention and Techniques: Know
+As a core phase of the model, Chapter 9 introduces the theory and technique of Know to 
+foster insights into the client. Applying awareness fostered in Note, readers can see how a 
+counselor can guide the client to see and discern their clinging and craving as well as the 
+potentials of letting go.
+Chapter 10: Intervention and Techniques: Choose
+This chapter introduces the Choose interventions to help the client make a variety of skill -
+ful choices ranging from internal mind acts to daily life decisions. In particular, Chapter 
+10 discusses a core intervention based on the Early Buddhist model of cognition, Mind 
+Moment Analysis.
+Chapter 11: Termination
+Chapter 11 explains the last stage of Buddhist counseling, the process of termination. This 
+chapter applies the Buddhist concept of life and death to discuss the ending and continu -
+ation of Buddhist counseling beyond the termination of the counselor-client relationship.
+PreFaCe xi
+Chapter 12: Ethical Considerations in Buddhist Counseling
+The last chapter briefly introduces four ethical principles of Buddhist counseling including 
+Beneficence, Interconnectedness, Compassion, and Competency. The chapter also discusses 
+several ethical considerations for the practice of Buddhist counseling.
+CONSIDERATIONS IN USING THIS BOOK
+As a newly developed treatment model, some limitations are inevitable, so several provisos 
+in using this book must be considered:
+First, I have tried integrating several case examples to illustrate the actual process of 
+Buddhist counseling, including a hypothetical case in several chapters based on authentic 
+counseling materials. However, the cases are straightforward, such as depression and anxiety, 
+instead of severe psychological disorders such as psychotic symptoms and bipolar disorders. 
+Moreover, most of the case examples are taken from Asian cultures, which makes cultural 
+adaptation essential when applying counseling concepts and techniques in different cultures.
+Second, you DO NOT have to be a Buddhist to practice Buddhist counseling. The 
+approach is non-faith-based, meaning that practitioners do not have to have faith in the 
+religious aspects of Buddhism, such as praying to the Bodhisattvas or chanting the Heart 
+Sutra. However, you DO need to have confidence in the presented Buddhist theory, much 
+as you believe in the theory behind Cognitive Behavioral Therapy, Psychoanalysis, Client-
+Centered Therapy, Emotionally-Focused Therapy, Dialectical Behavioral Therapy, or any 
+other counseling orientation.
+Third, as a theoretical orientation based on Buddhism instead of prominent and traditional 
+counseling approaches, there will be some different theoretical assumptions. Specifically, one 
+distinction of Buddhism is the assumption of non-self ( anatta), which is also the overarching 
+goal of the Buddhist counseling intervention model presented in this book. As some readers 
+may be new to Buddhism, I suggest they have an open attitude to the Buddhist concepts 
+by temporarily putting down any existing assumptions about the world, life, and human 
+nature, and reflexively apply these concepts and practices to themselves. This attitude was 
+helpful to my own learning of Buddhism as a clinical psychologist.
+APPROPRIATE COURSES
+Finally, this book can serve as a reference for courses related to spiritual care and Buddhist 
+studies:
+• Spiritual Care and Counseling courses in Master of Divinity in Buddhist Chaplaincy 
+programs.
+• Theory and practice courses in Masters of Buddhist Counseling programs.
+• Buddhist counseling, Buddhist psychology, and Buddhist chaplaincy courses in Masters 
+of Buddhist Studies programs.
+PreFaCexii
+• Buddhist counseling, Buddhist psychology, and Buddhist chaplaincy diploma or cer -
+tificate courses in Buddhist psychology, psychotherapy, counseling, or comparative 
+psychotherapy.
+• Mindfulness-related courses in traditional Master of Counseling, Master of Social Work, 
+Masters of Marriage and Family Therapy, graduate programs in clinical counseling, 
+school psychology, and similar programs.
+A STARTING POINT
+I am profoundly grateful for your decision to open this book and read my view of Buddhist 
+counseling. I hope that this book becomes one of the starting points of the field of Buddhist 
+counseling and that it can gradually develop into a mainstream treatment model. At the same 
+time, it is important to note that this book is only my interpretation of Buddhist counseling 
+and you may have your own view. Please feel free to extract, integrate, or re-interpret the 
+content of this book or trace back the original Buddhist teaching for the benefit of you and 
+your clients because I trust that your inner wisdom will guide you in adapting Buddhism to 
+your client’s needs. I look forward to learning about your view of Buddhist counseling and 
+perhaps collaboratively working to build this field. I hope you enjoy this book.
+Kin Cheung (George) Lee
+acknowledgements
+I want to express my sincere gratitude to all my family members, mentors, friends, colleagues, 
+and every important person in my life. Without you, I would never be the “George” I am 
+now and would not be able to finish this book. Therefore, I want to take this opportunity 
+to wholeheartedly thank each one of you:
+My parents, Dr. Lee Shin and Miss Chung Po Po.
+My wife, Ms. Karen Lau.
+My sons, Sage Lee and Jake Lee.
+My sister, Ms. Venus Lee.
+My friend and mentor, Dr. Liang Tien.
+My Sifu, Venerable Sik Hin Hung.
+My professors and mentors, Dr. Patricia Haynes, Dr. Thierry Devos, Dr. Ruth Chung, 
+Dr. Ginger Clark, Dr. Mary Andres, Dr. Terece Bell, Dr. James Garbanati, Dr. Jane 
+Naomi Iwamura, Dr. William Chu, President Stephen Morgan, President Minh-Hoa 
+Ta, and Dr. G. A. Somaratne.
+My supervisors, Ms. Iris Wong, Dr. Glenn Masuda, Dr. Scott Hartman, Dr. Karen 
+Rathburn, and Dr. Hiroshi M. Sasaki.
+My friends and colleagues, Dr. Jessica Tang, Dr. Amrita Nanda, Dr. Bonnie Wu, 
+Dr. Guang Xing, Dr. Georgios Halkias, and Dr. Jean Kristeller
+I also want to send my special thanks to Dr. Elaine Yuen and Dr. Adrian Davis who have 
+given me highly valuable feedback and suggestions to improve the quality of this book.
+Thank you so much to you all for being a valuable part of my life.
+
+DOI: 10.4324/9781003025450-1
+Brief History of Buddhism as 
+an Indigenous Psychology
+1CHAPTER 
+In the 2,500 years since the time of the historical Buddha, Buddhism has been interpreted 
+and elaborated into many different forms in response to various cultural, political, and his -
+torical environments. In most contemporary cultures, Buddhism is regarded as a religion 
+that involves rituals, liturgies, and worship of the Buddha. The symbols of superhuman 
+higher powers are usually Buddhas and bodhisattvas, enlightened beings with immeasurable 
+compassion. In each lineage of Buddhism there is usually a faith-based system for followers 
+to take refuge in the historical Buddha and other Buddhas and bodhisattvas for safety, inner 
+peace, or blessings. Perhaps due to the religious position of Buddhism, when I talk about 
+applying Buddhism to counseling, many individuals assume that Buddhism is a religion 
+and start questioning the efficacy of applying a faith to counseling. My response is simple: 
+If you learn about the early beginnings of Buddhism, you will begin to see Buddhism as a 
+psychology instead of a religion.
+Similar to Stoicism, Existentialism, and Confucianism, Buddhism provides a comprehen -
+sive analysis of the human mind and behavior and a systematic approach to the elimination of 
+human suffering. Buddhism has only one ultimate goal: to liberate individuals from suffering 
+through the analysis of the mind as well as personal cultivation and growth. Regardless of 
+the diversification of Buddhist teachings into numerous schools and lineages over the last two 
+thousand years, this ultimate goal has never changed. Therefore, this book incorporates mind 
+analysis and cultivation methods (as based upon the five Pa¯li Nika¯yas, the earliest collection 
+of the Buddha’s discourses) into a professional counseling model for contemporary socie -
+ties. Its purpose is to provide a viable treatment option for helping professionals, including 
+counselors, therapists, social workers, chaplains, psychologists, psychiatrists, and their clients. 
+In other words, this book aims to redefine Buddhism as a viable theoretical orientation for 
+counseling and to provide practical methods and techniques to facilitate the work of helping 
+professionals. The first step on this journey is to understand the Buddha’s philosophy of mind.
+THE BUDDHA BEFORE BUDDHISM
+The teachings of the Buddha offer a comprehensive analysis of the human mind and an 
+understanding of how to become completely liberated from suffering. Instead of being a god-
+like figure who has the mystical power to govern and change human affairs by meting out 
+BrIef HIstOry Of BuDDHI sm as an In DIgenOus Psyc HOlOgy2
+rewards and punishments, the Buddha can be regarded as a philosopher, a teacher, a religious 
+leader, and a person capable of addressing psychological problems. In most early accounts of 
+the Buddha’s life, the Buddha was depicted as an ordinary person who got sick and hurt but 
+who was also devoted to teaching and sharing his realizations. While acknowledging Early 
+Buddhist scriptures documenting the Buddha’s discourses on supernatural powers (such as 
+the Kevatta Sutta, which examines psychic power or telepathy), the Buddha’s primary inter -
+vention method was to use dialogues, questions, didactics, silence, or other skillful teaching 
+methods to alleviate suffering. He was primarily referred to as a teacher, which also involved 
+the role of a counselor in that cultural context.
+LIFE OF THE BUDDHA
+During the 5 th century B.C., a republic called Shakya was geographically located in what 
+is now the southern border of modern Nepal. According to legend, the leader of Shakya, 
+Śuddhodana Gautama, learned from a prophet that his future son would become either a 
+great king or, through renunciation, a great spiritual leader. In response to the prophecy, 
+Śuddhodana decided to raise his son luxuriously, thereby sheltering him from any reason 
+that might cause him to pursue a spiritual path. When Ma ̄yā Gautama, Śuddhodana’s wife, 
+died soon after giving birth to the young prince, her sister, Maha ̄pajāpatī Gautama, became 
+the step-mother of the future Buddha, raising the prince throughout his childhood. From 
+the moment of his birth as the prince of Shakya, Siddha ̄rtha Gautama was immersed in a 
+privileged life of abundant food, elegant clothes, and endless entertainment. He also received 
+a royal education to become the future king, excelling in many branches of knowledge, 
+including the art of warfare. As arranged by his father, Prince Siddha ̄rtha was married at age 
+16 and lived a fairy tale life until the day his curiosity took him beyond the palace walls.
+At age 29, Siddha ̄rtha decided to embark on the first adventure of his life: to see the 
+world outside his palace, the real world that his father had striven so hard to hide from him. 
+Immediately after his departure, he saw a world beyond his imagination: aging people, incur -
+able illnesses, death, poverty, and tears. Astonished and overwhelmed, Siddha ̄rtha gradually 
+realized that he was living in a world with unavoidable miseries and, to compound matters, 
+no one had found a way to escape suffering. Despite the shock to his innocence brought 
+about by this experience, Siddha ̄rtha adamantly sought an answer. Upon encountering an 
+ascetic monk who seemed to be undisturbed by the miseries of life, the young prince started 
+to wonder whether he might find his answer in renunciation. Eventually, Siddha ̄rtha left his 
+palace, his wife, his infant son, and his family to start his life as a religious ascetic.
+During that time in ancient India, abstinence from sensual pleasures, self-imposed pov -
+erty, and self-mortification exercises to pursue salvation were widespread practices. After 
+undergoing extreme asceticism for six years, Siddhārtha, on the brink of starvation, discovered 
+that severe renunciation only increased suffering. He realized that only the Middle Path—a 
+path of moderation beyond the extremes of sensual indulgence and self-mortification—led to 
+peace of mind. Following this insight, at the age of 35, and after 49 days of meditation under 
+a Bodhi tree, Siddhārtha discovered the law of dependent origination, realized the Four Noble 
+Truths, attained enlightenment, and became known as the Buddha or the “Awakened One.”
+BrIef HIstOry Of BuDDHI sm as an In DIgenOus Psyc HOlOgy 3
+In his first discourse, the Dhammacakkappavattana Sutta: Setting the Wheel of Dhamma in 
+Motion, the Buddha explicated his understanding of the Middle Path leading to nibba ̄na, 
+the highest and happiest psychological state possible (Dhamma, 1997). One of his foremost 
+realizations is that neither extreme asceticism and self-mortification nor pursuit and indul -
+gence in materialism and sensual pleasures will end suffering. As a prince, the Buddha lived a 
+life of luxurious enjoyment, providing enormous physical and mental satisfaction. However, 
+taking delight in such indulgence will never satiate the mind’s desire; instead, they only 
+perpetuate and strengthen desire, lust, and the thirst for more sensual pleasure, resulting in 
+more suffering. As with addictions, individuals become temporarily satisfied by performing 
+an act with a pleasurable reward (e.g., taking cocaine, gambling, sex, etc.) and begin to have 
+cravings for the same level of pleasure. However, tolerance develops, and addicted individu -
+als continuously, and sometimes compulsively, perform the same act with more intensity to 
+experience a similar level of pleasure despite harm to themselves. Therefore, both the Buddha 
+and psychology have regarded this kind of pursuit of sensual pleasure as self-defeating and 
+ultimately unsatisfying.
+The other extreme is self-mortification, which is the direct opposite of indulgence 
+in sensual pleasures. For example, in ascetic practices, the Buddha and the fellow practi -
+tioners denied themselves food and clothing, immersed themselves in frigid water in cold 
+weather, exposed themselves to the sun in hot weather, or kept standing for days. These 
+self- mortifications are believed to exhaust previously gained bad kamma and help the mind 
+refrain from indulging in sensual pleasures. However, the Buddha found this practice unprof -
+itable because it only results in unnecessary pain and suffering.
+The Buddha then emphasized avoiding the two extremes of sensual pleasure and self-
+mortification. Even when the Buddha was a prince, enjoying the most luxurious and fulfilling 
+life, he could not avoid the inevitable suffering such as sickness and aging. Indeed, it only 
+perpetuates further one’s inclination to indulge in sensuality and disturb one’s equanim -
+ity. On the other hand, practicing self-mortification resulted in painful experiences that 
+produced unnecessary and meaningless suffering. His direct experiences pursuing the two 
+extremes led him to conclude that the pursuit of either did not end suffering. The Buddha 
+then proposed the Middle Path, which involves the teachings of Four Noble Truths, the 
+Noble Eightfold Path, Dependent Origination, and non-self. For the remaining 45 years of 
+his life, he taught these concepts in the regions of contemporary India and Nepal.
+THE UNIQUENESS OF EARLY BUDDHIST TEACHINGS
+To understand the uniqueness of Buddhism, it is essential to consider the sociocultural 
+background of the Buddha’s life. In 563 B.C.E., religion played a core and definitive role in 
+India. It was a time of diversified religious beliefs, and many advanced practitioners in each 
+religion played the role of sage, offering advice to help with people’s suffering. Religious 
+beliefs were divided into two types of teachings: eternalism (sassata-va ̄da) and annihilation -
+ism (uccheda-va ̄da). The eternalistic religions believed in a metaphysical self, with human 
+existence defined as an eternal soul residing in a temporary body. When the body dies, the 
+soul continues to live and reincarnate to another body based on previous kamma. The soul’s 
+BrIef HIstOry Of BuDDHI sm as an In DIgenOus Psyc HOlOgy4
+ultimate goal is to enter eternal bliss or reunite with a higher power, and the path for doing 
+so was to mortify the flesh in order to overcome such physical bondage. Some traditions, 
+such as Jainism, assert that self-mortification and ascetic practices can cleanse bad kamma 
+and lead one’s soul to a state of blissful eternity. Another tradition, Bra ̄hma ṇism, had a basis 
+in this stance. Its ultimate goal is reunification with God, Brahman, who is considered the 
+eternal origin, cause, and foundation of all existence. This type of religion emphasizes self-
+continuity or soul-continuity, thereby suggesting an eternal agent of existence in each person.
+The annihilationists strongly believed in the physical self and regarded the self and the 
+body as one. As such there is no separate entity as a discernible soul, and the death of the 
+physical body means the end of the self, especially as it is also believed that there is no kamma, 
+rebirth, or afterlife. Based on this assumption, annihilationists emphasize immediate sensual 
+pleasures and materialism. Charvaka, for example, is an ancient school of Indian materialism 
+that emphasized direct experience as the most accurate and dependable source of knowl -
+edge and critically examining all inferences, questions, conventions, or phenomena. They 
+accept pleasure and pain as part of life and believe in indulgence in pleasure and avoidance 
+of pain. As Charvaka rejects ideas of God or grace, as in other annihilationist schools, they 
+emphasize living in the present moment instead of wasting time postulating on any dubious 
+and unknown matters beyond this life. This type of religion emphasizes self-discontinuity 
+and denies any possibilities outside of self-control.
+Driven by his direct experiences in the two pursuits, the Buddha regarded these two 
+systems as two extreme views. Subsequently, the teachings of the Buddha provided an inno -
+vative perspective of spiritual practice that was in direct contrast to these popular Indian 
+religious-philosophical systems. The Buddha was the first to propose a middle view under -
+pinned by a non-self. Logically, if a concept does not exist, one will not even mention its 
+existence; for example, “wings of a tiger” would not be a plausible statement. In this sense, 
+when the Buddha used the term “anatta ̄” to describe not-self or non-self (not to be confused 
+with “no self,” which is a rejection of the existence of self), he was possibly referring to a 
+provisional existence of self, one that is not ultimate and absolute. One can understand such 
+a self as an ontological existence or a temporary phenomenon experienced by conscious -
+ness. In fact, the problem is never whether the self exists; it is about the mental flexibility in 
+seeing multiple perspectives of what constitutes a self and refraining from attaching to any 
+one particular point of view.
+This mental flexibility is the Middle Path (majjhima ̄ paṭipadā), a third perspective on the 
+two dualistic extremes. It is a metacognitive view that detaches the mind from the inclination 
+to pursue both extremes. It involves a realization of how the self is a phenomenon instead 
+of an ultimate existent. This third view of personal identity must not be underestimated in 
+contributing to the radical shift in awareness brought about in Indian society. Among all the 
+contemporary religions and spiritual practices in ancient India, including self-continuous and 
+self-discontinuous beliefs, self-existence was regarded as incontrovertible. In other words, 
+it had always been defined as a concrete and indivisible entity regardless of whether it is 
+permanently and continuously existing or temporarily existing for one lifetime. The Buddha 
+challenged these assumptions in a revolutionary way by denying the ultimate existence of 
+self. In this view, the existence of self is merely a concept: one can conceptually label a “self” 
+based on one’s experiences, but this “self” is an ontological existence that is divisible into 
+BrIef HIstOry Of BuDDHI sm as an In DIgenOus Psyc HOlOgy 5
+multiple causes and conditions without any permanent existence. Let’s consider the following 
+conversation to illustrate this assertion of non-self:
+PERSON A: Where is your car?
+PERSON B: Here is my Bayerische Motoren Werke (BMW) sports car. I just finished 
+financing it.
+PERSON A: What makes it a BMW sport car?
+PERSON B: It’s got the logo on the front of the car.
+PERSON A: So is the logo your car?
+PERSON B: No! It has an M88 engine, Michelin Pilot super sports tires, and the finest 
+leather seats!
+PERSON A: So you mean the engine is your car? The tires are your car? The seats are your 
+car? Or the windows, the timing belt, and brakes are your car?
+PERSON B: No, none of these define my car. The combination of all these make up my car.
+PERSON A: Engines are metal, leathers are skin, tires are plastic, so metal, skin, and plastic 
+make up your car?
+PERSON B: No! It’s a fancy BMW sports car! It’s not a bunch of metal, skin, and plastic!
+PERSON A: Is there anything else that makes up your car?
+PERSON B: No….
+PERSON A: So where is your car?
+PERSON B: I guess I just label these components as “my car.” There is not really a car.
+In this example, Person B labels the combination of constituents a “car,” but this is nothing 
+more than a construct or logical abstraction based on a reification of the whole. The analogy 
+demonstrates that there is no separate “self” that can be found in any, or in any combination, 
+of the components that make up a self; instead, “self” is a nominal term for the collective 
+experiences of our body, consciousness, and other factors. The gist of the Middle Path is 
+analyzing the self and seeing through its fabricated and conceptual nature of consciousness 
+to let go of the grasping that causes all kinds of suffering.
+The Buddha taught that grasping is the root of suffering, and he did so without recourse 
+to any revelation about theology or cosmology; instead, he strongly emphasized a somewhat 
+individualistic approach to spiritual practice and regarded self-cultivation as the most impor -
+tant and immediate pursuit of life. For this reason, Buddhism stands in direct contrast to 
+many religions, which encourage the worshipping of a higher power for salvation.
+DIVERSIFICATION OF BUDDHISM
+To understand and apply the teachings of the Buddha adequately, it is crucial to get a sense 
+of how the Buddha’s thoughts and ideas have been utilized in numerous articles, books, and 
+presentations in contemporary society. As Early Buddhism was an oral tradition, practitioners 
+used recitation, chanting, and music to help memorize teachings and express their commit -
+ment. After the Buddha’s passing, his followers congregated to consolidate and authorize his 
+teachings and practices, especially Ānanda and several others who had extraordinary powers 
+of memorization that they used to preserve the Buddha’s discourses. This congregation was 
+BrIef HIstOry Of BuDDHI sm as an In DIgenOus Psyc HOlOgy6
+what we now call the First Buddhist Council, which served as the first officially validated 
+source of the Buddhist scriptures by the monastic community of that time. Since then, as 
+the teachings of the Buddha spread far and wide across Asia, different interpretations of his 
+message developed, as seen in the emergence of many schools of Buddhism. The original 
+teachings of the Buddha are accessible to us only through classical canons of these various 
+schools, but the use of written texts to capture the teachings only began in the early com -
+mon era, after the proliferation of Buddhist schools had occurred (Bareau, 2005). After years 
+of reformation of the divergence of different Buddhist schools, scholars have identified and 
+categorized types of Buddhism according to their doctrinal similarities, geographical distri -
+bution, sociopolitical influences, and other factors. To provide a more simplistic introduction 
+to the essence of Buddhist schools in contemporary society, this book adopts the classification 
+of Buddhism into three main branches: Therava¯da, Maha¯ya¯na, and Vajraya¯na.
+Therava ̄da Buddhism . Therava ̄da Buddhism is believed to be one of the oldest 
+Buddhist sects (Crosby, 2014). The meaning of Therava ̄da refers to the “doctrine of the 
+senior monks,” signifying the succession of original teachings from the Buddha. Therava ̄da 
+Buddhism adheres to the recorded discourses of the Buddha in the Pa ̄li Canon known as 
+the five Nika ̄yas, believed to be the most extensive collection of the Buddha’s discourses, as 
+well as the commentaries of the Pa ̄li Canon, such as the Abhidhamma. Therava ̄da Buddhism 
+emphasizes following in the footsteps of the historical Buddha, which focuses on the libera -
+tion of the mind and cessation of suffering. Those who pursue and are successful in such a 
+practice are called arahants, enlightened beings free from suffering and rebirth. Therava ̄da 
+Buddhism is often referred to as Southern Buddhism due to its transmission from India to 
+South and Southeastern Asia. It remains a dominant form of Buddhism in many Southeastern 
+Asian countries, including Sri Lanka, Burma, Thailand, Cambodia, and Laos. In addition, 
+it has had important influences on Nepal and Indonesia. Well-known teachers of Theravada 
+Buddhism today include the monk Ajahn Brahm.
+Mahāyāna Buddhism . In the first century C.E., a group of Indian Buddhists led a 
+reform movement seeking to restore the original soteriological intent of the Buddha to 
+enlighten all people (Whelan, 2011). Maha ̄yāna means the “Great Vehicle.” Instead of focus-
+ing on the personal attainment of enlightenment, Maha ̄yāna Buddhists emphasize the col -
+lective liberation of all beings by cultivating compassion and wisdom. Uniquely, Maha ̄yāna 
+Buddhism emphasizes the ideal of becoming a bodhisattva, an enlightened being who has 
+been liberated from suffering but chooses to stay in the realm of cyclical rebirth to aid all 
+beings. Using Early Buddhist scriptures as aids, Maha ̄yāna Buddhists later developed texts in 
+Sanskrit as part of their sacred scriptures, such as the Lotus Sutra, Diamond Sutra, and Heart 
+Sutra. From a small sect of Buddhist mendicants and householders in Northern India to a 
+global religion, Maha ̄yāna Buddhism has spread widely in East and Central Asian countries 
+such as Bhutan, Mongolia, China, Taiwan, Korea, and Japan. Due to its geographical dis -
+tribution across northern India, Maha ̄yāna Buddhism is sometimes referred to as Northern 
+Buddhism. Some of the notable diversifications of Maha ̄yāna Buddhism include Chan 
+Buddhism, Pure Land Buddhism, and Zen Buddhism. Thich Nhat Hanh, a global spiritual 
+leader, was a Zen Buddhist.
+Vajrayāna Buddhism. Vajrayāna Buddhism or Tantric Buddhism is generally regarded 
+as a derivative school of Maha ̄yāna Buddhism (Wedemeyer, 2012). Vajraya ̄na, translated as 
+BrIef HIstOry Of BuDDHI sm as an In DIgenOus Psyc HOlOgy 7
+the “diamond vehicle,” adopts the core Mahāyāna philosophical doctrines while emphasizing 
+unique practices to actualize the teachings. Driven by some elements of Early Buddhist texts 
+and Maha ̄yāna sutras, tantras are esoteric traditions based on mystical texts documenting 
+various rituals and rites, including the performance of mudras, the use of mantras such as 
+“Om mani padme hum,” meditating on mandalas, visualizations of Buddhas and bodhisat -
+tvas, and other esoteric practices, with successors in the lineage receiving empowerment from 
+their masters to realize certain teachings and skills. In about the 7 th century C.E., Vajraya ̄na 
+Buddhism became fully systemized in northern India. Its transmission provided significant 
+support for the development of Tibetan Buddhism, which has become one of the most 
+popular Buddhist schools today and highly influential in North America. Pema Chödrön, 
+a senior teacher in Buddhist compassion, is an American Tibetan Buddhist.
+Despite the differences in the theoretical orientations of the Buddhist schools, their 
+primary concern, reflective of the reason for Siddha ̄rtha’s renunciation of worldly life, is the 
+same: concern for human well-being and the desire to alleviate the suffering of oneself and 
+others. As demonstrated by the failure of Siddha ̄rtha to find the solution to suffering through 
+renunciation, Buddhism does not consider rejecting worldly phenomena in its entirety as 
+the way of liberation from suffering. Instead, all Buddhism holds that the mind plays an 
+essential role in the experiencing of all types of human suffering; therefore, the transforma -
+tion of our minds is the most effective antidote. The Buddhist tradition has “concerned itself 
+over the past 2,500 years with cultivating exceptional states of mental well-being as well as 
+identifying and treating problems of the mind” (Smith as cited in Wallace & Shapiro, 2006, 
+p. 690). Emphasizing mental training and the scholarly position that Buddhism is a school 
+of thought open to interpretation, this book provides a contemporary interpretation of Early 
+Buddhist teachings from a professional counseling angle. In that light, all applications of 
+Buddhist teaching described in this book are open for further adaptation, transformation, 
+and interpretation to fit the needs of counselors and clients.
+CONCLUSION
+This first chapter has outlined a brief history of Buddhism and its unique teachings of the 
+Middle Path and non-self, constituting core ideas in the counseling model described in this 
+book. To facilitate readers’ understanding, I would like to summarize the Buddha’s teachings 
+of non-self as follows: “You may say there is a self, but it is not what you think.” Provisionally, 
+however, I can label my body and mind as my ‘self’, an identity I wish could be permanent. 
+Furthermore, I continuously construct my sense of self through my identities, values, social 
+roles, relationships, achievements, and others’ evaluations of me.
+As an example, I wanted to become a professor since my time at university, and I kept 
+telling myself that I could be a competent, respected, and superior person once I gained this 
+social status. From this perspective, I can convince myself that “I” exist through status and 
+achievements. Things went very well initially, and I became an assistant professor right after 
+completing my first doctoral degree. I did not notice how much I clung to my identity as a 
+“professor” until, several years later, I was rejected for an appointment with harsh comments 
+and labeled as unqualified. I suddenly lost the title of a “professor,” damaging my pride and
