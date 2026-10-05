@@ -8,8 +8,7 @@ logs/
 dist/
 build/
 *.egg-info/
-amod-counseling/
-counsel-chat/
-psychopref/
 *.ipynb_checkpoints/
 *.pdf
+*.csv
+*.parquet
