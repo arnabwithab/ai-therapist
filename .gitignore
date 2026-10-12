@@ -12,3 +12,4 @@ build/
 *.pdf
 *.csv
 *.parquet
+chroma

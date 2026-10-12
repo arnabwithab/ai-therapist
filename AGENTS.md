@@ -13,7 +13,7 @@ AI counsellor: a finetuned small language model for counselling (Qwen3-4B primar
 
 ## Tech Stack
 - ML training: Unsloth QLoRA notebooks (`notebooks/`), run on Kaggle T4 (Eros438 account)
-- RAG: Chroma (embedded persistent, `./chroma/`, gitignored) + `BAAI/bge-small-en-v1.5` via sentence-transformers
+- RAG: Chroma (embedded persistent, `./chroma/`, gitignored) + `BAAI/bge-small-en-v1.5` via sentence-transformers (CPU-only)
 - Backend (planned): FastAPI (Python)
 - Frontend (planned): React + Vite + TypeScript
 - Package Manager: uv (Python) — never pip directly
