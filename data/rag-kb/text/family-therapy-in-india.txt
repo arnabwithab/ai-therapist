@@ -1,0 +1,514 @@
+# Family Therapy in India (Annals of Indian Psychiatry, 2018)
+# source: user-provided PDF | pages: 5 | ~4241 words
+
+© 2018 Annals of Indian Psychiatry | Published by Wolters Kluwer - Medknow
+88
+Abstract
+Review Article
+Introduction
+Perhaps the simplest definition of family therapy which is in 
+fact an extremely convoluted process is as follows: “A form 
+of psychotherapy that seeks to reduce distress and conflict 
+by improving the systems of interactions between family 
+members.” In reality, even if one has a couple and their 
+child in one’s consulting room, you are in fact dealing with 
+a number of different and intricate processes. The cognitive 
+and emotional processes of all four people in the room come 
+into play including the processes within the therapist, who 
+also harks back to a particular set of familial experiences 
+and needs to set those aside while dealing with the case as 
+a professional. One cannot deny the fact that we learn our 
+vocabulary, our habits, our customs, and rituals in the family 
+we are born into and that is a factor that shapes how we view 
+the world around us.
+Formal training in family therapy approaches in India needs 
+to be augmented. The need for these strategies in therapy 
+is high, and several good options are available but mental 
+health professionals need to be formally trained for the same. 
+Anisha Shah, Ahalya Raghuram, Mathew Varghese, and 
+Srilatha Juvva among others have attempted to evaluate the 
+brief family therapy training at NIMHANS in Bangalore, India 
+and have highlighted these processes of ensuring empathy 
+and yet remaining detached. They attempted to evaluate 
+perceptual and interview skills and reported that analysis of 
+the pre‑ and post‑scores of thirty one students showed that 
+the trainees report an improvement on many of the basic 
+family therapy skills (P < 0.001) and show enhancement of 
+conceptual skills.[1]
+However, empirical evaluations such as these are nevertheless 
+fraught with difficulty because the processes described above 
+include many combinations of interactions, as described above. 
+That with all four people in the room, and besides that the 
+interaction between the couple, among the couple and their 
+child as a triad, as well as between dyads of therapist and each 
+of the individual people in the room.
+Origins of family therapy are traced, acknowledging that this is in fact a group of therapeutic approaches. An overview of work done at 
+major mental health centers in India is followed by an attempt at outlining key differences in Indian vis‑a‑vis Western approaches to family 
+therapy, addressing some of the unique problems that are encountered in our country. Traditional systems of arranged marriage and a joint 
+family, in vitro fertilization interventions and the family pressures to have a baby, the impact of work on family life and the onslaught of 
+social media and family migrations across the globe are some of the issues outlined. Major approaches to family therapy are selected, and 
+their key features are highlighted. Specifically, Minuchin’s structural family therapy and Virginia Satir’s conjoint family therapy are described. 
+Touching very briefly on Milton Erickson’s strategic family therapy, the article moves on to White and Epston’s narrative family therapy; 
+and each approach is described vis‑a‑vis its strengths when applied to an Indian family setup. The article ends on preventive, promotive, and 
+rehabilitative approaches espoused by the author as also by many therapists in India. Behavioral family interventions by Sanders are outlined 
+as is the positive parenting program and its Indian avatar in Palakshaala. Preventive approaches such as functional family therapy by Sexton 
+and Alexander are described. Rehabilitative work with patients and caregivers is outlined, citing examples. The article ends by highlighting 
+some recent changes in the social fabric that seem to be deeply affecting family structures.
+Keywords: Applications in urban settings, family therapy, Indian research
+Address for correspondence: Dr. Anuradha Vishwas Sovani, 
+“OM”, 31, Shreesh Society, LIC Cross Road, Off Eastern Express Highway, 
+Thane (West) ‑ 400 604, Maharahstra, India. 
+E‑mail: anuradhasovani@gmail.com
+Access this article online
+Quick Response Code:
+Website:  
+ www.anip.co.in
+DOI:  
+10.4103/aip.aip_22_18
+This is an open access journal, and articles are distributed under the terms of the Creative 
+Commons Attribution‑NonCommercial‑ShareAlike 4.0 License, which allows others to 
+remix, tweak, and build upon the work non‑commercially, as long as appropriate credit 
+is given and the new creations are licensed under the identical terms.
+For reprints contact: reprints@medknow.com
+How to cite this article: Sovani AV. Family therapy in India. Ann Indian 
+Psychiatry 2018;2:88-92.
+Family Therapy in India
+Anuradha Vishwas Sovani
+Department of Psychology, SNDT Women’s University, Mumbai, Maharashtra, India
+
+Sovani: Family therapy in India
+Annals of Indian Psychiatry  ¦  Volume 2  ¦  Issue 2  ¦  July-December 2018
+89
+Historical background
+Most articles on family therapy and family counseling in 
+international publications begin with the long tradition of the 
+clergy counseling family members, and occasionally, doctors 
+and lawyers also assaying this role. Formal community centers 
+for family counseling began in the West around the 1940s, and 
+even then, boundaries were not really clear between marital 
+therapy exclusively and family therapy addressing the unit 
+of the family as a whole. Some approaches still separated 
+the problems pertaining to the children in the family and 
+partitioned them away to child guidance clinics. The overall 
+approach to marital and family conflicts and emotional discord 
+was largely of a brief and problem‑solving nature.
+Mittal and Hardy[2] go so far as to pronounce, “the formalized 
+discipline of marital and family counseling/therapy has its 
+theoretical foundation in the West.” There could be multiple 
+views about this since Indian psychology as a discipline takes 
+a collectivistic world view as opposed to the individualistic 
+view of the West, which in effect also translates into many 
+family dynamics as they exist in India. Everything is seen 
+in context, depending on the time, place, and situation 
+when events occurred. Further, the Indian worldview focuses 
+on the environment and relationships, as against the Western 
+anthropocentric world view.[3] Conjoint therapy dealing with 
+the various members in the family came much later, post the 
+half century mark, and this article will attempt to trace these 
+early beginnings. However, more importantly, one must 
+acknowledge that if family therapy in the West was dominated 
+by clergy and that in India was almost exclusively handled 
+by the “elders” in the large joint and extended family and the 
+community. To quote Thomas, a social worker, India is most 
+known for “ancient traditions, rituals, religious orientation, 
+spiritual outlook and folk beliefs, warmth, strong bonds, 
+hierarchy, extended support, cultural orientation, shared values 
+and time, tolerance, respect for the aged and inculcation of 
+religious teachings and traditions in families.”[4]
+Interventions that are subsumed within family therapy
+Thomas goes on in his paper to explore the roles of various 
+interventions under the broad umbrella of family therapy. 
+These may include therapy for sexual difficulties. One of the 
+new emerging stress areas is the stress associated with in vitro 
+fertilization (IVF). The family exerts great pressure on the 
+young couple to have a baby, and the IVF treatment process 
+places unprecedented physical and emotional stress which is 
+often hard to deal with. IVF counselors in every such medical 
+setting are now made mandatory. However, stigma associated 
+with being childless is unique to oriental cultures in general and 
+India in particular. Tulsian and Sovani[5] have explored these 
+processes and found that Indian couples are very reluctant to 
+undergo group interventions of a psychotherapeutic nature 
+although these are liberally cited in western literature.
+Thomas[4] also writes of psychoeducative approaches and 
+covers the span from parent management training to geriatric 
+group services, and from grief counseling to psychosocial 
+rehabilitation, discussed later in this paper. Preventive and 
+promotive services such as premarital training programs 
+and parent training programs, family intervention workshops, 
+and relationship training programs are discussed.
+Carson and Chowdhury[6] have titled their paper “Family 
+therapy in India: A new profession in an ancient land?” They 
+emphasize the urban rural divide and the role of religion, caste, 
+and other social institutions, as well as poverty, overcrowding, 
+and other ills that affect Indian society deeply.
+Other problems
+Shalini Bharat from TISS has highlighted the presence of a 
+plethora of problems other than emotional problems that may 
+plague Indian families. These include lack of social resources 
+and supports and isolation from the mainstream for rural 
+families. For both urban and rural families, there is poverty and 
+disease, overcrowding, pollution, migration, natural disasters, 
+and political instability, to list just a few of their problems.[7]
+Marriage and related issues
+Older family members, both first‑degree and second‑degree 
+relatives, have a large part to play in the approval of marriage 
+partners. A large number of case referrals for couple therapy, 
+which invariably segues into family therapy, generally circles 
+around this issue. Many couples speak of communication 
+problems with parents of their spouse. “In‑laws” is a term 
+perhaps unique to India in its use, but this is an important area 
+in therapeutic resolutions. Unique to Indian culture are several 
+other pain points which lead to stress in family relationships. 
+These include dowry‑related issues, intercaste marriage and 
+related matters as well as religious and cultural nuances. Many 
+of the family therapy sessions in these cases are devoted to 
+problem‑solving vis‑a‑vis sharing domestic chores and child 
+care, as well as dual career families, perhaps another term 
+coined in our country. The family therapist needs to maintain 
+a multicultural and inclusive, democratic viewpoint as clients 
+arrive at solutions to problems. Impact on an adolescent child 
+in a disturbed family can be great. Shalini and Raguram[8] 
+have discussed the impact of marital conflict on adolescents, 
+highlighting how several disorders such as conduct disorder 
+may have roots in such discord.
+It is important to examine which among the various commonly 
+used models of family therapy would work well in the Indian 
+cultural setting and help the therapist to address some of the issues 
+described above and the emotional consequences of the same.
+Models of family therapy
+There are number of different models of family therapy that 
+a professional can choose from and each is discussed along 
+with its implications for use in India.
+Salvador Minuchin: Structural family therapy
+This approach asserts that pathology does not rest in the 
+individual; it rests within the family system. Hence, it is 
+essential to understand and discover the invisible rules which 
+govern the functioning of every family. Relationships and 
+transactional patterns between family members need to be 
+
+Sovani: Family therapy in India
+Annals of Indian Psychiatry  ¦  Volume 2  ¦  Issue 2  ¦  July-December 2018
+90
+mapped, and dysfunctional relationships need to be disrupted 
+and restructured. In this model, thus, a system approach is 
+espoused. On discovering the existing structures, the therapist 
+strives to understand underlying dynamics and to provide new 
+alternative ways of problem‑solving.
+In general, this approach lends itself rather well to resolving 
+intergenerational issues and perhaps may not be the therapeutic 
+approach of choice for resolving marital conflict of violence 
+and abuse issues. For instance, Minuchin’s approach would 
+observe that in healthy families, boundaries between the 
+parents and the child are clear, and yet, there is room for 
+negotiation since they are semidiffuse, as against coalitions 
+and power hierarchies that may exist in less healthy families, 
+where a child may have to play surrogate roles in the physical 
+or emotional absence of a parent for instance.[9]
+Virginia Satir: Conjoint family therapy
+Even as a child, Satir has written that “I realized a lot went 
+on in families that didn’t meet the eye.” Trained as a social 
+worker, Satir observes in her writings that families often 
+present with a “surface problem” that is not really the 
+“real problem” and the therapist needs to pick up what lies 
+underneath. Satir emphasizes human validation and leans 
+toward a humanistic and a positive approach emphasizing 
+growth and connectedness. She often utilized material such 
+as meditations and poetic writing into her public workshops 
+and her oft‑quoted line from her writings is a poem written by 
+an angry teenage girl that begins “I am me………….In all the 
+world, there is no one else exactly like me.”[10]
+Milton Erickson: Strategic family therapy
+This approach is harder to use in a multicultural and diverse 
+setup like that in our country. Erickson’s approach is typified 
+by his belief in “using” anything and everything about a patient 
+to help them change. This could be their habits, their beliefs, 
+their favorite words, as well as their cultural background and 
+personal history.
+He conceptualized the unconscious as highly separate from 
+the conscious mind, with its own awareness, interests, 
+responses, and learnings. He believed that the unconscious 
+mind was creative, solution generating, and often positive. He 
+espoused techniques such as hypnotherapy with an unusual 
+conceptualization of conversational hypnosis where the client 
+is allowed a lot of control and is permitted to move at their 
+own pace, and neuro‑linguistic programming which may not 
+have a large empirical base, and thus, this approach may 
+not get wide usage in our country. However, in a few highly 
+intelligent and insightful clients, applications of this approach 
+often prove useful.[11]
+White and Epston: Narrative family therapy
+Within a narrative frame, human problems are viewed as 
+arising from and being maintained by oppressive stories which 
+dominate the person’s life. Therapeutic intervention then 
+would constitute efforts at opening space for the authoring 
+of alternative stories. White draws on the works of French 
+philosophers Derrida and Foucault and the therapist and 
+client collaboratively coauthor the story as the therapist very 
+respectfully accepts changing client stances. The final goal is 
+to help clients internalize personal agency. They would finally 
+develop a self‑narrative in which they view themselves as 
+powerful, and in this journey, they would be helped along by 
+the therapist.[12] This approach is slowly gaining strength in 
+India with recent conferences such as “A Roomful of Stories” 
+held collaboratively by Ummeed, Narrative Practices Adelaide 
+and Re‑Authoring Teaching, Vermont in October 2016.[13]
+The author would now share some corrective, preventive, 
+and rehabilitative approaches that may prove useful in Indian 
+settings.
+Corrective approaches
+In India, with the pressing need to effect change quickly and 
+at low expense to the client, behavioral family interventions[14] 
+prove very effective. The approach is based on a social 
+information processing model. The therapist interacts with 
+family members and attempts to build on existing strengths 
+inherent to the family. It is important to address known risk 
+variables and connect to available social support networks. It 
+goes without saying that all this is done with a gender sensitive 
+and culturally appropriate stance, designed to facilitate success.
+Citing an example for each of the above, one may encounter 
+a very rational relative in the family, for instance an older 
+sibling, or an aunt or uncle, who seems to exert influence on 
+the problem individual, who could be an adult or a child.
+The next approach outlined (the Triple P) is targeted at 
+children and adolescents, but behavioral family interventions 
+may also be addressed to adults in the family who may have 
+long‑standing behavioral issues including addictions or 
+personality disorders. Empowering a cotherapist from within 
+the family can facilitate and hasten change. Connecting this 
+key individual to other supporting networks in the extended 
+family or community creates more therapeutic opportunities 
+and strengthens the hands of the cotherapist. Risk variables 
+such as emotional instability in the patient and potential for 
+self‑harm can also be highlighted through the therapeutic 
+process, thus minimizing crises.
+Another powerful and very widely used approach is the 
+positive parenting program popularly known as the Triple P.[15] 
+The aim of this program is to augment resilience and create a 
+better understanding and knowledge about high risk behaviors 
+of children and adolescents through psychoeducation of 
+parents. Parents are addressed after grouping them as per 
+the age of their offspring so as to better address typical 
+developmental problems at that life stage. The interventions 
+augment their resourcefulness and skills. Parents are taught to 
+render their children more emotionally healthy by fostering 
+self‑determination of goals and also promoting self‑regulation, 
+self‑monitoring, and self‑evaluation. At the core of this 
+program is an effort to promote personal agency in the parent 
+as well as the child or adolescent.
+
+Sovani: Family therapy in India
+Annals of Indian Psychiatry  ¦  Volume 2  ¦  Issue 2  ¦  July-December 2018
+91
+The Institute for Psychological Health  (IPH), Thane, 
+Maharashtra, has conducted Paalakshaala (literally translated 
+as parenting school) modules designed around this model for 
+the last two decades with success. The modules also incorporate 
+basic Rational Emotive Behavior Therapy principles and 
+philosophy and train parents and even grandparents to work 
+with the youngsters in their family with a minimum of strife.[16]
+Preventive approaches
+Functional family therapy[17] focuses on multiple domains of 
+client experience and attempts to strengthen mental health 
+resources and abort crises where possible. The various domains 
+covered are biological, behavioral, affective, cognitive, 
+cultural, and relational. This approach too, like Triple P, 
+begins with dissemination, in the form of training modules 
+for those who wish to work on family mental health. Training 
+and development follows, and there is regular supervision to 
+ensure adherence. The strength of this model lies in imparting 
+healthy modes of family communication to anticipate problems 
+that may occur and direct the family members to means of 
+quick and amicable resolution and maximization of emotional 
+well‑being for all.
+Rehabilitative approaches
+Family therapy can prove to be a mainstay in interventions for 
+chronic mental illness.
+In the rehabilitation of persons with psychosis, for example, 
+it is crucial to also address their caregivers. Training those 
+recovering from chronic mental illness can ensure low 
+relapse rates and better mainstreaming into society. WHO 
+and NIMHANS have worked together to create intervention 
+modules for families whose members are dealing with mental 
+illness.[18] Murthy[19] too has done a lot of work with caregivers 
+of persons with mental illness.
+Three crucial group approaches from a family therapy 
+perspective in this context are:
+•	
+Patient support groups
+•	
+Family support groups
+•	
+Caregiver groups.
+At a number of social enterprises all over the country, all these 
+activities are regularly conducted to ensure that persons with 
+mental illness who have improved with pharmacotherapy and 
+psychotherapy stay well and continue to be contributory and 
+healthy members of society. Efforts are on at a number of 
+institutions in Guwahati (Ashadeep), Kolkata (Iswar Sankalp), 
+Pune (SAA), and Chennai (Aasha and The Banyan), among 
+many others. In the suburbs of Mumbai, Thane (IPH) and 
+Karjat (Shraddha Rehabilitation center) are doing a great deal 
+of work with persons with mental illness and their families. 
+Psychiatry departments of most teaching hospitals too 
+generally conduct regular groups for patients and caregivers, 
+thereby addressing family issues.
+At IPH, the sheltered workshop and activity center for persons 
+recovering from schizophrenia spectrum disorders, Tridal, 
+has been active for two decades. These Shubharthis, as they 
+are called to take away the pejorative diagnostic label of 
+schizophrenia, meet daily at Tridal and work. This activity 
+gives their life a social context, generates some income which 
+they proudly take home at the end of the month, and most 
+importantly, provides a vehicle for cognitive rehabilitation.
+Their caregivers continue to get support from the monthly 
+workshops which are conducted for them. There are various 
+modules that are incorporated into these workshops. They 
+generally begin with sharing emotions experienced by 
+the caregivers once their loved one is diagnosed. Then, a 
+psychoeducational module helps them understand what really 
+happens in the brain of the person with schizophrenia and why 
+there are such startling behavioral and emotional changes, 
+disturbed perceptions, and thoughts.
+Further, some major theoretical understanding about 
+various etiological factors is shared, such as the research on 
+expressed emotion by Vaughn and Leff,[20] Amaresha, and 
+Venkatasubramanian.[21] Caregivers are also explained in 
+simple language how symptoms manifest and why medication 
+as well as psychosocial interventions are beneficial, and 
+compliance is required to both.
+Volunteers working with Tridal include those who are family 
+members of persons with mental illness, as well as those who 
+are not.
+Media influences
+New threats to the Indian family fabric hover on the horizon 
+in the form of overuse of social media, gaming, and selfie 
+and internet addictions. Cellphone overuse seems to be pan 
+generation and has created distances between once closely‑knit 
+family members.
+Films are an interesting medium which throw a lot of light on 
+family structures in any culture and community. Deakin and 
+Bhugra[22] have written an interesting paper on Indian films and 
+family dynamics, in a special issue of the International Review 
+of Psychiatry devoted exclusively to family and family therapy 
+across cultures. They write “film is one of the most potent 
+media in understanding how a culture responds to various 
+issues, from mental illness to social attitudes and behavior. 
+Films reflect the society within which they are made but also 
+influence society as a result.” Specifically about India, they say 
+“the conventional cinema industry in India produces 600 films 
+per year, ranking above Hollywood in terms of number of total 
+films produced and the size of audiences it attracts.” The paper 
+goes on to deconstruct and unpack changing family structures, 
+changing sexual mores, and ends on understanding issues such 
+as depression and alcohol use and how it affects families.
+Using footage selected from popular Hindi films and using 
+audio material from popular film songs and regional music, 
+IPH has created a set of modules under the title Prakashdoot. 
+This project was completed in collaboration with Sangath and 
+PHFI, New Delhi and was funded by the Tata Trust. Audio 
+as well as audio visual clippings of Prakashdoot are now 
+played by trained volunteers in remote areas of Maharashtra 
+
+Sovani: Family therapy in India
+Annals of Indian Psychiatry  ¦  Volume 2  ¦  Issue 2  ¦  July-December 2018
+92
+(the modules on alcohol use disorders and depression, delivered 
+by Anand Nadkarni and Anuradha Sovani, are in Marathi and 
+Hindi, the regional and national languages) and accompanied 
+by a manual with Frequently Asked Questions which helps 
+them address questions raised in the community.[23,24]
+Conclusions
+This article has attempted to trace the progress of family therapy 
+in India, highlighting the need for more formal training on the 
+one hand and the emergence of many innovative family‑based 
+and community‑based interventions on the other. Government 
+initiatives in this area of mental health propagation have been 
+slow, and only very recently, some partnerships are emerging 
+between government hospital setups and nongovernment 
+social enterprises which target community well‑being at low 
+cost to the patient.
+However, it is clear that there is a high need for family 
+interventions in a country like India where the family and 
+its support is what most individuals fall back on in times of 
+stress. A source for support as well as strife at the same time 
+the Indian family would do well with planned and structured 
+interventions to improve its wellness quotient.
+Financial support and sponsorship
+Nil.
+Conflicts of interest
+There are no conflicts of interest.
+References
+1.	 Shah  A, Varghese  M, Udaya Kumar  GS, Bhatti  RS, Raghuram  A, 
+Sobhana H, et al. Brief family therapy in India: A preliminary evaluation. 
+J Family Psychother 2000;11:41‑53.
+2.	 Mittal M, Hardy KV. A re‑examination of the current status and future of 
+family therapy in India. Contemp Fam Ther 2005;27:285‑300.
+3.	 Misra G, editor. Handbook of Psychology in India. UK: OUP; 2011.
+4.	 Thomas B. Treating troubled families: Therapeutic scenario in India. Int 
+Rev Psychiatry 2012;24:91‑8.
+5.	 Tulsian  M, Sovani  A. An Exploratory Study of Emotional and 
+Psychological Needs of Couples Undergoing Treatment for Infertility. 
+Unpublished Doctoral Thesis, University of Mumbai; 2016.
+6.	 Carson 
+DK, 
+Chowdhury 
+A. 
+Family 
+therapy 
+in 
+India: 
+A  new profession in an ancient land? Contemp Fam Ther 
+2000;22:387‑406.
+7.	 Bharat S. Research on families with problems in India: Utility, limitations 
+and future directions. In: Unit of Family Studies, Tata Institute of Social 
+Sciences editors. Research on Families with Problems in India. Vol. 2. 
+Mumbai: TISS; 1991. p. 545‑60.
+8.	 Shalini A, Raguram A. Marital conflict among parents: Implications for 
+family therapy with adolescent conduct disorder. Contemp Fam Ther 
+2005;27:473‑82.
+9.	 Minuchin S. Families and Family Therapy. New York: Routledge; 1974.
+10.	 Satir V. Conjoint Family Therapy. PA: Science and Behavior Books; 
+1983.
+11.	 Hudson  WO, O’Hanlon  W, Hexum  AL. An Uncommon Casebook: 
+Complete Clinical Work of Milton  H. Erickson. New  York: W.W. 
+Norton and Co.; 2011.
+12.	 White M, Epston D. Narrative Means to Therapeutic Ends. New York: 
+W. W. Norton and Co.; 1990.
+13.	 Sovani  A. Storehouse of Conversations and Stories About Mental 
+Health. Roomful of Stories, Mumbai: Ummeed; 2016. Available from: 
+https://www.narrativetherapyindia.com/2016/02/25/a‑room‑full‑of‑stor
+ies‑international‑narrative‑therapy‑conference‑india. [Last accessed on 
+2018 Apr 01].
+14.	 Sanders MR, Dadds MR. Behavioral Family Intervention. New York: 
+Allyn and Bacon; 1993.
+15.	 Thomas R, Zimmer‑Gembeck MJ. Behavioral outcomes of parent‑child 
+interaction therapy and triple P‑positive parenting program: A review 
+and meta‑analysis. J Abnorm Child Psychol 2007;35:475‑95.
+16.	 Institute for Psychological Health Thane. Available from: http://www.
+healthymind.org. [Last accessed on 2018 Mar 29].
+17.	 Sexton T, Turner CW. The effectiveness of functional family therapy for 
+youth with behavioral problems in a community practice setting. J Fam 
+Psychol 2010;24:339‑48.
+18.	 Varghese M, Shah A, Udayakumar GS, Murali T. Family Intervention 
+and Support in Schizophrenia. Manual for Family Interventions for 
+the Multi Centered Project. Geneva and Bangalore: World Health 
+Organization and NIMHANS; 2002.
+19.	 Murthy RS. Caregiving and caregivers: Challenges and opportunities in 
+India. Indian J Soc Psychiatry 2016;32:10‑8.
+20.	 Vaughn C, Leff J. The measurement of expressed emotion in the families 
+of psychiatric patients. Br J Soc Clin Psychol 1976;15:157‑65.
+21.	 Amaresha  AC, Venkatasubramanian  G. Expressed emotion in 
+schizophrenia: An overview. Indian J Psychol Med 2012;34:12‑20.
+22.	 Deakin  N, Bhugra  D. Families in bollywood cinema: Changes and 
+context. Int Rev Psychiatry 2012;24:166‑72.
+23.	 Available from: http://www.thelancet.com/cms/attachment /2101605866 
+/2080045178/mmc1.pdf. [Last accessed on 2018 Mar 29].
+24.	 Available 
+from: 
+http://www.thelancet.com/journals/lanpsy/article/
+PIIS2215‑0366%2816%2930423‑0/fulltext. 
+[Last 
+accessed 
+on 
+2018 Mar 29].

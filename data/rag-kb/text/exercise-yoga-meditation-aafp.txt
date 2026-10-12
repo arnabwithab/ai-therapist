@@ -1,0 +1,760 @@
+# Exercise, Yoga, and Meditation for Depressive and Anxiety Disorders (AAFP)
+# source: https://www.aafp.org/afp/2019/0515/p620.pdf
+
+620 American Family Physician www.aafp.org/afp Volume 99, Number 10 ◆ May 15, 2019
+Depression and anxiety disorders are among 
+the most common psychiatric conditions, with 
+an estimated 19.1% of U.S. adults experiencing 
+anxiety and 10% experiencing depression in the 
+past year. 1 Nearly one-half of people diagnosed 
+with depression will also experience comorbid 
+anxiety. In addition, many will have symptoms 
+that are distressing, but that do not meet duration 
+or intensity criteria to enable a clinical diagnosis. 
+Complementary and integrative therapies (e.g., 
+exercise, meditation, tai chi, qi gong, yoga) are 
+often sought by patients experiencing these con -
+ditions. This article provides a concise overview 
+of the evidence on the effectiveness of comple -
+mentary therapies in treating these conditions.
+Exercise
+A review of meta-analyses on the effectiveness 
+of exercise for depression and anxiety disorders 
+noted that aerobic and resistance exercises may 
+be effective for mild to moderate depression, but 
+less so for anxiety. 2 However, the study designs 
+had methodologic limitations, including lack 
+of consistent definitions for exercise type (e.g., 
+aerobic, resistance), controls (e.g., other comple -
+mentary treatments, waitlist controls), outcome 
+measures (e.g., remission, treatment discon -
+tinuation), defined clinical populations (e.g., 
+symptoms vs. diagnosed condition), and sample 
+recruitment techniques. 3 These study differences 
+increase heterogeneity and undermine the ability 
+of meta-analyses to demonstrate clear and con -
+sistent effects.
+A Cochrane review on exercise for major 
+depressive disorder concluded that exercise had 
+a modest positive effect. 4 However, when lower- 
+quality studies were excluded, there was no effect. 
+Similarly, recent meta-analyses and systematic 
+reviews found moderate positive effects of exer -
+cise for depression and anxiety, particularly 
+Depression and Anxiety Disorders: 
+Benefits of Exercise, Yoga, and Meditation
+Sy Atezaz Saeed, MD; Karlene Cunningham, PhD; and Richard M. Bloch, PhD 
+East Carolina University Brody School of Medicine, Greenville, North Carolina
+ CME This clinical content conforms to AAFP criteria for continuing medical education (CME). See CME 
+Quiz on page 607. 
+Author disclosure: No relevant financial affiliations.
+Patient information: A handout on this topic is available at https:// www.aafp.org/afp/2010/0415/p987.
+html.
+Many people with depression or anxiety turn to nonpharmacologic and nonconventional interven -
+tions, including exercise, yoga, meditation, tai chi, or qi gong. Meta-analyses and systematic reviews 
+have shown that these interventions can improve symptoms of depression and anxiety disorders. As 
+an adjunctive treatment, exercise seems most helpful for treatment-resistant depression, unipolar 
+depression, and posttraumatic stress disorder. Yoga as monotherapy or adjunctive therapy shows pos -
+itive effects, particularly for depression. As an adjunctive therapy, it facilitates treatment of anxiety 
+disorders, particularly panic disorder. Tai chi and qi gong may be helpful as adjunctive therapies for 
+depression, but effects are inconsistent. As monotherapy or an adjunctive therapy, mindfulness-based 
+meditation has positive effects on depression, and its effects can last for six months or more. Although 
+positive findings are less common in people with anxiety disorders, the evidence supports adjunc -
+tive use. There are no apparent negative effects of mindfulness-based interventions, and their general 
+health benefits justify their use as adjunctive therapy for patients with depression and anxiety disorders. 
+(Am Fam Physician. 2019;99(10):620-627. Copyright © 2019 American Academy of Family Physicians.)
+Downloaded from the American Family Physician website at www.aafp.org/afp. Copyright © 2019 American Academy of Family Physicians. For the private, noncom -
+mercial use of one individual user of the website. All other rights reserved. Contact copyrights@aafp.org for copyright questions and/or permission requests.
+
+May 15, 2019 ◆ Volume 99, Number 10 www.aafp.org/afp American Family Physician 621
+DEPRESSION AND ANXIETY
+treatment-resistant and unipolar depression and 
+posttraumatic stress disorder (PTSD). 5-15 How -
+ever, these effects were not sufficiently reliable 
+to assure short-term results or stable long-term 
+benefits. Adequate trials on the role of interval 
+training are lacking, although there are indica -
+tions that the physiologic changes produced by 
+this type of exercise are greater and longer lasting 
+compared with changes from aerobic or resis -
+tance training.
+In summary, despite efforts to demonstrate 
+clear replicable positive therapeutic effects of 
+exercise on depression and anxiety disorders, 
+evidence is lacking (Table 1).5-15 Although there 
+seems to be more support for exercise in depres -
+sion vs. anxiety disorders, there are physical 
+benefits for both. One analysis specifically rec -
+ommends exercise as an adjunct to medication 
+in people with treatment-resistant depression. 5 
+No trials have shown that exercise worsens either 
+condition, so it is safe to recommend to patients 
+with the understanding that additional medica -
+tion or psychotherapy may be needed. 
+Yoga
+Yoga is an ancient Eastern practice that combines 
+physical postures, breath control, and meditation. 
+There are several styles that differ in intensity, 
+duration, and emphasis on each component. Two 
+systematic reviews and multiple individual stud -
+ies conclude that yoga is an effective treatment 
+for depression.16-23 A systematic review compared 
+yoga with other treatments for major depressive 
+disorder and found similar benefits for yoga vs. 
+exercise and yoga vs. medication. This review 
+showed that yoga was less effective than electro -
+convulsive therapy for the treatment of major 
+depressive disorder, suggesting that yoga would 
+not be appropriate for treatment of resistant- 
+depression for which electroconvulsive ther -
+apy is a treatment option. 23 However, one study 
+has shown long-term effectiveness of yoga as an 
+adjunctive treatment for women with persistent 
+depression.24 Yoga also demonstrated effectiveness 
+in relieving depression in the perinatal period, 
+but results varied based on the style of yoga. 22,25 
+Exercise-based yoga was not effective in reducing 
+depressive symptoms in the perinatal period, but 
+integrative styles with stronger emphasis on med-
+itation and breath control were effective.26
+Indications for yoga in the treatment of anx -
+iety disorders are less clear. A meta-analysis of 
+hatha yoga (the most common style in the United 
+States) found that people with more severe symp-
+toms benefitted most. 27 However, the overall 
+effect was relatively small, which suggests that 
+it is best used as an adjunctive treatment with 
+cognitive behavior therapy, selective serotonin 
+SORT: KEY RECOMMENDATIONS FOR PRACTICE
+Clinical recommendation
+Evidence 
+rating Comments
+Exercise can be a modestly beneficial adjunc -
+tive treatment option for depressive and anxiety 
+disorders, especially treatment-resistant depres -
+sion, unipolar depression, and posttraumatic 
+stress disorder.
+B Several systematic reviews and meta-analyses show positive effects 
+of exercise on depressive 5-10 and anxiety disorders, 11-13 but the 
+strength of these effects varies. General health benefits justify its use 
+as an adjunctive intervention for depression and anxiety disorders.
+Yoga is a therapeutic option for depression and 
+has positive effects in people with anxiety disor -
+ders, particularly panic disorder.
+B Yoga can be suggested as a monotherapy for depression, but it is pre -
+ferred as an adjunctive treatment for depression and anxiety. 22,26,27,31 
+The optimal frequency and duration are not clear, but studies have 
+shown symptom reduction with one 60-minute session per week. 16,29
+Tai chi and qi gong have inconsistent effec -
+tiveness as complementary treatments for 
+depression and anxiety. 
+B Tai chi and qi gong have shown inconsistent effects on anxiety and 
+depression in several small studies. In studies that demonstrate ben -
+efits, their effect on depressive and anxiety symptoms is small. 34-36
+Mindfulness-based interventions are effective 
+as adjunctive treatment for depression, with 
+positive effects persisting through follow-up. 
+Their effects on anxiety disorders also seem to 
+be positive.
+B There is limited support for mindfulness-based interventions as a 
+monotherapy for depression or anxiety disorders, although they 
+may be effective for preventing relapse or as an adjunctive treat -
+ment.28,38,44 Until further adequately powered trials are conducted, 
+physicians should use caution in recommending these interventions 
+as a first-line treatment for anxiety or depressive disorders.
+A = consistent, good-quality patient-oriented evidence; B = inconsistent or limited-quality patient-oriented evidence; C = consensus, disease- 
+oriented evidence, usual practice, expert opinion, or case series. For information about the SORT evidence rating system, go to https:// www.aafp.
+org/afpsort.
+Downloaded from the American Family Physician website at www.aafp.org/afp. Copyright © 2019 American Academy of Family Physicians. For the private, noncom -
+mercial use of one individual user of the website. All other rights reserved. Contact copyrights@aafp.org for copyright questions and/or permission requests.
+
+622 American Family Physician www.aafp.org/afp Volume 99, Number 10 ◆ May 15, 2019
+DEPRESSION AND ANXIETY
+reuptake inhibitors, or other antianxiety medi -
+cations. Some studies suggest that yoga may be 
+more effective at reducing anxiety symptoms 
+compared with no treatment 17,19,28-30; however, 
+other studies do not show symptom improve -
+ment.16,25 One study showed that yoga as mono -
+therapy or adjunctive therapy is effective in the 
+treatment of panic disorder.29
+There is not enough evidence to determine 
+the optimal duration or frequency of yoga. Ini -
+tial studies found no difference in reductions of 
+depression symptoms when yoga was practiced 
+once vs. twice per week. 21,28 However, more fre -
+quent sessions are associated with reductions in 
+anxiety symptoms. The duration in most reports 
+was three to 24 weeks, with frequencies varying 
+from once per week to daily for 40 to 100 minutes 
+per session.
+In summary, yoga can be suggested as a mono-
+therapy for depression, but it is preferred as an 
+adjunctive treatment for depression and anxiety 
+disorders (Table 2). 16-31 The optimal frequency 
+and duration are unclear, but studies have shown 
+symptom reduction with one 60-minute session 
+per week.
+Tai Chi and Qi Gong
+Tai chi and qi gong are mind and body practices 
+that combine postures and gentle movements 
+with mental focus, breathing, and relaxation. 
+TABLE 1 
+Effectiveness of Exercise for Treatment of Depression and Anxiety
+Evidence source Findings
+Systematic review of studies of exercise for unipolar or 
+bipolar depression 5
+Exercise plus SSRI therapy was more effective than other treatments, 
+especially for treatment-resistant depression
+Meta-analysis of 23 RCTs of exercise for unipolar 
+depression or depressive symptoms 6
+Exercise was generally helpful, particularly in studies of unipolar depres -
+sion; positive effects were reduced in studies with validity steps and no 
+longer present at follow-up
+Summary of meta-analyses and systematic reviews of 
+complementary and alternative medicine 
+therapies for MDD 7
+Recommended 30 minutes of supervised aerobic or resistance exercise 
+three times per week for mild to moderate MDD, and as adjunctive ther -
+apy for moderate to severe MDD 
+Meta-analysis of 41 studies with participants 
+experiencing MDD or subclinical depressive symptoms 8
+Significantly large control group response in exercise trials made evaluting 
+the actual effects of exercise challenging
+Meta-analysis of 25 RCTs with participants 
+experiencing MDD; investigated the effect of 
+publication bias 9 
+Removing publication bias, which underestimated effects, increased 
+positive effects of exercise 
+Meta-analysis of 35 RCTs with participants experiencing 
+clinically diagnosed MDD; included trials from China 
+and South America 10
+Inclusive analysis showed moderate positive effect for exercise, which was 
+eliminated when trials were limited to low risk of bias
+Meta-analysis of eight RCTs of exercise for clinically 
+diagnosed anxiety 11
+Exercise had moderate positive effects on anxiety but was less effective 
+than SSRIs; aerobic and nonaerobic exercises were effective
+Qualitative review of 12 RCTs and five meta-analyses of 
+exercise for clinically diagnosed anxiety or subclinical 
+anxiety symptoms 12
+Exercise had mild positive effects, but methodologic problems led authors 
+to withhold recommendation for use in anxiety disorders
+Meta-analysis of six RCTs with participants experiencing 
+clinically diagnosed anxiety disorder and/or stress- 
+related disorder 13
+Exercise significantly reduced anxiety with moderate effect size; exclusion 
+of trials for posttraumatic stress disorder eliminated effect
+Meta-analysis of seven RCTs with participants 
+experiencing clinically diagnosed anxiety 14
+No overall effect for aerobic exercise; cognitive behavior therapy or med -
+ication was significantly more effective than aerobic exercise; exercise 
+was more effective than waitlist controls but not other controls; did not 
+recommend aerobic exercise for anxiety disorders
+Meta-analysis and network analysis of MDD 15 No differences between exercise and antidepressants or other comple -
+mentary and alternative therapies
+MDD = major depressive disorder; SSRI = selective serotonin reuptake inhibitor; RCT = randomized controlled trial.
+Information from references 5 through 15.
+
+May 15, 2019 ◆ Volume 99, Number 10 www.aafp.org/afp American Family Physician 623
+DEPRESSION AND ANXIETY
+The movements can be practiced while walking, 
+standing, or sitting. Although limited, the litera -
+ture on these practices suggests that tai chi and qi 
+gong may be effective in alleviating symptoms of 
+depression.32,33 However, systematic reviews and 
+meta-analyses have shown variable effectiveness 
+based on the study population and methodologic 
+rigor.34,35 One meta-analysis of tai chi’s effect 
+TABLE 2 
+Effectiveness of Yoga for Treatment of Depression and Anxiety
+Evidence source Findings
+RCT of 60 minutes of yoga per week for six weeks vs. 
+usual treatment (medication with or without therapy) 
+in people with symptoms of depression and anxiety 16 
+Depression scores significantly improved in yoga group compared with 
+waitlist control; no significant reduction in anxiety scores
+Three-arm RCT (yoga vs. meditation vs. control) in 
+college students with depression and/or anxiety 17
+Depression and anxiety significantly improved in yoga and meditation groups 
+compared with control, but did not significantly differ from each other
+RCT of yoga in treatment-naive people with mild to 
+moderate major depressive disorder 18
+Yoga participants had greater reduction in symptoms compared with 
+control and were more likely to achieve remission; effect size suggested 
+significant reduction in symptoms
+RCT of yoga in older women with symptoms of 
+depression and/or anxiety 19
+Yoga reduced symptoms of depression and anxiety compared with controls
+RCT of yoga vs. waitlist control in male military veter -
+ans with posttraumatic stress disorder 20
+Yoga had largest effect on symptoms of hyperarousal and reexperiencing 
+symptoms, and had significant effect on general distress and anxious arousal
+Dosing trial assessing differences in symptom reduc -
+tion between low-dose yoga (two 90-minute sessions 
+per week plus three home sessions) vs. high-dose yoga 
+(three 90-minute sessions plus four home sessions) 21
+No differences in compliance, rate of response, or remission between 
+high- and low-dose groups immediately after intervention; at 12 weeks, 
+high-dose group had more participants in remission
+Meta-analysis of 12 RCTs of yoga vs. controls 22 Moderate short-term effects of yoga compared with usual treatment; 
+effects are less than or equal to those of relaxation and aerobic exercise; 
+limited evidence of effect for anxiety
+Systematic review of seven RCTs of yoga vs. controls 
+for major depressive disorder 23
+Similar effects between yoga and other evidence-based treatments (e.g., 
+medication, exercise)
+RCT of adjunctive yoga vs. health maintenance control 
+in people with persistent major depressive disorder 24
+No difference between yoga and control groups; yoga participants were 
+more likely to show treatment response at three months
+RCT of yoga vs. usual treatment in pregnant women 
+with symptoms of depression and anxiety 25
+Depression scores significantly improved in both groups, but yoga group 
+had greater improvement in negative affect over time; no difference in 
+anxiety symptom reduction
+Meta-analysis of six RCTs of yoga for perinatal 
+depression26
+Depression was significantly reduced in yoga groups compared with 
+controls; integrated yoga interventions significantly lowered prenatal 
+depression, but exercise-based yoga did not
+Meta-analysis of 17 studies of yoga for anxiety 27 Hatha yoga significantly reduced anxiety compared with waitlist controls, 
+with moderate effect size; effectiveness was associated with total number 
+of hours practiced
+Three-arm RCT (weekly vs. twice-weekly yoga vs. 
+waitlist control) in women with depression and/or 
+anxiety 28
+Both yoga groups had significantly reduced symptoms of depression and 
+anxiety compared with control; reductions were similar in yoga groups; 
+compliance was greater in yoga group with fewer sessions
+RCT of yoga vs. yoga plus cognitive behavior therapy 
+in people with panic disorder 29
+Both groups had significant improvement in panic symptoms, but the com -
+bination group had nonsignificantly greater improvement
+Three-arm RCT (yoga with relaxation vs. integrated 
+yoga vs. nonactive control) in women with anxiety 30
+Both yoga groups had significant decreases in anxiety compared with con -
+trol, with integrated yoga protocol showing greatest reduction
+RCT of yoga vs. usual treatment in women with breast 
+cancer and comorbid anxiety disorder 31
+Significant improvement in state and trait anxiety compared with usual 
+treatment
+RCT = randomized controlled trial.
+Information from references 16 through 31.
+
+624 American Family Physician www.aafp.org/afp Volume 99, Number 10 ◆ May 15, 2019
+DEPRESSION AND ANXIETY
+on depression symptoms found greater benefits 
+among studies that included people with more 
+severe symptoms, but some studies found small 
+overall effects. 34 The actual effect on depression 
+symptoms is likely small. Similarly, qi gong has a 
+small but variable effect on depression.
+Another study showed that tai chi reduces 
+anxiety among older adults with anxiety disor -
+ders who are receiving medical therapy.36 It found 
+that anxiety recurrence rates were significantly 
+lower among those in the tai chi group compared 
+with the control group (9.09% vs. 42.86%, respec-
+tively). A study investigating a qi gong–based 
+stress-reduction program found greater reduc -
+tions in state and trait anxiety among partici -
+pants in the treatment group. 37 However, these 
+results contradict a meta-analysis of four ran -
+domized controlled trials (RCTs) that did not 
+find qi gong to be beneficial for the reduction of 
+anxiety symptoms. 35 In summary, there is a small 
+body of literature showing mixed results for these 
+interventions.
+Mindfulness-Based Meditation
+There is no consensus on a definition of medita -
+tion. However, it is generally agreed that it is a 
+form of mental training that requires calming 
+the mind with the goal of achieving a state of 
+“detached observation.” Meditation approaches 
+that have been studied in people with depression 
+and anxiety disorders include mindfulness-based 
+interventions (MBIs), mindfulness-based train -
+ing, mindfulness-based stress reduction, and 
+mindfulness-based cognitive therapy. Although 
+these approaches differ, they all rely on calming 
+the mind as their core modality.
+A recent systematic review and meta-analysis of 
+MBIs for psychiatric disorders found the clearest 
+evidence for their use for depression.38 MBIs were 
+superior to no treatment and other active thera -
+pies, and equivalent to evidence-based treatments 
+such as selective serotonin reuptake inhibitors. 
+Another meta-analysis that included patients 
+with clinically diagnosed anxiety and mood dis -
+orders showed that MBIs were moderately effec -
+tive in reducing anxiety symptoms and improving 
+mood.39 Effect sizes were robust and did not seem 
+to depend on the number of sessions. Moreover, 
+improvements were sustained over an average 
+of 27 weeks (median: 12 weeks). A systematic 
+review of 209 studies found effect size estimates 
+suggesting that mindfulness-based training was 
+moderately effective in reducing depression and 
+anxiety symptoms in pre-post and waitlist con -
+trol comparisons, and when compared with other 
+active treatments, including other psychological 
+treatments.40 Mindfulness-based training was 
+as effective as cognitive behavior therapy, other 
+behavioral therapies, and pharmacologic treat -
+ments. The authors concluded that mindfulness- 
+based training is an effective treatment for a vari -
+ety of psychological conditions, and was espe -
+cially effective in reducing anxiety, depression, 
+and stress. 
+Not all studies showed immediate benefit. A 
+meta-analysis of RCTs showed that MBIs were 
+effective in people currently experiencing an epi -
+sode of depression, but not for anxiety. 41 It found 
+significant postintervention differences between 
+groups of participants with depressive disorders, 
+with a large effect size on primary symptom 
+severity favoring the intervention. Evidence for 
+benefit in anxiety was lacking.
+A 2012 literature review concluded that there 
+was growing evidence supporting MBIs in the 
+prevention of depression and anxiety relapse. 42 
+Another study with a two-year follow-up found 
+that mindfulness-based cognitive therapy was 
+as effective as subspecialist care in people with 
+recurrent depression, and that it seemed to work 
+well when combined with antidepressants.43
+MBIs are typically integrated into a larger ther-
+apeutic framework, and it is not clear whether 
+stand-alone MBIs are beneficial without such 
+a framework. A systematic review and meta- 
+analysis of the effects of stand-alone MBIs on 
+symptoms of anxiety and depression concluded 
+that these exercises had small to medium effects 
+on anxiety compared with controls. 44 This was 
+the first meta-analysis to show that regular per -
+formance of mindfulness-based approaches is 
+beneficial, even if they are not integrated into a 
+larger therapeutic framework.
+MBIs may be helpful for some subgroups of 
+patients with depression and anxiety disorders, 
+but results are mixed. One RCT found that mind-
+fulness-based cognitive therapy reduced symp -
+toms of depression in people with a traumatic 
+brain injury.45 A meta-analysis of MBIs in adults 
+with PTSD found 10 RCTs that met inclusion 
+criteria.46 Adjunctive mindfulness-based stress 
+reduction, yoga, and a mantra repetition program
+
+May 15, 2019 ◆ Volume 99, Number 10 www.aafp.org/afp American Family Physician 625
+DEPRESSION AND ANXIETY
+improved symptoms of PTSD and depression com-
+pared with controls, but the findings were based 
+on low- to moderate-quality evidence. Effects were 
+positive but not statistically significant for quality 
+of life and anxiety, and no studies addressed func-
+tional status. An RCT reported that mindfulness- 
+based stress reduction in veterans resulted in 
+a greater decrease in PTSD symptom severity 
+compared with present-centered group ther -
+apy (a standard non–trauma-focused treatment 
+for PTSD). 47 Although meditation seems to be 
+effective for PTSD symptoms, more high-quality 
+studies are needed with samples large enough to 
+detect statistical differences in outcomes.46
+Some studies have evaluated MBIs for treat -
+ment of social anxiety disorder 48,49 and panic dis-
+order 50 with encouraging results. However, until 
+adequately powered trials are conducted, clini -
+cians should use caution in offering these treat -
+ments as first-line interventions for social anxiety 
+and panic disorders.
+In summary, MBIs seem to be effective for the 
+treatment of depression and anxiety disorders 
+(Table 3) .38-45,47,48 Because no data suggest that 
+these interventions cause harm in patients with 
+these conditions, they can be recommended with 
+the understanding that additional medications or 
+psychotherapy may be needed.
+TABLE 3 
+Effectiveness of MBIs for Treatment of Depression and Anxiety
+Evidence source Findings
+Systematic review and meta-analysis 38 MBIs were superior to no treatment, minimal treatment, nonspecific active con -
+trols, and specific active controls
+Meta-analysis of 39 studies of mindfulness-based 
+therapies for anxiety and depression 39
+Mindfulness-based therapies were moderately effective for improving anxiety 
+and mood symptoms in pre-post analyses
+Systematic review of mindfulness-based 
+therapies 40
+Mindfulness-based therapies showed large and clinically significant effects on 
+anxiety and depression, which were maintained at follow-up
+Meta-analysis of RCTs of MBIs for current epi -
+sodes of anxiety or depressive disorder 41
+MBIs significantly improved primary symptom severity in people with depres -
+sion (outcomes may be similar to those achieved with group cognitive behavior 
+therapy); results did not support MBIs for anxiety disorder
+Review of mindfulness-based meditation as self-
+help for anxiety and depression 42
+Mindfulness-based meditation may be viable approach to treatment of anxiety 
+and depression, but more rigorous studies are needed
+RCT of MBCT for relapse or recurrence of depres -
+sion over two years of follow-up 43
+MBCT seemed to work well in combination with antidepressant therapy; com-
+bined treatment (MBCT plus medication) may be an effective option for many 
+people with extensive histories of recurrent depression
+Meta-analysis of 18 studies of stand-alone MBIs 
+for symptoms of anxiety and depression 44
+MBIs had small to medium effects on anxiety and depression compared with 
+controls
+RCT of MBCT vs. control for depression 45 MBCT reduced symptoms of depression in people with traumatic brain injury, 
+as measured by the Beck Depression Inventory II; reduction was maintained at 
+three-month follow-up
+RCT of MBSR vs. person-centered group therapy 
+in military veterans with posttraumatic stress 
+disorder 47
+MBSR group had greater improvement in self-reported severity of posttraumatic 
+stress disorder symptoms during treatment and at two-month follow-up
+RCT of MBSR vs. aerobic exercise for social anxi -
+ety disorder 48
+MBSR and aerobic exercise reduced social anxiety and depression, 
+and increased subjective well-being immediately and at three months 
+postintervention
+MBCT = mindfulness-based cognitive therapy; MBI = mindfulness-based intervention; MBSR = mindfulness-based stress reduction; RCT = random-
+ized controlled trial.
+Information from references 38 through 45, 47, and 48.
+
+626 American Family Physician www.aafp.org/afp Volume 99, Number 10 ◆ May 15, 2019
+DEPRESSION AND ANXIETY
+This article updates a previous article on this topic by 
+Saeed, et al. 2
+Data Sources: PubMed searches were completed 
+using the key terms anxiety (specific diagnoses), 
+depression (specific diagnoses), yoga, qi gong, tai chi, 
+meditation, exercise, and RCT. Also searched were 
+the Cochrane database, Medline, and Sumsearch. 
+Search date: November 2018. 
+The Authors
+SY ATEZAZ SAEED, MD, is professor and chairman 
+of the Department of Psychiatry and Behavioral 
+Medicine at East Carolina University Brody School 
+of Medicine, Greenville, N.C., and executive direc -
+tor of behavioral health service line for Vidant 
+Health, Greenville.
+KARLENE CUNNINGHAM, PhD, is clinical assis-
+tant professor in the Department of Psychiatry 
+and Behavioral Medicine at East Carolina Univer -
+sity Brody School of Medicine.
+RICHARD M. BLOCH, PhD, is professor emeritus 
+in the Department of Psychiatry and Behavioral 
+Medicine at East Carolina University Brody School 
+of Medicine.
+Address correspondence to Sy Atezaz Saeed, MD, 
+Brody School of Medicine, East Carolina Univer -
+sity, 600 Moye Blvd., Ste. 4E-100, Greenville, NC 
+27834 (e-mail: saeeds@ ecu.edu). Reprints are not 
+available from the authors. 
+References
+ 1. Harvard Medical School. National Comorbidity Survey 
+(NCS): 12-month prevalence of DSM-IV/WMH-CIDI disor -
+ders by sex and cohort (n = 9282). July 19, 2007. https:// 
+www.hcp.med.harvard.edu/ncs/ftpdir/table_ncsr_ 
+12month prev genderxage.pdf. Accessed February 16, 
+2019.
+ 2. Saeed SA, Antonacci DJ, Bloch RM. Exercise, yoga, and 
+meditation for depressive and anxiety disorders. Am Fam 
+Physician. 2010; 81(8): 981-986. 
+ 3. Hazelton AG, Bloch R, Saeed S. Research issues and clin -
+ical implications of exercise effects in the treatment of 
+depressive and anxiety disorders. In: Farooqui T, Farooqui 
+AA, eds. Diet and Exercise in Cognitive Function and Neu -
+rological Diseases . Hoboken, N.J.: Wiley-Blackwell; 2015: 
+295-308.
+ 4. Cooney G, Dwan K, Mead G. Exercise for depression [pub -
+lished correction appears in JAMA. 2014; 312(20): 2169]. 
+JAMA. 2014; 311(23): 2432-2433. 
+ 5. Mura G, Moro MF, Patten SB, Carta MG. Exercise as an 
+add-on strategy for the treatment of major depressive 
+disorder: a systematic review. CNS Spectr . 2014; 19(6): 
+496-508. 
+ 6. Kvam S, Kleppe CL, Nordhus IH, Hovland A. Exercise as a 
+treatment for depression: a meta-analysis. J Affect Disord. 
+2016; 202: 67-86. 
+ 7. Ravindran AV, Balneaves LG, Faulkner G, et al.; CANMAT 
+Depression Work Group. Canadian network for mood and 
+anxiety treatments (CANMAT) 2016 clinical guidelines for 
+the management of adults with major depressive disorder: 
+section 5. Complementary and alternative medicine treat -
+ments. Can J Psychiatry. 2016; 61(9): 576-587. 
+ 8. Stubbs B, Vancampfort D, Rosenbaum S, et al. Challenges 
+establishing the efficacy of exercise as an antidepressant 
+treatment: a systematic review and meta-analysis of con -
+trol group responses in exercise randomised controlled 
+trials. Sports Med. 2016; 46(5): 699-713. 
+ 9. Schuch FB, Vancampfort D, Richards J, Rosenbaum S, 
+Ward PB, Stubbs B. Exercise as a treatment for depression: 
+a meta-analysis adjusting for publication bias. J Psychiatr 
+Res. 2016; 77: 42-51. 
+ 10. Krogh J, Hjorthøj C, Speyer H, Gluud C, Nordentoft M. 
+Exercise for patients with major depression: a systematic 
+review with meta-analysis and trial sequential analysis. 
+BMJ Open. 2017; 7(9): e014820.
+ 11. Jayakody K, Gunadasa S, Hosker C. Exercise for anxiety 
+disorders: systematic review. Br J Sports Med . 2014; 48(3): 
+187-196. 
+ 12. Stonerock GL, Hoffman BM, Smith PJ, Blumenthal JA. 
+Exercise as treatment for anxiety: systematic review and 
+analysis. Ann Behav Med. 2015; 49(4): 542-556. 
+ 13. Stubbs B, Vancampfort D, Rosenbaum S, et al. An exam -
+ination of the anxiolytic effects of exercise for people with 
+anxiety and stress-related disorders: a meta-analysis. Psy-
+chiatry Res. 2017; 249: 102-108. 
+ 14. Bartley CA, Hay M, Bloch MH. Meta-analysis: aerobic exer-
+cise for the treatment of anxiety disorders. Prog Neuropsy-
+chopharmacol Biol Psychiatry . 2013; 45: 34-39. 
+ 15. Asher GN, Gartlehner G, Gaynes BN, et al. Comparative 
+benefits and harms of complementary and alternative 
+medicine therapies for initial treatment of major depres -
+sive disorder: systematic review and meta-analysis. 
+J Altern Complement Med . 2017; 23(12): 907-919. 
+ 16. de Manincor M, Bensoussan A, Smith CA, et al. Individ -
+ualized yoga for reducing depression and anxiety, and 
+improving well-being: a randomized controlled trial. 
+Depress Anxiety . 2016; 33(9): 816-828. 
+ 17. Falsafi N. A randomized controlled trial of mindfulness 
+versus yoga: effects on depression and/or anxiety in col -
+lege students. J Am Psychiatr Nurses Assoc . 2016; 22(6): 
+483-497. 
+ 18. Prathikanti S, Rivera R, Cochran A, Tungol JG, Fayaz -
+manesh N, Weinmann E. Treating major depression with 
+yoga: a prospective, randomized, controlled pilot trial. 
+PLoS One. 2017; 12(3): e0173869. 
+ 19. Ramanathan M, Bhavanani AB, Trakroo M. Effect of a 
+12-week yoga therapy program on mental health status in 
+elderly women inmates of a hospice. Int J Yoga. 2017; 10(1): 
+24-28. 
+ 20. Seppälä EM, Nitschke JB, Tudorascu DL, et al. Breath -
+ing-based meditation decreases posttraumatic stress dis -
+order symptoms in U.S. military veterans: a randomized 
+controlled longitudinal study. J Trauma Stress. 2014; 27(4): 
+397-405. 
+ 21. Streeter CC, Gerbarg PL, Whitfield TH, et al. Treatment of 
+major depressive disorder with iyengar yoga and coherent 
+breathing: a randomized controlled dosing study. J Altern 
+Complement Med . 2017; 23(3): 201-207. 
+ 22. Cramer H, Lauche R, Langhorst J, Dobos G. Yoga for 
+depression: a systematic review and meta-analysis. 
+Depress Anxiety . 2013; 30(11): 1068-1083.
+
+May 15, 2019 ◆ Volume 99, Number 10 www.aafp.org/afp American Family Physician 627
+DEPRESSION AND ANXIETY
+ 23. Cramer H, Anheyer D, Lauche R, Dobos G. A systematic 
+review of yoga for major depressive disorder. J Affect Dis-
+ord. 2017; 213: 70-77. 
+ 24. Uebelacker LA, Tremont G, Gillette LT, et al. Adjunctive 
+yoga v. health education for persistent major depression: 
+a randomized controlled trial. Psychol Med . 2017; 47(12): 
+2130-2142. 
+ 25. Davis K, Goodman SH, Leiferman J, Taylor M, Dimidjian S. 
+A randomized controlled trial of yoga for pregnant women 
+with symptoms of depression and anxiety. Complement 
+Ther Clin Pract . 2015; 21(3): 166-172. 
+ 26. Gong H, Ni C, Shen X, Wu T, Jiang C. Yoga for prenatal 
+depression: a systematic review and meta-analysis. BMC 
+Psychiatry. 2015; 15: 14. 
+ 27. Hofmann SG, Andreoli G, Carpenter JK, Curtiss J. Effect of 
+hatha yoga on anxiety: a meta-analysis [published online 
+ahead of print May 20, 2016]. J Evid Based Med . https:// 
+onlinelibrary.wiley.com /doi/abs/10.1111/jebm.12204 . 
+Accessed August 20, 2018. 
+ 28. Michalsen A, Jeitler M, Brunnhuber S, et al. Iyengar yoga 
+for distressed women: a 3-armed randomized controlled 
+trial. Evid Based Complement Alternat Med . 2012; 2012: 
+408727. 
+ 29. Vorkapic CF, Rangé B. Reducing the symptomatology of 
+panic disorder: the effects of a yoga program alone and 
+in combination with cognitive-behavioral therapy. Front 
+Psychiatry. 2014; 5: 177. 
+ 30. Parthasarathy S, Jaiganesh K, Duraisamy. Effect of inte -
+grated yoga module on selected psychological variables 
+among women with anxiety problem. West Indian Med J . 
+2014; 63(1): 78-80. 
+ 31. Kovačič T, Zagoričnik M, Kovačič M. Impact of relaxation 
+training according to the Yoga In Daily Life® system on 
+anxiety after breast cancer surgery. J Complement Integr 
+Med. 2013; 10: 16. 
+ 32. Tsang HW, Tsang WW, Jones AY, et al. Psycho-physical 
+and neurophysiological effects of qigong on depressed 
+elders with chronic illness. Aging Ment Health . 2013; 17(3): 
+336-348. 
+ 33. Yeung AS, Feng R, Kim DJ, et al. A pilot, randomized con -
+trolled study of tai chi with passive and active controls in 
+the treatment of depressed Chinese Americans. J Clin 
+Psychiatry. 2017; 78(5): e522-e528. 
+ 34. Yin J, Dishman RK. The effect of tai chi and qigong prac -
+tice on depression and anxiety symptoms: a systematic 
+review and meta-regression analysis of randomized con -
+trolled trials. Ment Health Phys Act . 2014; 7(3): 135-146. 
+ 35. Wang C, Bannuru R, Ramel J, Kupelnick B, Scott T, Schmid 
+CH. Tai chi on psychological well-being: systematic 
+review and meta-analysis. BMC Complement Altern Med . 
+2010; 10: 23. 
+ 36. Song QH, Shen GQ, Xu RM, et al. Effect of tai chi exercise 
+on the physical and mental health of the elder patients 
+suffered from anxiety disorder. Int J Physiol Pathophysiol 
+Pharmacol. 2014; 6(1): 55-60. 
+ 37. Hwang EY, Chung SY, Cho JH, Song MY, Kim S, Kim JW. 
+Effects of a brief qigong-based stress reduction program 
+(BQSRP) in a distressed Korean population: a randomized 
+trial. BMC Complement Altern Med . 2013; 13: 113. 
+ 38. Goldberg SB, Tucker RP, Greene PA, et al. Mindful -
+ness-based interventions for psychiatric disorders: a sys -
+tematic review and meta-analysis. Clin Psychol Rev. 2018; 
+59: 52-60. 
+ 39. Hofmann SG, Sawyer AT, Witt AA, Oh D. The effect of 
+mindfulness-based therapy on anxiety and depression: a 
+meta-analytic review. J Consult Clin Psychol . 2010; 78(2): 
+169-183. 
+ 40. Khoury B, Lecomte T, Fortin G, et al. Mindfulness-based 
+therapy: a comprehensive meta-analysis. Clin Psychol 
+Rev. 2013; 33(6): 763-771. 
+ 41. Strauss C, Cavanagh K, Oliver A, Pettman D. Mindfulness- 
+based interventions for people diagnosed with a current 
+episode of an anxiety or depressive disorder: a meta-anal -
+ysis of randomised controlled trials. PLoS One. 2014; 9(4): 
+e96110. 
+ 42. Edenfield TM, Saeed SA. An update on mindfulness medi -
+tation as a self-help treatment for anxiety and depression. 
+Psychol Res Behav Manag . 2012; 5: 131-141. 
+ 43. Meadows GN, Shawyer F, Enticott JC, et al. Mindful -
+ness-based cognitive therapy for recurrent depression: a 
+translational research study with 2-year follow-up. Aust 
+N Z J Psychiatry. 2014; 48(8): 743-755. 
+ 44. Blanck P, Perleth S, Heidenreich T, et al. Effects of mind -
+fulness exercises as stand-alone intervention on symp -
+toms of anxiety and depression: systematic review and 
+meta-analysis. Behav Res Ther. 2018; 102: 25-35. 
+ 45. Bédard M, Felteau M, Marshall S, et al. Mindfulness-based 
+cognitive therapy reduces symptoms of depression in 
+people with a traumatic brain injury: results from a ran -
+domized controlled trial. J Head Trauma Rehabil . 2014; 
+29(4): E13-E22. 
+ 46. Hilton L, Maher AR, Colaiaco B, et al. Meditation for post -
+traumatic stress: systematic review and meta-analysis. 
+Psychol Trauma. 2017; 9(4): 453-460. 
+ 47. Polusny MA, Erbes CR, Thuras P, et al. Mindfulness-based 
+stress reduction for posttraumatic stress disorder among 
+veterans: a randomized clinical trial. JAMA. 2015; 314(5): 
+456-465. 
+ 48. Jazaieri H, Goldin PR, Werner K, Ziv M, Gross JJ. A ran -
+domized trial of MBSR versus aerobic exercise for social 
+anxiety disorder. J Clin Psychol. 2012; 68(7): 715-731. 
+ 49. Koszycki D, Thake J, Mavounza C, Daoust JP, Taljaard 
+M, Bradwejn J. Preliminary investigation of a mindful -
+ness-based intervention for social anxiety disorder that 
+integrates compassion meditation and mindful exposure. 
+J Altern Complement Med . 2016; 22(5): 363-374. 
+ 50. Kim B, Lee SH, Kim YW, et al. Effectiveness of a mindful -
+ness-based cognitive therapy program as an adjunct to 
+pharmacotherapy in patients with panic disorder. J Anxi -
+ety Disord. 2010; 24(6): 590-595.

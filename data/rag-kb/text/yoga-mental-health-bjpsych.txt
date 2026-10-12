@@ -1,0 +1,1200 @@
+# Yoga and mental health: what every psychiatrist needs to know (BJPsych Advances)
+# source: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D1B28ED8D55B6B01385A7416B34DE6F1/S2056467822000226a.pdf/yoga-and-mental-health-what-every-psychiatrist-needs-to-know.pdf
+
+Yoga and mental health: what every
+psychiatrist needs to know
+Hemant Bhargav, Sanju George & Shivarama Varambally
+SUMMARY
+Yoga was developed primarily as a tool for self-
+mastery and spiritual progress. However, over
+the past few decades, the therapeutic applications
+of yoga in mental healthcare have been explored
+with promising results. This article aims to inform
+psychiatrists about the clinical usefulness of
+yoga for mental disorders. We discuss the ration-
+ale and latest evidence base for the use of yoga
+in psychiatric practice, including the neurobio-
+logical mechanisms and indications and contrain-
+dications for yoga therapy. We suggest practical
+yoga techniques that can be used as an add-on
+for managing common psychiatric conditions.
+Finally, we discuss the setting up and running of
+yoga clinical services in a tertiary psychiatric hos-
+pital in India and explore what can be learnt to
+facilitate yoga as a therapeutic approach in the
+Western world.
+LEARNING OBJECTIVES
+After reading this article you will be able to:
+ understand the role and possible mechanisms
+of action of yoga therapy in clinical psychiatric
+practice based on current evidence
+ recognise yoga practices beneficial for com-
+mon psychiatric disorders, their indications,
+contraindications and underlying rationale
+ appreciate what kind of referral patterns might
+be expected for yoga therapy in a tertiary care
+psychiatric hospital.
+KEYWORDS
+Yoga; mental health; psychiatry; evidence base;
+treatment.
+The growing burden of mental illness worldwide
+has signi ﬁcant health, social, human rights and
+economic consequences, despite improvements in
+treatment and access to care (World Health
+Organization 2019). According to the World
+Health Organization (WHO), one in four people
+experience a mental disorder at some point in
+their lives. The global disability-adjusted life-
+years attributed to mental disorders has increased
+from 3.1% in 1990 to 4.9% in 2019 (GBD 2019
+Mental Disorders Collaborators 2022). More than
+half of the world ’s countries lack suf ﬁcient skilled
+professionals to handle mental illnesses in the com-
+munity, especially in low and lower middle income
+countries. More than 50% of countries have only
+one psychiatrist per 100 000 people and 40% of
+countries have less than one hospital bed reserved
+for mental disorders per 10 000 people (World
+Health Organization 2015). For the past decade,
+there has been an emphasis on prevention in the
+WHO’s Mental Health Action Plan 2013 – 2020.
+In 2013, the WHO set objectives of providing com-
+prehensive, integrated and responsive mental
+health and social care services in community-
+based settings and implementing strategies for pro-
+moting mental health and preventing mental illness
+(World Health Organization 2013).
+Yoga originated as a holistic system in India more
+than 3000 years ago. It is an ancient way of living in
+harmony with oneself (body, emotion and intellect)
+and nature (Satyananda 2002). The fundamental
+components of yoga were summarised in a system-
+atic eight-limbed approach ( ashtanga yoga, which
+includes: ethical precepts – yama and niyama, phys-
+ical postures – asana, breathing practices – prana-
+yama, interoceptive awareness – pratyahara,
+focussed meditation – dharana, effortless meditative
+"ﬂow" state – dhyana and the transcendental state –
+samadhi) by the Sage Patanjali in 400 BCE
+(Satyananda 2002). Patanjali ’s sutras (aphorisms)
+describe that main objective of yoga is to ‘calm
+down the agitations of the mind ’ (sutra 1.2). All
+major schools of yoga that emphasise postures,
+breathing practices and cleansing techniques (as a
+preparation to the advanced meditative yoga of
+Sage Patanjali) are derived from hatha yoga.
+According to yoga philosophy, the word ‘hatha’
+comes from ‘Ha’, which means the Sun, and ‘Tha’,
+meaning the Moon. Thus, all yogic practices aim
+to align an individual ’s biorhythms with those of
+nature, thereby improving overall health. Most
+schools of yoga incorporate elements of asanas
+(physical movements), including relaxation, pra-
+nayamas (breathing practices) and dhyana (medita-
+tion) to achieve this.
+Although traditionally yoga was a discipline
+designed for spiritual growth, over the past two
+decades it has emerged as a promising complemen-
+tary and alternative non-pharmacological option in
+the management and prevention of mental disorders
+ARTICLE
+Hemant Bhargav, MBBS, MD, PhD,
+is Assistant Professor of Yoga in the
+Department of Integrative Medicine
+at the National Institute of Mental
+Health and Neurosciences
+(NIMHANS), Bengaluru, India. He has
+10 years’ experience in managing
+neuropsychiatric disorders through
+yoga therapy. Sanju George, MBBS,
+FRCPsych, is a senior consultant in
+psychiatry at Lisie Hospital in Kochi,
+Kerala, India. His areas of expertise
+include addictions and stress man-
+agement. Shivarama Varambally,
+MBBS, MD, is Professor of Psychiatry
+and the current Head of the
+Department of Integrative Medicine
+at NIMHANS, Bengaluru, India. He
+has 20 years ’ experience in psych-
+iatry and holds DSc in Yoga.
+Correspondence: Sanju George.
+Email: sanjugeorge531@gmail.com
+First received 28 Aug 2021
+Final revision 17 Mar 2022
+Accepted 24 Mar 2022
+Copyright and usage
+© The Author(s), 2022. Published by
+Cambridge University Press on behalf
+of the Royal College of Psychiatrists
+BJPsych Advances (2023), vol. 29, 44 – 55 doi: 10.1192/bja.2022.22
+44 BJPsych Advances (2023), vol. 29, 44 – 55 doi: 10.1192/bja.2022.22
+https://doi.org/10.1192/bja.2022.22 Published online by Cambridge University Press
+
+(Varambally 2020). Yoga therapy is free from stigma
+and has gained popularity across cultures. Other
+advantages of yoga therapy include the easy accessi-
+bility of trained professionals, cost-effectiveness (as it
+does not require any expensive equipment or main-
+tenance costs) and the option of conducting yoga ses-
+sions in groups. The synchronisation of body
+movements, breath and mind together during a
+group yoga practice may lead to better sense of
+connectivity among people while practising
+yoga (coupling of the consciouness). Yoga can also
+be a helpful community-based intervention for pro-
+viding comprehensive, holistic mental healthcare
+and promoting mental well-being and preventing
+mental illness (Varambally 2020).
+Studies have found a gap between the use of yoga
+by individuals with neuropsychiatric disorders and
+the prescription of yoga by trained mental health pro-
+fessionals (Sirven 2003). The primary reason for this
+gap is the lack of suf ﬁcient training and education of
+mental health professionals in yoga therapy.
+This article aims to provide a scienti ﬁc update on
+the role of yoga therapy for psychiatric disorders,
+along with the essential conceptual framework and
+clinical tips (based on our clinical experience of
+over a decade) for psychiatrists who seek to integrate
+yoga into their clinical practice.
+Yoga in psychiatry: the evidence –base
+Depression
+A recent systematic review and meta-analysis
+(Brinsley 2021) assessed the effects of yoga interven-
+tions based on physical postures in alleviating
+depressive symptoms. It included 19 studies (13 ran-
+domised controlled trials, RCTs) and 1080 partici-
+pants with mental disorders such as depression,
+post-traumatic stress disorder (PTSD), schizophre-
+nia, anxiety, alcohol dependence and bipolar dis-
+order. The review authors found that yoga led to a
+greater reduction in depressive symptoms than
+treatment as usual, attention control or being on a
+waiting list. They also observed a dose – response
+relationship between the number of yoga sessions
+per week and a reduction in depressive symptoms.
+There is some preliminary evidence that yoga-
+based interventions may be a promising non-
+pharmacological option for depressive symptoms
+during pregnancy, especially for mild depression,
+as noted in a meta-analysis that included six
+studies (405 pregnant mothers) (Ng 2019).
+Evidence is also emerging to support the usefulness
+of yoga as monotherapy for mild to moderate
+depression, as demonstrated by a few good-quality
+RCTs (Prathikanti 2017; Nyer 2018). One of these
+RCTs found that a 12-week Iyengar yoga and coher-
+ent breathing programme was a helpful solo
+intervention for resolving suicidal ideations in
+people with major depressive disorder. It also
+reported that the most common adverse event asso-
+ciated with yoga practice was musculoskeletal pain,
+which resolved over the study period (Nyer 2018).
+Anxiety disorders
+A systematic review and meta-analysis assessing the
+effect of yoga intervention on anxiety identi ﬁed
+eight RCTs involving 319 participants with elevated
+anxiety levels or anxiety disorders (Cramer 2018a).
+It found short-term beneﬁcial effects of yoga in redu-
+cing anxiety in individuals with elevated levels of
+anxiety compared with no treatment and active com-
+parators but no signi ﬁcant impact for individuals
+with clinical diagnosis of anxiety disorders (as
+per DSM-5 criteria). Based on this evidence, only a
+weak recommendation can be made at present for
+the clinical use of yoga in people diagnosed with
+anxiety disorders.
+Post-traumatic stress disorder
+A systematic review and meta-analysis of RCTs of
+yoga (7 RCTs; n = 284) in people with PTSD
+revealed low-level evidence for its clinical utility in
+reducing PTSD symptoms (Cramer 2018b).
+Obsessive–compulsive disorder
+Owing to the limited number of studies of yoga inter-
+ventions for obsessive– compulsive disorder, no system-
+atic reviews or meta-analyses have been published in
+this area. Though emerging evidence for an add-on
+utility of yoga is encouraging (Shannahoff-Khalsa
+2019; Shannahoff-Khalsa 1999), there is a need for
+more quality trials to make speci ﬁc clinical
+recommendations.
+Schizophrenia
+A recent systematic review and meta-analysis of 15
+RCTs involving 1081 people with schizophrenia
+found bene ﬁcial effects of meditation-based mind –
+body therapies (yoga, tai-chi, qi-gong and mindful-
+ness) on negative symptoms compared with treat-
+ment as usual or non-speci ﬁc control interventions
+(Sabe 2019). The review authors pointed out that
+there was moderate to high heterogeneity in these
+studies and that the effect size was small. Another
+meta-analysis found that mindful exercises such as
+yoga, tai-chi and qi-gong were more bene ﬁcial
+than non-mindful physical exercises in reducing
+psychiatric symptoms (Positive and Negative
+Syndrome Scale scores) and improving working
+memory in this population. However, the quality
+of evidence was low (Li 2018). Overall, yoga can
+be considered helpful as an adjunctive therapy in
+reducing negative symptoms and improving the
+Yoga and mental health
+BJPsych Advances (2023), vol. 29, 44 – 55 doi: 10.1192/bja.2022.22 45
+https://doi.org/10.1192/bja.2022.22 Published online by Cambridge University Press
+
+quality of life in people with schizophrenia. Most of
+the trials demonstrated clinical improvement after
+8– 12 weeks of yoga practice.
+Chronic pain syndromes
+A systematic review and meta-analysis of yoga for
+people with chronic non-speci ﬁc neck pain has
+reported positive effects on pain intensity, pain-
+related functional disability, quality of life and
+mood (Li 2019). Similarly, meta-analyses have sup-
+ported the bene ﬁcial short-term and long-term
+effects of yoga in reducing functional disability and
+pain in people with chronic non-speci ﬁc lower
+back pain (Holtzman 2013: eight RCTs; Cramer
+2013: ten RCTs).
+A recent meta-analysis assessed the effect of yoga
+in people with a diagnosis of chronic or episodic
+headache (tension-type headache and migraine).
+The pooled effect size of ﬁve RCTs revealed a signiﬁ-
+cant overall effect favouring yoga on headache fre-
+quency, duration and pain intensity (Anheyer
+2020). This overall effect is mainly attributable to
+patients with tension-type headaches. Similarly, a
+meta-analysis of four trials reported yoga to be
+highly effective in alleviating menstrual pain in
+women with primary dysmenorrhoea (Kim 2019).
+Hence, in summary, yoga can serve as a valuable
+complementary treatment in managing chronic
+pain conditions.
+Mild cognitive impairment and early dementia
+The effect of common forms of mind – body exer-
+cises (yoga, tai-chi and qi-gong) on cognitive func-
+tions of people with mild cognitive impairment
+(MCI) has been evaluated in a systematic review
+and meta-analysis of nine RCTs and three non-
+RCTs (Zou 2019). The review authors observed
+that there was a signi ﬁcant improvement in the fol-
+lowing domains of cognition (in decreasing order of
+pooled effect size): (a) attention; (b) short-term
+memory; (c) executive function; (d) visuospatial
+function; and (e) global cognitive function. This
+indicates that mind – body interventions such as
+yoga, tai-chi and qi-gong can improve cognitive
+function in people with MCI. The evidence points
+to the potential role of such interventions in delay-
+ing the progression from MCI to Alzheimer ’s
+disease or other types of dementia.
+Substance use disorders
+A review of the evidence over the past 10 years for
+yoga in smoking cessation concluded that it is a
+promising intervention for improving smoking ces-
+sation rates (Dai 2014). Similarly, reviews of
+studies of yoga for various substance use disorders
+(four RCTs involving people with nicotine
+dependence, four RCTs in people with alcohol
+dependence and two RCTs in people with opioid
+use disorder) have concluded that yoga can be a
+useful adjuvant intervention in reducing addiction
+severity and improving quality of life (Sarkar
+2017; Kuppili 2018). Thus, there is preliminary evi-
+dence for the utility of yoga as an adjunctive treat-
+ment in substance use disorders.
+Psychiatric disorders in children and adolescents
+A systematic review of 27 studies assessing the
+effects of yoga interventions on anxiety and depres-
+sion in young people found that 70% of the studies
+reported overall improvements. Among the studies
+evaluating anxiety and depression, 58% showed
+improvement, whereas 70 and 40% of the studies
+assessing anxiety alone and depression alone
+reported improvements. The review authors con-
+cluded that regardless of intervention characteris-
+tics, yoga improves anxiety and depression in
+young people (James-Palmer 2020).
+A systematic review that included four RCTs (two
+involving mantra meditation and two using yoga)
+could not draw any ﬁrm conclusion for the recom-
+mendation of yoga in attention-de ﬁcit hyperactivity
+disorder (ADHD) (Krisanaprakornkit 2010). Thus,
+the current evidence is not sufﬁcient to make clinical
+recommendations for ADHD, but this is an import-
+ant area for future research.
+A review article in the area of yoga, mindfulness
+and autism spectrum disorders identi ﬁed eight
+empirical studies that showed promising early
+results on social, emotional or behavioral metrics
+(Semple 2019). Though empirical evidence from
+the review was inconclusive, authors suggested
+need for further research.
+This review of the evidence indicates that yoga can
+be useful for reducing anxiety and depression in chil-
+dren and adolescents but no conclusions can be
+drawn for its utility in ADHD or autism spectrum
+disorders at present.
+Sleep disorders
+A recent systematic review and meta-analysis exam-
+ined the effects of mind – body therapies on sleep
+quality in healthy individuals and in people with
+insomnia (Wang 2019). It found 49 studies (4506
+participants) with interventions such as meditation,
+tai-chi, qi-gong and yoga. The review authors con-
+cluded that these interventions produced a statistic-
+ally signi ﬁcant improvement in sleep quality and
+reduction in insomnia severity, with more signiﬁcant
+effects on healthy people than the clinical popula-
+tion. Thus, yoga can be recommended for enhancing
+the quality of sleep in healthy individuals and in
+people with insomnia.
+Bhargav et al
+46 BJPsych Advances (2023), vol. 29, 44 – 55 doi: 10.1192/bja.2022.22
+https://doi.org/10.1192/bja.2022.22 Published online by Cambridge University Press
+
+TABLE 1 Yoga practices to be emphasised for various psychiatric disorders
+Diagnosis/indication Yoga practices to be emphasised a
+Moderate to severe depression (Naveen
+2013; Varambally 2021)
+Energising and activating practices such as Sun salutations (start with 4 rounds, increase
+by 2 every week up to 12 rounds per day), asanas involving back-bends and chest
+opening postures (maintain each pose for 30 s): half-wheel pose ( ardha-chakrasana),
+half-camel pose ( ardha-ushtrasana), serpent pose ( bhujangasana); Fast breathing
+practices (kriya): bellows breath (bhastrika, 20 strokes per cycle, 3 cycles), skull shining
+breath (kapalabhati, 60 strokes per minute, 2 min); Specific slow regulated breathing
+(pranayama): right-nostril breathing ( surya anuloma viloma, 27 cycles of breath),
+coherent breathing (equal ratio between inhalation and exhalation) and loud mantra
+chanting (such as ‘aaa’ or ’om’, 3 min).
+Anxiety disorders (More 2021) Gentle relaxing practices of mild to moderate intensity (with gradual reduction of speed)
+which help in bringing parasympathetic dominance. Practices should focus on
+synchronisation of the body and breath, and mindfulness of the physical movements.
+Practices such as slow and deep breathing with prolonged exhalations, e.g. hands in
+and out breathing (10 rounds), tiger breathing (10 rounds), left-nostril breathing
+(chandra anuloma viloma, breathe in:hold:breathe out ratio of 1:4:2, i.e. breathe in for
+4 counts, hold for 16 counts, breathe out for 8 counts; total 27 cycles), cooling
+pranayamas (sitali or sadanta, 9 cycles), gentle humming breath ( bhramari, sound
+‘mmm’, 3 min), shavasana with deep abdominal breathing (inhalation:exhalation ratio
+of 1:3, i.e. breathe in for 1 count, breathe out for 3 counts).
+Post-traumatic stress disorder/stress
+management (Varambally 2021; Jasti
+2020)
+Main emphasis is on the coordination of body, breath and mind. Slow gentle practices that
+promote body and breath awareness (maintain each pose for 30 s), e.g. half-waist
+wheel pose ( ardhakati chakrasana), triangle pose ( trikonasana), butterfly practice,
+wind-releasing pose ( pavanmuktasana). Practices for breath regulation: sectional
+breathing (vibhagiya pranayama) in different mudras ( chin, chinmaya and adi) with
+longer duration of exhalation than inhalation (breathe in:hold:breathe out ratio of 1:4:2,
+i.e. breathe in for 4 counts, hold for 16 counts, breathe out for 8 counts; total 27
+cycles). Laughter yoga may be helpful at the end of a session. At bedtime, gentle part-
+by-part tightening and relaxation of muscles, progressing from the toes to the head,
+with synchronisation of the breath and soothing visual imagery with soft humming
+chants (guided yogic relaxation/yoga nidra) may also help.
+Schizophrenia and other psychotic disorders
+(Govindaraj 2016; Varambally 2012)
+Practices that are easy to learn but are performed more intensely, with rapid change of
+postures synchronised with dynamic breathing after sufficient warm-up. Some useful
+techniques are jogging, twisting poses, dynamic Sun salutations (start with 4 rounds,
+gradually increase by 2 every week to reach 10 rounds), fast yoga breathing practice
+(bhastrika, 20 strokes/min for 2 cycles) followed by slow breathing practices
+(alternate-nostril breathing; 6 cycles) loud mantra chanting (’aaa’, ’uuu’, ’mmm’, 5 min)
+with brief periods of interspersed relaxations (with eyes open) in shavasana (corpse
+pose).
+Bipolar affective disorder (Varambally 2021) A balance has to be achieved by avoiding too slow practices and preventing overdoing of
+fast practices. This can be achieved by keeping the person engaged with dynamic
+change of practice from one to another, interspersed with brief periods of relaxation in
+shavasana. Individuals with a current episode of depression should perform dynamic
+asanas with fast breathing practices interspersed with a brief period of relaxation
+where mantras emphasising the sound ‘aaa’ should be chanted. During a manic/
+hypomanic episode, a brief period of high-intensity practices such as Sun salutations
+and fast breathing (kapalbahati and bhastrika) should be followed by slow, gentle and
+soothing practices such as slow left-nostril breathing (27 cycles), cooling pranayama (9
+rounds) and gentle humming breath (3 min) in shavasana.
+Obsessive– compulsive disorder (Bhat 2016) Deep mental relaxation should be emphasised. Rather than a strict regimen with minute
+details, practices with more general instructions are better. Mindfulness during the
+practice should be the focus. Awareness and relaxation should move from different
+body parts (body awareness, 2 min; slow, gentle joint-loosening practices with breath
+and mind synchronisation, 5 min) to breath, and from breath (fast breathing practice, 3
+min; left-nostril breathing 27 cycles; loud chanting and then soft chanting of mantras
+such as humming chant, 3 min) to a brief period of complete silence and letting go of
+all the efforts (in shavasana). The cycle should be repeated two or three times, without
+a longer pause in between. An expanded, relaxed, non-judgemental and open state of
+mind should be targeted.
+Mild cognitive impairment and dementia
+(Hariprasad 2013)
+Short modules of easy practices that have been proven useful in enhancing cognition, such
+as humming breath (5 min), right-nostril breathing (27 cycles) followed by left-nostril
+breathing (27 cycles), slow, gentle kapalabhati breathing (20 breaths/min, 2 – 3 min),
+loosening of the joints with breath synchronisation and loud mantra chanting focusing
+on the vibration of the sound in the body. Encourage imitation of postures using all
+sensory components, including touch, sound, light and proprioception). Simple mental
+imagery techniques and group yoga practices should be promoted. Trataka kriya
+(focusing on a candle flame kept at 1 m distance in a dark draught-free room) can be
+advised twice a week. Laughter yoga can be performed towards the end of a session.
+(Continued)
+Yoga and mental health
+BJPsych Advances (2023), vol. 29, 44 – 55 doi: 10.1192/bja.2022.22 47
+https://doi.org/10.1192/bja.2022.22 Published online by Cambridge University Press
+
+Clinical yoga techniques for common
+psychiatric disorders
+Although evidence points to the utility of yoga for
+various psychiatric conditions, it is dif ﬁcult to say
+precisely what form of yoga should be recommended
+for speciﬁc symptoms or disorders. This is primarily
+due to the heterogeneity in the styles of yoga used in
+different studies and the lack of quality studies com-
+paring different styles of yoga. Given these caveats,
+the suggestions below are based on our combined
+experience of clinical psychiatry and yoga therapy,
+and the self-reports of our patients. Table 1 offers
+some tips on the kind of yoga practices that should
+be emphasised in speci ﬁc psychiatric disorders. We
+believe these will help clinicians understand
+TABLE 1 (Continued)
+Diagnosis/indication Yoga practices to be emphasised a
+Somatoform pain disorders, chronic pain
+syndromes, lower-back pain and neck
+pain (Jha 2021)
+Equal awareness of every part of the body should be emphasised by using poses that
+involve stretching and tightening of different body parts (maintain for 10 s), e.g.
+reverse boat pose ( vipreet naukasana), wind-releasing pose ( pavanmuktasana). This
+should be followed by relaxation of that part of the body. Mild backward-bending
+poses such as serpent pose (bhujangasana), half-camel pose (ardha-ustrasana) or half-
+wheel pose (ardha-chakrasana) are useful for lower-back pain and neck pain. Slow and
+deep abdominal breathing, alternate-nostril breathing and deeply relaxing practices
+such as yoga nidra or guided yogic relaxation in shavasana should be emphasised and
+performed for a longer duration at the end of a session (at least 20 min of relaxation in
+a 1 h module).
+Migraine and other headaches (Varambally
+2021)
+Slow deep breathing practices such as alternate-nostril breathing (5 min) and left-nostril
+breathing (27 cycles) maintaining a ratio of breathe in:hold:breathe out of 1:4:2 (i.e.
+breathe in for 4 counts, hold for 16 counts, breathe out for 8 counts) every morning
+before breakfast. This should be followed by humming breath ( bhramari with
+shanmukhi mudra, closure of the ears and eyes with the palm) for 3 – 5 min, where the
+massaging effect of the gentle humming chant should be felt in the head
+region. Hands may be supported by a table. It is important to note that the chant is
+gentle and soothing, and not loud and harsh. After this, whole-body joint loosening
+with breath synchronisation followed by deep relaxation of body parts from head to
+toe should be practised.
+Substance use disorders and other
+behavioural addictions (Bhargav
+2021a)
+During the acute withdrawal phase, practices that are advised for anxiety disorders should
+be taught. In the maintenance phase, more challenging poses and breathing practices
+could be added. Individuals may require shorter yoga capsules of 15 – 20 min
+performed 2– 3 times a day rather than performing the whole programme in a single
+session. In the maintenance phase, emphasis should be on building physical and
+mental strength with more intense practices such as Sun salutations, warrior pose
+(veerabhadrasana) variations, sectional breathing ( vibhagiya pranayama), kapalabhati,
+bhastrika, victorious breath ( ujjayi), trataka, humming breath ( bhramari) and chanting
+of mantras such as ‘om’ during brief periods of relaxation in shavasana.
+Seizure disorders (Varambally 2021) Individuals require easy-to-learn practices that are relaxing and calming. Techniques such
+as Sun salutations, whole-body joint loosening, alternate-nostril breathing, humming
+breath with closure of the eyes with the hands ( bhramari in shanmukhi mudra) and
+gentle chanting of mantras (such as ‘om’) should be emphasised.
+Autism and attention-deficit hyperactivity
+disorder (Varambally 2021)
+For children, practices that can be performed together in groups, such as mandala yoga
+where children come together and form a combined pose, e.g. a lotus flower, with
+each child contributing as a petal. Chanting mantras in chorus. Interesting breathing
+practices through which children can relate to different animals, such the dog, rabbit
+or lion. These will not only increase adherence but will also enhance the children ’s
+social connectivity with each other. Imitation of postures with multisensory
+components should be encouraged.
+Sleep quality enhancement (Suman 2017) Morning yogasana practice should be more helpful in improving night sleep than evening
+yogasana. All sleep specific practices should be performed on the bed. Start with tiger
+breathing in table pose for 5 – 6 rounds, then lie down on the back and perform a
+twisted abdominal stretch ( udaraakarshan asana). Then perform ‘point meditation’
+with movement of awareness on different parts of the body, starting from the top of
+the head down to the toes and back. This should be followed by left-nostril breathing
+for 5 min and then continuation of very gentle humming breath ( bhramari pranayama)
+while lying down with the eyes closed. Yoga nidra may also be helpful practice.
+Improving appetite ‘Digestive fire’ can be ignited by performing asanas and kriyas that involve twisting or
+flapping movements of the abdomen. Examples include: sitting twisted pose
+(vakrasana), Earth salutation pose ( bhunamansana), seated forward-bend pose
+(paschimottanasana), kapalabhati kriya and agni-sara kriya. The practice of Sun
+salutations, butterfly (200 strokes per cycle), and right-nostril breathing may also help
+in improving digestive function and enhancing appetite. These practices may also help
+regulate the menstrual cycle.
+a. Yogic practices should be performed at least three times per week for sustained effects. Fast breathing practices should not be performed less than2 h after a meal.
+Bhargav et al
+48 BJPsych Advances (2023), vol. 29, 44 – 55 doi: 10.1192/bja.2022.22
+https://doi.org/10.1192/bja.2022.22 Published online by Cambridge University Press
+
+therapeutic yoga techniques that can bene ﬁtt h e i r
+patients. Preliminary research shows that, on
+average, 8 – 12 weeks of yoga practice, with a
+minimum of three 1 h sessions per week, are required
+to produce observable bene ﬁts in major psychiatric
+conditions (Streeter 2020;A r a s a p p a2021).
+Safety and adverse events
+A systematic review assessing the frequency of
+adverse events in RCTs of yoga (94 RCTs published
+between 1975 and 2014 and involving 8430 partici-
+pants) concluded that yoga was as safe as usual care
+and exercise (Cramer 2015). A few studies have
+reported aggravation of psychotic symptoms after
+meditative practices among patients with pre-exist-
+ing psychotic disorders: a narrative review of 19
+studies and 28 cases observed that the types of medi-
+tation involved were transcendent, mindfulness,
+Buddhist meditation such as vipassana, qigong,
+zen and theraveda, and practices such as bikram
+yoga, pranic healing and Hindustan-type medita-
+tion. However, the review authors noted that it
+was dif ﬁcult to attribute a causal relationship
+between the meditation and worsening of psychotic
+symptoms and suggested further studies (Sharma
+2019). Similarly, indirect evidence indicates that
+hyperventilation can be a cause, a correlate or a con-
+sequence of panic attacks, and practices reversing
+hyperventilation may be effective (Meuret 2010).
+Fast yoga breathing practices such as kapalbhati
+and bhastrika involve hyperventilation, whereas
+kumbhaka (holding of the breath) reverses the
+hyperventilation process. Kumbhaka has been
+used as a part of regulated breathing and slow
+pranayama in yoga. Thus, faster yoga breathing
+may be avoided, whereas slow pranayama may be
+promoted in anxiety disorders, including panic dis-
+order. Learning yoga from media sources such as
+YouTube and self-practice without supervision can
+result in serious side-effects due to incorrect prac-
+tices and should be avoided (Suchandra 2021).
+It is important for clinicians to understand the poten-
+tially harmful effects of yoga practices andTable 2lists
+practices that may preferably be avoided in patients
+with particular psychiatric disorders.
+Possible neurobiological mechanisms of
+action of yoga in mental disorders
+Downregulation of the HPA axis
+Yoga has been found to reduce cortisol levels by down-
+regulating the hypothalamic– pituitary– adrenal (HPA)
+axis. Studies have also shown that yoga practice (from
+the acute effect of a single session to 6 months of
+regular practice) can reduce cortisol levels in people
+with psychiatric disorders (Thirthalli 2013;
+Bershadsky2014).
+Increase in BDNF levels
+Studies have also demonstrated that yoga practice of
+12 weeks can enhance neuroplasticity (levels of
+brain-derived neurotrophic factor, BDNF) in
+people with major depressive disorder (Naveen
+2016; Tolahunase 2018).
+Enhancement of GABAergic transmission
+Another major central mechanism through which
+yoga produces a calming and relaxing effect is by
+enhancing the levels of the neurotransmitter γ-ami-
+nobutyric acid (GABA). Studies have also found
+that Iyengar yoga intervention, varying from a
+single session to 12 weeks, can increase thalamic
+GABA levels in healthy individuals (Streeter 2007;
+Streeter 2010). Similar ﬁndings have also been
+observed with 12 weeks of yoga practice in patients
+with major depressive disorder (Streeter 2020). This
+GABAergic mechanism of yoga has also been
+demonstrated using transcranial magnetic stimula-
+tion (TMS) in people with depressive disorder
+(Bhargav 2021b).
+Reduction in inflammatory cytokines
+Inﬂammation is another biological process that is asso-
+ciated with psychiatric conditions. Two RCTs demon-
+strated a reduction in interleukin-6 (IL-6) after 10
+weeks of hatha yoga (Nugent 2021) and 12 weeks of
+yoga and meditation-based lifestyle (Tolahunase
+2018) in people with major depressive disorder.
+Modulation of autonomic nervous system
+functions
+Certain yoga practices, especially breathing through a
+speciﬁc nostril or at a particular frequency, have
+shown differential effects on the sympathetic and
+parasympathetic nervous systems (Raghuraj 2008).
+Slow yoga breathing practices may result in a state
+of parasympathetic dominance (Kromenacker
+2018), whereas faster yoga breathing practices
+(kriyas) may produce the opposite effect.
+Morphological and functional brain changes
+In a recent review article, 34 international peer-
+reviewed neuroimaging studies of the effects of
+yoga on the brain using magnetic resonance
+imaging (MRI), positron emission tomography
+(PET) or single-photon emission computed tomog-
+raphy (SPECT) were analysed. Three consistent
+ﬁndings from the studies were: (a) increased grey
+matter volume in the insula and hippocampus; (b)
+increased activation of prefrontal cortical regions;
+and (c) functional connectivity changes in the
+default mode network (van Aalst 2020).
+Yoga and mental health
+BJPsych Advances (2023), vol. 29, 44 – 55 doi: 10.1192/bja.2022.22 49
+https://doi.org/10.1192/bja.2022.22 Published online by Cambridge University Press
+
+Further information
+Further details on mechanisms of action may be
+found in a recent review article summarising bio-
+marker evidence for the effects of yoga in psychiatric
+disorders (Bhargav 2021c).
+Yoga in current psychiatric treatment
+guidelines
+In 2016, the Canadian Network for Mood and
+Anxiety Treatments (CANMAT) updated its evi-
+dence-based clinical guidelines for treating depressive
+TABLE 2 Yoga practices to be avoided and precautions to be followed for various psychiatric disorders
+Diagnosis Yoga practices to be avoided
+Moderate to severe depression (Naveen 2013) Advanced meditative practices that involve withdrawal of the senses
+(pratyahara) and contemplation with maintenance of the same posture for a
+long time (more than 3 min).
+Anxiety disorders (More 2021) Fast breathing practices such as kapalbhati (skull shining breath) and bhastrika
+(bellows breath) exceeding the speed of 30 breaths a minute (especially for
+the beginners). High-intensity physical practices.
+Schizophrenia and other psychotic disorders
+(Suchandra 2021)
+Meditation that involves withdrawal of the senses ( pratyahara) and
+internalisation of awareness (e.g. vipassana meditation) or those involving
+guided imagery (such as yoga nidra). Very slow-paced yogic practices,
+maintenance of a yoga posture for more than 1 min and closure of the eyes
+for more than 1 min during any yogic practice. Practices that are complex or
+physically risky (e.g. sirsasana (head-stand pose). Theoretical discussions
+related to mystic effects of yoga.
+Bipolar affective disorder (Varambally 2021) Overdoing yogic practices may be harmful and slow-paced instructions and
+techniques may make the person more agitated. A balance must be
+achieved by keeping the person engaged with dynamic change of practices
+from one to another, interspersed with brief periods of relaxation in
+shavasana (corpse pose).
+Obsessive– compulsive disorder (Bhat 2016) Emphasis on performing a particular practice a specific number of times or for an
+exact duration should be avoided, as it might make the patient more anxious
+to achieve the target; instructions should be more generalized, clear and
+simple.
+Mild cognitive impairment and dementia Avoid teaching too many practices at a time and do not change the sequence of
+the practices in the yoga module frequently. For elderly people, standing
+poses should always be performed beside a wall for support. Fast breathing
+practices should not exceed the speed of 30 breaths per minute. Postures
+with increased risk of fall, such as trikonasana (triangle pose), vrikshasana
+(tree pose) and forward – backward bending, should be avoided. Elderly
+people should not be asked to close their eyes while performing any
+standing posture. Individuals with any cardiac disease should avoid acute
+forward bends and raising the hands above the head (Hariprasad 2013).
+Somatoform pain disorders, chronic pain syndromes,
+lower-back pain and neck pain (Jha 2021)
+Extreme forward and backward bends should be avoided; in particular,
+individuals with lower-back pain should avoid practices that involve bending
+forward, e.g. padahastasana (hand to feet pose), paschimottanasana
+(seated forward-bend pose), surya namaskara (Sun salutations) or
+shashankasana (Moon pose). Poses that involve raising the hands above the
+head, neck rotation and neck movements should be avoided in individuals
+with neck pain. Fast breathing practices such as kapalbhati and bhastrika
+should be performed very gently with caution by those with back/neck pain.
+Migraine and other headaches (Varambally 2021) Fast breathing practices ( kapalbhati and bhastrika) that involve hyperventilation
+should be avoided. Loud chanting of mantras and rapid forward and
+backward bending should be avoided.
+Substance use disorders and other behavioural
+addictions (Bhargav 2021a)
+Fast breathing practices and intense yoga postures should be avoided if the
+person is experiencing acute withdrawal symptoms. Practices that are very
+slow and those requiring maintenance of a pose for more than 2 – 3 minutes
+(except for shavasana which can be maintained for up to 10 minutes) or
+highly contemplative practices involving imagery (e.g. yoga nidra) should be
+avoided in the initial phase.
+Seizure disorders (Varambally 2021) Practices that involve hyperventilation may precipitate a seizure episode and
+therefore practices such as kapalbhati and bhastrika are contraindicated.
+The yogic cleansing technique called jyoti trataka, which involves intense
+focus of the gaze on a candle flame without blinking, should also be
+avoided.
+Autism and attention-deficit hyperactivity disorder Complex practices that are difficult to learn should be avoided. Very slow-paced
+practices may not hold the individual ’s sustained attention (Gulati 2021).
+Sleep disorder Avoid dynamic yogasana, right-nostril breathing and fast yoga breathing
+practices in the evening (Suman 2017).
+Bhargav et al
+50 BJPsych Advances (2023), vol. 29, 44 – 55 doi: 10.1192/bja.2022.22
+https://doi.org/10.1192/bja.2022.22 Published online by Cambridge University Press
+
+disorders. Section 5 of the guidelines deals with two
+broad categories of intervention using complementary
+and alternative medicine (CAM): (a) physical and
+meditative treatments and (b) natural health pro-
+ducts. For major depressive disorder of mild to moder-
+ate severity, the guidelines recommend exercise,
+(bright) light therapy, St John ’s wort, omega-3 fatty
+acids, S-adenosyl-L-methionine (SAMe) and yoga as
+ﬁrst- or second-line treatments (Ravindran 2016).
+Similarly, for adults with depression for whom psy-
+chotherapy or pharmacotherapy is either ineffective
+or unacceptable, the American Psychological
+Association’s guidelines include a‘conditional recom-
+mendation for use’ of exercise, St John’s Wort, bright
+light therapy or yoga (Guideline Development Panel
+for the Treatment of Depressive Disorders 2019).
+Yoga is also recommended as a complementary inter-
+vention for the management of schizophrenia in the
+UK’s updated National Institute for Health and
+Care Excellence guidelines (NCCMH 2014).
+Barriers and limitations to the use of yoga in
+psychiatry
+At an individual level, yoga requires signi ﬁcant
+motivation and effort. It also requires dedicated
+time and space for practice. In a survey of people
+with schizophrenia, it was observed that travel dis-
+tance from home to the yoga centre was the
+primary barrier to yoga practice (Baspure 2012).
+Complex and challenging practices pose other obsta-
+cles. To overcome these barriers and enhance motiv-
+ation, the yoga therapist should initially spend a
+good amount of time with the patient in rapport
+building and start with simple and easy yoga prac-
+tices. Tele-yoga might be used to overcome the bar-
+riers of distance and time, with more frequent short
+sessions rather than a single long session. However,
+there is currently a disconnect between psychiatric
+care facilities and yoga services in most of the
+world. There are many reasons for this, such as
+the lack of trained yoga therapists/mental health
+professionals in most hospitals (perhaps because of
+funding limitations) and also the lack of awareness
+among mental health professionals about the bene-
+ﬁts and precautions of yoga in relation to psychiatric
+disorders. We hope this article will help improve the
+connection (the root of the word ‘yoga’ means ‘to
+connect’). A limitation of yoga therapy is lack of
+standardisation of practices for given clinical condi-
+tions. Clinical trials of yoga in psychiatric disorders
+use various interventions, ranging from predomin-
+antly asana-based approaches (the Iyengar school)
+to practices that are purely contemplative and medi-
+tative (Rajayoga meditation). This heterogeneity in
+published trials hinders application in clinical
+settings and calls for standardisation of modules
+and replication of studies.
+How yoga services evolved at our tertiary
+mental healthcare hospital
+The National Institute of Mental Health and
+Neurosciences (NIMHANS) is a major tertiary
+mental healthcare hospital in South India, with 932
+in-patient beds and an average of 1500 patients
+attending out-patient services every day. The integra-
+tion of yoga into clinical practice began in 2007 with
+the establishment of a centre funded by the
+Government of India’s Ministry of Ayurveda, Yoga,
+Unani, Siddha and Homeopathy (AYUSH). Initially,
+services were provided on the basis of referrals (only
+one or two patients per day) from the NIMHANS ’
+Departments of Psychiatry, Neurology and
+Psychology and were limited to patients with non-spe-
+ciﬁc complaints or those who asked for yoga or those
+who had mild anxiety or depression and were unwill-
+ing to take medications. Referrals increased over the
+years and the centre was absorbed into NIMHANS ’
+core services in 2014. In-patients and out-patients at
+NIMHANS were referred to the yoga centre by psy-
+chiatrists, psychologists, neurologists and neurosur-
+geons. In 2019, the yoga centre evolved into a
+separate clinical department – the Department of
+Integrative Medicine at NIMHANS– which integrates
+biomedicine, yoga and Ayurveda, with faculty and
+scientists from all three disciplines.
+After coming to the yoga centre, the patient is ﬁrst
+seen by the senior resident in psychiatry, who assesses
+the severity of illness and rules out contraindications
+for yoga. After assessment the patient is sent to a
+senior/junior scientiﬁco fﬁcer (MD yoga), who formu-
+lates the yoga programme and offers yoga-based life-
+style tips related to physical activity, diet, stress and
+sleep based on the assessment of the individual’sc o n -
+stitution from traditional viewpoints (gunas – mental
+attitudes; doshas – physical factors). The patient is
+then introduced to the yoga therapist (Master ’s
+degree in yoga) who delivers the yoga sessions.
+Patient is given a yoga registration card that shows
+the patient’s details, the name of the therapist, the
+time of sessions and an attendance chart. The ﬁrst
+session is conducted by the therapist one-on-one,
+either on the day the patientﬁrst visits the department
+or the next day. In the ﬁrst session, the therapist
+demonstrates indicated and contraindicated practices
+from the yoga module for the speci ﬁc condition (e.g.
+the depression or anxiety module) and any errors in
+the patient ’s practice are corrected. Subsequently,
+from day 2, the patient joins 1 h group sessions for
+their particular condition. For most people, ten super-
+vised yoga sessions are sufﬁcient to learn and practice
+t h em o d u l eo nt h e i ro w na th o m ew i t ht h eh e l po fa
+Yoga and mental health
+BJPsych Advances (2023), vol. 29, 44 – 55 doi: 10.1192/bja.2022.22 51
+https://doi.org/10.1192/bja.2022.22 Published online by Cambridge University Press
+
+practice chart or a video. Individuals with chronic
+psychoses and elderly people with cognitive impair-
+ment often need a month of supervised practice
+(approximately 20 sessions) to learn the module. For
+children with autism, 3– 4 months are usually required
+to accustom the child to the class and practice, and
+substantial improvements in imitation are often
+observed only after 6– 9 months of regular practice.
+Indications for yoga referral
+More than 70% of individuals referred for yoga
+therapy to the Department of Integrative Medicine
+at NIMHANS are treated primarily for one of the fol-
+lowing disorders: (a) depressive disorders; (b)
+schizophrenia and other psychotic disorders; (c)
+anxiety disorders or obsessive– compulsive disorder;
+(d) mild cognitive impairment. The ﬁrst two categor-
+ies account for more than half of total referrals
+(53%). Hence, a yoga therapy centre in a tertiary
+mental healthcare setting could expect depression
+and schizophrenia (with other psychotic disorders)
+to be the most important psychiatric disorders for
+which yoga therapy is sought as an adjunctive treat-
+ment. Figure 1 shows the distribution of referrals by
+diagnosis in 2019. Apart from the conditions
+depicted in Fig. 1 , about 1% of referrals were for
+the following diagnoses: ADHD, seizure disorder,
+Hirayama disease and autism spectrum disorders.
+Role of a yoga-based lifestyle in preventive
+psychiatry
+Preventive psychiatry is a branch of psychiatry that
+aims at health promotion, protection from speci ﬁc
+mental illnesses, early diagnosis, effective treatment,
+disability limitation and rehabilitation. Prevention
+in neuropsychiatric conditions is particularly import-
+ant as many of them run a chronic disabling course.
+Lifestyle factors, including psychosocial environment
+and stress, play key roles in the causation of psychi-
+atric disorders. A yoga-based lifestyle has been
+found to be helpful in reducing lifestyle-related risk
+factors in major non-communicable diseases, and
+several studies have demonstrated the utility of
+yoga in combating psychological stress (Cocchiara
+2019). Freedom from stigma, and the increasing
+popularity of tele-yoga in recent times, have made
+yoga more acceptable and accessible to people.
+Although potentially useful, research into the role of
+yoga in preventive psychiatry is limited.
+Future directions in integrative psychiatry
+Given the safety and bene ﬁcial effects of yoga in
+treatment of psychiatric disorders and promotion
+of mental well-being, we anticipate that it will
+become an integral part of multidisciplinary psychi-
+atric care in the near future, similar to clinical psych-
+ology and psychiatric social work. However, this
+needs continuing generation of evidence on both
+the ef ﬁcacy and mechanisms of action of yoga in
+mental health disorders.
+Authors contributions
+All authors contributed to the conception of this
+artcile, writing the ﬁrst draft, revision and preparing
+the ﬁnal version of this manuscript.
+300 100
+Depression
+Schizophrenia
+Caregivers
+Bipolar affective disorder
+Anxiety disorders
+Obsessive-compulsive disorder
+Other psychotic disorders
+Mild cognitive impairment and dementias
+Dissociative disorder
+Parkinsons disease
+Headache/migraine
+Somatoform pain disorder
+Low back/neck pain
+Adjustment disorder
+Personality disorder
+Substance/behavior addiction
+Attention deficit hyperactivity disorder
+Mixed anxiety and depression
+Delusional disorder
+Hirayama disease
+Autism
+Seizure disorder
+Cumulative %
+75
+55
+50
+0
+200
+Cases, n
+100
+0
+FIG 1 Pareto chart showing the diagnosis-specific pattern of referrals for yoga therapy to the Department of Integrative
+Medicine at the National Institute of Mental Health and Neurosciences, a tertiary mental and neurological healthcare
+hospital in South India, from 1 January to 31 December 2019.
+Bhargav et al
+52 BJPsych Advances (2023), vol. 29, 44 – 55 doi: 10.1192/bja.2022.22
+https://doi.org/10.1192/bja.2022.22 Published online by Cambridge University Press
+
+Funding
+This article received no speci ﬁc grant from any
+funding agency, commercial or not-for-pro ﬁt
+sectors. However, H.B. and S.V. are supported by
+the Wellcome Trust/DBT India Alliance, respect-
+ively receiving an Early Career and an Intermediate
+Career Fellowship. The Department of Integrative
+Medicine at NIMHANS is supported by the
+Ministry of AYUSH, Government of India, through
+funding for the Centre of Excellence in AYUSH
+Research.
+Declaration of interest
+S.G. is a member of the BJPsych Advances editorial
+board and did not take part in the review or decision-
+making process of this article.
+References
+Anheyer D, Klose P, Lauche R, et al (2020) Yoga for treating headaches: a
+systematic review and meta-analysis. Journal of General Internal
+Medicine, 35: 846– 54.
+Arasappa R, Bhargav H, Ramachandra K, et al (2021) Perspective of
+patients referred to Yoga center in a tertiary neuropsychiatric hospital:
+a cross-sectional retrospective study. Indian Journal of Psychiatry , 63:
+543– 8.
+Baspure S, Jagannathan A, Kumar S, et al (2012) Barriers to yoga therapy
+as an add-on treatment for schizophrenia in India. International Journal of
+Yoga, 5:7 0– 3.
+Bershadsky S, Trumpfheller L, Kimble HB, et al (2014) The effect of pre-
+natal Hatha yoga on affect, cortisol and depressive symptoms.
+Complementary Therapies in Clinical Practice , 20: 106– 13.
+Bhargav H, Pilli Devi V, Sumana V, et al (2021a) Development, validation
+and feasibility testing of a Yoga module for opioid use disorder. Advances
+in Mind Body Medicine , 35:4 – 14.
+Bhargav PH, Reddy PV, Govindaraj R, et al (2021b) Impact of a course of
+add-on supervised Yoga on cortical inhibition in major depressive disorder:
+a randomized controlled trial. Canadian Journal of Psychiatry, 66:1 7 9– 81.
+Bhargav H, George S, Varambally S, et al (2021c) Yoga and psychiatric
+disorders: a review of biomarker evidence. International Review of
+Psychiatry, 33: 162– 9.
+Bhat S, Varambally S, Karmani S, et al (2016) Designing and validation of
+a yoga-based intervention for obsessive compulsive disorder.
+International Review of Psychiatry , 28: 327– 33.
+Brinsley J, Schuch F, Lederman O, et al (2021) Effects of yoga on depres-
+sive symptoms in people with mental disorders: a systematic review and
+meta-analysis. British Journal of Sports Medicine , 55: 992– 1000.
+Cocchiara RA, Peruzzo M, Mannocci A, et al (2019) The use of Yoga to
+manage stress and burnout in healthcare workers: a systematic review.
+Journal of Clinical Medicine , 8(3): 284.
+Cramer H, Lauche R, Haller H, et al (2013) A systematic review and meta-
+analysis of yoga for low back pain.The Clinical Journal of Pain, 29:4 5 0– 60.
+Cramer H, Ward L, Saper R, et al (2015) The safety of Yoga: a systematic
+review and meta-analysis of randomized controlled trials. American
+Journal of Epidemiology , 182: 281– 93.
+Cramer H, Lauche R, Anheyer D, et al (2018a) Yoga for anxiety: a system-
+atic review and meta-analysis of randomized controlled trials. Depression
+and Anxiety, 35: 830– 43.
+Cramer H, Anheyer D, Saha FJ, et al (2018b) Yoga for posttraumatic stress
+disorder – a systematic review and meta-analysis.BMC Psychiatry, 18:7 2 .
+Dai C-L, Sharma M (2014) Between inhale and exhale: yoga as an inter-
+vention in smoking cessation. journal of Evidence-Based Complementary
+& Alternative Medicine , 19: 144– 9.
+GBD 2019 Mental Disorders Collaborators (2022) Global, regional, and
+national burden of 12 mental disorders in 204 countries and territories,
+1990– 2019: a systematic analysis for the Global Burden of Disease
+Study 2019. The Lancet Psychiatry , 9(2): 137– 150.
+Govindaraj R, Varambally S, Sharma M, et al (2016) Designing and valid-
+ation of a yoga-based intervention for schizophrenia. International Review
+of Psychiatry, 28: 323– 6.
+Guideline Development Panel for the Treatment of Depressive Disorders
+(2019) APA Clinical Practice Guideline for the Treatment of Depression
+across Three Age Cohorts . American Psychological Association ( https://
+www.apa.org/depression-guideline/guideline.pdf).
+Gulati K, Bhargav PH, Abraham SE, et al (2021) Yoga: a multi-dimensional
+therapeutic approach to autism spectrum disorder. In Handbook of
+Research on Evidence-Based Perspectives on the Psychophysiology (eds
+S Telles, RK Gupta): 361 – 90. IGI Global.
+Hariprasad VR, Varambally S, Varambally PT, et al (2013) Designing, val-
+idation and feasibility of a yoga-based intervention for elderly. Indian
+Journal of Psychiatry , 55: S344– 9.
+Holtzman S, Beggs RT (2013) Yoga for chronic low back pain: a meta-ana-
+lysis of randomized controlled trials. Pain Research & Management , 18:
+267– 72.
+James-Palmer A, Anderson EZ, Zucker L, et al (2020) Yoga as an interven-
+tion for the reduction of symptoms of anxiety and depression in children
+and adolescents: a systematic review. Frontiers in Pediatrics , 8: 78.
+Jasti N, Bhargav H, George S, et al (2020) Tele-yoga for stress manage-
+ment: need of the hour during the COVID-19 pandemic and beyond. Asian
+Journal of Psychiatry , 54: 102334.
+Jha M, Dumbala S, Gulati K, et al (2021) Yoga module for somatoform
+pain disorders: development, content validation, and feasibility testing.
+International Journal of Yoga , 14: 206– 12.
+Kim S-D (2019) Yoga for menstrual pain in primary dysmenorrhea: a meta-
+analysis of randomized controlled trials. Complementary Therapies in
+Clinical Practice, 36:9 4– 9.
+Krisanaprakornkit T, Ngamjarus C, Witoonchart C, et al (2010) Meditation
+therapies for attention-deficit/hyperactivity disorder (ADHD). Cochrane
+Database of Systematic Reviews , 6: CD006507.
+Kromenacker BW, Sanova AA, Marcus FI, et al (2018) Vagal mediation of
+low-frequency heart rate variability during slow Yogic breathing.
+Psychosomatic Medicine , 80: 581– 7.
+Kuppili PP, Parmar A, Gupta A, et al (2018) Role of Yoga in management of
+substance-use disorders: a narrative review. Journal of Neuroscience in
+Rural Practice, 9: 117– 22.
+Li J, Shen J, Wu G, et al (2018) Mindful exercise versus non-mindful exer-
+cise for schizophrenia: a systematic review and meta-analysis of rando-
+mized controlled trials. Complementary Therapies in Clinical Practice ,
+32:1 7– 24.
+Li Y, Li S, Jiang J, et al (2019) Effects of yoga on patients with chronic
+nonspecific neck pain: a PRISMA systematic review and meta-analysis.
+Medicine, 98: e14649.
+Meuret AE, Ritz T (2010) Hyperventilation in panic disorder and asthma:
+empirical evidence and clinical strategies. International Journal of
+Psychophysiology, 78:6 8– 79.
+More P, Kumar V, Usha Rani MR, et al (2021) Development, validation,
+and feasibility of a generic yoga-based intervention for generalized anx-
+iety disorder. Complementary Therapies in Medicine , 63: 102776.
+National Collaborating Centre for Mental Health (2014) Schizophrenia:
+Core Interventions in the Treatment and Management of Schizophrenia
+in Primary and Secondary Care Updated Edition . The British
+Psychological Society and the Royal College of Psychiatrists ( https://
+www.researchgate.net/publication/259338834_SCHIZOPHRENIA_The_NICE_
+guidelines_on_core_interventions_in_the_treatment_and_management_
+of_schizophrenia _in_primary_and_secondary_care).
+MCQ answers
+1 d 2 c 3 b 4 d 5 d
+Yoga and mental health
+BJPsych Advances (2023), vol. 29, 44 – 55 doi: 10.1192/bja.2022.22 53
+https://doi.org/10.1192/bja.2022.22 Published online by Cambridge University Press
+
+Naveen GH, Rao MG, Vishal V, et al (2013) Development and feasibility of
+yoga therapy module for out-patients with depression in India. Indian
+Journal of Psychiatry , 55(suppl 3): S350 – 6.
+Naveen GH, Varambally S, Thirthalli J, et al (2016) Serum cortisol and
+BDNF in patients with major depression-effect of yoga. International
+Review of Psychiatry , 28: 273– 8.
+Ng QX, Venkatanarayanan N, Loke W, et al (2019) A meta-analysis of the
+effectiveness of yoga-based interventions for maternal depression during
+pregnancy. Complementary Therapies in Clinical Practice, 34:8 – 12.
+Nugent NR, Brick L, Armey MF, et al (2021) Benefits of yoga on IL-6: find-
+ings from a randomized controlled trial of yoga for depression. Behavioral
+Medicine, 47:2 1– 30.
+Nyer M, Gerbarg PL, Silveri MM, et al (2018) A randomized controlled dos-
+ing study of Iyengar yoga and coherent breathing for the treatment of
+major depressive disorder: impact on suicidal ideation and safety findings.
+Complementary Therapies in Medicine , 37: 136– 42.
+Prathikanti S, Rivera R, Cochran A, et al (2017) Treating major depression
+with yoga: a prospective, randomized, controlled pilot trial. PLoS One, 12:
+e0173869.
+Raghuraj P, Telles S (2008) Immediate effect of specific nostril manipulat-
+ing yoga breathing practices on autonomic and respiratory variables.
+Applied Psychophysiology and Biofeedback , 33:6 5– 75.
+Ravindran AV, Balneaves LG, Faulkner G, et al (2016) Canadian Network
+for Mood and Anxiety Treatments (CANMAT) 2016 clinical guidelines for
+the management of adults with major depressive disorder: section 5. com-
+plementary and alternative medicine treatments. Canadian Journal of
+Psychiatry, 61: 576– 87.
+Sabe M, Sentissi O, Kaiser S (2019) Meditation-based mind-body therap-
+ies for negative symptoms of schizophrenia: systematic review of rando-
+mized controlled trials and meta-analysis. Schizophrenia Research , 212:
+15– 25.
+Sarkar S, Varshney M (2017) Yoga and substance use disorders: a narra-
+tive review. Asian Journal of Psychiatry , 25: 191– 6.
+Satyananda S (2002) Four Chapters on Freedom: Commentary on the Yoga
+Sutras of Patanjali . Nesma Books.
+Semple RJ (2019) Yoga and mindfulness for youth with autism spectrum
+disorder: review of the current evidence. Child and Adolescent Mental
+Health, 24(1): 12– 18.
+Shannahoff-Khalsa DS, Ray LE, Levine S,et al (1999) Randomized con-
+trolled trial of yogic meditation techniques for patients with obsessive-
+compulsive disorder. CNS Spectrums, 4(12): 34– 47.
+Shannahoff-Khalsa D, Fernandes RY, Pereira CAB, et al (2019) Kundalini
+yoga meditation versus the relaxation response meditation for treating
+adults with obsessive-compulsive disorder: a randomized clinical trial.
+Frontiers in Psychiatry , 10: 793.
+Sharma P, Mahapatra A, Gupta R (2019) Meditation-induced psychosis: a
+narrative review and individual patient data analysis. Irish Journal of
+Psychological Medicine [Epub ahead of print] 31 Oct. Available from:
+https://doi.org/10.1017/ipm.2019.47.
+Sirven JI, Drazkowski JF, Zimmerman RS, et al (2003) Complementary/
+alternative medicine for epilepsy in Arizona. Neurology, 61: 576– 7.
+Streeter CC, Jensen JE, Perlmutter RM, et al (2007) Yoga asana sessions
+increase brain GABA levels: a pilot study. Journal of Alternative and
+Complementary Medicine , 13: 419– 26.
+Streeter CC, Whitfield TH, Owen L, et al (2010) Effects of yoga versus
+walking on mood, anxiety, and brain GABA levels: a randomized con-
+trolled MRS study. Journal of Alternative and Complementary
+Medicine, 16: 1145– 52.
+Streeter CC, Gerbarg PL, Brown RP, et al (2020) Thalamic gamma amino-
+butyric acid level changes in major depressive disorder after a 12-week
+Iyengar yoga and coherent breathing intervention. Journal of
+Alternative and Complementary Medicine , 26: 190– 7.
+Suchandra HH, Bojappen N, Rajmohan P, et al (2021) Kundalini-like
+experience as psychopathology: a case series and brief review.
+Complementary Therapies in Clinical Practice , 42: 101285.
+Suman B, Praerna B, Kashinath M, et al (2017) Insomnia in patients suf-
+fering from chronic medical illnesses: prevalence and impact of IAYT.
+Open Journal of Endocrine and Metabolic Diseases , 7: 191– 201.
+Thirthalli J, Naveen GH, Rao MG, et al (2013) Cortisol and antidepressant
+effects of yoga. Indian Journal of Psychiatry , 55: S405– 8.
+Tolahunase MR, Sagar R, Faiq M, et al (2018) Yoga- and meditation-based
+lifestyle intervention increases neuroplasticity and reduces severity of
+major depressive disorder: a randomized controlled trial. Restorative
+Neurology and Neuroscience , 36: 423– 42.
+van Aalst J, Ceccarini J, Demyttenaere K, et al (2020) What has neuroi-
+maging taught us on the neurobiology of Yoga? A review. Frontiers in
+Integrative Neuroscience , 14: 34.
+Varambally S, Gangadhar BN, Thirthalli J, et al (2012) Therapeutic effi-
+cacy of add-on yogasana intervention in stabilized outpatient schizophre-
+nia: randomized controlled comparison with exercise and waitlist. Indian
+Journal of Psychiatry , 54: 227– 32.
+Varambally S, George S, Gangadhar BN (2020) Yoga for psychiatric disor-
+ders: from fad to evidence-based intervention? British Journal of
+Psychiatry, 216: 291– 3.
+Varambally S, George S, Srinivasan TM, et al (2021) The Science and
+Art of Yoga in Mental and Neurological Healthcare . JP Medical
+Publishers.
+Wang X, Li P, Pan C, et al (2019) The effect of mind-body therapies on
+insomnia: a systematic review and meta-analysis. Evidence-Based
+Complementary and Alternative Medicine: eCAM , 2019: 9359807.
+World Health Organization (2013) Mental health action plan 2013 - 2020 .
+WHO ( https://www.who.int/publications-detail-redirect/9789241506021
+[accessed 13 Apr 2022]).
+World Health Organization (2015) Mental Health Atlas 2014 . WHO
+(https://apps.who.int/iris/handle/10665/178879 [accessed 9 Apr 2022]).
+World Health Organization (2019) Mental disorders. WHO ( https://www.
+who.int/news-room/fact-sheets/detail/mental-disorders [accessed 7 Jan
+2020]).
+Zou L, Loprinzi PD, Yeung AS, et al (2019) The beneficial effects of mind-
+body exercises for people with mild cognitive impairment: a systematic
+review with meta-analysis. Archives of Physical Medicine and
+Rehabilitation, 100: 1556– 73.
+Bhargav et al
+54 BJPsych Advances (2023), vol. 29, 44 – 55 doi: 10.1192/bja.2022.22
+https://doi.org/10.1192/bja.2022.22 Published online by Cambridge University Press
+
+MCQs
+Select the single best option for each question stem:
+1 Which of the following is not a part of eight-
+limbed approach of yoga (Ashtanga yoga)?
+a physical posture (asana)
+b withdrawal of the senses (pratyahara)
+c focused concentration (dharana)
+d perception through the senses (pramana)
+e ethical precepts (yama).
+2 It is advisable to avoid the practice of
+meditation in:
+a anxiety disorders
+b depression
+c schizophrenia
+d somatoform pain disorder
+e post-traumatic stress disorder.
+3 The following yogic practice should be
+emphasised more in anxiety disorders:
+a right-nostril breathing
+b left-nostril breathing
+c bellows breath ( bhastrika)
+d skull shining breath ( kapalabhati)
+e loud mantra chanting.
+4 Fast yoga breathing practices such as bel-
+lows breath and skull shining breath should
+be avoided in:
+a depression
+b chronic psychotic disorders
+c substance use disorders
+d panic/anxiety disorder
+e mild cognitive impairment.
+5 Strongest evidence for the beneficial effects
+of yoga has been observed in:
+a anxiety disorders
+b chronic psychotic disorders
+c substance use disorders
+d depression
+e mild cognitive impairment.
+Yoga and mental health
+BJPsych Advances (2023), vol. 29, 44 – 55 doi: 10.1192/bja.2022.22 55
+https://doi.org/10.1192/bja.2022.22 Published online by Cambridge University Press

@@ -1,0 +1,253 @@
+# APA - Buddhist Psychotherapy (Tien/Kawahara/Dhammadinna) SAMPLE: ToC + front matter only
+# source: user-provided PDF sample | pages: 7 | ~1922 words
+
+v
+Prologue: Our Background and Interest in Linking Buddhism 
+With Psychotherapy	
+vii
+Introduction: Linking Western Mindfulness to Early Buddhism	
+3
+I. FOUNDATIONS OF BUDDHISM AND BUDDHIST
+PSYCHOTHERAPY
+9
+1. Background on the Buddha and Early Buddhist Texts
+11
+2. Buddhist Psychotherapy Versus Buddhism the Religion
+25
+II. IMPERMANENCE
+41
+3. Impermanence
+43
+	III. NOT-SELF
+53
+4. The Five Aggregates: Component Parts of How Humans
+Experience Existence
+55
+5. How the Five Aggregates Work Together
+71
+6. How We Construct a Notion of a Self
+87
+IV. DUKKHA
+101
+7. Dukkha Defined
+103
+8. The First Dukkha: Suffering Due to Birth, Aging, and Death
+111
+9. The Second Dukkha: Suffering Due to Situational Change
+127
+	10. The Third Dukkha: Suffering Due to Mental Formations
+135
+Contents
+Copyright American Psychological Association
+
+vi  •  Contents
+	11.	 The Fourth Dukkha: Suffering Due to the Notion of a Self	
+145
+	12.	 The Cause and Remedy of Dukkha: The Second and 
+	
+	 Third Noble Truths	
+185
+	 V.	 INTERVENTIONS AND CLINICAL IMPLICATIONS	
+193
+	13.	 Assessment	
+195
+	14.	 Employing the First Track of the Noble Eightfold Path 
+	
+	 in Psychotherapy: Conduct	
+213
+	15.	 Employing the Second Track of the Noble Eightfold Path 
+	
+	 in Psychotherapy: Mindfulness	
+241
+	16.	 Advanced Mindfulness in Psychotherapy: What to 
+	
+	 Contemplate in Meditation and Why	
+253
+	17.	 Employing the Third Track of the Noble Eightfold Path 
+	
+	 in Psychotherapy: Wisdom	
+287
+	18.	 Three Arenas for Intervention in Buddhist Psychotherapy: 
+	
+	 A Model and Case Examples	
+317
+Afterword: Summary and Future Directions	
+343
+Glossary of Pali Terms	
+349
+References	
+353
+Index	
+359
+About the Authors	
+387
+Copyright American Psychological Association
+
+3
+https://doi.org/10.1037/0000453-001
+Buddhist Psychotherapy: Connecting Early Buddhism to Mindfulness and Western 
+Psychotherapy, by L. Tien, D. M. Kawahara, and V. Dhammadinna
+Copyright © 2026 by the American Psychological Association. All rights reserved.
+INTRODUCTION
+Linking Western Mindfulness to Early Buddhism
+Mindfulness and mindfulness meditation were first introduced to U.S. psycho­
+therapy by Jon Kabat-Zinn (1984) with a mindfulness meditation program 
+for the treatment of patients experiencing chronic pain. Kabat-Zinn said, 
+“Mindfulness meditation has roots in Therava–da Buddhism where it is known 
+as sattipatana [sic] vipassana– or Insight Meditation” (1984, p. 34). The APA 
+Dictionary of Psychology defines mindfulness as “awareness of one’s internal 
+states and surroundings . . . to help people avoid destructive or automatic 
+habits and responses by learning to observe their thoughts, emotions, and 
+other present-moment experiences without judging or reacting to them” 
+(American Psychological Association, n.d.). In the APA secular definition, 
+mindfulness is mere awareness without judging or reacting. The secular mind­
+fulness meditation method has often been used for relaxation with the goal 
+of inducing a state of calm. Mindfulness approaches have been manualized 
+and promulgated for application in school classroom exercises with children, 
+executive coaching, and yoga in exercise gymnasiums, to name just a few, and 
+as part of treatment approaches for illnesses ranging from stress and chronic 
+pain to cancer. Additionally, there has been a proliferation of web-based or 
+Copyright American Psychological Association
+
+4  •  Buddhist Psychotherapy
+smartphone applications that can be downloaded to any mobile device and 
+guide the user through meditative breathing, relaxation exercise, or both.
+In the arena of psychotherapy, there have been three major mindfulness-
+based treatment approaches for the treatment of psychological distress and 
+mental illness: mindfulness-based stress reduction, mindfulness-based cogni­
+tive therapy, and dialectical behavior therapy. Acceptance and commitment 
+therapy uses mindfulness and meditation techniques that are integrated into 
+its own theoretical approach to psychotherapy. Studies regarding the use of 
+these intervention programs report their efficacy and effectiveness for the 
+intended client population (see Britton et al., 2012; Eeles & Walker, 2022; 
+Goldberg et al., 2018; Kriakous et al., 2021; Linardon et al., 2024; Querstret 
+et al., 2020).
+As Kabat-Zinn (1984) noted, mindfulness meditation has roots in 
+Buddhism, but the meditation practices used in mindfulness-based psycho­
+therapy are taught independent of the religious and cultural beliefs associ­
+ated with them from their countries and traditions of origin. This is because 
+in the United States, “mindfulness meditation is intellectually and experien­
+tially unfamiliar in our culture” (Kabat-Zinn, 1984, p. 34). Kabat-Zinn rea­
+soned that because Western culture does not share the same religious and 
+cultural beliefs as traditional Buddhist cultures in Asia, Americans would 
+reject Eastern religious practices if mindfulness meditation were closely 
+linked to Buddhism. This deletion of the context within which mindfulness 
+meditation was developed has contributed to the adoption of mindfulness 
+meditation technique without theory. Although there is evidence that medi­
+tation and mindfulness-based interventions work, there is no explanation as 
+to why they work. Explication of why a technique is efficacious necessitates 
+a theory. Indeed, mindfulness-based interventions within the field of mental 
+health intervention have been limited to the level of technique, without a 
+theoretical basis. Without a theoretical foundation, further development and 
+research on this approach is limited (Davidson & Kaszniak, 2015).
+This book seeks to remedy the situation by providing the theory for 
+mindfulness meditation and thus linking modern mindfulness-based psycho­
+therapy with its early Buddhist roots. We will present the teachings of the 
+Siddhartha Gotama Shakyamuni—the founder of Buddhism, also referred 
+to as simply the Buddha Gotama—as cited in the early Buddhist texts of the 
+Nika–ya, which is the documentation of the more than 10,000 talks given 
+by the Buddha during his 45 years of teaching. We present the Buddha’s 
+theory on the human experience of existence, which is the theoretical basis 
+of mindfulness meditation and one of the mechanisms the Buddha Gotama 
+used to relieve suffering or unsatisfactoriness (dukkha, which is discussed 
+Copyright American Psychological Association
+
+Introduction  •  5
+extensively in this book) and increase joy and satisfaction in life (sukha). 
+Furthermore, other intervention techniques taught by the Buddha Gotama, 
+in addition to mindfulness meditation, will be introduced, discussed, and 
+examined for clinical use in mental health treatment. Our hope is that by 
+providing the theory for mindfulness, meditation, and mindfulness-based 
+psychotherapies, we will enable researchers, practitioners, and theorists 
+to expand their understanding of mindfulness and ultimately develop new 
+interventions for psychotherapy. Theory allows us to hypothesize what 
+techniques will work, so researchers can develop and test new techniques. 
+Examining the place of insight, mindfulness meditation, and other inter­
+ventions from early Buddhism provides a much fuller understanding of 
+why mindfulness meditation offers efficacious techniques for mental health 
+interventions.
+To highlight the promise of theory, if we examine the literature in early 
+Buddhism, it is evident that U.S. mindfulness interventions are extremely 
+limited. One of the primary texts in which the Buddha taught meditation 
+is the Satipat.t.ha–na Sutta (Majjhima Nika–ya [MN], 1995, 10: The Founda­
+tions of Mindfulness). The text outlines four large categories for objects of 
+meditation. The first category is the body. Contemplation of the body starts 
+with the breath, with four further subcategories for meditations on the body. 
+After the body, the text then specifies three more categories, each of which 
+contains numerous subcategories, for meditation. The present-day mindful­
+ness interventions build on only one part of the first of four objects of con­
+templation explicated in this text. With an expanded understanding of how 
+mindfulness works that includes all four categories of contemplation, psycho­
+therapists can offer new treatment options to alleviate clients’ suffering.
+A NOTE ABOUT THE SCOPE OF THIS BOOK
+Those who are Buddhist and have their own extensive practice may notice 
+that the approach taken in this book is extremely narrow. It does not fully 
+encompass the overall approach that the Buddha took in addressing the 
+experience of and liberation from suffering. Rather, the book maintains a 
+narrow focus because it is written for psychotherapists who may or may not 
+be Buddhist. We limit the scope of this book to the material that we see as 
+applicable to the process of psychotherapy.
+The intent of this book is to translate the lexicon used in early Buddhist 
+texts to the lexicon used in the mental health field so that ideas from early 
+Buddhism are more accessible to psychology. The approach taken and the 
+Copyright American Psychological Association
+
+6  •  Buddhist Psychotherapy
+subjects selected in this book assume that the reader holds the necessary 
+foundational knowledge and skills to enter into the study of a theoretical 
+orientation for psychotherapy. The terminology used in this book is intended 
+for mental health practitioners looking to respecialize in a different theoret­
+ical orientation, researchers and developers of mental health intervention 
+programs, and graduate students in mental health fields such as psychology, 
+clinical social work, counseling, and other mental health professions.
+There is a long Buddhist tradition of commentaries on the mind, because 
+a large portion of Buddhist practice concerns itself with the mind. The 
+Buddha said:
+I don’t envision a single thing that—when untamed, unguarded, unprotected, 
+unrestrained—leads to such great harm as the mind. . . . I don’t envision a 
+single thing that—when tamed, guarded, protected, restrained—leads to such 
+great benefit as the mind. (Ekadhamma Suttas; An.guttara Nika–ya [AN], 2012, 
+1:39: The Mind: A Single Thing)
+There are abundant current publications on Buddhism and psychology or 
+counseling (e.g., by Padmasiri De Silva, Mark Epstein, Beth Jacobs, and 
+George Lee) as well as on Buddhism and the mind (e.g., by David Kalupahana, 
+Y. K. Karunadasa, Geshe Lhundub Sopa, Tenzin Gyatso the 14th Dalai Lama, 
+and Thich Nhat Hanh). There is also a tradition for Buddhist practitioners 
+and scholars to first approach the teachings of the Buddha with fresh eyes 
+prior to engaging with the commentaries and the published literature. This 
+book takes the second approach, with fresh eyes from the authors. As such, 
+there is an absence of what social science would normally consider a neces­
+sary review of the scholarly literature in this book. However, this book’s take 
+on the meaning of early Buddhist texts does not significantly deviate from 
+the commentarial Therava–da Buddhist interpretation of these texts.
+HOW THIS BOOK IS ORGANIZED
+The content of this book provides a more thorough examination into 
+Buddhism as it relates to a theoretical orientation for psychotherapy. This 
+book is organized around a key tenet of Buddhism, which is the three marks 
+of existence. According to the Buddha, there are three universal truths, or 
+marks, of existence; these can be thought of as laws of reality. They are laws 
+in the same sense as used by Thorndike (1911) in his Laws of Behavior in 
+General (p. 241). The three marks of existence (with Pali terms in parentheses), 
+as stated in the Khuddaka Nika–ya Dhammapada (Dhp; 1996, 277–279: The 
+Path), are as follows:
+Copyright American Psychological Association
+
+Introduction  •  7
+•	 All conditioned things are impermanent (anicca–).
+•	 All things are not-self (anatta–).
+•	 All conditioned things are unsatisfactory (dukkha).
+In other words, suffering occurs when people fail to understand, acknowledge, 
+and recognize these three marks of existence, instead craving for reality to 
+be different than it is. We will explore each of these three marks in depth, 
+along with the Buddha’s remedy for suffering and how this applies to modern 
+psychotherapy. Along the way, we will discuss the Buddhist framework of 
+the Four Noble Truths and the Noble Eightfold Path.
+Part I (Chapters 1 and 2) provides an overview of the philosophical 
+and cultural context of Buddhism, as well as how Buddhist psychotherapy 
+differs from the Buddhism religion and Buddhist practices. Part II (Chapter 3) 
+covers one mark of existence, which is impermanence (anicca–). Part III 
+(Chapters 4–6) covers another mark, which is the not-self (anatta–). Part IV 
+(Chapters 7–12) covers a third mark, which is dukkha. Finally, Part V (Chap­
+ters 13–18) covers the use of Buddhist interventions for psychotherapy in 
+the format of the Noble Eightfold Path.
+Copyright American Psychological Association
