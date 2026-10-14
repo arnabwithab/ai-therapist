@@ -3,8 +3,8 @@
   "last_updated": "2026-10-14",
   "summary": {
     "total": 14,
-    "completed": 3,
-    "in_progress": 3,
+    "completed": 4,
+    "in_progress": 2,
     "planned": 8,
     "tests_passing": 6,
     "tests_failing": 0,
@@ -82,7 +82,7 @@
       "id": "F004",
       "name": "SFT dataset preparation (CounselChat + Amod + PsychoPref)",
       "description": "Assemble the training data: CounselChat CSV, PsychoPref train/test parquet and the gated Amod mental-health counseling conversations (RAIL-D). SFT uses combined + shuffled CounselChat + Amod in a single stage, not sequential.",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "high",
       "module": "data/finetune",
       "design_doc": "docs/slm-finetuning.md",
@@ -94,11 +94,11 @@
       "subtasks": [
         { "id": "F004-1", "name": "CounselChat CSV in data/finetune/counsel-chat/", "status": "completed" },
         { "id": "F004-2", "name": "PsychoPref train/test parquet in data/finetune/psychopref/", "status": "completed" },
-        { "id": "F004-3", "name": "Accept RAIL-D terms and pull Amod into data/finetune/amod-counseling/", "status": "planned" }
+        { "id": "F004-3", "name": "Accept RAIL-D terms and pull Amod into data/finetune/amod-counseling/", "status": "completed" }
       ],
-      "notes": "BLOCKER: Amod is gated — accept terms at https://huggingface.co/datasets/Amod/mental_health_counseling_conversations before downloading.",
+      "notes": "Amod pulled with the .env HF_TOKEN as combined_dataset.json (JSONL, 3512 pairs, 3508 with both Context+Response; blob sha verified against the HF API) + LICENSE-RAIL-D.txt. Data files gitignored, so re-pull with curl -H \"Authorization: Bearer $HF_TOKEN\" from .../resolve/main/. Notebook glob extended to *.json since HF ships JSONL, not csv/parquet.",
       "added": "2026-10-14",
-      "completed": null
+      "completed": "2026-10-14"
     },
     {
       "id": "F005",
