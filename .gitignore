@@ -13,4 +13,5 @@ build/
 *.csv
 *.parquet
 data/finetune/amod-counseling/*.json
+*.log
 chroma

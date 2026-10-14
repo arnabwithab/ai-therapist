@@ -220,7 +220,7 @@
       "tests": {
         "status": "missing",
         "files": [],
-        "notes": "Not in repo — kernel outputs pulled to /tmp/opencode/kaggle-mbench-{a,b}/ (output_shard_{a,b}.csv + logs)."
+        "notes": "Not in repo — kernel outputs in data/eval/mbench-qwen3-4b-baseline/ (output_shard_{a,b}.csv + kernel logs; both gitignored, like the finetune data)."
       },
       "subtasks": [
         { "id": "F010-1", "name": "Fix chat-template tokenize bug (two-step)", "status": "completed" },
