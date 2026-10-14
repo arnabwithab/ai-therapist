@@ -3,8 +3,8 @@
   "last_updated": "2026-10-14",
   "summary": {
     "total": 14,
-    "completed": 4,
-    "in_progress": 2,
+    "completed": 5,
+    "in_progress": 1,
     "planned": 8,
     "tests_passing": 6,
     "tests_failing": 0,
@@ -96,7 +96,7 @@
         { "id": "F004-2", "name": "PsychoPref train/test parquet in data/finetune/psychopref/", "status": "completed" },
         { "id": "F004-3", "name": "Accept RAIL-D terms and pull Amod into data/finetune/amod-counseling/", "status": "completed" }
       ],
-      "notes": "Amod pulled with the .env HF_TOKEN as combined_dataset.json (JSONL, 3512 pairs, 3508 with both Context+Response; blob sha verified against the HF API) + LICENSE-RAIL-D.txt. Data files gitignored, so re-pull with curl -H \"Authorization: Bearer $HF_TOKEN\" from .../resolve/main/. Notebook glob extended to *.json since HF ships JSONL, not csv/parquet.",
+      "notes": "Amod pulled with the .env HF_TOKEN as combined_dataset.json (JSONL, 3512 pairs; 4 rows have an empty Response) + LICENSE-RAIL-D.txt. Data files gitignored, so re-pull with curl -H \"Authorization: Bearer $HF_TOKEN\" from .../resolve/main/. Notebook glob extended to *.json since HF ships JSONL, not csv/parquet.",
       "added": "2026-10-14",
       "completed": "2026-10-14"
     },
@@ -104,24 +104,24 @@
       "id": "F005",
       "name": "Qwen3-4B QLoRA finetune notebook",
       "description": "Unsloth QLoRA SFT notebook for Qwen/Qwen3-4B-Instruct: combined+shuffled SFT, r=16, seq 2048, 1 epoch, train_on_responses_only; saves LoRA and GGUF q4_k_m. Runs on Kaggle T4; model choice justified against Phi-4-mini, Llama-3.2-3B, Gemma-3, SmolLM3-3B.",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "high",
       "module": "notebooks",
       "design_doc": "docs/slm-finetuning.md",
       "tests": {
         "status": "missing",
         "files": [],
-        "notes": "Notebook asserts data paths; no automated test harness."
+        "notes": "No committed harness (needs GPU + gitignored data). Data and save cells were executed out-of-repo with stubbed unsloth/model: 2775 CounselChat - 163 blank and 3512 Amod - 4 blank -> 6120 examples; save cell without HF_TOKEN saves qwen_lora/ and skips both pushes."
       },
       "subtasks": [
         { "id": "F005-1", "name": "Slim notebook to 17 cells + black format", "status": "completed" },
         { "id": "F005-2", "name": "Data paths data/finetune/... with asserts", "status": "completed" },
-        { "id": "F005-3", "name": "Dual input path (Kaggle /kaggle/input/... vs local)", "status": "planned" },
-        { "id": "F005-4", "name": "HF-push cells must no-op on Kaggle", "status": "planned" }
+        { "id": "F005-3", "name": "Dual input path (Kaggle /kaggle/input/... vs local)", "status": "completed" },
+        { "id": "F005-4", "name": "HF-push cells must no-op on Kaggle", "status": "completed" }
       ],
-      "notes": "Use enable_thinking=False, temp 0.7 / top_p 0.8. VRAM on 8GB laptop: Qwen SFT@2048 ~6.5–7.5GB fits.",
+      "notes": "DATA root switches to /kaggle/input/ai-therapist-sft when present (upload data/finetune/ as dataset Eros438/ai-therapist-sft to get that mount). Blank CSV fields arrive as NaN/None, so the filter now rejects those too. Use enable_thinking=False, temp 0.7 / top_p 0.8. VRAM on 8GB laptop: Qwen SFT@2048 ~6.5-7.5GB fits. GGUF + hub pushes need HF_TOKEN, so Kaggle runs produce qwen_lora/ only.",
       "added": "2026-10-14",
-      "completed": null
+      "completed": "2026-10-14"
     },
     {
       "id": "F006",
@@ -141,7 +141,7 @@
         { "id": "F006-2", "name": "Push kernel (T4, internet on)", "status": "planned" },
         { "id": "F006-3", "name": "kaggle kernels output to fetch qwen_lora/", "status": "planned" }
       ],
-      "notes": "Kaggle CLI cannot attach secrets, so training only; HF push happens from local.",
+      "notes": "F004 and F005 gating are done; the uploaded dataset must unpack to /kaggle/input/ai-therapist-sft/{counsel-chat,amod-counseling}/ for the notebook's DATA root to pick it up. Kaggle CLI cannot attach secrets, so training only; HF push happens from local.",
       "added": "2026-10-14",
       "completed": null
     },
