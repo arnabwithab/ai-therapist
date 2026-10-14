@@ -14,3 +14,4 @@ build/
 *.parquet
 data/finetune/amod-counseling/*.json
 chroma
+models
