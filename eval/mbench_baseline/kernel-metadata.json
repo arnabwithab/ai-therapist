@@ -1,6 +1,6 @@
 {
-  "id": "eros438/ai-therapist-qwen3-mbench-vllm",
-  "title": "ai-therapist-qwen3-mbench-vllm",
+  "id": "eros438/ai-therapist-qwen3-mbench-batched",
+  "title": "ai-therapist-qwen3-mbench-batched",
   "code_file": "generate.py",
   "language": "python",
   "kernel_type": "script",
