@@ -162,7 +162,7 @@
         { "id": "F007-1", "name": "hf upload LoRA repo", "status": "completed" },
         { "id": "F007-2", "name": "hf upload GGUF q4_k_m repo", "status": "planned" }
       ],
-      "notes": "F007-1 done 2026-10-14: v3 1-epoch adapter + tokenizer uploaded to arnabwithab/ai-therapist-qwen3-4b-lora (public) via huggingface_hub, verified 11 files via API. Overwrite with the 2-epoch adapter when SFT v4 lands. Auth note: login()/library whoami worked as arnabwithab (token autolinksv2, write) while curl Bearer checks 401'd with the same string — uploads must go through the library, not curl. F007-2 blocked: GGUF export needs ~8-10GB disk + unsloth/torch/triton locally, laptop has 6.5GB free; options are freeing disk or a Kaggle export kernel with a UI-attached HF secret.",
+      "notes": "F007-1 done 2026-10-14: v3 1-epoch adapter + tokenizer uploaded to arnabwithab/ai-therapist-qwen3-4b-lora (public) via huggingface_hub, verified 11 files via API. Overwrite with the 2-epoch adapter when SFT v4 lands (re-upload README.md afterwards — upload_folder would clobber it with Unsloth's default; card source: models/qwen_lora/README.md). Auth note: login()/library whoami worked as arnabwithab (token autolinksv2, write) while curl Bearer checks 401'd with the same string — uploads must go through the library, not curl. F007-2 blocked: GGUF export needs ~8-10GB disk + unsloth/torch/triton locally, laptop has 6.5GB free; options are freeing disk or a Kaggle export kernel with a UI-attached HF secret.",
       "added": "2026-10-14",
       "completed": null
     },
