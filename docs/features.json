@@ -162,7 +162,7 @@
         { "id": "F007-1", "name": "hf upload LoRA repo", "status": "completed" },
         { "id": "F007-2", "name": "hf upload GGUF q4_k_m repo", "status": "planned" }
       ],
-      "notes": "F007-1 done 2026-10-14: v3 1-epoch adapter + tokenizer uploaded to arnabwithab/ai-therapist-qwen3-4b-lora (public) via huggingface_hub, verified 11 files via API. Overwrite with the 2-epoch adapter when SFT v4 lands (re-upload README.md afterwards — upload_folder would clobber it with Unsloth's default; card source: models/qwen_lora/README.md). Auth note: login()/library whoami worked as arnabwithab (token autolinksv2, write) while curl Bearer checks 401'd with the same string — uploads must go through the library, not curl. F007-2 blocked: GGUF export needs ~8-10GB disk + unsloth/torch/triton locally, laptop has 6.5GB free; options are freeing disk or a Kaggle export kernel with a UI-attached HF secret.",
+      "notes": "F007-1 done 2026-10-14: v3 1-epoch adapter + tokenizer uploaded to arnabwithab/ai-therapist-qwen3-4b-lora (public) via huggingface_hub, verified 11 files via API. Overwrite with the 2-epoch adapter when SFT v4 lands (re-upload README.md afterwards — upload_folder would clobber it with Unsloth's default; card source: models/qwen_lora/README.md). Done 2026-10-14: v4 adapter + user's edited card live (repo sha e2001fe2); card canonical backup at models/MODEL_CARD.md. Auth note: login()/library whoami worked as arnabwithab (token autolinksv2, write) while curl Bearer checks 401'd with the same string — uploads must go through the library, not curl. F007-2 blocked: GGUF export needs ~8-10GB disk + unsloth/torch/triton locally, laptop has 6.5GB free; options are freeing disk or a Kaggle export kernel with a UI-attached HF secret.",
       "added": "2026-10-14",
       "completed": null
     },
@@ -183,7 +183,7 @@
         { "id": "F008-1", "name": "Fit DPO in memory (ctx 1024 + r=8 or Colab)", "status": "planned" },
         { "id": "F008-2", "name": "DPO training run + artifact push", "status": "planned" }
       ],
-      "notes": "DPO@2048 needs ~9–11GB, will not fit the 8GB laptop. SFT epoch-2 contemplated 2026-10-14: v3 curve (765 posted steps) descends ~2.55 -> ~2.15 with no plateau and persistent batch-noise spikes, so a 2nd epoch should gain another ~0.15-0.3; cheapest path is a fresh run with num_train_epochs=2 (~2 GPU-h, keep both adapters, compare under F009/F010 when those land). Launched 2026-10-14 as SFT kernel v4 (only change vs v3: epochs 1 -> 2; same seed, so epoch 1 reproduces v3 and epoch 2 auto-reshuffles).",
+      "notes": "DPO@2048 needs ~9–11GB, will not fit the 8GB laptop. SFT epoch-2 contemplated 2026-10-14: v3 curve (765 posted steps) descends ~2.55 -> ~2.15 with no plateau and persistent batch-noise spikes, so a 2nd epoch should gain another ~0.15-0.3; cheapest path is a fresh run with num_train_epochs=2 (~2 GPU-h, keep both adapters, compare under F009/F010 when those land). Launched 2026-10-14 as SFT kernel v4 (only change vs v3: epochs 1 -> 2; same seed, so epoch 1 reproduces v3 and epoch 2 auto-reshuffles). v4 COMPLETE: train_loss 1.9842 (vs 2.3051), runtime 6817.7s, epoch-2 block descends ~2.5 -> ~1.6 with no plateau; full 1,530-step curve saved as models/log_history.json (gitignored). Both adapters kept: models/qwen_lora (2-epoch, live on HF) + models/qwen_lora_1epoch/ (v3).",
       "added": "2026-10-14",
       "completed": null
     },
