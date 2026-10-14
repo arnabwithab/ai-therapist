@@ -3,8 +3,8 @@
   "last_updated": "2026-10-14",
   "summary": {
     "total": 14,
-    "completed": 5,
-    "in_progress": 2,
+    "completed": 6,
+    "in_progress": 1,
     "planned": 8,
     "tests_passing": 6,
     "tests_failing": 0,
@@ -127,7 +127,7 @@
       "id": "F006",
       "name": "SFT training run on Kaggle",
       "description": "Upload data/finetune/ as private dataset Eros438/ai-therapist-sft, push the notebook kernel to a T4 with internet, run ~1–1.5h, fetch qwen_lora/ output.",
-      "status": "in_progress",
+      "status": "completed",
       "priority": "high",
       "module": "notebooks",
       "design_doc": "docs/slm-finetuning.md",
@@ -139,11 +139,11 @@
       "subtasks": [
         { "id": "F006-1", "name": "Upload private dataset Eros438/ai-therapist-sft", "status": "completed" },
         { "id": "F006-2", "name": "Push kernel (T4, internet on)", "status": "completed" },
-        { "id": "F006-3", "name": "kaggle kernels output to fetch qwen_lora/", "status": "planned" }
+        { "id": "F006-3", "name": "kaggle kernels output to fetch qwen_lora/", "status": "completed" }
       ],
-      "notes": "Dataset eros438/ai-therapist-sft created 2026-10-14 (private) from data/finetune via `kaggle datasets create -p data/finetune --dir-mode zip`; Kaggle auto-extracted the zips, so the mount is /kaggle/input/datasets/eros438/ai-therapist-sft/{counsel-chat,amod-counseling}/. Kaggle's dataset mount is /kaggle/input/datasets/<owner>/<slug>/, NOT the older /kaggle/input/<slug>/ — kernel v1 died on that assumption (AssertionError: missing data/finetune/counsel-chat/*.csv), so the notebook now searches for the root. --dir-mode zip is mandatory (the CLI default 'skip' silently drops subfolders), and --ignore-patterns needs a trailing slash to drop a folder ('psychopref' did not match, so psychopref/ rode along — harmless, DPO data). Kernel settings live in notebooks/kernel-metadata.json, pushed with `kaggle kernels push -p notebooks`; machine_shape MUST be set to NvidiaTeslaT4, because the CLI defaults an API push to P100 (sm_60), which breaks the Unsloth/bnb stack — the T4 x2 setting was confirmed in the run log (\"Tesla T4. Num GPUs = 2\"). Kaggle CLI cannot attach secrets, so training only; HF push happens from local.",
+      "notes": "v3 (2026-10-14) COMPLETE in ~59 min on T4 x2 (~0.9 GPU-h): 6,120 examples, 765 steps, 1 epoch, batch 2x4, r=16. TrainOutput: train_loss 2.3051, train_runtime 3391.1s, 1.805 samples/s, epoch 1.0. Sanity inference coherent (anxiety prompt -> CBT/exposure/mindfulness guidance, non-thinking). qwen_lora/ (132MB adapter, 7 modules) + tokenizer fetched to models/ (gitignored). Per-step loss curve lives only in the Kaggle UI log — the fetched log is sampled and drops it, so the endpoint stats above are the in-repo record. Kaggle CLI cannot attach secrets, so training only; HF push happens from local (F007).",
       "added": "2026-10-14",
-      "completed": null
+      "completed": "2026-10-14"
     },
     {
       "id": "F007",
