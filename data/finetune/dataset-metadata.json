@@ -1,0 +1,8 @@
+{
+  "title": "ai-therapist SFT data",
+  "id": "eros438/ai-therapist-sft",
+  "licenses": [{ "name": "Other" }],
+  "subtitle": "CounselChat + Amod counselling conversations for QLoRA SFT",
+  "description": "Private training data for the ai-therapist Qwen3-4B QLoRA SFT run. counsel-chat/ is CounselChat (MIT, nbertagnolli/counsel-chat); amod-counseling/ is Amod/mental_health_counseling_conversations (RAIL-D, non-commercial research use). Uploaded with --dir-mode zip so each source lands as its own folder under /kaggle/input/ai-therapist-sft/. Rebuild with: kaggle datasets version -p data/finetune --dir-mode zip",
+  "keywords": []
+}

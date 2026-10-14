@@ -4,7 +4,7 @@
   "summary": {
     "total": 14,
     "completed": 5,
-    "in_progress": 1,
+    "in_progress": 2,
     "planned": 8,
     "tests_passing": 6,
     "tests_failing": 0,
@@ -127,21 +127,21 @@
       "id": "F006",
       "name": "SFT training run on Kaggle",
       "description": "Upload data/finetune/ as private dataset Eros438/ai-therapist-sft, push the notebook kernel to a T4 with internet, run ~1–1.5h, fetch qwen_lora/ output.",
-      "status": "planned",
+      "status": "in_progress",
       "priority": "high",
       "module": "notebooks",
       "design_doc": "docs/slm-finetuning.md",
       "tests": {
         "status": "missing",
         "files": [],
-        "notes": "Requires F004 complete (Amod) and F005 dual-path gating."
+        "notes": "Requires F004 (Amod) and F005 dual-path gating — both complete."
       },
       "subtasks": [
-        { "id": "F006-1", "name": "Upload private dataset Eros438/ai-therapist-sft", "status": "planned" },
-        { "id": "F006-2", "name": "Push kernel (T4, internet on)", "status": "planned" },
+        { "id": "F006-1", "name": "Upload private dataset Eros438/ai-therapist-sft", "status": "completed" },
+        { "id": "F006-2", "name": "Push kernel (T4, internet on)", "status": "completed" },
         { "id": "F006-3", "name": "kaggle kernels output to fetch qwen_lora/", "status": "planned" }
       ],
-      "notes": "F004 and F005 gating are done; the uploaded dataset must unpack to /kaggle/input/ai-therapist-sft/{counsel-chat,amod-counseling}/ for the notebook's DATA root to pick it up. Kaggle CLI cannot attach secrets, so training only; HF push happens from local.",
+      "notes": "Dataset eros438/ai-therapist-sft created 2026-10-14 (private) from data/finetune via `kaggle datasets create -p data/finetune --dir-mode zip`; Kaggle auto-extracted the zips, so the mount is /kaggle/input/ai-therapist-sft/{counsel-chat,amod-counseling}/ as the notebook's DATA root expects. --dir-mode zip is mandatory (the CLI default 'skip' silently drops subfolders), and --ignore-patterns needs a trailing slash to drop a folder ('psychopref' did not match, so psychopref/ rode along — harmless, DPO data). Kernel settings live in notebooks/kernel-metadata.json, pushed with `kaggle kernels push -p notebooks`; machine_shape MUST be set to NvidiaTeslaT4, because the CLI defaults an API push to P100 (sm_60), which breaks the Unsloth/bnb stack. Kaggle CLI cannot attach secrets, so training only; HF push happens from local.",
       "added": "2026-10-14",
       "completed": null
     },
@@ -226,9 +226,10 @@
         { "id": "F010-1", "name": "Fix chat-template tokenize bug (two-step)", "status": "completed" },
         { "id": "F010-2", "name": "Push v2 kernels with aligned metadata slugs", "status": "completed" },
         { "id": "F010-3", "name": "Fetch both shard outputs and merge", "status": "in_progress" },
-        { "id": "F010-4", "name": "Judge pass with a current API model", "status": "planned" }
+        { "id": "F010-4", "name": "Judge pass with a current API model", "status": "planned" },
+        { "id": "F010-5", "name": "Re-run the remaining 8,219 rows with batched generation (required, not optional)", "status": "planned" }
       ],
-      "notes": "Kernels eros438/ai-therapist-qwen3-mbench-{a-rows-0-5000,b-rows-5000-10000} both CANCEL_ACKNOWLEDGED (killed at the 9h cap). Outputs (2026-10-14): shard A 906 rows idx 0-905, shard B 875 rows idx 5000-5874, no gaps/dupes, 0 empty, 1781/10000 = 18% coverage. Rate ~35-37 s/row (~100 rows/h/kernel), so a full 5000-row shard needs ~50 GPU-h — unbatched single-stream fp16 generation is the bottleneck; batched or vLLM sampling is required to finish. Resume works only if the partial CSV is re-attached as an input dataset (both runs logged resume skipped=0 on a fresh /kaggle/working). 50% of the 1781 responses are cut mid-sentence at the 512-token cap — caveat for the judge pass. Paper's GPT-4o/Claude-3.7/Gemini-2.5 judges are deprecated; their stored Qwen-3 scores are NOT reusable, so a fresh baseline is required (needs API keys + budget).",
+      "notes": "Kernels eros438/ai-therapist-qwen3-mbench-{a-rows-0-5000,b-rows-5000-10000} both CANCEL_ACKNOWLEDGED (killed at the 9h cap). Outputs (2026-10-14): shard A 906 rows idx 0-905, shard B 875 rows idx 5000-5874, no gaps/dupes, 0 empty, 1781/10000 = 18% coverage. Rate ~35-37 s/row (~100 rows/h/kernel), so a full 5000-row shard needs ~50 GPU-h — unbatched single-stream fp16 generation is the bottleneck. FUTURE RUNS MUST USE BATCHED GENERATION (vLLM, or HF generate with left-padding at batch 8-16); do not re-run single-stream, it cannot finish inside the 30h/week GPU quota. Resume works only if the partial CSV is re-attached as an input dataset (both runs logged resume skipped=0 on a fresh /kaggle/working). 50% of the 1781 responses are cut mid-sentence at the 512-token cap — caveat for the judge pass. Paper's GPT-4o/Claude-3.7/Gemini-2.5 judges are deprecated; their stored Qwen-3 scores are NOT reusable, so a fresh baseline is required (needs API keys + budget).",
       "added": "2026-10-14",
       "completed": null
     },
