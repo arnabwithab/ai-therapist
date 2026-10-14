@@ -220,15 +220,15 @@
       "tests": {
         "status": "missing",
         "files": [],
-        "notes": "Not in repo — kernels ran under /tmp/kaggle-mbench-{a,b}/."
+        "notes": "Not in repo — kernel outputs pulled to /tmp/opencode/kaggle-mbench-{a,b}/ (output_shard_{a,b}.csv + logs)."
       },
       "subtasks": [
         { "id": "F010-1", "name": "Fix chat-template tokenize bug (two-step)", "status": "completed" },
         { "id": "F010-2", "name": "Push v2 kernels with aligned metadata slugs", "status": "completed" },
-        { "id": "F010-3", "name": "Fetch both shard outputs and merge", "status": "planned" },
+        { "id": "F010-3", "name": "Fetch both shard outputs and merge", "status": "in_progress" },
         { "id": "F010-4", "name": "Judge pass with a current API model", "status": "planned" }
       ],
-      "notes": "Both v2 kernels hit the 9h timeout with usable partial outputs (flush every 50 rows, resume-safe) — not yet fetched. Paper's GPT-4o/Claude-3.7/Gemini-2.5 judges are deprecated; their stored Qwen-3 scores are NOT reusable, so a fresh baseline is required (needs API keys + budget).",
+      "notes": "Kernels eros438/ai-therapist-qwen3-mbench-{a-rows-0-5000,b-rows-5000-10000} both CANCEL_ACKNOWLEDGED (killed at the 9h cap). Outputs (2026-10-14): shard A 906 rows idx 0-905, shard B 875 rows idx 5000-5874, no gaps/dupes, 0 empty, 1781/10000 = 18% coverage. Rate ~35-37 s/row (~100 rows/h/kernel), so a full 5000-row shard needs ~50 GPU-h — unbatched single-stream fp16 generation is the bottleneck; batched or vLLM sampling is required to finish. Resume works only if the partial CSV is re-attached as an input dataset (both runs logged resume skipped=0 on a fresh /kaggle/working). 50% of the 1781 responses are cut mid-sentence at the 512-token cap — caveat for the judge pass. Paper's GPT-4o/Claude-3.7/Gemini-2.5 judges are deprecated; their stored Qwen-3 scores are NOT reusable, so a fresh baseline is required (needs API keys + budget).",
       "added": "2026-10-14",
       "completed": null
     },
