@@ -56,7 +56,19 @@ def seeded_rows():
 
 
 def main():
-    subprocess.run([sys.executable, "-m", "pip", "install", "-q", "vllm"], check=True)
+    # vLLM wheels are built for CUDA 12.8: pin the torch stack to cu128 first. A bare
+    # `pip install vllm` pulls cu130 torch while Kaggle's torchaudio stays cu128, and vLLM's
+    # import chain touches torchaudio -> RuntimeError at import (v1 died on exactly this).
+    cu128 = "https://download.pytorch.org/whl/cu128"
+    subprocess.run(
+        [sys.executable, "-m", "pip", "install", "-q", "torch", "torchvision", "torchaudio",
+         "--index-url", cu128],
+        check=True,
+    )
+    subprocess.run(
+        [sys.executable, "-m", "pip", "install", "-q", "vllm", "--extra-index-url", cu128],
+        check=True,
+    )
     from transformers import AutoTokenizer
     from vllm import LLM, SamplingParams
 
