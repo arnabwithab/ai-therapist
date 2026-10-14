@@ -1,0 +1,319 @@
+{
+  "project": "ai-therapist",
+  "last_updated": "2026-10-14",
+  "summary": {
+    "total": 14,
+    "completed": 3,
+    "in_progress": 3,
+    "planned": 8,
+    "tests_passing": 6,
+    "tests_failing": 0,
+    "tests_missing": 11
+  },
+  "features": [
+    {
+      "id": "F001",
+      "name": "Repo scaffolding (uv + Makefile + AGENTS.md)",
+      "description": "uv-managed Python project with root Makefile as the single control surface (setup/test/style/ingest/clean), plus AGENTS.md conventions. Makes every workflow step runnable via make.",
+      "status": "completed",
+      "priority": "high",
+      "module": "root",
+      "design_doc": "AGENTS.md",
+      "tests": {
+        "status": "n/a",
+        "files": [],
+        "notes": "Infra only, no unit tests."
+      },
+      "subtasks": [
+        { "id": "F001-1", "name": "pyproject.toml + uv.lock", "status": "completed" },
+        { "id": "F001-2", "name": "Root Makefile targets", "status": "completed" },
+        { "id": "F001-3", "name": "AGENTS.md conventions", "status": "completed" }
+      ],
+      "notes": "",
+      "added": "2026-10-14",
+      "completed": "2026-10-14"
+    },
+    {
+      "id": "F002",
+      "name": "RAG pipeline (chunk/ingest/query)",
+      "description": "Chunking, embedding and retrieval over the RAG knowledge base. Chroma embedded persistent (./chroma/, gitignored, rebuilt via make ingest) with BAAI/bge-small-en-v1.5 CPU embeddings. retrieve(query, n, source_filter) is the only API the serving layer imports; store-agnostic so Chroma→Qdrant is a re-ingest only.",
+      "status": "completed",
+      "priority": "high",
+      "module": "src/rag",
+      "design_doc": "docs/research.md",
+      "tests": {
+        "status": "passing",
+        "files": ["tests/test_rag/test_chunk.py", "tests/test_rag/test_query.py"],
+        "notes": "6 tests green (4 chunk + 2 query, temp-collection based). Embedder reverted from Qwen3-Embedding-0.6B (OOM on 8GB GPU) to bge-small-en-v1.5 CPU."
+      },
+      "subtasks": [
+        { "id": "F002-1", "name": "config.py env-overridable settings (512/50 chunking)", "status": "completed" },
+        { "id": "F002-2", "name": "chunk.py paragraph-aware chunker", "status": "completed" },
+        { "id": "F002-3", "name": "ingest.py with --reset and per-chunk chapter headings", "status": "completed" },
+        { "id": "F002-4", "name": "query.py retrieve()", "status": "completed" },
+        { "id": "F002-5", "name": "Rebuild index and spot-check retrieval", "status": "completed" }
+      ],
+      "notes": "chroma/ is gitignored; rebuild with make ingest.",
+      "added": "2026-10-14",
+      "completed": "2026-10-14"
+    },
+    {
+      "id": "F003",
+      "name": "RAG knowledge base corpus (South Asian therapeutic techniques)",
+      "description": "Curated raw sources and extracted text for the RAG index: 30 text files (~640k words) plus 24 raw sources, focused on South Asian / Indian therapeutic and contemplative traditions.",
+      "status": "completed",
+      "priority": "medium",
+      "module": "data/rag-kb",
+      "design_doc": "docs/research.md",
+      "tests": {
+        "status": "n/a",
+        "files": [],
+        "notes": "Data only."
+      },
+      "subtasks": [
+        { "id": "F003-1", "name": "Fetch + extract raw sources", "status": "completed" },
+        { "id": "F003-2", "name": "text/_index.txt inventory", "status": "completed" }
+      ],
+      "notes": "Caveats: hku-preview, pageplace-preview, buddhist-psychotherapy-apa-sample are front-matter/ToC only; islamic-counselling-aligarh is a thin 656-word brochure; raw/dalal-book.pdf is typeset from extracted text. Still missing (browser-only): LWW Family Therapy in India, LWW guru-chela revisited, NBK159363 yoga-for-depression, MDPI yoga-integrative, NHM RMNCAH counselling manual, Palgrave Buddhist-psychology intro, jsneki.com Neki PDFs, APA full chapters.",
+      "added": "2026-10-14",
+      "completed": "2026-10-14"
+    },
+    {
+      "id": "F004",
+      "name": "SFT dataset preparation (CounselChat + Amod + PsychoPref)",
+      "description": "Assemble the training data: CounselChat CSV, PsychoPref train/test parquet and the gated Amod mental-health counseling conversations (RAIL-D). SFT uses combined + shuffled CounselChat + Amod in a single stage, not sequential.",
+      "status": "in_progress",
+      "priority": "high",
+      "module": "data/finetune",
+      "design_doc": "docs/slm-finetuning.md",
+      "tests": {
+        "status": "missing",
+        "files": [],
+        "notes": "Notebook asserts presence of both SFT datasets."
+      },
+      "subtasks": [
+        { "id": "F004-1", "name": "CounselChat CSV in data/finetune/counsel-chat/", "status": "completed" },
+        { "id": "F004-2", "name": "PsychoPref train/test parquet in data/finetune/psychopref/", "status": "completed" },
+        { "id": "F004-3", "name": "Accept RAIL-D terms and pull Amod into data/finetune/amod-counseling/", "status": "planned" }
+      ],
+      "notes": "BLOCKER: Amod is gated — accept terms at https://huggingface.co/datasets/Amod/mental_health_counseling_conversations before downloading.",
+      "added": "2026-10-14",
+      "completed": null
+    },
+    {
+      "id": "F005",
+      "name": "Qwen3-4B QLoRA finetune notebook",
+      "description": "Unsloth QLoRA SFT notebook for Qwen/Qwen3-4B-Instruct: combined+shuffled SFT, r=16, seq 2048, 1 epoch, train_on_responses_only; saves LoRA and GGUF q4_k_m. Runs on Kaggle T4; model choice justified against Phi-4-mini, Llama-3.2-3B, Gemma-3, SmolLM3-3B.",
+      "status": "in_progress",
+      "priority": "high",
+      "module": "notebooks",
+      "design_doc": "docs/slm-finetuning.md",
+      "tests": {
+        "status": "missing",
+        "files": [],
+        "notes": "Notebook asserts data paths; no automated test harness."
+      },
+      "subtasks": [
+        { "id": "F005-1", "name": "Slim notebook to 17 cells + black format", "status": "completed" },
+        { "id": "F005-2", "name": "Data paths data/finetune/... with asserts", "status": "completed" },
+        { "id": "F005-3", "name": "Dual input path (Kaggle /kaggle/input/... vs local)", "status": "planned" },
+        { "id": "F005-4", "name": "HF-push cells must no-op on Kaggle", "status": "planned" }
+      ],
+      "notes": "Use enable_thinking=False, temp 0.7 / top_p 0.8. VRAM on 8GB laptop: Qwen SFT@2048 ~6.5–7.5GB fits.",
+      "added": "2026-10-14",
+      "completed": null
+    },
+    {
+      "id": "F006",
+      "name": "SFT training run on Kaggle",
+      "description": "Upload data/finetune/ as private dataset Eros438/ai-therapist-sft, push the notebook kernel to a T4 with internet, run ~1–1.5h, fetch qwen_lora/ output.",
+      "status": "planned",
+      "priority": "high",
+      "module": "notebooks",
+      "design_doc": "docs/slm-finetuning.md",
+      "tests": {
+        "status": "missing",
+        "files": [],
+        "notes": "Requires F004 complete (Amod) and F005 dual-path gating."
+      },
+      "subtasks": [
+        { "id": "F006-1", "name": "Upload private dataset Eros438/ai-therapist-sft", "status": "planned" },
+        { "id": "F006-2", "name": "Push kernel (T4, internet on)", "status": "planned" },
+        { "id": "F006-3", "name": "kaggle kernels output to fetch qwen_lora/", "status": "planned" }
+      ],
+      "notes": "Kaggle CLI cannot attach secrets, so training only; HF push happens from local.",
+      "added": "2026-10-14",
+      "completed": null
+    },
+    {
+      "id": "F007",
+      "name": "Publish adapters to Hugging Face",
+      "description": "Push the fine-tuned LoRA and GGUF artifacts from the laptop to arnabwithab/ai-therapist-qwen3-4b-lora and ...-gguf using HF_TOKEN from .env.",
+      "status": "planned",
+      "priority": "medium",
+      "module": "notebooks",
+      "design_doc": "docs/slm-finetuning.md",
+      "tests": {
+        "status": "missing",
+        "files": [],
+        "notes": ""
+      },
+      "subtasks": [
+        { "id": "F007-1", "name": "hf upload LoRA repo", "status": "planned" },
+        { "id": "F007-2", "name": "hf upload GGUF q4_k_m repo", "status": "planned" }
+      ],
+      "notes": "Token via .env (key present in .env.example); never commit .env.",
+      "added": "2026-10-14",
+      "completed": null
+    },
+    {
+      "id": "F008",
+      "name": "DPO stage after SFT",
+      "description": "Direct preference optimisation on PsychoPref after SFT to sharpen counselling response quality.",
+      "status": "planned",
+      "priority": "medium",
+      "module": "notebooks",
+      "design_doc": "docs/slm-finetuning.md",
+      "tests": {
+        "status": "missing",
+        "files": [],
+        "notes": ""
+      },
+      "subtasks": [
+        { "id": "F008-1", "name": "Fit DPO in memory (ctx 1024 + r=8 or Colab)", "status": "planned" },
+        { "id": "F008-2", "name": "DPO training run + artifact push", "status": "planned" }
+      ],
+      "notes": "DPO@2048 needs ~9–11GB, will not fit the 8GB laptop.",
+      "added": "2026-10-14",
+      "completed": null
+    },
+    {
+      "id": "F009",
+      "name": "MentalBench-Align evaluation harness",
+      "description": "Automated counselling-quality evaluation using the MentalBench-Align repo (CSS = Guidance/Informativeness/Relevance/Safety; ARS = Empathy/Helpfulness/Understanding) with its 1–5 rubrics plus judge prompt and JSON schema, including a human spot-check on Safety/Relevance.",
+      "status": "planned",
+      "priority": "high",
+      "module": "eval",
+      "design_doc": "docs/slm-finetuning.md",
+      "tests": {
+        "status": "missing",
+        "files": [],
+        "notes": "Repo: https://github.com/abeerbadawi/MentalBench-Align (docs/evaluation_guidelines.md)."
+      },
+      "subtasks": [
+        { "id": "F009-1", "name": "Judge prompt + JSON schema integration", "status": "planned" },
+        { "id": "F009-2", "name": "Scoring script for CSS/ARS dimensions", "status": "planned" },
+        { "id": "F009-3", "name": "Human spot-check protocol", "status": "planned" }
+      ],
+      "notes": "Caveat: LLM judges inflate affective scores by +0.4–0.8 and are weakest on Safety/Relevance.",
+      "added": "2026-10-14",
+      "completed": null
+    },
+    {
+      "id": "F010",
+      "name": "MentalBench-100k Qwen3-4B baseline",
+      "description": "Generate a fresh Qwen3-4B baseline over MentalBench-100k (10k rows) on Kaggle T4 fp16 with the paper's generation prompt, enable_thinking=False, temp 0.7 / top_p 0.8, max 512 tokens. Two shard kernels write idx,context,qwen3_4b_instruct_2507 CSVs.",
+      "status": "in_progress",
+      "priority": "high",
+      "module": "eval",
+      "design_doc": "docs/slm-finetuning.md",
+      "tests": {
+        "status": "missing",
+        "files": [],
+        "notes": "Not in repo — kernels ran under /tmp/kaggle-mbench-{a,b}/."
+      },
+      "subtasks": [
+        { "id": "F010-1", "name": "Fix chat-template tokenize bug (two-step)", "status": "completed" },
+        { "id": "F010-2", "name": "Push v2 kernels with aligned metadata slugs", "status": "completed" },
+        { "id": "F010-3", "name": "Fetch both shard outputs and merge", "status": "planned" },
+        { "id": "F010-4", "name": "Judge pass with a current API model", "status": "planned" }
+      ],
+      "notes": "Both v2 kernels hit the 9h timeout with usable partial outputs (flush every 50 rows, resume-safe) — not yet fetched. Paper's GPT-4o/Claude-3.7/Gemini-2.5 judges are deprecated; their stored Qwen-3 scores are NOT reusable, so a fresh baseline is required (needs API keys + budget).",
+      "added": "2026-10-14",
+      "completed": null
+    },
+    {
+      "id": "F011",
+      "name": "T-BARS RCC pillar rebuild",
+      "description": "Rebuild the T-BARS Responsible Counselling Communication pillar from the coTherapist paper §5.2: 5 subskills scored 0–4 by a LLaMA-3.1-8B judge. Code and data were never released, so this is a from-paper rebuild.",
+      "status": "planned",
+      "priority": "medium",
+      "module": "eval",
+      "design_doc": "docs/research.md",
+      "tests": {
+        "status": "missing",
+        "files": [],
+        "notes": ""
+      },
+      "subtasks": [
+        { "id": "F011-1", "name": "Encode 5 subskills + 0–4 rubric", "status": "planned" },
+        { "id": "F011-2", "name": "LLaMA-3.1-8B judge runner", "status": "planned" }
+      ],
+      "notes": "Checked arXiv/ACM/author GitHub/site/lab — not released, only a 'release upon acceptance' promise. cotherapistai.com is an unrelated product; ignore.",
+      "added": "2026-10-14",
+      "completed": null
+    },
+    {
+      "id": "F012",
+      "name": "FastAPI serving layer",
+      "description": "Backend API server for the counsellor: thin routes over core logic, importing src/rag/query.py:retrieve() for RAG context and calling the fine-tuned model.",
+      "status": "planned",
+      "priority": "high",
+      "module": "backend",
+      "design_doc": "AGENTS.md",
+      "tests": {
+        "status": "missing",
+        "files": [],
+        "notes": "TDD required: tests mirror module structure; routes thin, logic in core."
+      },
+      "subtasks": [
+        { "id": "F012-1", "name": "Core chat/session logic", "status": "planned" },
+        { "id": "F012-2", "name": "Thin FastAPI routes", "status": "planned" }
+      ],
+      "notes": "Hosting undecided; persistent disk confirmed. Local embeddings + embedded Chroma, no Docker.",
+      "added": "2026-10-14",
+      "completed": null
+    },
+    {
+      "id": "F013",
+      "name": "React + Vite + TypeScript frontend",
+      "description": "Chat UI for the counsellor, talking to the FastAPI backend.",
+      "status": "planned",
+      "priority": "medium",
+      "module": "frontend",
+      "design_doc": "AGENTS.md",
+      "tests": {
+        "status": "missing",
+        "files": [],
+        "notes": ""
+      },
+      "subtasks": [
+        { "id": "F013-1", "name": "Vite + TS scaffold", "status": "planned" },
+        { "id": "F013-2", "name": "Chat view wired to backend", "status": "planned" }
+      ],
+      "notes": "",
+      "added": "2026-10-14",
+      "completed": null
+    },
+    {
+      "id": "F014",
+      "name": "Voice interface layer",
+      "description": "Speech input/output layer over the counselling chat, built after the text stack works.",
+      "status": "planned",
+      "priority": "low",
+      "module": "backend",
+      "design_doc": "AGENTS.md",
+      "tests": {
+        "status": "missing",
+        "files": [],
+        "notes": ""
+      },
+      "subtasks": [
+        { "id": "F014-1", "name": "Decide STT/TTS stack", "status": "planned" }
+      ],
+      "notes": "Explicitly deferred; no agents, no tools.",
+      "added": "2026-10-14",
+      "completed": null
+    }
+  ]
+}

@@ -70,7 +70,8 @@ Hosting undecided; persistent disk confirmed. Keep everything runnable with zero
 ## Agent Guidelines
 - Always run `make style` before considering code done; `make test` after changes
 - Always use `uv`, never pip
-- Never modify `docs/` unless explicitly asked
+- Keep `docs/features.json` current: flip a feature/subtask status, refresh `last_updated` and the `summary` counts whenever work lands
+- Never modify `docs/` unless explicitly asked (the exception: keeping `docs/features.json` in sync is mandatory)
 - Check `docs/slm-finetuning.md` before touching training/eval — it takes precedence
 - New workflow step? Add a Makefile target
 - If something feels out of scope, flag it rather than silently doing it
