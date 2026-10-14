@@ -111,7 +111,7 @@
       "tests": {
         "status": "missing",
         "files": [],
-        "notes": "No committed harness (needs GPU + gitignored data). Data and save cells were executed out-of-repo with stubbed unsloth/model: 2775 CounselChat - 163 blank and 3512 Amod - 4 blank -> 6120 examples; save cell without HF_TOKEN saves qwen_lora/ and skips both pushes."
+        "notes": "No separate harness (needs GPU + gitignored data) — the notebook asserts for itself: non-degenerate source counts, zero blank/NaN turns, qwen_lora/ written. Verified out-of-repo with stubbed unsloth/model: 2775 CounselChat - 163 blank and 3512 Amod - 4 blank -> 6120 examples; save cell without HF_TOKEN saves qwen_lora/ and skips both pushes; disabling the blank filter makes the notebook's own assert fire."
       },
       "subtasks": [
         { "id": "F005-1", "name": "Slim notebook to 17 cells + black format", "status": "completed" },
