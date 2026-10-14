@@ -220,7 +220,7 @@
       "tests": {
         "status": "missing",
         "files": [],
-        "notes": "Not in repo — kernel outputs in data/eval/mbench-qwen3-4b-baseline/ (output_shard_{a,b}.csv + kernel logs; both gitignored, like the finetune data)."
+        "notes": "Not in repo — kernel outputs in data/eval/mbench-qwen3-4b-baseline/output_shard_a.csv (906 rows, idx 0-905) and output_shard_b.csv (875 rows, idx 5000-5874); gitignored, like the finetune data."
       },
       "subtasks": [
         { "id": "F010-1", "name": "Fix chat-template tokenize bug (two-step)", "status": "completed" },
