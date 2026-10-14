@@ -56,9 +56,11 @@ def seeded_rows():
 
 
 def main():
-    # vLLM wheels are built for CUDA 12.8: pin the torch stack to cu128 first. A bare
-    # `pip install vllm` pulls cu130 torch while Kaggle's torchaudio stays cu128, and vLLM's
-    # import chain touches torchaudio -> RuntimeError at import (v1 died on exactly this).
+    # Install order matters: vLLM >= 0.28 pins torch==2.13.0, which only exists as cu130, while
+    # Kaggle's torchaudio stays cu128 -> RuntimeError at import (v1/v2 died on exactly this).
+    # vLLM 0.25.0 pins torch/torchaudio==2.11.0, which the cu128 index carries, so pre-install
+    # that stack from cu128 and forbid upgrades: 2.11.0+cu128 satisfies ==2.11.0 (PEP 440
+    # ignores the local segment), and pip then leaves the CUDA-consistent stack alone.
     cu128 = "https://download.pytorch.org/whl/cu128"
     subprocess.run(
         [sys.executable, "-m", "pip", "install", "-q", "torch", "torchvision", "torchaudio",
@@ -66,7 +68,8 @@ def main():
         check=True,
     )
     subprocess.run(
-        [sys.executable, "-m", "pip", "install", "-q", "vllm", "--extra-index-url", cu128],
+        [sys.executable, "-m", "pip", "install", "-q", "vllm==0.25.0",
+         "--extra-index-url", cu128, "--upgrade-strategy", "only-if-needed"],
         check=True,
     )
     from transformers import AutoTokenizer
