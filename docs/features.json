@@ -119,7 +119,7 @@
         { "id": "F005-3", "name": "Dual input path (Kaggle /kaggle/input/... vs local)", "status": "completed" },
         { "id": "F005-4", "name": "HF-push cells must no-op on Kaggle", "status": "completed" }
       ],
-      "notes": "DATA root switches to /kaggle/input/ai-therapist-sft when present (upload data/finetune/ as dataset Eros438/ai-therapist-sft to get that mount). Blank CSV fields arrive as NaN/None, so the filter now rejects those too. Use enable_thinking=False, temp 0.7 / top_p 0.8. VRAM on 8GB laptop: Qwen SFT@2048 ~6.5-7.5GB fits. GGUF + hub pushes need HF_TOKEN, so Kaggle runs produce qwen_lora/ only.",
+      "notes": "DATA root is discovered by searching for counsel-chat/*.csv under /kaggle/input/datasets/<owner>/<slug>/ (Kaggle's current mount layout; older images used /kaggle/input/<slug>/) and falling back to data/finetune/, so a mount-path change fails loudly instead of silently training on nothing. Blank CSV fields arrive as NaN/None, so the filter rejects those too. Use enable_thinking=False, temp 0.7 / top_p 0.8. VRAM on 8GB laptop: Qwen SFT@2048 ~6.5-7.5GB fits. GGUF + hub pushes need HF_TOKEN, so Kaggle runs produce qwen_lora/ only.",
       "added": "2026-10-14",
       "completed": "2026-10-14"
     },
@@ -141,7 +141,7 @@
         { "id": "F006-2", "name": "Push kernel (T4, internet on)", "status": "completed" },
         { "id": "F006-3", "name": "kaggle kernels output to fetch qwen_lora/", "status": "planned" }
       ],
-      "notes": "Dataset eros438/ai-therapist-sft created 2026-10-14 (private) from data/finetune via `kaggle datasets create -p data/finetune --dir-mode zip`; Kaggle auto-extracted the zips, so the mount is /kaggle/input/ai-therapist-sft/{counsel-chat,amod-counseling}/ as the notebook's DATA root expects. --dir-mode zip is mandatory (the CLI default 'skip' silently drops subfolders), and --ignore-patterns needs a trailing slash to drop a folder ('psychopref' did not match, so psychopref/ rode along — harmless, DPO data). Kernel settings live in notebooks/kernel-metadata.json, pushed with `kaggle kernels push -p notebooks`; machine_shape MUST be set to NvidiaTeslaT4, because the CLI defaults an API push to P100 (sm_60), which breaks the Unsloth/bnb stack. Kaggle CLI cannot attach secrets, so training only; HF push happens from local.",
+      "notes": "Dataset eros438/ai-therapist-sft created 2026-10-14 (private) from data/finetune via `kaggle datasets create -p data/finetune --dir-mode zip`; Kaggle auto-extracted the zips, so the mount is /kaggle/input/datasets/eros438/ai-therapist-sft/{counsel-chat,amod-counseling}/. Kaggle's dataset mount is /kaggle/input/datasets/<owner>/<slug>/, NOT the older /kaggle/input/<slug>/ — kernel v1 died on that assumption (AssertionError: missing data/finetune/counsel-chat/*.csv), so the notebook now searches for the root. --dir-mode zip is mandatory (the CLI default 'skip' silently drops subfolders), and --ignore-patterns needs a trailing slash to drop a folder ('psychopref' did not match, so psychopref/ rode along — harmless, DPO data). Kernel settings live in notebooks/kernel-metadata.json, pushed with `kaggle kernels push -p notebooks`; machine_shape MUST be set to NvidiaTeslaT4, because the CLI defaults an API push to P100 (sm_60), which breaks the Unsloth/bnb stack — the T4 x2 setting was confirmed in the run log (\"Tesla T4. Num GPUs = 2\"). Kaggle CLI cannot attach secrets, so training only; HF push happens from local.",
       "added": "2026-10-14",
       "completed": null
     },
