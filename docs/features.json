@@ -183,7 +183,7 @@
         { "id": "F008-1", "name": "Fit DPO in memory (ctx 1024 + r=8 or Colab)", "status": "planned" },
         { "id": "F008-2", "name": "DPO training run + artifact push", "status": "planned" }
       ],
-      "notes": "DPO@2048 needs ~9–11GB, will not fit the 8GB laptop. SFT epoch-2 contemplated 2026-10-14: v3 curve (765 posted steps) descends ~2.55 -> ~2.15 with no plateau and persistent batch-noise spikes, so a 2nd epoch should gain another ~0.15-0.3; cheapest path is a fresh run with num_train_epochs=2 (~2 GPU-h, keep both adapters, compare under F009/F010 when those land).",
+      "notes": "DPO@2048 needs ~9–11GB, will not fit the 8GB laptop. SFT epoch-2 contemplated 2026-10-14: v3 curve (765 posted steps) descends ~2.55 -> ~2.15 with no plateau and persistent batch-noise spikes, so a 2nd epoch should gain another ~0.15-0.3; cheapest path is a fresh run with num_train_epochs=2 (~2 GPU-h, keep both adapters, compare under F009/F010 when those land). Launched 2026-10-14 as SFT kernel v4 (only change vs v3: epochs 1 -> 2; same seed, so epoch 1 reproduces v3 and epoch 2 auto-reshuffles).",
       "added": "2026-10-14",
       "completed": null
     },
