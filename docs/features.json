@@ -294,7 +294,7 @@
         { "id": "F013-2", "name": "Wire Base URL to F012 + smoke-test a chat turn", "status": "planned" },
         { "id": "F013-3", "name": "SSE streaming follow-up (needs F012-3)", "status": "planned" }
       ],
-      "notes": "open-webui evaluated and rejected: 482MB repo, custom proprietary license (NOASSERTION), Svelte+Python stack. anse wins on all three (MIT, 1MB, TS) and its OpenAI provider exposes Base URL + handles non-streaming responses; the backend ignores the client model field, so any model label works. Neither is React, but neither needs code changes, which is the point.",
+      "notes": "open-webui evaluated and rejected: 482MB repo, custom proprietary license (NOASSERTION), Svelte+Python stack. anse wins on all three (MIT, 1MB, TS) and its OpenAI provider exposes Base URL + handles non-streaming responses; the backend ignores the client model field, so any model label works. Neither is React, but neither needs code changes, which is the point. Run it with `make frontend`, then set Base URL to http://localhost:8001 in its OpenAI provider settings.",
       "added": "2026-10-14",
       "completed": null
     },
