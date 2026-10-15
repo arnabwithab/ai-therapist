@@ -30,7 +30,8 @@ def sh(cmd, **kwargs):
 
 def main():
     sh([sys.executable, "-m", "pip", "install", "-q",
-        "transformers", "peft", "bitsandbytes", "accelerate", "gguf", "torch"])
+        "transformers", "peft", "bitsandbytes", "accelerate", "gguf", "torch",
+        "torchao>=0.16"])  # PEFT routes bnb-LoRA attach through torchao; image ships 0.10
     sh([sys.executable, "-m", "pip", "install", "-q", "cmake", "ninja"])
     import torch
 
