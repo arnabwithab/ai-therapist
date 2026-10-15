@@ -99,6 +99,34 @@ def test_completions_forwards_sampling_params(monkeypatch):
     assert seen["top_k"] == 30 and seen["repetition_penalty"] == 1.2
 
 
+def test_completions_forwards_history_before_current_turn(monkeypatch):
+    seen = {}
+
+    def fake_chat(user_text, **kwargs):
+        seen["user_text"] = user_text
+        seen["history"] = kwargs.get("history")
+        return {"reply": "ok", "sources": []}
+
+    monkeypatch.setattr(core, "chat", fake_chat)
+    r = TestClient(app_module.app).post(
+        "/v1/chat/completions",
+        json={
+            "model": "m",
+            "messages": [
+                {"role": "user", "content": "first"},
+                {"role": "assistant", "content": "second"},
+                {"role": "user", "content": "third"},
+            ],
+        },
+    )
+    assert r.status_code == 200, r.text
+    assert seen["user_text"] == "third"
+    assert seen["history"] == [
+        {"role": "user", "content": "first"},
+        {"role": "assistant", "content": "second"},
+    ]
+
+
 def test_completions_model_failure_is_502(monkeypatch):
     def bad_chat(user_text, **kwargs):
         raise core.ModelError("vllm down")

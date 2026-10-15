@@ -44,14 +44,20 @@ def models():
 
 @app.post("/v1/chat/completions")
 def completions(req: ChatRequest):
-    user_msgs = [m.content for m in req.messages if m.role == "user" and m.content.strip()]
-    if not user_msgs:
+    idx = max(
+        (i for i, m in enumerate(req.messages) if m.role == "user" and m.content.strip()),
+        default=None,
+    )
+    if idx is None:
         raise HTTPException(422, "no non-empty user message")
+    history = [{"role": m.role, "content": m.content} for m in req.messages[:idx]]
+    current = req.messages[idx].content
     # cap generation so prompt + completion fits our 2048-token window
     max_tokens = min(req.max_tokens, 256)
     if req.stream:
         stream = core.chat_stream(
-            user_msgs[-1],
+            current,
+            history=history,
             temperature=req.temperature,
             top_p=req.top_p,
             top_k=req.top_k,
@@ -65,7 +71,8 @@ def completions(req: ChatRequest):
         return StreamingResponse(itertools.chain([first], stream), media_type="text/event-stream")
     try:
         out = core.chat(
-            user_msgs[-1],
+            current,
+            history=history,
             temperature=req.temperature,
             top_p=req.top_p,
             top_k=req.top_k,

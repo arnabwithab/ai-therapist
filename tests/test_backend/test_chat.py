@@ -19,17 +19,59 @@ def _passages():
 
 
 def test_build_messages_injects_system_context_and_user_text():
-    msgs = core.build_messages("I can't sleep.", _passages())
+    turns = [{"role": "user", "content": "I can't sleep."}]
+    msgs = core.build_messages(turns, _passages())
     assert msgs[0]["role"] == "system"
     assert msgs[-1] == {"role": "user", "content": "I can't sleep."}
-    ctx = msgs[1]["content"]
-    assert "Mindfulness of breathing" in ctx and "Yoga nidra" in ctx
+    assert "Mindfulness of breathing" in msgs[0]["content"]
 
 
 def test_build_messages_without_passages_still_works():
-    msgs = core.build_messages("hello", [])
+    msgs = core.build_messages([{"role": "user", "content": "hello"}], [])
     assert msgs[0]["role"] == "system"
     assert msgs[-1] == {"role": "user", "content": "hello"}
+
+
+def test_build_messages_single_system_message_with_history():
+    turns = [
+        {"role": "user", "content": "first"},
+        {"role": "assistant", "content": "second"},
+        {"role": "user", "content": "third"},
+    ]
+    msgs = core.build_messages(turns, _passages())
+    assert sum(1 for m in msgs if m["role"] == "system") == 1
+    assert [m["content"] for m in msgs[1:]] == ["first", "second", "third"]
+
+
+def test_fit_budget_drops_oldest_turns_first():
+    turns = [{"role": "user", "content": "x" * 4000}] + [{"role": "user", "content": "latest"}]
+    kept = core._fit_budget(turns, [], max_tokens=4000)
+    assert [m["content"] for m in kept] == ["latest"]
+
+
+def test_chat_includes_history_in_model_body():
+    seen = {}
+
+    def handler(request):
+        seen["body"] = __import__("json").loads(request.content)
+        return httpx.Response(
+            200,
+            json={
+                "choices": [{"message": {"role": "assistant", "content": "ok"}}],
+                "usage": None,
+            },
+        )
+
+    client = httpx.Client(base_url="http://test", transport=httpx.MockTransport(handler))
+    core.chat(
+        "current",
+        history=[{"role": "user", "content": "prior"}],
+        client=client,
+        retrieve_fn=lambda q, n=5: [],
+    )
+    contents = [m["content"] for m in seen["body"]["messages"]]
+    assert "prior" in contents and "current" in contents
+    assert contents.index("prior") < contents.index("current")
 
 
 def _mock_client(status=200, payload=None, exc=None):
