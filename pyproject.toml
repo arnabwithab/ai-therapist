@@ -20,8 +20,9 @@ dev = [
 ]
 serving = [
     # GPU model server only; kept out of dev/CI. Installed on demand by `make model-server`.
-    "vllm",
-    "vllm-gguf-plugin",
+    # Pinned: 0.22.x still carries in-tree GGUF (the OOT plugin double-registers
+    # its ops against it and crashes); newer vLLM removed in-tree GGUF entirely.
+    "vllm==0.22.1",
 ]
 
 [tool.black]

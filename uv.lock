@@ -44,7 +44,6 @@ dev = [
 ]
 serving = [
     { name = "vllm" },
-    { name = "vllm-gguf-plugin" },
 ]
 
 [package.metadata]
@@ -62,10 +61,7 @@ dev = [
     { name = "pytest", specifier = ">=8.0.0" },
     { name = "ruff", specifier = ">=0.4.0" },
 ]
-serving = [
-    { name = "vllm" },
-    { name = "vllm-gguf-plugin" },
-]
+serving = [{ name = "vllm", specifier = "==0.22.1" }]
 
 [[package]]
 name = "aiohappyeyeballs"
@@ -6790,21 +6786,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/84/7c/6c745e218eaffc0fe
 wheels = [
     { url = "https://files.pythonhosted.org/packages/86/90/bfdbaa7762a977932f509e48e18db8543b0b07936ee0e06db02e760e7790/vllm-0.22.1-cp38-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:2d8e51693683e4d7c7e9ed311a2996200428fa3a28e154ddbff809aeb7c5382a", size = 252950342, upload-time = "2026-06-05T10:13:00.428Z" },
     { url = "https://files.pythonhosted.org/packages/08/cd/c863370930b2043b7b7f67ff900c9e27c2265f3b3edd080d62c148d4bcb4/vllm-0.22.1-cp38-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:cc50536c93827a577b2bc45f038b8b866c31ed220631008521a337c9b2558f4d", size = 261042548, upload-time = "2026-06-05T10:13:34.853Z" },
-]
-
-[[package]]
-name = "vllm-gguf-plugin"
-version = "0.0.5"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "gguf" },
-    { name = "torch" },
-    { name = "vllm" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/ab/0d/608dd195cff255708a6b5edb931e9f705def22fefe78a253625ac1194e1c/vllm_gguf_plugin-0.0.5.tar.gz", hash = "sha256:4c786c5ee284bb616f3a72c54c423c08d7ea6247ef14108421520de4c923776f", size = 114872, upload-time = "2026-08-10T08:28:22.827Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/a1/a6/e99dbaa266bc0502f83d4a167fb655755b5df029334d2ffc34209195b240/vllm_gguf_plugin-0.0.5-cp310-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:36a1538d0ac6797c8b194c12d94eceed944fe945dbc2585830393cb4c3b92d5b", size = 6384571, upload-time = "2026-08-10T08:28:18.595Z" },
-    { url = "https://files.pythonhosted.org/packages/0b/1f/55b5023c20ef8c30c8099d713aa2be94783d7a67aa31f87963779d82f5c6/vllm_gguf_plugin-0.0.5-cp310-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:e795779830ad8907cb0e51bf661dd7784ebaf244b0b324af07a8d3925b6a9739", size = 6406192, upload-time = "2026-08-10T08:28:21.261Z" },
 ]
 
 [[package]]
