@@ -1,0 +1,3 @@
+[submodule "frontend/anse"]
+	path = frontend/anse
+	url = https://github.com/anse-app/anse
