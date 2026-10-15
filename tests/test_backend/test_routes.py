@@ -78,6 +78,27 @@ def test_completions_stream_failure_is_502(monkeypatch):
     assert r.status_code == 502
 
 
+def test_completions_forwards_sampling_params(monkeypatch):
+    seen = {}
+
+    def fake_chat(user_text, **kwargs):
+        seen.update(kwargs)
+        return {"reply": "ok", "sources": []}
+
+    monkeypatch.setattr(core, "chat", fake_chat)
+    r = TestClient(app_module.app).post(
+        "/v1/chat/completions",
+        json={
+            "model": "m",
+            "messages": [{"role": "user", "content": "hi"}],
+            "top_k": 30,
+            "repetition_penalty": 1.2,
+        },
+    )
+    assert r.status_code == 200, r.text
+    assert seen["top_k"] == 30 and seen["repetition_penalty"] == 1.2
+
+
 def test_completions_model_failure_is_502(monkeypatch):
     def bad_chat(user_text, **kwargs):
         raise core.ModelError("vllm down")

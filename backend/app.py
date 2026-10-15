@@ -23,6 +23,8 @@ class ChatRequest(BaseModel):
     messages: list[Message]
     temperature: float = 0.7
     top_p: float = 0.8
+    top_k: int = 20
+    repetition_penalty: float = 1.1
     max_tokens: int = 512
     stream: bool = False
 
@@ -49,7 +51,12 @@ def completions(req: ChatRequest):
     max_tokens = min(req.max_tokens, 512)
     if req.stream:
         stream = core.chat_stream(
-            user_msgs[-1], temperature=req.temperature, top_p=req.top_p, max_tokens=max_tokens
+            user_msgs[-1],
+            temperature=req.temperature,
+            top_p=req.top_p,
+            top_k=req.top_k,
+            repetition_penalty=req.repetition_penalty,
+            max_tokens=max_tokens,
         )
         try:
             first = next(stream)  # surface RAG/model failures as 502, not a broken stream
@@ -61,6 +68,8 @@ def completions(req: ChatRequest):
             user_msgs[-1],
             temperature=req.temperature,
             top_p=req.top_p,
+            top_k=req.top_k,
+            repetition_penalty=req.repetition_penalty,
             max_tokens=max_tokens,
         )
     except ValueError as e:

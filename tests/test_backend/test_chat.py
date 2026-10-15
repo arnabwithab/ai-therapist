@@ -64,6 +64,7 @@ def test_generate_posts_to_vllm_and_returns_content_plus_usage():
     assert usage["total_tokens"] == 15
     assert seen["url"].endswith("/v1/chat/completions")
     assert seen["body"]["model"] == "m" and seen["body"]["temperature"] == 0.7
+    assert seen["body"]["top_k"] == 20 and seen["body"]["repetition_penalty"] == 1.1
 
 
 def test_generate_server_error_raises_model_error():

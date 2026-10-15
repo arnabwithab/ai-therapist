@@ -50,7 +50,16 @@ def build_messages(user_text, passages):
     return messages
 
 
-def generate(client, messages, model=MODEL_ID, temperature=0.7, top_p=0.8, max_tokens=512):
+def generate(
+    client,
+    messages,
+    model=MODEL_ID,
+    temperature=0.7,
+    top_p=0.8,
+    top_k=20,
+    repetition_penalty=1.1,
+    max_tokens=512,
+):
     """POST one non-streaming chat completion; return (text, usage)."""
     try:
         resp = client.post(
@@ -61,6 +70,8 @@ def generate(client, messages, model=MODEL_ID, temperature=0.7, top_p=0.8, max_t
                     "messages": messages,
                     "temperature": temperature,
                     "top_p": top_p,
+                    "top_k": top_k,
+                    "repetition_penalty": repetition_penalty,
                     "max_tokens": max_tokens,
                     "stream": False,
                 }
@@ -75,7 +86,16 @@ def generate(client, messages, model=MODEL_ID, temperature=0.7, top_p=0.8, max_t
         raise ModelError(f"model call failed: {e}") from e
 
 
-def generate_stream(client, messages, model=MODEL_ID, temperature=0.7, top_p=0.8, max_tokens=512):
+def generate_stream(
+    client,
+    messages,
+    model=MODEL_ID,
+    temperature=0.7,
+    top_p=0.8,
+    top_k=20,
+    repetition_penalty=1.1,
+    max_tokens=512,
+):
     """Yield raw SSE byte chunks from vLLM (pass-through for OpenAI-style clients)."""
     try:
         with client.stream(
@@ -86,6 +106,8 @@ def generate_stream(client, messages, model=MODEL_ID, temperature=0.7, top_p=0.8
                 "messages": messages,
                 "temperature": temperature,
                 "top_p": top_p,
+                "top_k": top_k,
+                "repetition_penalty": repetition_penalty,
                 "max_tokens": max_tokens,
                 "stream": True,
             },
@@ -101,8 +123,10 @@ def chat_stream(
     *,
     temperature=0.7,
     top_p=0.8,
+    top_k=20,
+    repetition_penalty=1.1,
     max_tokens=512,
-    top_k=RAG_TOP_K,
+    rag_top_k=RAG_TOP_K,
     client=None,
     retrieve_fn=None,
 ):
@@ -111,7 +135,7 @@ def chat_stream(
         raise ValueError("empty user turn")
     retrieve_fn = retrieve_fn or retrieve
     try:
-        passages = retrieve_fn(user_text, n=top_k)
+        passages = retrieve_fn(user_text, n=rag_top_k)
     except Exception as e:
         raise RagError(f"retrieval failed: {e}") from e
     own_client = client is None
@@ -121,6 +145,8 @@ def chat_stream(
         build_messages(user_text.strip(), passages),
         temperature=temperature,
         top_p=top_p,
+        top_k=top_k,
+        repetition_penalty=repetition_penalty,
         max_tokens=max_tokens,
     )
     try:
@@ -135,8 +161,10 @@ def chat(
     *,
     temperature=0.7,
     top_p=0.8,
+    top_k=20,
+    repetition_penalty=1.1,
     max_tokens=512,
-    top_k=RAG_TOP_K,
+    rag_top_k=RAG_TOP_K,
     client=None,
     retrieve_fn=None,
 ):
@@ -145,7 +173,7 @@ def chat(
         raise ValueError("empty user turn")
     retrieve_fn = retrieve_fn or retrieve
     try:
-        passages = retrieve_fn(user_text, n=top_k)
+        passages = retrieve_fn(user_text, n=rag_top_k)
     except Exception as e:
         raise RagError(f"retrieval failed: {e}") from e
     own_client = client is None
@@ -156,6 +184,8 @@ def chat(
             build_messages(user_text.strip(), passages),
             temperature=temperature,
             top_p=top_p,
+            top_k=top_k,
+            repetition_penalty=repetition_penalty,
             max_tokens=max_tokens,
         )
     finally:
