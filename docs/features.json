@@ -1,322 +1,492 @@
 {
-  "project": "ai-therapist",
-  "last_updated": "2026-10-15",
-  "summary": {
-    "total": 14,
-    "completed": 7,
-    "in_progress": 3,
-    "planned": 4,
-    "tests_passing": 26,
-    "tests_failing": 0,
-    "tests_missing": 10
-  },
-  "features": [
+ "project": "ai-therapist",
+ "last_updated": "2026-10-15",
+ "summary": {
+  "total": 14,
+  "completed": 7,
+  "in_progress": 3,
+  "planned": 4,
+  "tests_passing": 31,
+  "tests_failing": 0,
+  "tests_missing": 10
+ },
+ "features": [
+  {
+   "id": "F001",
+   "name": "Repo scaffolding (uv + Makefile + AGENTS.md)",
+   "description": "uv-managed Python project with root Makefile as the single control surface (setup/test/style/ingest/clean), plus AGENTS.md conventions. Makes every workflow step runnable via make.",
+   "status": "completed",
+   "priority": "high",
+   "module": "root",
+   "design_doc": "AGENTS.md",
+   "tests": {
+    "status": "n/a",
+    "files": [],
+    "notes": "Infra only, no unit tests."
+   },
+   "subtasks": [
     {
-      "id": "F001",
-      "name": "Repo scaffolding (uv + Makefile + AGENTS.md)",
-      "description": "uv-managed Python project with root Makefile as the single control surface (setup/test/style/ingest/clean), plus AGENTS.md conventions. Makes every workflow step runnable via make.",
-      "status": "completed",
-      "priority": "high",
-      "module": "root",
-      "design_doc": "AGENTS.md",
-      "tests": {
-        "status": "n/a",
-        "files": [],
-        "notes": "Infra only, no unit tests."
-      },
-      "subtasks": [
-        { "id": "F001-1", "name": "pyproject.toml + uv.lock", "status": "completed" },
-        { "id": "F001-2", "name": "Root Makefile targets", "status": "completed" },
-        { "id": "F001-3", "name": "AGENTS.md conventions", "status": "completed" }
-      ],
-      "notes": "",
-      "added": "2026-10-14",
-      "completed": "2026-10-14"
+     "id": "F001-1",
+     "name": "pyproject.toml + uv.lock",
+     "status": "completed"
     },
     {
-      "id": "F002",
-      "name": "RAG pipeline (chunk/ingest/query)",
-      "description": "Chunking, embedding and retrieval over the RAG knowledge base. Chroma embedded persistent (./chroma/, gitignored, rebuilt via make ingest) with BAAI/bge-small-en-v1.5 CPU embeddings. retrieve(query, n, source_filter) is the only API the serving layer imports; store-agnostic so Chroma→Qdrant is a re-ingest only.",
-      "status": "completed",
-      "priority": "high",
-      "module": "src/rag",
-      "design_doc": "docs/research.md",
-      "tests": {
-        "status": "passing",
-        "files": ["tests/test_rag/test_chunk.py", "tests/test_rag/test_query.py"],
-        "notes": "6 tests green (4 chunk + 2 query, temp-collection based). Embedder reverted from Qwen3-Embedding-0.6B (OOM on 8GB GPU) to bge-small-en-v1.5 CPU."
-      },
-      "subtasks": [
-        { "id": "F002-1", "name": "config.py env-overridable settings (512/50 chunking)", "status": "completed" },
-        { "id": "F002-2", "name": "chunk.py paragraph-aware chunker", "status": "completed" },
-        { "id": "F002-3", "name": "ingest.py with --reset and per-chunk chapter headings", "status": "completed" },
-        { "id": "F002-4", "name": "query.py retrieve()", "status": "completed" },
-        { "id": "F002-5", "name": "Rebuild index and spot-check retrieval", "status": "completed" }
-      ],
-      "notes": "chroma/ is gitignored; rebuild with make ingest.",
-      "added": "2026-10-14",
-      "completed": "2026-10-14"
+     "id": "F001-2",
+     "name": "Root Makefile targets",
+     "status": "completed"
     },
     {
-      "id": "F003",
-      "name": "RAG knowledge base corpus (South Asian therapeutic techniques)",
-      "description": "Curated raw sources and extracted text for the RAG index: 30 text files (~640k words) plus 24 raw sources, focused on South Asian / Indian therapeutic and contemplative traditions.",
-      "status": "completed",
-      "priority": "medium",
-      "module": "data/rag-kb",
-      "design_doc": "docs/research.md",
-      "tests": {
-        "status": "n/a",
-        "files": [],
-        "notes": "Data only."
-      },
-      "subtasks": [
-        { "id": "F003-1", "name": "Fetch + extract raw sources", "status": "completed" },
-        { "id": "F003-2", "name": "text/_index.txt inventory", "status": "completed" }
-      ],
-      "notes": "Caveats: hku-preview, pageplace-preview, buddhist-psychotherapy-apa-sample are front-matter/ToC only; islamic-counselling-aligarh is a thin 656-word brochure; raw/dalal-book.pdf is typeset from extracted text. Still missing (browser-only): LWW Family Therapy in India, LWW guru-chela revisited, NBK159363 yoga-for-depression, MDPI yoga-integrative, NHM RMNCAH counselling manual, Palgrave Buddhist-psychology intro, jsneki.com Neki PDFs, APA full chapters.",
-      "added": "2026-10-14",
-      "completed": "2026-10-14"
-    },
-    {
-      "id": "F004",
-      "name": "SFT dataset preparation (CounselChat + Amod + PsychoPref)",
-      "description": "Assemble the training data: CounselChat CSV, PsychoPref train/test parquet and the gated Amod mental-health counseling conversations (RAIL-D). SFT uses combined + shuffled CounselChat + Amod in a single stage, not sequential.",
-      "status": "completed",
-      "priority": "high",
-      "module": "data/finetune",
-      "design_doc": "docs/slm-finetuning.md",
-      "tests": {
-        "status": "missing",
-        "files": [],
-        "notes": "Notebook asserts presence of both SFT datasets."
-      },
-      "subtasks": [
-        { "id": "F004-1", "name": "CounselChat CSV in data/finetune/counsel-chat/", "status": "completed" },
-        { "id": "F004-2", "name": "PsychoPref train/test parquet in data/finetune/psychopref/", "status": "completed" },
-        { "id": "F004-3", "name": "Accept RAIL-D terms and pull Amod into data/finetune/amod-counseling/", "status": "completed" }
-      ],
-      "notes": "Amod pulled with the .env HF_TOKEN as combined_dataset.json (JSONL, 3512 pairs; 4 rows have an empty Response) + LICENSE-RAIL-D.txt. Data files gitignored, so re-pull with curl -H \"Authorization: Bearer $HF_TOKEN\" from .../resolve/main/. Notebook glob extended to *.json since HF ships JSONL, not csv/parquet.",
-      "added": "2026-10-14",
-      "completed": "2026-10-14"
-    },
-    {
-      "id": "F005",
-      "name": "Qwen3-4B QLoRA finetune notebook",
-      "description": "Unsloth QLoRA SFT notebook for Qwen/Qwen3-4B-Instruct: combined+shuffled SFT, r=16, seq 2048, 1 epoch, train_on_responses_only; saves LoRA and GGUF q4_k_m. Runs on Kaggle T4; model choice justified against Phi-4-mini, Llama-3.2-3B, Gemma-3, SmolLM3-3B.",
-      "status": "completed",
-      "priority": "high",
-      "module": "notebooks",
-      "design_doc": "docs/slm-finetuning.md",
-      "tests": {
-        "status": "missing",
-        "files": [],
-        "notes": "No separate harness (needs GPU + gitignored data) — the notebook asserts for itself: non-degenerate source counts, zero blank/NaN turns, qwen_lora/ written. Verified out-of-repo with stubbed unsloth/model: 2775 CounselChat - 163 blank and 3512 Amod - 4 blank -> 6120 examples; save cell without HF_TOKEN saves qwen_lora/ and skips both pushes; disabling the blank filter makes the notebook's own assert fire."
-      },
-      "subtasks": [
-        { "id": "F005-1", "name": "Slim notebook to 17 cells + black format", "status": "completed" },
-        { "id": "F005-2", "name": "Data paths data/finetune/... with asserts", "status": "completed" },
-        { "id": "F005-3", "name": "Dual input path (Kaggle /kaggle/input/... vs local)", "status": "completed" },
-        { "id": "F005-4", "name": "HF-push cells must no-op on Kaggle", "status": "completed" }
-      ],
-      "notes": "DATA root is discovered by searching for counsel-chat/*.csv under /kaggle/input/datasets/<owner>/<slug>/ (Kaggle's current mount layout; older images used /kaggle/input/<slug>/) and falling back to data/finetune/, so a mount-path change fails loudly instead of silently training on nothing. Blank CSV fields arrive as NaN/None, so the filter rejects those too. Use enable_thinking=False, temp 0.7 / top_p 0.8. VRAM on 8GB laptop: Qwen SFT@2048 ~6.5-7.5GB fits. GGUF + hub pushes need HF_TOKEN, so Kaggle runs produce qwen_lora/ only.",
-      "added": "2026-10-14",
-      "completed": "2026-10-14"
-    },
-    {
-      "id": "F006",
-      "name": "SFT training run on Kaggle",
-      "description": "Upload data/finetune/ as private dataset Eros438/ai-therapist-sft, push the notebook kernel to a T4 with internet, run ~1–1.5h, fetch qwen_lora/ output.",
-      "status": "completed",
-      "priority": "high",
-      "module": "notebooks",
-      "design_doc": "docs/slm-finetuning.md",
-      "tests": {
-        "status": "missing",
-        "files": [],
-        "notes": "Requires F004 (Amod) and F005 dual-path gating — both complete."
-      },
-      "subtasks": [
-        { "id": "F006-1", "name": "Upload private dataset Eros438/ai-therapist-sft", "status": "completed" },
-        { "id": "F006-2", "name": "Push kernel (T4, internet on)", "status": "completed" },
-        { "id": "F006-3", "name": "kaggle kernels output to fetch qwen_lora/", "status": "completed" }
-      ],
-      "notes": "v3 (2026-10-14) COMPLETE in ~59 min on T4 x2 (~0.9 GPU-h): 6,120 examples, 765 steps, 1 epoch, batch 2x4, r=16. TrainOutput: train_loss 2.3051, train_runtime 3391.1s, 1.805 samples/s, epoch 1.0. Sanity inference coherent (anxiety prompt -> CBT/exposure/mindfulness guidance, non-thinking). qwen_lora/ (132MB adapter, 7 modules) + tokenizer fetched to models/ (gitignored). Per-step loss curve lives only in the Kaggle UI log — the fetched log is sampled and drops it, so the endpoint stats above are the in-repo record. Kaggle CLI cannot attach secrets, so training only; HF push happens from local (F007).",
-      "added": "2026-10-14",
-      "completed": "2026-10-14"
-    },
-    {
-      "id": "F007",
-      "name": "Publish adapters to Hugging Face",
-      "description": "Push the fine-tuned LoRA and GGUF artifacts from the laptop to arnabwithab/ai-therapist-qwen3-4b-lora and ...-gguf using HF_TOKEN from .env.",
-      "status": "completed",
-      "priority": "medium",
-      "module": "notebooks",
-      "design_doc": "docs/slm-finetuning.md",
-      "tests": {
-        "status": "missing",
-        "files": [],
-        "notes": ""
-      },
-      "subtasks": [
-        { "id": "F007-1", "name": "hf upload LoRA repo", "status": "completed" },
-        { "id": "F007-2", "name": "hf upload GGUF q4_k_m repo", "status": "completed" }
-      ],
-      "notes": "F007-1 done 2026-10-14: v3 1-epoch adapter + tokenizer uploaded to arnabwithab/ai-therapist-qwen3-4b-lora (public) via huggingface_hub, verified 11 files via API. Overwrite with the 2-epoch adapter when SFT v4 lands (re-upload README.md afterwards — upload_folder would clobber it with Unsloth's default; card source: models/qwen_lora/README.md). Done 2026-10-14: v4 adapter + user's edited card live (repo sha e2001fe2); card canonical backup at models/MODEL_CARD.md (updated for v4: 2 epochs, loss 1.9842). Auth note: login()/library whoami worked as arnabwithab (token autolinksv2, write) while curl Bearer checks 401'd with the same string — uploads must go through the library, not curl. F007-2 blocked: GGUF export needs ~8-10GB disk + unsloth/torch/triton locally, laptop has 6.5GB free; options are freeing disk or a Kaggle export kernel with a UI-attached HF secret. 2026-10-15: third path taken — CPU-only Kaggle kernel eros438/ai-therapist-gguf-export (code notebooks/gguf-export/export_gguf.py). v1 (Unsloth merge) died at import: Unsloth hard-requires a GPU. v2 uses transformers+peft merge_and_unload (~8GB RAM, Kaggle CPU has 30GB) plus a minimal llama.cpp build (llama-quantize target only) for Q4_K_M; fp16 intermediates are deleted to stay under /kaggle/working's 20GB. v3 got further (merge succeeded) then died serializing the merged-bnb model: transformers save_pretrained cannot reverse bnb weight conversions (NotImplementedError). v4 back to the Unsloth path on T4 (save_pretrained_gguf does its own serialization): needs ~20 min against 0.16h quota, likely dies mid-run — user's explicit call. Fetch the .gguf with kernels output and upload from local. FUTURE EXPORTS: if GPU quota is available, convert directly via Unsloth save_pretrained_gguf on a T4 kernel (one call does merge+quant, ~20 min) instead of this CPU path — use CPU only when quota is dry. v4 SUCCEEDED 2026-10-15 (Unsloth merge+quant on T4, burned the last 0.15h, 0.01h left): Q4_K_M 2.5GB (renamed ai-therapist-qwen3-4b-Q4_K_M.gguf) + README live at arnabwithab/ai-therapist-qwen3-4b-gguf (public, verified via API).",
-      "added": "2026-10-14",
-      "completed": "2026-10-15"
-    },
-    {
-      "id": "F008",
-      "name": "DPO stage after SFT",
-      "description": "Direct preference optimisation on PsychoPref after SFT to sharpen counselling response quality.",
-      "status": "planned",
-      "priority": "medium",
-      "module": "notebooks",
-      "design_doc": "docs/slm-finetuning.md",
-      "tests": {
-        "status": "missing",
-        "files": [],
-        "notes": ""
-      },
-      "subtasks": [
-        { "id": "F008-1", "name": "Fit DPO in memory (ctx 1024 + r=8 or Colab)", "status": "planned" },
-        { "id": "F008-2", "name": "DPO training run + artifact push", "status": "planned" }
-      ],
-      "notes": "DPO@2048 needs ~9–11GB, will not fit the 8GB laptop. SFT epoch-2 contemplated 2026-10-14: v3 curve (765 posted steps) descends ~2.55 -> ~2.15 with no plateau and persistent batch-noise spikes, so a 2nd epoch should gain another ~0.15-0.3; cheapest path is a fresh run with num_train_epochs=2 (~2 GPU-h, keep both adapters, compare under F009/F010 when those land). Launched 2026-10-14 as SFT kernel v4 (only change vs v3: epochs 1 -> 2; same seed, so epoch 1 reproduces v3 and epoch 2 auto-reshuffles). v4 COMPLETE: train_loss 1.9842 (vs 2.3051), runtime 6817.7s, epoch-2 block descends ~2.5 -> ~1.6 with no plateau; full 1,530-step curve saved as models/log_history.json (gitignored). Both adapters kept: models/qwen_lora (2-epoch, live on HF) + models/qwen_lora_1epoch/ (v3).",
-      "added": "2026-10-14",
-      "completed": null
-    },
-    {
-      "id": "F009",
-      "name": "MentalBench-Align evaluation harness",
-      "description": "Automated counselling-quality evaluation using the MentalBench-Align repo (CSS = Guidance/Informativeness/Relevance/Safety; ARS = Empathy/Helpfulness/Understanding) with its 1–5 rubrics plus judge prompt and JSON schema, including a human spot-check on Safety/Relevance.",
-      "status": "planned",
-      "priority": "high",
-      "module": "eval",
-      "design_doc": "docs/slm-finetuning.md",
-      "tests": {
-        "status": "missing",
-        "files": [],
-        "notes": "Repo: https://github.com/abeerbadawi/MentalBench-Align (docs/evaluation_guidelines.md)."
-      },
-      "subtasks": [
-        { "id": "F009-1", "name": "Judge prompt + JSON schema integration", "status": "planned" },
-        { "id": "F009-2", "name": "Scoring script for CSS/ARS dimensions", "status": "planned" },
-        { "id": "F009-3", "name": "Human spot-check protocol", "status": "planned" }
-      ],
-      "notes": "Caveat: LLM judges inflate affective scores by +0.4–0.8 and are weakest on Safety/Relevance.",
-      "added": "2026-10-14",
-      "completed": null
-    },
-    {
-      "id": "F010",
-      "name": "MentalBench-100k Qwen3-4B baseline",
-      "description": "Generate a fresh Qwen3-4B baseline over MentalBench-100k (10k rows) on Kaggle T4 fp16 with the paper's generation prompt, enable_thinking=False, temp 0.7 / top_p 0.8, max 512 tokens. One kernel drives both T4s (two worker subprocesses, one GPU each via CUDA_VISIBLE_DEVICES) writing a single sorted idx,context,qwen3_4b_instruct_2507 CSV.",
-      "status": "in_progress",
-      "priority": "high",
-      "module": "eval",
-      "design_doc": "docs/slm-finetuning.md",
-      "tests": {
-        "status": "missing",
-        "files": [],
-        "notes": "Not in repo — canonical output data/eval/mbench-qwen3-4b-baseline/output_mbench.csv (10,000 rows, idx 0-9999, no gaps, 0 empty; gitignored, like the finetune data). Seed dataset eros438/ai-therapist-mbench-seed (private) holds the original shard CSVs; rebuild with: kaggle datasets version -p data/eval/mbench-qwen3-4b-baseline (see data/eval/mbench-qwen3-4b-baseline/dataset-metadata.json)."
-      },
-      "subtasks": [
-        { "id": "F010-1", "name": "Fix chat-template tokenize bug (two-step)", "status": "completed" },
-        { "id": "F010-2", "name": "Push v2 kernels with aligned metadata slugs", "status": "completed" },
-        { "id": "F010-3", "name": "Fetch both shard outputs and merge", "status": "completed" },
-        { "id": "F010-4", "name": "Judge pass with a current API model", "status": "planned" },
-        { "id": "F010-5", "name": "Re-run the remaining 8,219 rows with batched generation (required, not optional)", "status": "completed" }
-      ],
-      "notes": "Kernels eros438/ai-therapist-qwen3-mbench-{a-rows-0-5000,b-rows-5000-10000} both CANCEL_ACKNOWLEDGED (killed at the 9h cap). Outputs (2026-10-14): shard A 906 rows idx 0-905, shard B 875 rows idx 5000-5874, no gaps/dupes, 0 empty, 1781/10000 = 18% coverage. Rate ~35-37 s/row (~100 rows/h/kernel), so a full 5000-row shard needs ~50 GPU-h — unbatched single-stream fp16 generation is the bottleneck. FUTURE RUNS MUST USE BATCHED GENERATION (vLLM, or HF generate with left-padding at batch 8-16); do not re-run single-stream, it cannot finish inside the 30h/week GPU quota. Resume works only if the partial CSV is re-attached as an input dataset (both runs logged resume skipped=0 on a fresh /kaggle/working). vLLM rerun eros438/ai-therapist-qwen3-mbench-vllm pushed 2026-10-14 (code eval/mbench_baseline/generate.py, kernel-metadata.json): tensor_parallel_size=2 on T4 x2, max_model_len=2048, chunks of 256 prompts, same paper prompt and temp 0.7 / top_p 0.8 / 512 tokens; seed dataset eros438/ai-therapist-mbench-seed attached so the 1,781 existing rows are copied in, not regenerated. v1 failed at import: bare `pip install vllm` pulls cu130 torch while Kaggle's torchaudio stays cu128 (vLLM's import chain touches torchaudio); v2's cu128 pre-install did not hold because vLLM >= 0.28 pins torch==2.13.0 exactly (cu130-only), so pip upgraded torch anyway. v3 pins vllm==0.25.0 (torch/torchaudio==2.11.0, all on the cu128 index) with --upgrade-strategy only-if-needed — verified against PyPI metadata before pushing. v3 then failed differently (ImportError: libcudart.so.13 — vLLM 0.25.0's compiled extension needs CUDA 13 libs absent from Kaggle's CUDA 12.8 image), so vLLM is abandoned after three import-time deaths. Replacement kernel eros438/ai-therapist-qwen3-mbench-batched (code eval/mbench_baseline/generate.py): plain HF generate, batch 8 with left padding, parent + two subprocess workers each masked to one GPU via CUDA_VISIBLE_DEVICES, same prompt and sampling params; seed/partial CSVs attached as datasets are copied in, so a cap-killed run resumes by re-attaching its partial output. Batched run COMPLETE 2026-10-14/15 in ~6.5h: both workers held 630-651 rows/h with no decay, DONE 10000/10000, merged output verified (10k unique idx, 0 empty). Part files and kernel log deleted; output_mbench.csv is canonical. 50% of the 1781 responses are cut mid-sentence at the 512-token cap — caveat for the judge pass. Paper's GPT-4o/Claude-3.7/Gemini-2.5 judges are deprecated; their stored Qwen-3 scores are NOT reusable, so a fresh baseline is required (needs API keys + budget).",
-      "added": "2026-10-14",
-      "completed": null
-    },
-    {
-      "id": "F011",
-      "name": "T-BARS RCC pillar rebuild",
-      "description": "Rebuild the T-BARS Responsible Counselling Communication pillar from the coTherapist paper §5.2: 5 subskills scored 0–4 by a LLaMA-3.1-8B judge. Code and data were never released, so this is a from-paper rebuild.",
-      "status": "planned",
-      "priority": "medium",
-      "module": "eval",
-      "design_doc": "docs/research.md",
-      "tests": {
-        "status": "missing",
-        "files": [],
-        "notes": ""
-      },
-      "subtasks": [
-        { "id": "F011-1", "name": "Encode 5 subskills + 0–4 rubric", "status": "planned" },
-        { "id": "F011-2", "name": "LLaMA-3.1-8B judge runner", "status": "planned" }
-      ],
-      "notes": "Checked arXiv/ACM/author GitHub/site/lab — not released, only a 'release upon acceptance' promise. cotherapistai.com is an unrelated product; ignore.",
-      "added": "2026-10-14",
-      "completed": null
-    },
-    {
-      "id": "F012",
-      "name": "FastAPI serving layer",
-      "description": "OpenAI-compatible backend for the counsellor: thin FastAPI routes over backend/core/chat.py, which injects src/rag/query.py:retrieve() context and forwards to the vLLM GGUF model server. Non-streaming; anse points its Base URL here.",
-      "status": "in_progress",
-      "priority": "high",
-      "module": "backend",
-      "design_doc": "AGENTS.md",
-      "tests": {
-        "status": "passing",
-        "files": ["tests/test_backend/test_chat.py", "tests/test_backend/test_routes.py"],
-        "notes": "20 tests green (11 chat + 9 routes; MockTransport model incl. SSE chunks, stubbed retrieve). No network/GPU in tests."
-      },
-      "subtasks": [
-        { "id": "F012-1", "name": "Core chat logic (RAG injection, stateless, model call)", "status": "completed" },
-        { "id": "F012-2", "name": "Thin OpenAI-compatible routes (non-streaming)", "status": "completed" },
-        { "id": "F012-3", "name": "SSE streaming passthrough from vLLM", "status": "completed" }
-      ],
-      "notes": "Stateless by design: history arrives in the OpenAI messages array, last user turn drives retrieval. Endpoints: GET /health, GET /v1/models, POST /v1/chat/completions (stream:true -> 400, no user turn -> 422, RAG/model failure -> 502). Run with `make serve` (port 8001, VLLM_URL default http://localhost:8000); model server via `make model-server` (syncs the uv serving group on demand, serves the local GGUF on :8000).",
-      "added": "2026-10-14",
-      "completed": null
-    },
-    {
-      "id": "F013",
-      "name": "anse chat frontend (submodule)",
-      "description": "anse (MIT, Astro/TS, ~1MB) as a git submodule at frontend/anse, pointed at the F012 backend via its OpenAI provider Base URL setting. No custom UI code.",
-      "status": "in_progress",
-      "priority": "medium",
-      "module": "frontend",
-      "design_doc": "AGENTS.md",
-      "tests": {
-        "status": "n/a",
-        "files": [],
-        "notes": "Upstream UI; integration is config. Backend contract covered by tests/test_backend/."
-      },
-      "subtasks": [
-        { "id": "F013-1", "name": "Pin anse as submodule at frontend/anse", "status": "completed" },
-        { "id": "F013-2", "name": "Wire Base URL to F012 + smoke-test a chat turn", "status": "planned" },
-        { "id": "F013-3", "name": "SSE streaming follow-up (needs F012-3)", "status": "completed" }
-      ],
-      "notes": "open-webui evaluated and rejected: 482MB repo, custom proprietary license (NOASSERTION), Svelte+Python stack. anse wins on all three (MIT, 1MB, TS) and its OpenAI provider exposes Base URL + handles non-streaming responses; the backend ignores the client model field, so any model label works. Neither is React, but neither needs code changes, which is the point. Run it with `make frontend`, then set Base URL to http://localhost:8001 in its OpenAI provider settings.",
-      "added": "2026-10-14",
-      "completed": null
-    },
-    {
-      "id": "F014",
-      "name": "Voice interface layer",
-      "description": "Speech input/output layer over the counselling chat, built after the text stack works.",
-      "status": "planned",
-      "priority": "low",
-      "module": "backend",
-      "design_doc": "AGENTS.md",
-      "tests": {
-        "status": "missing",
-        "files": [],
-        "notes": ""
-      },
-      "subtasks": [
-        { "id": "F014-1", "name": "Decide STT/TTS stack", "status": "planned" }
-      ],
-      "notes": "Explicitly deferred; no agents, no tools.",
-      "added": "2026-10-14",
-      "completed": null
+     "id": "F001-3",
+     "name": "AGENTS.md conventions",
+     "status": "completed"
     }
-  ]
+   ],
+   "notes": "",
+   "added": "2026-10-14",
+   "completed": "2026-10-14"
+  },
+  {
+   "id": "F002",
+   "name": "RAG pipeline (chunk/ingest/query)",
+   "description": "Chunking, embedding and retrieval over the RAG knowledge base. Chroma embedded persistent (./chroma/, gitignored, rebuilt via make ingest) with BAAI/bge-small-en-v1.5 CPU embeddings. retrieve(query, n, source_filter) is the only API the serving layer imports; store-agnostic so Chroma\u2192Qdrant is a re-ingest only.",
+   "status": "completed",
+   "priority": "high",
+   "module": "src/rag",
+   "design_doc": "docs/research.md",
+   "tests": {
+    "status": "passing",
+    "files": [
+     "tests/test_rag/test_chunk.py",
+     "tests/test_rag/test_query.py"
+    ],
+    "notes": "6 tests green (4 chunk + 2 query, temp-collection based). Embedder reverted from Qwen3-Embedding-0.6B (OOM on 8GB GPU) to bge-small-en-v1.5 CPU."
+   },
+   "subtasks": [
+    {
+     "id": "F002-1",
+     "name": "config.py env-overridable settings (512/50 chunking)",
+     "status": "completed"
+    },
+    {
+     "id": "F002-2",
+     "name": "chunk.py paragraph-aware chunker",
+     "status": "completed"
+    },
+    {
+     "id": "F002-3",
+     "name": "ingest.py with --reset and per-chunk chapter headings",
+     "status": "completed"
+    },
+    {
+     "id": "F002-4",
+     "name": "query.py retrieve()",
+     "status": "completed"
+    },
+    {
+     "id": "F002-5",
+     "name": "Rebuild index and spot-check retrieval",
+     "status": "completed"
+    }
+   ],
+   "notes": "chroma/ is gitignored; rebuild with make ingest.",
+   "added": "2026-10-14",
+   "completed": "2026-10-14"
+  },
+  {
+   "id": "F003",
+   "name": "RAG knowledge base corpus (South Asian therapeutic techniques)",
+   "description": "Curated raw sources and extracted text for the RAG index: 30 text files (~640k words) plus 24 raw sources, focused on South Asian / Indian therapeutic and contemplative traditions.",
+   "status": "completed",
+   "priority": "medium",
+   "module": "data/rag-kb",
+   "design_doc": "docs/research.md",
+   "tests": {
+    "status": "n/a",
+    "files": [],
+    "notes": "Data only."
+   },
+   "subtasks": [
+    {
+     "id": "F003-1",
+     "name": "Fetch + extract raw sources",
+     "status": "completed"
+    },
+    {
+     "id": "F003-2",
+     "name": "text/_index.txt inventory",
+     "status": "completed"
+    }
+   ],
+   "notes": "Caveats: hku-preview, pageplace-preview, buddhist-psychotherapy-apa-sample are front-matter/ToC only; islamic-counselling-aligarh is a thin 656-word brochure; raw/dalal-book.pdf is typeset from extracted text. Still missing (browser-only): LWW Family Therapy in India, LWW guru-chela revisited, NBK159363 yoga-for-depression, MDPI yoga-integrative, NHM RMNCAH counselling manual, Palgrave Buddhist-psychology intro, jsneki.com Neki PDFs, APA full chapters.",
+   "added": "2026-10-14",
+   "completed": "2026-10-14"
+  },
+  {
+   "id": "F004",
+   "name": "SFT dataset preparation (CounselChat + Amod + PsychoPref)",
+   "description": "Assemble the training data: CounselChat CSV, PsychoPref train/test parquet and the gated Amod mental-health counseling conversations (RAIL-D). SFT uses combined + shuffled CounselChat + Amod in a single stage, not sequential.",
+   "status": "completed",
+   "priority": "high",
+   "module": "data/finetune",
+   "design_doc": "docs/slm-finetuning.md",
+   "tests": {
+    "status": "missing",
+    "files": [],
+    "notes": "Notebook asserts presence of both SFT datasets."
+   },
+   "subtasks": [
+    {
+     "id": "F004-1",
+     "name": "CounselChat CSV in data/finetune/counsel-chat/",
+     "status": "completed"
+    },
+    {
+     "id": "F004-2",
+     "name": "PsychoPref train/test parquet in data/finetune/psychopref/",
+     "status": "completed"
+    },
+    {
+     "id": "F004-3",
+     "name": "Accept RAIL-D terms and pull Amod into data/finetune/amod-counseling/",
+     "status": "completed"
+    }
+   ],
+   "notes": "Amod pulled with the .env HF_TOKEN as combined_dataset.json (JSONL, 3512 pairs; 4 rows have an empty Response) + LICENSE-RAIL-D.txt. Data files gitignored, so re-pull with curl -H \"Authorization: Bearer $HF_TOKEN\" from .../resolve/main/. Notebook glob extended to *.json since HF ships JSONL, not csv/parquet.",
+   "added": "2026-10-14",
+   "completed": "2026-10-14"
+  },
+  {
+   "id": "F005",
+   "name": "Qwen3-4B QLoRA finetune notebook",
+   "description": "Unsloth QLoRA SFT notebook for Qwen/Qwen3-4B-Instruct: combined+shuffled SFT, r=16, seq 2048, 1 epoch, train_on_responses_only; saves LoRA and GGUF q4_k_m. Runs on Kaggle T4; model choice justified against Phi-4-mini, Llama-3.2-3B, Gemma-3, SmolLM3-3B.",
+   "status": "completed",
+   "priority": "high",
+   "module": "notebooks",
+   "design_doc": "docs/slm-finetuning.md",
+   "tests": {
+    "status": "missing",
+    "files": [],
+    "notes": "No separate harness (needs GPU + gitignored data) \u2014 the notebook asserts for itself: non-degenerate source counts, zero blank/NaN turns, qwen_lora/ written. Verified out-of-repo with stubbed unsloth/model: 2775 CounselChat - 163 blank and 3512 Amod - 4 blank -> 6120 examples; save cell without HF_TOKEN saves qwen_lora/ and skips both pushes; disabling the blank filter makes the notebook's own assert fire."
+   },
+   "subtasks": [
+    {
+     "id": "F005-1",
+     "name": "Slim notebook to 17 cells + black format",
+     "status": "completed"
+    },
+    {
+     "id": "F005-2",
+     "name": "Data paths data/finetune/... with asserts",
+     "status": "completed"
+    },
+    {
+     "id": "F005-3",
+     "name": "Dual input path (Kaggle /kaggle/input/... vs local)",
+     "status": "completed"
+    },
+    {
+     "id": "F005-4",
+     "name": "HF-push cells must no-op on Kaggle",
+     "status": "completed"
+    }
+   ],
+   "notes": "DATA root is discovered by searching for counsel-chat/*.csv under /kaggle/input/datasets/<owner>/<slug>/ (Kaggle's current mount layout; older images used /kaggle/input/<slug>/) and falling back to data/finetune/, so a mount-path change fails loudly instead of silently training on nothing. Blank CSV fields arrive as NaN/None, so the filter rejects those too. Use enable_thinking=False, temp 0.7 / top_p 0.8. VRAM on 8GB laptop: Qwen SFT@2048 ~6.5-7.5GB fits. GGUF + hub pushes need HF_TOKEN, so Kaggle runs produce qwen_lora/ only.",
+   "added": "2026-10-14",
+   "completed": "2026-10-14"
+  },
+  {
+   "id": "F006",
+   "name": "SFT training run on Kaggle",
+   "description": "Upload data/finetune/ as private dataset Eros438/ai-therapist-sft, push the notebook kernel to a T4 with internet, run ~1\u20131.5h, fetch qwen_lora/ output.",
+   "status": "completed",
+   "priority": "high",
+   "module": "notebooks",
+   "design_doc": "docs/slm-finetuning.md",
+   "tests": {
+    "status": "missing",
+    "files": [],
+    "notes": "Requires F004 (Amod) and F005 dual-path gating \u2014 both complete."
+   },
+   "subtasks": [
+    {
+     "id": "F006-1",
+     "name": "Upload private dataset Eros438/ai-therapist-sft",
+     "status": "completed"
+    },
+    {
+     "id": "F006-2",
+     "name": "Push kernel (T4, internet on)",
+     "status": "completed"
+    },
+    {
+     "id": "F006-3",
+     "name": "kaggle kernels output to fetch qwen_lora/",
+     "status": "completed"
+    }
+   ],
+   "notes": "v3 (2026-10-14) COMPLETE in ~59 min on T4 x2 (~0.9 GPU-h): 6,120 examples, 765 steps, 1 epoch, batch 2x4, r=16. TrainOutput: train_loss 2.3051, train_runtime 3391.1s, 1.805 samples/s, epoch 1.0. Sanity inference coherent (anxiety prompt -> CBT/exposure/mindfulness guidance, non-thinking). qwen_lora/ (132MB adapter, 7 modules) + tokenizer fetched to models/ (gitignored). Per-step loss curve lives only in the Kaggle UI log \u2014 the fetched log is sampled and drops it, so the endpoint stats above are the in-repo record. Kaggle CLI cannot attach secrets, so training only; HF push happens from local (F007).",
+   "added": "2026-10-14",
+   "completed": "2026-10-14"
+  },
+  {
+   "id": "F007",
+   "name": "Publish adapters to Hugging Face",
+   "description": "Push the fine-tuned LoRA and GGUF artifacts from the laptop to arnabwithab/ai-therapist-qwen3-4b-lora and ...-gguf using HF_TOKEN from .env.",
+   "status": "completed",
+   "priority": "medium",
+   "module": "notebooks",
+   "design_doc": "docs/slm-finetuning.md",
+   "tests": {
+    "status": "missing",
+    "files": [],
+    "notes": ""
+   },
+   "subtasks": [
+    {
+     "id": "F007-1",
+     "name": "hf upload LoRA repo",
+     "status": "completed"
+    },
+    {
+     "id": "F007-2",
+     "name": "hf upload GGUF q4_k_m repo",
+     "status": "completed"
+    }
+   ],
+   "notes": "F007-1 done 2026-10-14: v3 1-epoch adapter + tokenizer uploaded to arnabwithab/ai-therapist-qwen3-4b-lora (public) via huggingface_hub, verified 11 files via API. Overwrite with the 2-epoch adapter when SFT v4 lands (re-upload README.md afterwards \u2014 upload_folder would clobber it with Unsloth's default; card source: models/qwen_lora/README.md). Done 2026-10-14: v4 adapter + user's edited card live (repo sha e2001fe2); card canonical backup at models/MODEL_CARD.md (updated for v4: 2 epochs, loss 1.9842). Auth note: login()/library whoami worked as arnabwithab (token autolinksv2, write) while curl Bearer checks 401'd with the same string \u2014 uploads must go through the library, not curl. F007-2 blocked: GGUF export needs ~8-10GB disk + unsloth/torch/triton locally, laptop has 6.5GB free; options are freeing disk or a Kaggle export kernel with a UI-attached HF secret. 2026-10-15: third path taken \u2014 CPU-only Kaggle kernel eros438/ai-therapist-gguf-export (code notebooks/gguf-export/export_gguf.py). v1 (Unsloth merge) died at import: Unsloth hard-requires a GPU. v2 uses transformers+peft merge_and_unload (~8GB RAM, Kaggle CPU has 30GB) plus a minimal llama.cpp build (llama-quantize target only) for Q4_K_M; fp16 intermediates are deleted to stay under /kaggle/working's 20GB. v3 got further (merge succeeded) then died serializing the merged-bnb model: transformers save_pretrained cannot reverse bnb weight conversions (NotImplementedError). v4 back to the Unsloth path on T4 (save_pretrained_gguf does its own serialization): needs ~20 min against 0.16h quota, likely dies mid-run \u2014 user's explicit call. Fetch the .gguf with kernels output and upload from local. FUTURE EXPORTS: if GPU quota is available, convert directly via Unsloth save_pretrained_gguf on a T4 kernel (one call does merge+quant, ~20 min) instead of this CPU path \u2014 use CPU only when quota is dry. v4 SUCCEEDED 2026-10-15 (Unsloth merge+quant on T4, burned the last 0.15h, 0.01h left): Q4_K_M 2.5GB (renamed ai-therapist-qwen3-4b-Q4_K_M.gguf) + README live at arnabwithab/ai-therapist-qwen3-4b-gguf (public, verified via API).",
+   "added": "2026-10-14",
+   "completed": "2026-10-15"
+  },
+  {
+   "id": "F008",
+   "name": "DPO stage after SFT",
+   "description": "Direct preference optimisation on PsychoPref after SFT to sharpen counselling response quality.",
+   "status": "planned",
+   "priority": "medium",
+   "module": "notebooks",
+   "design_doc": "docs/slm-finetuning.md",
+   "tests": {
+    "status": "missing",
+    "files": [],
+    "notes": ""
+   },
+   "subtasks": [
+    {
+     "id": "F008-1",
+     "name": "Fit DPO in memory (ctx 1024 + r=8 or Colab)",
+     "status": "planned"
+    },
+    {
+     "id": "F008-2",
+     "name": "DPO training run + artifact push",
+     "status": "planned"
+    }
+   ],
+   "notes": "DPO@2048 needs ~9\u201311GB, will not fit the 8GB laptop. SFT epoch-2 contemplated 2026-10-14: v3 curve (765 posted steps) descends ~2.55 -> ~2.15 with no plateau and persistent batch-noise spikes, so a 2nd epoch should gain another ~0.15-0.3; cheapest path is a fresh run with num_train_epochs=2 (~2 GPU-h, keep both adapters, compare under F009/F010 when those land). Launched 2026-10-14 as SFT kernel v4 (only change vs v3: epochs 1 -> 2; same seed, so epoch 1 reproduces v3 and epoch 2 auto-reshuffles). v4 COMPLETE: train_loss 1.9842 (vs 2.3051), runtime 6817.7s, epoch-2 block descends ~2.5 -> ~1.6 with no plateau; full 1,530-step curve saved as models/log_history.json (gitignored). Both adapters kept: models/qwen_lora (2-epoch, live on HF) + models/qwen_lora_1epoch/ (v3).",
+   "added": "2026-10-14",
+   "completed": null
+  },
+  {
+   "id": "F009",
+   "name": "MentalBench-Align evaluation harness",
+   "description": "Automated counselling-quality evaluation using the MentalBench-Align repo (CSS = Guidance/Informativeness/Relevance/Safety; ARS = Empathy/Helpfulness/Understanding) with its 1\u20135 rubrics plus judge prompt and JSON schema, including a human spot-check on Safety/Relevance.",
+   "status": "planned",
+   "priority": "high",
+   "module": "eval",
+   "design_doc": "docs/slm-finetuning.md",
+   "tests": {
+    "status": "missing",
+    "files": [],
+    "notes": "Repo: https://github.com/abeerbadawi/MentalBench-Align (docs/evaluation_guidelines.md)."
+   },
+   "subtasks": [
+    {
+     "id": "F009-1",
+     "name": "Judge prompt + JSON schema integration",
+     "status": "planned"
+    },
+    {
+     "id": "F009-2",
+     "name": "Scoring script for CSS/ARS dimensions",
+     "status": "planned"
+    },
+    {
+     "id": "F009-3",
+     "name": "Human spot-check protocol",
+     "status": "planned"
+    }
+   ],
+   "notes": "Caveat: LLM judges inflate affective scores by +0.4\u20130.8 and are weakest on Safety/Relevance.",
+   "added": "2026-10-14",
+   "completed": null
+  },
+  {
+   "id": "F010",
+   "name": "MentalBench-100k Qwen3-4B baseline",
+   "description": "Generate a fresh Qwen3-4B baseline over MentalBench-100k (10k rows) on Kaggle T4 fp16 with the paper's generation prompt, enable_thinking=False, temp 0.7 / top_p 0.8, max 512 tokens. One kernel drives both T4s (two worker subprocesses, one GPU each via CUDA_VISIBLE_DEVICES) writing a single sorted idx,context,qwen3_4b_instruct_2507 CSV.",
+   "status": "in_progress",
+   "priority": "high",
+   "module": "eval",
+   "design_doc": "docs/slm-finetuning.md",
+   "tests": {
+    "status": "missing",
+    "files": [],
+    "notes": "Not in repo \u2014 canonical output data/eval/mbench-qwen3-4b-baseline/output_mbench.csv (10,000 rows, idx 0-9999, no gaps, 0 empty; gitignored, like the finetune data). Seed dataset eros438/ai-therapist-mbench-seed (private) holds the original shard CSVs; rebuild with: kaggle datasets version -p data/eval/mbench-qwen3-4b-baseline (see data/eval/mbench-qwen3-4b-baseline/dataset-metadata.json)."
+   },
+   "subtasks": [
+    {
+     "id": "F010-1",
+     "name": "Fix chat-template tokenize bug (two-step)",
+     "status": "completed"
+    },
+    {
+     "id": "F010-2",
+     "name": "Push v2 kernels with aligned metadata slugs",
+     "status": "completed"
+    },
+    {
+     "id": "F010-3",
+     "name": "Fetch both shard outputs and merge",
+     "status": "completed"
+    },
+    {
+     "id": "F010-4",
+     "name": "Judge pass with a current API model",
+     "status": "planned"
+    },
+    {
+     "id": "F010-5",
+     "name": "Re-run the remaining 8,219 rows with batched generation (required, not optional)",
+     "status": "completed"
+    }
+   ],
+   "notes": "Kernels eros438/ai-therapist-qwen3-mbench-{a-rows-0-5000,b-rows-5000-10000} both CANCEL_ACKNOWLEDGED (killed at the 9h cap). Outputs (2026-10-14): shard A 906 rows idx 0-905, shard B 875 rows idx 5000-5874, no gaps/dupes, 0 empty, 1781/10000 = 18% coverage. Rate ~35-37 s/row (~100 rows/h/kernel), so a full 5000-row shard needs ~50 GPU-h \u2014 unbatched single-stream fp16 generation is the bottleneck. FUTURE RUNS MUST USE BATCHED GENERATION (vLLM, or HF generate with left-padding at batch 8-16); do not re-run single-stream, it cannot finish inside the 30h/week GPU quota. Resume works only if the partial CSV is re-attached as an input dataset (both runs logged resume skipped=0 on a fresh /kaggle/working). vLLM rerun eros438/ai-therapist-qwen3-mbench-vllm pushed 2026-10-14 (code eval/mbench_baseline/generate.py, kernel-metadata.json): tensor_parallel_size=2 on T4 x2, max_model_len=2048, chunks of 256 prompts, same paper prompt and temp 0.7 / top_p 0.8 / 512 tokens; seed dataset eros438/ai-therapist-mbench-seed attached so the 1,781 existing rows are copied in, not regenerated. v1 failed at import: bare `pip install vllm` pulls cu130 torch while Kaggle's torchaudio stays cu128 (vLLM's import chain touches torchaudio); v2's cu128 pre-install did not hold because vLLM >= 0.28 pins torch==2.13.0 exactly (cu130-only), so pip upgraded torch anyway. v3 pins vllm==0.25.0 (torch/torchaudio==2.11.0, all on the cu128 index) with --upgrade-strategy only-if-needed \u2014 verified against PyPI metadata before pushing. v3 then failed differently (ImportError: libcudart.so.13 \u2014 vLLM 0.25.0's compiled extension needs CUDA 13 libs absent from Kaggle's CUDA 12.8 image), so vLLM is abandoned after three import-time deaths. Replacement kernel eros438/ai-therapist-qwen3-mbench-batched (code eval/mbench_baseline/generate.py): plain HF generate, batch 8 with left padding, parent + two subprocess workers each masked to one GPU via CUDA_VISIBLE_DEVICES, same prompt and sampling params; seed/partial CSVs attached as datasets are copied in, so a cap-killed run resumes by re-attaching its partial output. Batched run COMPLETE 2026-10-14/15 in ~6.5h: both workers held 630-651 rows/h with no decay, DONE 10000/10000, merged output verified (10k unique idx, 0 empty). Part files and kernel log deleted; output_mbench.csv is canonical. 50% of the 1781 responses are cut mid-sentence at the 512-token cap \u2014 caveat for the judge pass. Paper's GPT-4o/Claude-3.7/Gemini-2.5 judges are deprecated; their stored Qwen-3 scores are NOT reusable, so a fresh baseline is required (needs API keys + budget).",
+   "added": "2026-10-14",
+   "completed": null
+  },
+  {
+   "id": "F011",
+   "name": "T-BARS RCC pillar rebuild",
+   "description": "Rebuild the T-BARS Responsible Counselling Communication pillar from the coTherapist paper \u00a75.2: 5 subskills scored 0\u20134 by a LLaMA-3.1-8B judge. Code and data were never released, so this is a from-paper rebuild.",
+   "status": "planned",
+   "priority": "medium",
+   "module": "eval",
+   "design_doc": "docs/research.md",
+   "tests": {
+    "status": "missing",
+    "files": [],
+    "notes": ""
+   },
+   "subtasks": [
+    {
+     "id": "F011-1",
+     "name": "Encode 5 subskills + 0\u20134 rubric",
+     "status": "planned"
+    },
+    {
+     "id": "F011-2",
+     "name": "LLaMA-3.1-8B judge runner",
+     "status": "planned"
+    }
+   ],
+   "notes": "Checked arXiv/ACM/author GitHub/site/lab \u2014 not released, only a 'release upon acceptance' promise. cotherapistai.com is an unrelated product; ignore.",
+   "added": "2026-10-14",
+   "completed": null
+  },
+  {
+   "id": "F012",
+   "name": "FastAPI serving layer",
+   "description": "OpenAI-compatible backend for the counsellor: thin FastAPI routes over backend/core/chat.py, which injects src/rag/query.py:retrieve() context and forwards to the vLLM GGUF model server (streaming + non-streaming); anse points its Base URL here.",
+   "status": "in_progress",
+   "priority": "high",
+   "module": "backend",
+   "design_doc": "AGENTS.md",
+   "tests": {
+    "status": "passing",
+    "files": [
+     "tests/test_backend/test_chat.py",
+     "tests/test_backend/test_routes.py"
+    ],
+    "notes": "25 tests green (chat incl. SSE chunks, history, budget truncation; routes incl. history forwarding and sampling passthrough; MockTransport model, stubbed retrieve). No network/GPU in tests."
+   },
+   "subtasks": [
+    {
+     "id": "F012-1",
+     "name": "Core chat logic (RAG injection, stateless, model call)",
+     "status": "completed"
+    },
+    {
+     "id": "F012-2",
+     "name": "Thin OpenAI-compatible routes (non-streaming)",
+     "status": "completed"
+    },
+    {
+     "id": "F012-3",
+     "name": "SSE streaming passthrough from vLLM",
+     "status": "completed"
+    }
+   ],
+   "notes": "Stateless server, stateful conversation: history arrives in the OpenAI messages array and is truncated oldest-first to a 4096-max_tokens-256 token budget; last user turn drives retrieval. Single system message (counsellor voice + crisis tiers + RAG rules). Endpoints: GET /health, GET /v1/models, POST /v1/chat/completions (no user turn -> 422, RAG/model failure -> 502). Run with `make serve` (port 8001, VLLM_URL default http://localhost:8000); model server via `make model-server`.",
+   "added": "2026-10-14",
+   "completed": null
+  },
+  {
+   "id": "F013",
+   "name": "anse chat frontend (submodule)",
+   "description": "anse (MIT, Astro/TS, ~1MB) as a git submodule at frontend/anse, pointed at the F012 backend via its OpenAI provider Base URL setting. No custom UI code.",
+   "status": "in_progress",
+   "priority": "medium",
+   "module": "frontend",
+   "design_doc": "AGENTS.md",
+   "tests": {
+    "status": "n/a",
+    "files": [],
+    "notes": "Upstream UI; integration is config. Backend contract covered by tests/test_backend/."
+   },
+   "subtasks": [
+    {
+     "id": "F013-1",
+     "name": "Pin anse as submodule at frontend/anse",
+     "status": "completed"
+    },
+    {
+     "id": "F013-2",
+     "name": "Wire Base URL to F012 + smoke-test a chat turn",
+     "status": "planned"
+    },
+    {
+     "id": "F013-3",
+     "name": "SSE streaming follow-up (needs F012-3)",
+     "status": "completed"
+    }
+   ],
+   "notes": "open-webui evaluated and rejected: 482MB repo, custom proprietary license (NOASSERTION), Svelte+Python stack. anse wins on all three (MIT, 1MB, TS) and its OpenAI provider exposes Base URL + handles non-streaming responses; the backend ignores the client model field, so any model label works. Neither is React, but neither needs code changes, which is the point. Run it with `make frontend`, then set Base URL to http://localhost:8001 in its OpenAI provider settings.",
+   "added": "2026-10-14",
+   "completed": null
+  },
+  {
+   "id": "F014",
+   "name": "Voice interface layer",
+   "description": "Speech input/output layer over the counselling chat, built after the text stack works.",
+   "status": "planned",
+   "priority": "low",
+   "module": "backend",
+   "design_doc": "AGENTS.md",
+   "tests": {
+    "status": "missing",
+    "files": [],
+    "notes": ""
+   },
+   "subtasks": [
+    {
+     "id": "F014-1",
+     "name": "Decide STT/TTS stack",
+     "status": "planned"
+    }
+   ],
+   "notes": "Explicitly deferred; no agents, no tools.",
+   "added": "2026-10-14",
+   "completed": null
+  }
+ ]
 }
