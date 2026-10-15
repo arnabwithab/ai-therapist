@@ -6,7 +6,7 @@
   "completed": 7,
   "in_progress": 3,
   "planned": 4,
-  "tests_passing": 31,
+  "tests_passing": 33,
   "tests_failing": 0,
   "tests_missing": 10
  },
@@ -407,7 +407,7 @@
      "tests/test_backend/test_chat.py",
      "tests/test_backend/test_routes.py"
     ],
-    "notes": "25 tests green (chat incl. SSE chunks, history, budget truncation; routes incl. history forwarding and sampling passthrough; MockTransport model, stubbed retrieve). No network/GPU in tests."
+    "notes": "33 tests green (OARS prompt, tags-block placement, history, budget; MockTransport model, stubbed retrieve). No network/GPU in tests."
    },
    "subtasks": [
     {
@@ -426,7 +426,7 @@
      "status": "completed"
     }
    ],
-   "notes": "Stateless server, stateful conversation: history arrives in the OpenAI messages array and is truncated oldest-first to a 4096-max_tokens-256 token budget; last user turn drives retrieval. Single system message (counsellor voice + crisis tiers + RAG rules). Endpoints: GET /health, GET /v1/models, POST /v1/chat/completions (no user turn -> 422, RAG/model failure -> 502). Run with `make serve` (port 8001, VLLM_URL default http://localhost:8000); model server via `make model-server`.",
+   "notes": "Stateless server, stateful conversation: history arrives in the OpenAI messages array and is truncated oldest-first to a 4096-max_tokens-256 token budget; last user turn drives retrieval. Single system message (counsellor voice + crisis tiers + RAG rules). Endpoints: GET /health, GET /v1/models, POST /v1/chat/completions (no user turn -> 422, RAG/model failure -> 502). Run with `make serve` (port 8001, VLLM_URL default http://localhost:8000); model server via `make model-server`. Prompt reworked to OARS voice + cultural attunement + tiered safety (docs/prompt.md mirrors backend/core/chat.py); retrieved passages ride in a trailing <retrieved_techniques> block as the prompt promises.",
    "added": "2026-10-14",
    "completed": null
   },
