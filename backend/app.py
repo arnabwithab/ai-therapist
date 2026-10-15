@@ -50,7 +50,8 @@ def completions(req: ChatRequest):
             user_msgs[-1],
             temperature=req.temperature,
             top_p=req.top_p,
-            max_tokens=req.max_tokens,
+            # cap generation so prompt + completion fits our 2048-token window
+            max_tokens=min(req.max_tokens, 512),
         )
     except ValueError as e:
         raise HTTPException(422, str(e)) from e
