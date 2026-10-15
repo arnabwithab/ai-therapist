@@ -18,12 +18,27 @@ def _passages():
     ]
 
 
-def test_build_messages_injects_system_context_and_user_text():
+def test_build_messages_puts_passages_in_trailing_tags_block():
     turns = [{"role": "user", "content": "I can't sleep."}]
     msgs = core.build_messages(turns, _passages())
     assert msgs[0]["role"] == "system"
-    assert msgs[-1] == {"role": "user", "content": "I can't sleep."}
-    assert "Mindfulness of breathing" in msgs[0]["content"]
+    assert msgs[1] == {"role": "user", "content": "I can't sleep."}
+    tags = msgs[-1]
+    assert tags["content"].startswith("<retrieved_techniques>")
+    assert "Mindfulness of breathing" in tags["content"]
+    assert "[s1 \u2014 c1]" in tags["content"]
+    assert tags["content"].rstrip().endswith("respond to the person's last message.")
+
+
+def test_build_messages_omits_tags_block_without_passages():
+    msgs = core.build_messages([{"role": "user", "content": "hello"}], [])
+    assert len(msgs) == 2
+    assert msgs[-1] == {"role": "user", "content": "hello"}
+
+
+def test_system_prompt_has_crisis_resources_resolved():
+    assert "{crisis_resources}" not in core.SYSTEM_PROMPT
+    assert "Tele MANAS" in core.SYSTEM_PROMPT
 
 
 def test_build_messages_without_passages_still_works():
@@ -40,7 +55,8 @@ def test_build_messages_single_system_message_with_history():
     ]
     msgs = core.build_messages(turns, _passages())
     assert sum(1 for m in msgs if m["role"] == "system") == 1
-    assert [m["content"] for m in msgs[1:]] == ["first", "second", "third"]
+    assert [m["content"] for m in msgs[1:-1]] == ["first", "second", "third"]
+    assert msgs[-1]["content"].startswith("<retrieved_techniques>")
 
 
 def test_fit_budget_drops_oldest_turns_first():
