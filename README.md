@@ -21,7 +21,7 @@
 
 ```bash
 # 1. clone & enter
-git clone https://github.com/Eros483/ai-therapist.git
+git clone https://github.com/arnabwithab/ai-therapist.git
 cd ai-therapist
 
 # 2. update submodules
