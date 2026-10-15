@@ -25,7 +25,7 @@ class ChatRequest(BaseModel):
     top_p: float = 0.8
     top_k: int = 20
     repetition_penalty: float = 1.1
-    max_tokens: int = 512
+    max_tokens: int = 256
     stream: bool = False
 
 
@@ -48,7 +48,7 @@ def completions(req: ChatRequest):
     if not user_msgs:
         raise HTTPException(422, "no non-empty user message")
     # cap generation so prompt + completion fits our 2048-token window
-    max_tokens = min(req.max_tokens, 512)
+    max_tokens = min(req.max_tokens, 256)
     if req.stream:
         stream = core.chat_stream(
             user_msgs[-1],

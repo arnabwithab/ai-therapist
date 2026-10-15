@@ -58,7 +58,7 @@ def generate(
     top_p=0.8,
     top_k=20,
     repetition_penalty=1.1,
-    max_tokens=512,
+    max_tokens=256,
 ):
     """POST one non-streaming chat completion; return (text, usage)."""
     try:
@@ -94,7 +94,7 @@ def generate_stream(
     top_p=0.8,
     top_k=20,
     repetition_penalty=1.1,
-    max_tokens=512,
+    max_tokens=256,
 ):
     """Yield raw SSE byte chunks from vLLM (pass-through for OpenAI-style clients)."""
     try:
@@ -125,7 +125,7 @@ def chat_stream(
     top_p=0.8,
     top_k=20,
     repetition_penalty=1.1,
-    max_tokens=512,
+    max_tokens=256,
     rag_top_k=RAG_TOP_K,
     client=None,
     retrieve_fn=None,
@@ -163,7 +163,7 @@ def chat(
     top_p=0.8,
     top_k=20,
     repetition_penalty=1.1,
-    max_tokens=512,
+    max_tokens=256,
     rag_top_k=RAG_TOP_K,
     client=None,
     retrieve_fn=None,
