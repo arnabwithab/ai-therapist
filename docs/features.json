@@ -272,7 +272,7 @@
         { "id": "F012-2", "name": "Thin OpenAI-compatible routes (non-streaming)", "status": "completed" },
         { "id": "F012-3", "name": "SSE streaming passthrough from vLLM", "status": "planned" }
       ],
-      "notes": "Stateless by design: history arrives in the OpenAI messages array, last user turn drives retrieval. Endpoints: GET /health, GET /v1/models, POST /v1/chat/completions (stream:true -> 400, no user turn -> 422, RAG/model failure -> 502). Run with `make serve` (port 8001, VLLM_URL default http://localhost:8000).",
+      "notes": "Stateless by design: history arrives in the OpenAI messages array, last user turn drives retrieval. Endpoints: GET /health, GET /v1/models, POST /v1/chat/completions (stream:true -> 400, no user turn -> 422, RAG/model failure -> 502). Run with `make serve` (port 8001, VLLM_URL default http://localhost:8000); model server via `make model-server` (syncs the uv serving group on demand, serves the local GGUF on :8000).",
       "added": "2026-10-14",
       "completed": null
     },

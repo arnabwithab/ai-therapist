@@ -18,6 +18,11 @@ dev = [
     "ruff>=0.4.0",
     "pytest>=8.0.0",
 ]
+serving = [
+    # GPU model server only; kept out of dev/CI. Installed on demand by `make model-server`.
+    "vllm",
+    "vllm-gguf-plugin",
+]
 
 [tool.black]
 line-length = 100
