@@ -19,10 +19,12 @@ if the two disagree, the code wins; update both.
 
 ## Complete prompt template
 
-`{crisis_resources}` is substituted at import from `CRISIS_RESOURCES`:
+`{crisis_resources}` is substituted at import from `CRISIS_RESOURCES` (India-only scope):
 
-> their local emergency number (112 in India and most of Europe, 911 in the US)
-> or a local crisis helpline (Tele MANAS at 14416 in India)
+> emergency services at 112, Tele MANAS at 14416 (24/7, free), or the Vandrevala
+> Foundation helpline at 1860-2662-345 (24/7, free)
+
+Backups: KIRAN 1800-599-0019 (24/7), AASRA 9820466726 (24/7), iCall 9152987821 (Mon–Sat 8am–10pm).
 
 ```
 <role>

@@ -20,8 +20,8 @@ RAG_TOP_K = int(os.getenv("RAG_TOP_K", "5"))
 TIMEOUT_S = float(os.getenv("MODEL_TIMEOUT_S", "120"))
 
 CRISIS_RESOURCES = (
-    "their local emergency number (112 in India and most of Europe, 911 in the US) "
-    "or a local crisis helpline (Tele MANAS at 14416 in India)"
+    "emergency services at 112, Tele MANAS at 14416 (24/7, free), "
+    "or the Vandrevala Foundation helpline at 1860-2662-345 (24/7, free)"
 )
 
 
