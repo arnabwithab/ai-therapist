@@ -91,8 +91,7 @@ def generate_stream(client, messages, model=MODEL_ID, temperature=0.7, top_p=0.8
             },
         ) as resp:
             resp.raise_for_status()
-            for chunk in resp.iter_bytes():
-                yield chunk
+            yield from resp.iter_bytes()
     except httpx.HTTPError as e:
         raise ModelError(f"model stream failed: {e}") from e
 
