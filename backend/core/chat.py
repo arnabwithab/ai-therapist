@@ -75,6 +75,62 @@ def generate(client, messages, model=MODEL_ID, temperature=0.7, top_p=0.8, max_t
         raise ModelError(f"model call failed: {e}") from e
 
 
+def generate_stream(client, messages, model=MODEL_ID, temperature=0.7, top_p=0.8, max_tokens=512):
+    """Yield raw SSE byte chunks from vLLM (pass-through for OpenAI-style clients)."""
+    try:
+        with client.stream(
+            "POST",
+            "/v1/chat/completions",
+            json={
+                "model": model,
+                "messages": messages,
+                "temperature": temperature,
+                "top_p": top_p,
+                "max_tokens": max_tokens,
+                "stream": True,
+            },
+        ) as resp:
+            resp.raise_for_status()
+            for chunk in resp.iter_bytes():
+                yield chunk
+    except httpx.HTTPError as e:
+        raise ModelError(f"model stream failed: {e}") from e
+
+
+def chat_stream(
+    user_text,
+    *,
+    temperature=0.7,
+    top_p=0.8,
+    max_tokens=512,
+    top_k=RAG_TOP_K,
+    client=None,
+    retrieve_fn=None,
+):
+    """Streaming turn: same retrieval + prompt build, chunks relayed from vLLM."""
+    if not user_text or not user_text.strip():
+        raise ValueError("empty user turn")
+    retrieve_fn = retrieve_fn or retrieve
+    try:
+        passages = retrieve_fn(user_text, n=top_k)
+    except Exception as e:
+        raise RagError(f"retrieval failed: {e}") from e
+    own_client = client is None
+    client = client or httpx.Client(base_url=VLLM_URL, timeout=TIMEOUT_S)
+    stream = generate_stream(
+        client,
+        build_messages(user_text.strip(), passages),
+        temperature=temperature,
+        top_p=top_p,
+        max_tokens=max_tokens,
+    )
+    try:
+        yield from stream
+    finally:
+        if own_client:
+            client.close()
+
+
 def chat(
     user_text,
     *,

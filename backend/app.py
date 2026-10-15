@@ -1,9 +1,11 @@
 """Thin FastAPI routes over backend.core.chat. No logic lives here."""
 
+import itertools
 import time
 import uuid
 
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
 from backend.core import chat as core
@@ -40,18 +42,26 @@ def models():
 
 @app.post("/v1/chat/completions")
 def completions(req: ChatRequest):
-    if req.stream:
-        raise HTTPException(400, "streaming is not supported yet")
     user_msgs = [m.content for m in req.messages if m.role == "user" and m.content.strip()]
     if not user_msgs:
         raise HTTPException(422, "no non-empty user message")
+    # cap generation so prompt + completion fits our 2048-token window
+    max_tokens = min(req.max_tokens, 512)
+    if req.stream:
+        stream = core.chat_stream(
+            user_msgs[-1], temperature=req.temperature, top_p=req.top_p, max_tokens=max_tokens
+        )
+        try:
+            first = next(stream)  # surface RAG/model failures as 502, not a broken stream
+        except (core.RagError, core.ModelError) as e:
+            raise HTTPException(502, str(e)) from e
+        return StreamingResponse(itertools.chain([first], stream), media_type="text/event-stream")
     try:
         out = core.chat(
             user_msgs[-1],
             temperature=req.temperature,
             top_p=req.top_p,
-            # cap generation so prompt + completion fits our 2048-token window
-            max_tokens=min(req.max_tokens, 512),
+            max_tokens=max_tokens,
         )
     except ValueError as e:
         raise HTTPException(422, str(e)) from e

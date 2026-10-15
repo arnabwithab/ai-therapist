@@ -96,3 +96,41 @@ def test_chat_rag_failure_raises_rag_error():
 def test_chat_blank_input_raises_value_error():
     with pytest.raises(ValueError):
         core.chat("   ", client=_mock_client(payload=_completion()))
+
+
+def _sse_client(chunks, status=200):
+    def handler(request):
+        body = (
+            b"".join(b"data: " + __import__("json").dumps(c).encode() + b"\n\n" for c in chunks)
+            + b"data: [DONE]\n\n"
+        )
+        return httpx.Response(status, content=body)
+
+    return httpx.Client(base_url="http://test", transport=httpx.MockTransport(handler))
+
+
+def test_generate_stream_yields_delta_contents():
+    chunks = [
+        {"choices": [{"delta": {"content": "Take "}}]},
+        {"choices": [{"delta": {"content": "a breath."}}]},
+    ]
+    out = list(core.generate_stream(_sse_client(chunks), [{"role": "user", "content": "hi"}]))
+    assert b"Take " in b"".join(out) and b"a breath." in b"".join(out)
+
+
+def test_generate_stream_server_error_raises_model_error():
+    with pytest.raises(core.ModelError):
+        list(
+            core.generate_stream(
+                _mock_client(status=500, payload={}), [{"role": "user", "content": "hi"}]
+            )
+        )
+
+
+def test_chat_stream_returns_iterator_starting_with_delta():
+    it = core.chat_stream(
+        "insomnia",
+        client=_sse_client([{"choices": [{"delta": {"content": "Sleep."}}]}]),
+        retrieve_fn=lambda q, n=5: _passages(),
+    )
+    assert b"Sleep." in b"".join(it)

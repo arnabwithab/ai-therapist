@@ -49,13 +49,33 @@ def test_completions_without_user_message_is_422(monkeypatch):
     assert r.status_code == 422
 
 
-def test_completions_stream_true_is_rejected(monkeypatch):
+def test_completions_stream_true_relays_sse(monkeypatch):
+    def fake_stream(user_text, **kwargs):
+        yield b'data: {"choices":[{"delta":{"content":"Sleep."}}]}\n\n'
+        yield b"data: [DONE]\n\n"
+
+    monkeypatch.setattr(core, "chat_stream", fake_stream)
     c = _client(monkeypatch)
     r = c.post(
         "/v1/chat/completions",
         json={"model": "m", "messages": [{"role": "user", "content": "hi"}], "stream": True},
     )
-    assert r.status_code == 400
+    assert r.status_code == 200, r.text
+    assert r.headers["content-type"].startswith("text/event-stream")
+    assert "Sleep." in r.text
+
+
+def test_completions_stream_failure_is_502(monkeypatch):
+    def bad_stream(user_text, **kwargs):
+        raise core.ModelError("vllm down")
+        yield b""
+
+    monkeypatch.setattr(core, "chat_stream", bad_stream)
+    r = TestClient(app_module.app).post(
+        "/v1/chat/completions",
+        json={"model": "m", "messages": [{"role": "user", "content": "hi"}], "stream": True},
+    )
+    assert r.status_code == 502
 
 
 def test_completions_model_failure_is_502(monkeypatch):
