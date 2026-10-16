@@ -1,12 +1,12 @@
 {
  "project": "ai-therapist",
- "last_updated": "2026-10-15",
+ "last_updated": "2026-10-16",
  "summary": {
   "total": 14,
-  "completed": 9,
+  "completed": 10,
   "in_progress": 1,
-  "planned": 4,
-  "tests_passing": 33,
+  "planned": 3,
+  "tests_passing": 39,
   "tests_failing": 0,
   "tests_missing": 10
  },
@@ -352,7 +352,7 @@
     {
      "id": "F010-4",
      "name": "Judge pass with a current API model",
-     "status": "planned"
+     "status": "completed"
     },
     {
      "id": "F010-5",

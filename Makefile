@@ -1,4 +1,4 @@
-.PHONY: setup test style check ci ingest serve model-server frontend clean
+.PHONY: setup test style check ci ingest serve model-server frontend judge clean
 
 setup: ## install all deps + fetch the GGUF (idempotent, skips if present)
 	uv sync --group dev
@@ -34,6 +34,9 @@ model-server: ## serve the GGUF via vLLM on :8000 (syncs the serving group on de
 
 frontend: ## run the anse chat UI (set its Base URL to http://localhost:8001)
 	cd frontend/anse && npm ci --no-audit --no-fund && npm run dev
+
+judge: ## score the baseline with muse-spark-1.3-contributor (needs OPENCODE_GO_KEY)
+	uv run python eval/mbench_baseline/judge.py --all
 
 clean: ## remove build artifacts, caches, chroma index
 	rm -rf __pycache__ .pytest_cache .ruff_cache chroma/
