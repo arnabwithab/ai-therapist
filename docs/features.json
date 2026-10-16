@@ -2,9 +2,9 @@
  "project": "ai-therapist",
  "last_updated": "2026-10-16",
  "summary": {
-  "total": 14,
+  "total": 15,
   "completed": 11,
-  "in_progress": 0,
+  "in_progress": 1,
   "planned": 3,
   "tests_passing": 42,
   "tests_failing": 0,
@@ -486,6 +486,45 @@
    ],
    "notes": "Explicitly deferred; no agents, no tools.",
    "added": "2026-10-14",
+   "completed": null
+  },
+  {
+   "id": "F015",
+   "name": "Long SFT run (5 epochs) with in-notebook GGUF export",
+   "description": "Fresh 5-epoch QLoRA SFT from base (same seed, ~3,825 steps, ~5h) with GGUF q4_k_m exported in-notebook; fetch adapter + GGUF + log_history, publish both to HF.",
+   "status": "in_progress",
+   "priority": "high",
+   "module": "notebooks",
+   "design_doc": "docs/slm-finetuning.md",
+   "tests": {
+    "status": "missing",
+    "files": [],
+    "notes": "Notebook asserts for itself (counts, blank-filter, qwen_lora/ written); log_history.json emitted every run."
+   },
+   "subtasks": [
+    {
+     "id": "F015-1",
+     "name": "Notebook: num_train_epochs=5 + unconditional GGUF export",
+     "status": "completed"
+    },
+    {
+     "id": "F015-2",
+     "name": "Push 5-epoch kernel (T4, internet on)",
+     "status": "planned"
+    },
+    {
+     "id": "F015-3",
+     "name": "Fetch adapter + GGUF + log_history",
+     "status": "planned"
+    },
+    {
+     "id": "F015-4",
+     "name": "Publish 5-epoch adapter + GGUF to HF",
+     "status": "planned"
+    }
+   ],
+   "notes": "Justified by the v4 curve: epoch-2 block descends ~2.5 -> ~1.6 with no plateau, so epochs 3-5 should keep gaining (diminishing). Fresh run from base keeps the seed discipline (epoch 1 reproduces v3 exactly); ~3,825 steps at ~4.4s = ~4.7h + GGUF export ~20min fits a 9h session at ~5 GPU-h of the 30h weekly quota. GGUF export folded into the notebook save cell (always runs; only the hub push needs HF_TOKEN), so no separate export kernel. Blocked on quota until the Oct 17 refresh.",
+   "added": "2026-10-16",
    "completed": null
   }
  ]
