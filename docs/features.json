@@ -510,7 +510,7 @@
     {
      "id": "F015-2",
      "name": "Push 5-epoch kernel (T4, internet on)",
-     "status": "planned"
+     "status": "completed"
     },
     {
      "id": "F015-3",
@@ -523,7 +523,7 @@
      "status": "planned"
     }
    ],
-   "notes": "Justified by the v4 curve: epoch-2 block descends ~2.5 -> ~1.6 with no plateau, so epochs 3-5 should keep gaining (diminishing). Fresh run from base keeps the seed discipline (epoch 1 reproduces v3 exactly); ~3,825 steps at ~4.4s = ~4.7h + GGUF export ~20min fits a 9h session at ~5 GPU-h of the 30h weekly quota. GGUF export folded into the notebook save cell (always runs; only the hub push needs HF_TOKEN), so no separate export kernel. Blocked on quota until the Oct 17 refresh.",
+   "notes": "Launched 2026-10-16 as eros483/ai-therapist-qwen3-4b-sft v1 (T4, RUNNING): same notebook as v4 except num_train_epochs 2 -> 5. eros438 quota exhausted (29.99h/30h), so dataset re-uploaded as private eros483/ai-therapist-sft from local data/finetune/ (verified byte-equivalent: local filter counts reproduce v3 exactly, 2612 + 3508 = 6120) and kernel-metadata.json re-pointed to eros483. HF push will no-op (no secret on new kernel); fetch qwen_lora/ + qwen_finetune/ + log_history.json via kernels output, then publish to HF (F015-3/4).",
    "added": "2026-10-16",
    "completed": null
   }
