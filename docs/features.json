@@ -3,10 +3,10 @@
  "last_updated": "2026-10-16",
  "summary": {
   "total": 14,
-  "completed": 10,
-  "in_progress": 1,
+  "completed": 11,
+  "in_progress": 0,
   "planned": 3,
-  "tests_passing": 39,
+  "tests_passing": 42,
   "tests_failing": 0,
   "tests_missing": 10
  },
@@ -324,7 +324,7 @@
    "id": "F010",
    "name": "MentalBench-100k Qwen3-4B baseline",
    "description": "Generate a fresh Qwen3-4B baseline over MentalBench-100k (10k rows) on Kaggle T4 fp16 with the paper's generation prompt, enable_thinking=False, temp 0.7 / top_p 0.8, max 512 tokens. One kernel drives both T4s (two worker subprocesses, one GPU each via CUDA_VISIBLE_DEVICES) writing a single sorted idx,context,qwen3_4b_instruct_2507 CSV.",
-   "status": "in_progress",
+   "status": "completed",
    "priority": "high",
    "module": "eval",
    "design_doc": "docs/slm-finetuning.md",
