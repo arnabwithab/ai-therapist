@@ -1,18 +1,20 @@
-"""Generate Qwen3-4B-Instruct-2507 responses for all 10,000 MentalBench-100k rows.
+"""Generate 5-epoch SFT responses for all 10,000 MentalBench-100k rows.
 
-Plain HF batched generation (vLLM abandoned: v1/v2 died on torch-cu130 vs torchaudio-cu128,
+Base model + LoRA adapter (auto-discovered from attached datasets) via plain HF
+batched generation (vLLM abandoned: v1/v2 died on torch-cu130 vs torchaudio-cu128,
 v3 died on libcudart.so.13 missing from Kaggle's CUDA 12.8 image). One kernel drives both T4s:
 the parent spawns two worker subprocesses, each confined to one GPU via CUDA_VISIBLE_DEVICES
-and generating one contiguous half of the rows. The 1,781 rows from the earlier single-stream
-shard kernels are attached as a seed dataset and copied in, not regenerated; attaching a prior
-partial output_mbench.csv as a dataset resumes a cap-killed run the same way.
+and generating one contiguous half of the rows. Attaching a prior partial
+output_mbench_sft5.csv as a dataset resumes a cap-killed run the same way
+(base-model baseline: attach the seed shards + pass --col qwen3_4b_instruct_2507
+--out /kaggle/working/output_mbench.csv).
 """
 import csv, glob, io, logging, os, subprocess, sys, time, urllib.request, zipfile
 
-OUT = "/kaggle/working/output_mbench.csv"
+OUT = "/kaggle/working/output_mbench_sft5.csv"
 MODEL_ID = "Qwen/Qwen3-4B-Instruct-2507"
 DATA_URL = "https://raw.githubusercontent.com/abeerbadawi/MentalBench-Align/main/MentalBench-100k/MentalBench-100k.zip"
-COL = "qwen3_4b_instruct_2507"
+COL = "qwen3_4b_sft5"  # flags --col/--out restore the base-model baseline run
 BATCH = 8  # shortcut: fits T4-14.5GB with margin; raise to 16 only if a run logs VRAM headroom
 MAX_TOKENS = 512  # keep in lockstep with the 1,781 existing rows (temp 0.7 / top_p 0.8 too)
 
@@ -43,81 +45,135 @@ def load_contexts():
     return rows
 
 
-def read_generated(path):
+def read_generated(path, col=COL):
     if not os.path.exists(path):
         return {}
     with open(path, newline="", encoding="utf-8") as f:
-        return {int(r["idx"]): (r["context"], r[COL]) for r in csv.DictReader(f) if r["idx"].isdigit()}
+        return {int(r["idx"]): (r["context"], (r.get(col) or "")) for r in csv.DictReader(f) if r["idx"].isdigit()}
 
 
-def seeded_rows():
+def completed(path, col=COL):
+    """Idxs with a non-blank response under col (seed files may use another column)."""
+    return {i for i, (_, t) in read_generated(path, col).items() if t.strip()}
+
+
+def find_adapter(explicit=None, _roots=None):
+    """LoRA adapter dir: explicit path, else first adapter_config.json under the inputs."""
+    if explicit:
+        return explicit if os.path.isdir(explicit) else None
+    for root in _roots or ("/kaggle/input",):
+        hits = sorted(glob.glob(os.path.join(root, "**", "adapter_config.json"), recursive=True))
+        if hits:
+            return os.path.dirname(hits[0])
+    return None
+
+
+def seeded_rows(col=COL):
     """Rows from attached datasets: the seed shards and any prior partial output (resume)."""
     out = {}
     for p in sorted(glob.glob("/kaggle/input/datasets/*/*/output_*.csv")):
-        for idx, (c, t) in read_generated(p).items():
+        for idx, (c, t) in read_generated(p, col).items():
             out[idx] = (c, t)
     return out
 
 
-def run_parent():
-    done = read_generated(OUT)  # always empty: /kaggle/working starts fresh each run
-    seed = {i: v for i, v in seeded_rows().items() if i not in done}
+def run_parent(args):
+    col, out_path = args.col, args.out
+    done = completed(out_path, col)  # always empty: /kaggle/working starts fresh each run
+    seed = {i: v for i, v in seeded_rows(col).items() if i not in done}
     log.info("seed: %d rows from attached datasets", len(seed))
-    with open(OUT, "w", newline="", encoding="utf-8") as fout:
-        w = csv.DictWriter(fout, fieldnames=["idx", "context", COL])
+    with open(out_path, "w", newline="", encoding="utf-8") as fout:
+        w = csv.DictWriter(fout, fieldnames=["idx", "context", col])
         w.writeheader()
         for idx in sorted(seed):
             c, t = seed[idx]
-            w.writerow({"idx": idx, "context": c, COL: t})
+            w.writerow({"idx": idx, "context": c, col: t})
+
+    if find_adapter(args.adapter) is not None:
+        import importlib.util
+
+        if importlib.util.find_spec("peft") is None:
+            log.info("installing peft for LoRA...")
+            subprocess.check_call([sys.executable, "-m", "pip", "install", "-q", "peft"])
 
     script = os.path.abspath(__file__)
     assert os.path.isfile(script), script
     procs = []
     for shard in (0, 1):
         env = dict(os.environ, CUDA_VISIBLE_DEVICES=str(shard))
-        procs.append(subprocess.Popen([sys.executable, script, "--shard", str(shard)], env=env))
+        procs.append(
+            subprocess.Popen(
+                [
+                    sys.executable,
+                    script,
+                    "--shard",
+                    str(shard),
+                    "--col",
+                    col,
+                    "--out",
+                    out_path,
+                    "--adapter",
+                    args.adapter or "",
+                ],
+                env=env,
+            )
+        )
     rc = [p.wait() for p in procs]
     if any(rc):
         raise SystemExit(f"worker failed, returncodes={rc}")
 
-    merged = read_generated(OUT)
+    merged = read_generated(out_path, col)
     for shard in (0, 1):
-        merged.update(read_generated(f"/kaggle/working/output_part_{shard}.csv"))
-    with open(OUT, "w", newline="", encoding="utf-8") as fout:
-        w = csv.DictWriter(fout, fieldnames=["idx", "context", COL])
+        merged.update(read_generated(part_path(out_path, shard), col))
+    with open(out_path, "w", newline="", encoding="utf-8") as fout:
+        w = csv.DictWriter(fout, fieldnames=["idx", "context", col])
         w.writeheader()
         for idx in sorted(merged):
             c, t = merged[idx]
-            w.writerow({"idx": idx, "context": c, COL: t})
-    log.info("DONE %d/10000 rows -> %s", len(merged), OUT)
+            w.writerow({"idx": idx, "context": c, col: t})
+    log.info("DONE %d/10000 rows -> %s", len(merged), out_path)
 
 
-def run_child(shard):
+def part_path(out_path, shard):
+    return out_path.replace(".csv", f"_part_{shard}.csv")
+
+
+def run_child(args, shard):
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
+    col, out_path = args.col, args.out
     torch.cuda.set_device(0)  # only its own GPU is visible
     assert torch.cuda.device_count() == 1, torch.cuda.device_count()
     rows = load_contexts()
     half = [r for r in rows if (r[0] < 5000) == (shard == 0)]
-    skip = set(read_generated(OUT)) | set(seeded_rows())
+    skip = completed(out_path, col) | {
+        i for i, (_, t) in seeded_rows(col).items() if t.strip()
+    }
     todo = [(i, c) for i, c in half if i not in skip]
     log.info("[gpu%d] todo=%d", shard, len(todo))
 
-    tok = AutoTokenizer.from_pretrained(MODEL_ID, trust_remote_code=True)
+    adapter = find_adapter(args.adapter or None)
+    tok_src = adapter if adapter and os.path.exists(os.path.join(adapter, "tokenizer.json")) else MODEL_ID
+    tok = AutoTokenizer.from_pretrained(tok_src, trust_remote_code=True)
     tok.padding_side = "left"  # decoder-only batching must pad left
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
     model = AutoModelForCausalLM.from_pretrained(
         MODEL_ID, trust_remote_code=True, dtype=torch.float16, device_map="auto"
     )
+    if adapter:
+        from peft import PeftModel
+
+        model = PeftModel.from_pretrained(model, adapter)
+        log.info("[gpu%d] LoRA adapter: %s", shard, adapter)
     model.eval()
     log.info("[gpu%d] model on %s", shard, model.device)
 
-    part = f"/kaggle/working/output_part_{shard}.csv"
+    part = part_path(out_path, shard)
     new_file = not os.path.exists(part)
     fout = open(part, "a", newline="", encoding="utf-8")
-    w = csv.DictWriter(fout, fieldnames=["idx", "context", COL])
+    w = csv.DictWriter(fout, fieldnames=["idx", "context", col])
     if new_file:
         w.writeheader()
         fout.flush()
@@ -150,7 +206,7 @@ def run_child(shard):
                 pad_token_id=tok.eos_token_id,
             )
         for (idx, c), seq, ln in zip(batch, out, lens):
-            w.writerow({"idx": idx, "context": c, COL: tok.decode(seq[ln:], skip_special_tokens=True).strip()})
+            w.writerow({"idx": idx, "context": c, col: tok.decode(seq[ln:], skip_special_tokens=True).strip()})
             n_new += 1
         fout.flush()
         if n_new % 32 == 0:
@@ -161,11 +217,19 @@ def run_child(shard):
     log.info("[gpu%d] DONE %d new (%.0f rows/h) -> %s", shard, n_new, n_new / max(dt, 1) * 3600, part)
 
 
-def main():
-    if "--shard" in sys.argv:
-        run_child(int(sys.argv[sys.argv.index("--shard") + 1]))
+def main(argv=None):
+    import argparse
+
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--shard", type=int, default=None)
+    ap.add_argument("--col", default=COL)
+    ap.add_argument("--out", default=OUT)
+    ap.add_argument("--adapter", default="")
+    args = ap.parse_args(argv)
+    if args.shard is None:
+        run_parent(args)
     else:
-        run_parent()
+        run_child(args, args.shard)
 
 
 if __name__ == "__main__":
