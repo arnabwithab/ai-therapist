@@ -146,6 +146,16 @@ def run_parent(args):
     log.info("DONE %d/10000 rows -> %s", len(merged), out_path)
 
 
+def strip_to_generated(out, input_len):
+    """Drop the (left-padded) prompt, keeping only newly generated tokens.
+
+    Rows are padded to a common width, so generation always starts at input_len.
+    Slicing at the per-row *real* length instead leaks prompt tokens for padded
+    rows (the parrot bug: short rows re-emitted their prompt tail as the answer).
+    """
+    return out[:, input_len:]
+
+
 def part_path(out_path, shard):
     return out_path.replace(".csv", f"_part_{shard}.csv")
 
