@@ -90,24 +90,23 @@ def run_parent(args):
             w.writerow({"idx": idx, "context": c, col: t})
 
     if find_adapter(args.adapter) is not None:
-        import importlib.util
-
-        if importlib.util.find_spec("peft") is None:
-            log.info("installing peft + torchao for LoRA...")
-            subprocess.check_call(
-                [
-                    sys.executable,
-                    "-m",
-                    "pip",
-                    "install",
-                    "-q",
-                    "peft",
-                    "--no-deps",
-                    "--upgrade",
-                    "torchao>=0.16.0",  # peft hard-requires >0.16; image ships 0.10
-                ]
-            )
-        import peft  # noqa: F401 — fail fast here, before spawning GPU workers
+        # Unconditional: the image preinstalls peft but pins torchao 0.10, which
+        # peft rejects at PeftModel import (workers died at 88s/120s on v1/v2).
+        log.info("ensuring peft + torchao>=0.16 for LoRA...")
+        subprocess.check_call(
+            [
+                sys.executable,
+                "-m",
+                "pip",
+                "install",
+                "-q",
+                "peft",
+                "--no-deps",
+                "--upgrade",
+                "torchao>=0.16.0",
+            ]
+        )
+        from peft import PeftModel  # noqa: F401 — fail fast here, before spawning GPU workers
 
     script = os.path.abspath(__file__)
     assert os.path.isfile(script), script
