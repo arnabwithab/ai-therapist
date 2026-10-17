@@ -515,7 +515,7 @@
     {
      "id": "F015-3",
      "name": "Fetch adapter + GGUF + log_history",
-     "status": "planned"
+     "status": "completed"
     },
     {
      "id": "F015-4",
@@ -523,7 +523,7 @@
      "status": "planned"
     }
    ],
-   "notes": "v1 (2026-10-16) ERROR at the model cell: no internet on the fresh eros483 account (unverified), so pip install unsloth failed silently under %%capture and the import died 17 min in. Root-caused with a CPU net-probe kernel (DNS failure), user phone-verified, probe re-run INTERNET OK. Notebook install cell hardened with a fail-fast assert (find_spec unsloth) so pip failures abort in seconds. v2 (2026-10-17) COMPLETE on T4: 6,120 examples, 5 epochs, 3,825 steps, train_loss 1.0005 (vs 1.9842 @2ep, 2.3051 @1ep), runtime 16719s (~4.6h, ~5 GPU-h). GGUF q4_k_m exported in-notebook. HF push no-op (no secret); fetching adapter + GGUF + log_history.json (F015-3).",
+   "notes": "v1 (2026-10-16) ERROR at the model cell: no internet on the fresh eros483 account (unverified), so pip install unsloth failed silently under %%capture and the import died 17 min in. Root-caused with a CPU net-probe kernel (DNS failure), user phone-verified, probe re-run INTERNET OK. Notebook install cell hardened with a fail-fast assert (find_spec unsloth) so pip failures abort in seconds. v2 (2026-10-17) COMPLETE on T4: 6,120 examples, 5 epochs, 3,825 steps, train_loss 1.0005 (vs 1.9842 @2ep, 2.3051 @1ep), runtime 16719s (~4.6h, ~5 GPU-h). GGUF q4_k_m exported in-notebook. HF push no-op (no secret); fetching adapter + GGUF + log_history.json (F015-3). F015-3 done 2026-10-17: fetched to models/sft5/ (gitignored; caches pruned) - qwen_lora/ adapter (132MB) + qwen_finetune_gguf/Q4_K_M (2.5GB) + full 3,825-step log_history.json (loss 2.883 -> 0.095; copy at models/log_history_5epoch.json). Remaining: F015-4 publish 5-epoch adapter + GGUF to HF.",
    "added": "2026-10-16",
    "completed": null
   }
