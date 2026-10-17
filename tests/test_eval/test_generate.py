@@ -53,3 +53,18 @@ def test_find_adapter_explicit_none_and_hit(tmp_path):
     d.mkdir(parents=True)
     (d / "adapter_config.json").write_text("{}", encoding="utf-8")
     assert G.find_adapter(None, _roots=[str(tmp_path)]) == str(d)
+
+
+def test_strip_to_generated_drops_left_padded_prompt():
+    import torch
+
+    pad_width = 6  # common padded input width
+    out = torch.tensor(
+        [
+            [0, 0, 1, 2, 3, 4, 9, 9],  # 2 pads + 4 real + 2 generated
+            [0, 5, 6, 7, 8, 9, 8, 8],  # 1 pad + 5 real + 2 generated
+        ]
+    )
+    assert G.strip_to_generated(out, pad_width).tolist() == [[9, 9], [8, 8]]
+    # the old per-row-length slice leaked prompt tokens for padded rows:
+    assert out[0][4:].tolist() == [3, 4, 9, 9]

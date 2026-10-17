@@ -206,7 +206,6 @@ def run_child(args, shard):
         enc = tok(texts, return_tensors="pt", padding=True)
         input_ids = enc["input_ids"].to(model.device)
         attn = enc["attention_mask"].to(model.device)
-        lens = attn.sum(dim=1).tolist()  # left-padded: real tokens end at lens[i]
         with torch.no_grad():
             out = model.generate(
                 input_ids,
@@ -217,8 +216,8 @@ def run_child(args, shard):
                 do_sample=True,
                 pad_token_id=tok.eos_token_id,
             )
-        for (idx, c), seq, ln in zip(batch, out, lens):
-            w.writerow({"idx": idx, "context": c, col: tok.decode(seq[ln:], skip_special_tokens=True).strip()})
+        for (idx, c), gen in zip(batch, strip_to_generated(out, input_ids.shape[1])):
+            w.writerow({"idx": idx, "context": c, col: tok.decode(gen, skip_special_tokens=True).strip()})
             n_new += 1
         fout.flush()
         if n_new % 32 == 0:
