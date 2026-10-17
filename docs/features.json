@@ -523,7 +523,7 @@
      "status": "planned"
     }
    ],
-   "notes": "Launched 2026-10-16 as eros483/ai-therapist-qwen3-4b-sft v1 (T4, RUNNING): same notebook as v4 except num_train_epochs 2 -> 5. eros438 quota exhausted (29.99h/30h), so dataset re-uploaded as private eros483/ai-therapist-sft from local data/finetune/ (verified byte-equivalent: local filter counts reproduce v3 exactly, 2612 + 3508 = 6120) and kernel-metadata.json re-pointed to eros483. HF push will no-op (no secret on new kernel); fetch qwen_lora/ + qwen_finetune/ + log_history.json via kernels output, then publish to HF (F015-3/4).",
+   "notes": "v1 (2026-10-16) ERROR at the model cell: no internet on the fresh eros483 account (unverified), so pip install unsloth failed silently under %%capture and the import died 17 min in. Root-caused with a CPU net-probe kernel (DNS failure), user phone-verified, probe re-run INTERNET OK. Notebook install cell hardened with a fail-fast assert (find_spec unsloth) so pip failures abort in seconds. v2 (2026-10-17) COMPLETE on T4: 6,120 examples, 5 epochs, 3,825 steps, train_loss 1.0005 (vs 1.9842 @2ep, 2.3051 @1ep), runtime 16719s (~4.6h, ~5 GPU-h). GGUF q4_k_m exported in-notebook. HF push no-op (no secret); fetching adapter + GGUF + log_history.json (F015-3).",
    "added": "2026-10-16",
    "completed": null
   }
