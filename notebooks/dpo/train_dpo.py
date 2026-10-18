@@ -18,8 +18,8 @@ OUT_DIR = "/kaggle/working/qwen_dpo"
 MODEL_ID = "unsloth/Qwen3-4B-Instruct-2507"
 MAX_SEQ = 2048
 SEED = 3407
-BATCH = 2
-GRAD_ACC = 4
+BATCH = 1  # v3: micro-batch 1 (logits on the concatenated pair blew 4GB at batch 2)
+GRAD_ACC = 8  # effective batch unchanged at 8
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
 log = logging.getLogger("dpo")
