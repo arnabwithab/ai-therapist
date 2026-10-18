@@ -261,7 +261,7 @@
    "id": "F008",
    "name": "DPO stage after SFT",
    "description": "Direct preference optimisation on PsychoPref after SFT to sharpen counselling response quality.",
-   "status": "planned",
+   "status": "in_progress",
    "priority": "medium",
    "module": "notebooks",
    "design_doc": "docs/slm-finetuning.md",
@@ -282,7 +282,7 @@
      "status": "planned"
     }
    ],
-   "notes": "DPO@2048 needs ~9\u201311GB, will not fit the 8GB laptop. Spare GPU quota: second Kaggle account holds a fresh 30h (0 used as of 2026-10-16, use KAGGLE_API_TOKEN=~/.kaggle-acc2/access_token); caveat is that all project datasets/kernels live under Eros438 (private), so acc2 runs need re-uploaded inputs or public datasets. SFT epoch-2 contemplated 2026-10-14: v3 curve (765 posted steps) descends ~2.55 -> ~2.15 with no plateau and persistent batch-noise spikes, so a 2nd epoch should gain another ~0.15-0.3; cheapest path is a fresh run with num_train_epochs=2 (~2 GPU-h, keep both adapters, compare under F009/F010 when those land). Launched 2026-10-14 as SFT kernel v4 (only change vs v3: epochs 1 -> 2; same seed, so epoch 1 reproduces v3 and epoch 2 auto-reshuffles). v4 COMPLETE: train_loss 1.9842 (vs 2.3051), runtime 6817.7s, epoch-2 block descends ~2.5 -> ~1.6 with no plateau; full 1,530-step curve saved as models/log_history.json (gitignored). Both adapters kept: models/qwen_lora (2-epoch, live on HF) + models/qwen_lora_1epoch/ (v3).",
+   "notes": "DPO-from-base launched 2026-10-18 as eros483/ai-therapist-qwen3-dpo v1 (T4): skips SFT (sft5 memorized forum voice), Unsloth QLoRA r16 on base + PsyCoPref (34,329 pairs, margins +0.8..+1.7), beta 0.1, lr 5e-6, 1 epoch (~4.3k steps, ~5.4h). Pref data as private eros483/ai-therapist-dpo-pref.",
    "added": "2026-10-14",
    "completed": null
   },
