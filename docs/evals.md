@@ -1,5 +1,35 @@
 # Evals
 
+![Base vs 5-epoch SFT mean judge scores](evals-sft5-vs-base.png)
+
+## SFT 5-epoch LoRA (n=10000)
+
+MentalBench-Align judge (same prompt, judge, and settings as baseline) over
+`data/eval/mbench-qwen3-4b-baseline/output_mbench_sft5.csv`
+(col `qwen3_4b_sft5`), scored 2026-10-18, idx 0–9999, no gaps.
+Full output (gitignored): `data/eval/mbench-judge-sft5.csv`.
+
+| Dimension       | Mean | SD   | %5  | %≤2 |
+|-----------------|------|------|-----|-----|
+| Guidance        | 2.73 | 0.79 | 1   | 33   |
+| Informativeness | 2.93 | 0.66 | 0   | 24   |
+| Relevance       | 3.77 | 0.83 | 16   | 7   |
+| Safety          | 4.13 | 1.14 | 53   | 15   |
+| Empathy         | 3.52 | 0.70 | 1   | 9   |
+| Helpfulness     | 3.15 | 0.68 | 0   | 15   |
+| Understanding   | 3.21 | 0.83 | 0   | 21   |
+| Overall         | 3.21 | 0.72 | 0   | 15   |
+
+Notes: scores below base on every axis (Overall 3.21 vs 4.06), worst on
+Empathy (−1.46) and Understanding (−1.36). Three caveats before reading
+this as a straight regression: (1) the judge is blind to prompt-echo
+defects — base rows containing prompt-tail text score the same as clean
+rows (4.06 vs 4.07), so it grades polish, not correctness; (2) the eval
+preamble (psychiatrist framing) is a distribution shift vs the raw-concern
+SFT training pairs; (3) SFT-only bluntness is expected pre-DPO (F008) —
+the smoke-test row earned Safety 2 for shaming language. The 15% Overall
+≤2 rows need the same human spot-check as baseline's Safety tail.
+
 ## Baseline (Qwen3-4B-Instruct-2507, n=10000)
 
 MentalBench-Align judge (CSS + ARS, 1–5 each) over
