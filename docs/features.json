@@ -282,7 +282,7 @@
      "status": "planned"
     }
    ],
-   "notes": "DPO-from-base launched 2026-10-18 as eros483/ai-therapist-qwen3-dpo v1 (T4): skips SFT (sft5 memorized forum voice), Unsloth QLoRA r16 on base + PsyCoPref (34,329 pairs, margins +0.8..+1.7), beta 0.1, lr 5e-6, 1 epoch (~4.3k steps, ~5.4h). Pref data as private eros483/ai-therapist-dpo-pref.",
+   "notes": "DPO-from-base launched 2026-10-18 as eros483/ai-therapist-qwen3-dpo v1 (T4): skips SFT (sft5 memorized forum voice), Unsloth QLoRA r16 on base + PsyCoPref (34,329 pairs, margins +0.8..+1.7), beta 0.1, lr 5e-6, 1 epoch (~4.3k steps, ~5.4h). Pref data as private eros483/ai-therapist-dpo-pref. v1 ERROR at 731s: CUDA OOM (tried +4.09GB, 11.6GB used) \u2014 TRL defaulted to fp32 (Unsloth auto-mixed-precision did not cover DPOTrainer), ref-model fp32 conversion blew the T4. v2 sets fp16=True explicitly.",
    "added": "2026-10-14",
    "completed": null
   },

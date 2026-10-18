@@ -138,6 +138,8 @@ def main():
         seed=SEED,
         max_length=MAX_SEQ,
         max_prompt_length=512,
+        fp16=True,  # T4 has no bf16; without this TRL trains in fp32 -> OOM (v1 died at 731s)
+        bf16=False,
         report_to="none",
         output_dir="/kaggle/working/dpo_out",
     )
