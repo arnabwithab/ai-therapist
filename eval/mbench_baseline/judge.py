@@ -77,7 +77,7 @@ def parse_judgment(text):
     return d
 
 
-def load_todo(baseline, out, n=500):
+def load_todo(baseline, out, n=500, resp_col=RESP_COL):
     done = set()
     if os.path.exists(out):
         with open(out, newline="", encoding="utf-8") as f:
@@ -90,9 +90,9 @@ def load_todo(baseline, out, n=500):
             if not r.get("idx", "").isdigit():
                 continue
             idx = int(r["idx"])
-            if idx in done or not (r.get(RESP_COL) or "").strip():
+            if idx in done or not (r.get(resp_col) or "").strip():
                 continue
-            todo.append((idx, r["context"], r[RESP_COL]))
+            todo.append((idx, r["context"], r[resp_col]))
             if len(todo) >= n:
                 break
     return todo
@@ -150,6 +150,7 @@ def judge_one(client, session, idx, context, response, retries=3):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--baseline", default=BASELINE)
+    ap.add_argument("--resp-col", default=RESP_COL)
     ap.add_argument("--out", default="data/eval/mbench-judge-500.csv")
     ap.add_argument("--n", type=int, default=500, help="rows per batch")
     ap.add_argument("--all", action="store_true", help="loop batches until baseline done")
@@ -168,7 +169,7 @@ def main():
     )
     total = 0
     while True:
-        todo = load_todo(a.baseline, a.out, a.n)
+        todo = load_todo(a.baseline, a.out, a.n, a.resp_col)
         if not todo:
             break
         log.info("batch todo=%d", len(todo))

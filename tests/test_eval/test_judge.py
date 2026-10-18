@@ -158,3 +158,12 @@ def test_judge_one_honors_retry_after_on_429():
     )
     assert J.judge_one(client, "ses-x", 7, "ctx", "resp", retries=2)["Overall"] == 3
     assert len(calls) == 2
+
+
+def test_load_todo_uses_resp_col(tmp_path):
+    base = tmp_path / "base.csv"
+    base.write_text("idx,context,qwen3_4b_sft5\n0,c0,r0\n1,c1,\n2,c2,r2\n", encoding="utf-8")
+    out = tmp_path / "out.csv"
+    todo = J.load_todo(str(base), str(out), n=500, resp_col="qwen3_4b_sft5")
+    assert [t[0] for t in todo] == [0, 2]
+    assert todo[0][2] == "r0"
