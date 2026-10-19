@@ -1,6 +1,33 @@
 # Evals
 
-![Base vs 5-epoch SFT mean judge scores](evals-sft5-vs-base.png)
+![Base vs SFT vs DPO mean judge scores](evals-sft5-vs-base.png)
+
+## DPO-from-base, ckpt-2000 (n=10000)
+
+MentalBench-Align judge (same prompt, judge, and settings as baseline) over
+`data/eval/mbench-qwen3-4b-baseline/output_mbench_dpo.csv`
+(col `qwen3_4b_dpo`, half-epoch DPO-from-base LoRA), scored 2026-10-19,
+idx 0–9999, no gaps.
+Full output (gitignored): `data/eval/mbench-judge-dpo.csv`.
+
+| Dimension       | Mean | SD   | %5  | %≤2 |
+|-----------------|------|------|-----|-----|
+| Guidance        | 2.99 | 0.53 | 0   | 11   |
+| Informativeness | 3.64 | 0.50 | 0   | 0   |
+| Relevance       | 4.90 | 0.36 | 91   | 0   |
+| Safety          | 4.71 | 0.76 | 84   | 4   |
+| Empathy         | 4.99 | 0.10 | 99   | 0   |
+| Helpfulness     | 4.12 | 0.45 | 16   | 0   |
+| Understanding   | 4.62 | 0.61 | 67   | 1   |
+| Overall         | 4.05 | 0.43 | 11   | 0   |
+
+Notes: DPO-from-base recovers base-level scores on every axis
+(Overall 4.05 vs 4.06, deltas ≤0.09) and beats SFT-5ep everywhere
+(Overall +0.84). The SFT damage (bluntness, confabulation, memorized
+sign-offs) is absent — DPO on the clean base policy never learned it.
+Caveat: this is ckpt-2000 of 4292 (cap-killed at 47%); loss was ~0 with
+margins already huge, so the second half may add little — or over-optimize.
+No second-half training until the spot-check reads clean.
 
 ## SFT 5-epoch LoRA (n=10000)
 
