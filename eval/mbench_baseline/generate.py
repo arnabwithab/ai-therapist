@@ -1,4 +1,4 @@
-"""Generate 5-epoch SFT responses for all 10,000 MentalBench-100k rows.
+"""Generate DPO (from base, ckpt-2000) responses for all 10,000 MentalBench-100k rows.
 
 Base model + LoRA adapter (auto-discovered from attached datasets) via plain HF
 batched generation (vLLM abandoned: v1/v2 died on torch-cu130 vs torchaudio-cu128,
@@ -11,10 +11,10 @@ output_mbench_sft5.csv as a dataset resumes a cap-killed run the same way
 """
 import csv, glob, io, logging, os, subprocess, sys, time, urllib.request, zipfile
 
-OUT = "/kaggle/working/output_mbench_sft5.csv"
+OUT = "/kaggle/working/output_mbench_dpo.csv"
 MODEL_ID = "Qwen/Qwen3-4B-Instruct-2507"
 DATA_URL = "https://raw.githubusercontent.com/abeerbadawi/MentalBench-Align/main/MentalBench-100k/MentalBench-100k.zip"
-COL = "qwen3_4b_sft5"  # flags --col/--out restore the base-model baseline run
+COL = "qwen3_4b_dpo"  # flags --col/--out restore other runs (base, sft5)
 BATCH = 8  # shortcut: fits T4-14.5GB with margin; raise to 16 only if a run logs VRAM headroom
 MAX_TOKENS = 512  # keep in lockstep with the 1,781 existing rows (temp 0.7 / top_p 0.8 too)
 
