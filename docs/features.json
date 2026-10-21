@@ -566,7 +566,7 @@
     {
      "id": "F016-4",
      "name": "DPO-from-1.7B-base (2000 steps)",
-     "status": "in_progress"
+     "status": "completed"
     },
     {
      "id": "F016-5",
@@ -574,7 +574,7 @@
      "status": "planned"
     }
    ],
-   "notes": "Phi detour 2026-10-21 abandoned after 4 failures: remote modeling.py needs utils.LossKwargs (gone after 4.50), pinned 4.50.3, then Phi3ForCausalLM rejects transformers>=4.53 dtype kwarg (shimmed with torch_dtype fallback) \u2014 then user pivoted to 1.7B. Right call: 1.7B base 10k done in ~3.7h (~1335 rows/h/GPU), judged Overall 3.72 (below 4B base 4.06, above sft5 3.21; Empathy holds at 4.58, gaps in Informativeness/Understanding/Relevance). DPO-from-1.7B pushed (unsloth/Qwen3-1.7B, qwen3-instruct, batch-1 recipe, max 2000/ckpt-250) and RUNNING on eros438.",
+   "notes": "Phi detour 2026-10-21 abandoned after 4 failures: remote modeling.py needs utils.LossKwargs (gone after 4.50), pinned 4.50.3, then Phi3ForCausalLM rejects transformers>=4.53 dtype kwarg (shimmed with torch_dtype fallback) \u2014 then user pivoted to 1.7B. Right call: 1.7B base 10k done in ~3.7h (~1335 rows/h/GPU), judged Overall 3.72 (below 4B base 4.06, above sft5 3.21; Empathy holds at 4.58, gaps in Informativeness/Understanding/Relevance). DPO-from-1.7B pushed (unsloth/Qwen3-1.7B, qwen3-instruct, batch-1 recipe, max 2000/ckpt-250) and RUNNING on eros438. DPO-1.7B COMPLETE 2026-10-21: 2000/2000 steps, train_loss 0.098 (healthier than 4B ckpt, no collapse to 0). Adapter+tokenizer fetched; eval gen pushed as eros438/ai-therapist-qwen3-1p7b-mbench-dpo (RUNNING).",
    "added": "2026-10-21",
    "completed": null
   },
