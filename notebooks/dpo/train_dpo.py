@@ -1,10 +1,10 @@
-"""DPO on base Qwen3-4B-Instruct-2507 (Unsloth QLoRA) with PsyCoPref pairs.
+"""DPO on Phi-4-mini-instruct (Unsloth QLoRA) with PsyCoPref pairs.
 
-Skips SFT deliberately: the 5-epoch SFT adapter memorized forum voice
-(sign-offs, confident nonsense). DPO from the clean base policy instead.
-Script kernel (not notebook): runs top-to-bottom on a Kaggle T4, ~5.4h for
-1 epoch over 34,329 pairs. Saves qwen_dpo/ + tokenizer + log_history.json;
-fetch via `kaggle kernels output`. No GGUF export (eval reads the adapter).
+Same recipe as the Qwen DPO run, with mirrored caps: micro-batch 1x8,
+max 2000 steps (Qwen's loss hit ~0 by 47% with margins already +8/-5, so no
+full epoch), checkpoints every 250 steps, fp16 (T4 has no bf16). Saves
+phi_dpo/ + tokenizer + log_history.json; fetch via `kaggle kernels output`.
+No GGUF export (eval reads the adapter).
 """
 
 import glob
@@ -14,12 +14,15 @@ import os
 import subprocess
 import sys
 
-OUT_DIR = "/kaggle/working/qwen_dpo"
-MODEL_ID = "unsloth/Qwen3-4B-Instruct-2507"
+OUT_DIR = "/kaggle/working/phi_dpo"
+MODEL_ID = "unsloth/Phi-4-mini-instruct"
+CHAT_TEMPLATE = "phi-4"
 MAX_SEQ = 2048
 SEED = 3407
-BATCH = 1  # v3: micro-batch 1 (logits on the concatenated pair blew 4GB at batch 2)
-GRAD_ACC = 8  # effective batch unchanged at 8
+BATCH = 1  # full-vocab fp32 logits on the concatenated pair OOM batch 2
+GRAD_ACC = 8  # same effective batch as the Qwen run
+MAX_STEPS = 2000  # Qwen hit loss~0 by 47%; don't train past the sweet spot blind
+SAVE_STEPS = 250
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
 log = logging.getLogger("dpo")
@@ -95,7 +98,7 @@ def main():
         load_in_8bit=False,
         full_finetuning=False,
     )
-    tokenizer = get_chat_template(tokenizer, chat_template="qwen3-instruct")
+    tokenizer = get_chat_template(tokenizer, chat_template=CHAT_TEMPLATE)
     model = FastLanguageModel.get_peft_model(
         model,
         r=16,
@@ -129,9 +132,10 @@ def main():
         per_device_train_batch_size=BATCH,
         gradient_accumulation_steps=GRAD_ACC,
         warmup_steps=50,
-        num_train_epochs=1,
+        max_steps=MAX_STEPS,
         learning_rate=5e-6,
         logging_steps=1,
+        save_steps=SAVE_STEPS,
         optim="adamw_8bit",
         weight_decay=0.001,
         lr_scheduler_type="linear",

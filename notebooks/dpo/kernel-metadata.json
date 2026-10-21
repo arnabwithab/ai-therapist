@@ -1,6 +1,6 @@
 {
-  "id": "eros483/ai-therapist-qwen3-dpo",
-  "title": "ai-therapist-qwen3-dpo",
+  "id": "eros438/ai-therapist-phi4-dpo",
+  "title": "ai-therapist-phi4-dpo",
   "code_file": "train_dpo.py",
   "language": "python",
   "kernel_type": "script",
@@ -9,7 +9,7 @@
   "enable_tpu": false,
   "enable_internet": true,
   "machine_shape": "NvidiaTeslaT4",
-  "dataset_sources": ["eros483/ai-therapist-dpo-pref"],
+  "dataset_sources": ["eros438/ai-therapist-dpo-pref"],
   "competition_sources": [],
   "kernel_sources": [],
   "model_sources": []
