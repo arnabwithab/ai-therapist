@@ -74,3 +74,12 @@ def test_chat_kwargs_only_qwen_gets_enable_thinking():
     assert G.chat_kwargs("unsloth/Qwen3-4B-Instruct-2507") == {"enable_thinking": False}
     assert G.chat_kwargs("microsoft/Phi-4-mini-instruct") == {}
     assert G.chat_kwargs("anything-else") == {}
+
+
+def test_transformers_has_loss_kwargs_matches_real_import():
+    import importlib.util
+
+    expected = importlib.util.find_spec("transformers.utils") is not None and hasattr(
+        __import__("transformers.utils", fromlist=["x"]), "LossKwargs"
+    )
+    assert G.transformers_has_loss_kwargs() == expected

@@ -89,6 +89,13 @@ def run_parent(args):
             c, t = seed[idx]
             w.writerow({"idx": idx, "context": c, col: t})
 
+    if not transformers_has_loss_kwargs():
+        # Phi-4-mini's remote modeling.py needs LossKwargs; image transformers predates it.
+        log.info("upgrading transformers for Phi modeling...")
+        subprocess.check_call(
+            [sys.executable, "-m", "pip", "install", "-q", "transformers==4.57.6"]
+        )
+
     if find_adapter(args.adapter) is not None:
         # Unconditional: the image preinstalls peft but pins torchao 0.10, which
         # peft rejects at PeftModel import (workers died at 88s/120s on v1/v2).
@@ -159,6 +166,15 @@ def strip_to_generated(out, input_len):
 def chat_kwargs(model_id=MODEL_ID):
     """Extra apply_chat_template kwargs. Only Qwen3 templates take enable_thinking."""
     return {"enable_thinking": False} if "qwen" in model_id.lower() else {}
+
+
+def transformers_has_loss_kwargs():
+    """Phi-4-mini's remote modeling imports LossKwargs (needs transformers>=4.48)."""
+    try:
+        from transformers.utils import LossKwargs  # noqa: F401
+        return True
+    except ImportError:
+        return False
 
 
 def part_path(out_path, shard):
