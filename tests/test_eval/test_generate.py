@@ -68,3 +68,9 @@ def test_strip_to_generated_drops_left_padded_prompt():
     assert G.strip_to_generated(out, pad_width).tolist() == [[9, 9], [8, 8]]
     # the old per-row-length slice leaked prompt tokens for padded rows:
     assert out[0][4:].tolist() == [3, 4, 9, 9]
+
+
+def test_chat_kwargs_only_qwen_gets_enable_thinking():
+    assert G.chat_kwargs("unsloth/Qwen3-4B-Instruct-2507") == {"enable_thinking": False}
+    assert G.chat_kwargs("microsoft/Phi-4-mini-instruct") == {}
+    assert G.chat_kwargs("anything-else") == {}

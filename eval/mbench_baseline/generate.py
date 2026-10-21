@@ -1,4 +1,4 @@
-"""Generate DPO (from base, ckpt-2000) responses for all 10,000 MentalBench-100k rows.
+"""Generate Phi-4-mini-instruct baseline responses for all 10,000 MentalBench-100k rows.
 
 Base model + LoRA adapter (auto-discovered from attached datasets) via plain HF
 batched generation (vLLM abandoned: v1/v2 died on torch-cu130 vs torchaudio-cu128,
@@ -11,10 +11,10 @@ output_mbench_sft5.csv as a dataset resumes a cap-killed run the same way
 """
 import csv, glob, io, logging, os, subprocess, sys, time, urllib.request, zipfile
 
-OUT = "/kaggle/working/output_mbench_dpo.csv"
-MODEL_ID = "Qwen/Qwen3-4B-Instruct-2507"
+OUT = "/kaggle/working/output_mbench_phi4.csv"
+MODEL_ID = "microsoft/Phi-4-mini-instruct"
 DATA_URL = "https://raw.githubusercontent.com/abeerbadawi/MentalBench-Align/main/MentalBench-100k/MentalBench-100k.zip"
-COL = "qwen3_4b_dpo"  # flags --col/--out restore other runs (base, sft5)
+COL = "phi4_mini_base"  # flags --col/--out/--model-id restore other runs
 BATCH = 8  # shortcut: fits T4-14.5GB with margin; raise to 16 only if a run logs VRAM headroom
 MAX_TOKENS = 512  # keep in lockstep with the 1,781 existing rows (temp 0.7 / top_p 0.8 too)
 
@@ -156,6 +156,11 @@ def strip_to_generated(out, input_len):
     return out[:, input_len:]
 
 
+def chat_kwargs(model_id=MODEL_ID):
+    """Extra apply_chat_template kwargs. Only Qwen3 templates take enable_thinking."""
+    return {"enable_thinking": False} if "qwen" in model_id.lower() else {}
+
+
 def part_path(out_path, shard):
     return out_path.replace(".csv", f"_part_{shard}.csv")
 
@@ -164,7 +169,7 @@ def run_child(args, shard):
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
-    col, out_path = args.col, args.out
+    col, out_path, model_id = args.col, args.out, args.model_id
     torch.cuda.set_device(0)  # only its own GPU is visible
     assert torch.cuda.device_count() == 1, torch.cuda.device_count()
     rows = load_contexts()
@@ -176,13 +181,13 @@ def run_child(args, shard):
     log.info("[gpu%d] todo=%d", shard, len(todo))
 
     adapter = find_adapter(args.adapter or None)
-    tok_src = adapter if adapter and os.path.exists(os.path.join(adapter, "tokenizer.json")) else MODEL_ID
+    tok_src = adapter if adapter and os.path.exists(os.path.join(adapter, "tokenizer.json")) else model_id
     tok = AutoTokenizer.from_pretrained(tok_src, trust_remote_code=True)
     tok.padding_side = "left"  # decoder-only batching must pad left
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
     model = AutoModelForCausalLM.from_pretrained(
-        MODEL_ID, trust_remote_code=True, dtype=torch.float16, device_map="auto"
+        model_id, trust_remote_code=True, dtype=torch.float16, device_map="auto"
     )
     if adapter:
         from peft import PeftModel
@@ -208,8 +213,8 @@ def run_child(args, shard):
             tok.apply_chat_template(
                 [{"role": "user", "content": PROMPT.format(user_concern=c)}],
                 add_generation_prompt=True,
-                enable_thinking=False,
                 tokenize=False,
+                **chat_kwargs(getattr(args, "model_id", MODEL_ID)),
             )
             for _, c in batch
         ]
@@ -245,6 +250,7 @@ def main(argv=None):
     ap.add_argument("--shard", type=int, default=None)
     ap.add_argument("--col", default=COL)
     ap.add_argument("--out", default=OUT)
+    ap.add_argument("--model-id", default=MODEL_ID)
     ap.add_argument("--adapter", default="")
     args = ap.parse_args(argv)
     if args.shard is None:
