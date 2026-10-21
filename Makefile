@@ -1,4 +1,16 @@
-.PHONY: setup test style check ci ingest serve model-server frontend judge clean
+.PHONY: init setup test style check ci ingest serve model-server model-server-24g eval-rag frontend judge judge-eval clean
+
+init: ## check system prereqs (Ubuntu only) and install what's missing: python3.11+, uv
+	grep -qi ubuntu /etc/os-release || (echo "make init supports Ubuntu only" && exit 1)
+	if ! command -v python3 >/dev/null || ! python3 -c 'import sys; sys.exit(0 if sys.version_info >= (3, 11) else 1)'; then \
+		sudo apt-get update && sudo apt-get install -y python3; \
+	fi
+	if ! command -v uv >/dev/null; then \
+		if ! command -v curl >/dev/null; then sudo apt-get update && sudo apt-get install -y curl; fi; \
+		curl -LsSf https://astral.sh/uv/install.sh | sh; \
+		echo "uv installed — ensure ~/.local/bin is on PATH, then run make setup"; \
+	fi
+	python3 --version && (uv --version || echo 'uv not on PATH yet: export PATH="$$HOME/.local/bin:$$PATH"')
 
 setup: ## install all deps + fetch the GGUF (idempotent, skips if present)
 	uv sync --group dev
@@ -35,8 +47,29 @@ model-server: ## serve the GGUF via vLLM on :8000 (syncs the serving group on de
 frontend: ## run the anse chat UI (set its Base URL to http://localhost:8001)
 	cd frontend/anse && npm ci --no-audit --no-fund && npm run dev
 
+MODEL_ID ?= Qwen/Qwen3-4B-Instruct-2507
+LORA_MODULES ?=
+EVAL_MODEL ?= $(MODEL_ID)
+EVAL_COL ?= response
+RAG_TOP_K ?= 5
+N_SHARDS ?= 1
+SHARD ?= 0
+OUT ?= data/eval/mbench-rag/output_rag.csv
+HF_EVAL_REPO ?= arnabwithab/ai-therapist-mbench-rag
+
+model-server-24g: ## serve full-precision MODEL_ID on :8000 (24GB box; LORA_MODULES="name=path" optional)
+	uv sync --group serving --frozen
+	uv run --no-sync vllm serve $(MODEL_ID) --port 8000 --max-model-len 4096 --gpu-memory-utilization 0.9 --served-model-name $(MODEL_ID) $(if $(LORA_MODULES),--enable-lora --lora-modules $(LORA_MODULES))
+
+eval-rag: ## one OARS+RAG eval shard (EVAL_MODEL/SHARD/N_SHARDS/OUT/EVAL_COL/RAG_TOP_K/HF_EVAL_REPO; NO_RAG=1 = ablation, HF_EVAL_REPO= to disable push)
+	uv run python -m eval.mbench_rag.generate_rag --model $(EVAL_MODEL) --out $(OUT) --col $(EVAL_COL) --shard $(SHARD) --num-shards $(N_SHARDS) --rag-top-k $(RAG_TOP_K) --hf-repo $(HF_EVAL_REPO) $(if $(NO_RAG),--no-rag)
+
 judge: ## score the baseline with muse-spark-1.3-contributor (needs OPENCODE_GO_KEY)
-	uv run python eval/mbench_baseline/judge.py --all
+	uv run python -m eval.mbench_baseline.judge --all
+
+judge-eval: ## judge any eval CSV with the same rubric (BASELINE=.. RESP_COL=.. OUT=..)
+	test -n "$(BASELINE)$(RESP_COL)$(OUT)" || (echo "set BASELINE=.. RESP_COL=.. OUT=.." && exit 1)
+	uv run python -m eval.mbench_baseline.judge --baseline $(BASELINE) --resp-col $(RESP_COL) --out $(OUT) --all --hf-repo $(HF_EVAL_REPO)
 
 clean: ## remove build artifacts, caches, chroma index
 	rm -rf __pycache__ .pytest_cache .ruff_cache chroma/

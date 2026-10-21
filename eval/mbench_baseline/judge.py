@@ -21,6 +21,8 @@ from concurrent.futures import ThreadPoolExecutor
 
 import httpx
 
+from eval.hf_push import push_file
+
 ENDPOINT = "https://opencode.ai/inference/go/openai/v1/responses"
 MODEL = "muse-spark-1.3-contributor"
 BASELINE = "data/eval/mbench-qwen3-4b-baseline/output_mbench.csv"
@@ -156,6 +158,8 @@ def main():
     ap.add_argument("--all", action="store_true", help="loop batches until baseline done")
     ap.add_argument("--workers", type=int, default=50)
     ap.add_argument("--session", default="ai-therapist-judge-500")
+    ap.add_argument("--hf-repo", default="", help="HF dataset repo for score pushes")
+    ap.add_argument("--hf-path", default="", help="remote path (defaults to basename of --out)")
     a = ap.parse_args()
     key = os.getenv("OPENCODE_GO_KEY")
     if not key:
@@ -185,6 +189,7 @@ def main():
                     fout.flush()
         total += len(todo)
         log.info("batch DONE %d rows (total %d) -> %s", len(todo), total, a.out)
+        push_file(a.out, a.hf_repo, a.hf_path or os.path.basename(a.out))
         if not a.all:
             break
     log.info("ALL DONE %d rows -> %s", total, a.out)

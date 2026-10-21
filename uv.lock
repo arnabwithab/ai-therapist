@@ -31,6 +31,8 @@ dependencies = [
     { name = "chromadb" },
     { name = "fastapi" },
     { name = "httpx" },
+    { name = "huggingface-hub", version = "0.36.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.14' and platform_machine == 's390x'" },
+    { name = "huggingface-hub", version = "1.33.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.14' or platform_machine != 's390x'" },
     { name = "sentence-transformers", version = "5.7.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.14' and platform_machine == 's390x'" },
     { name = "sentence-transformers", version = "6.1.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.14' or platform_machine != 's390x'" },
     { name = "uvicorn" },
@@ -51,6 +53,7 @@ requires-dist = [
     { name = "chromadb", specifier = ">=1.0.0" },
     { name = "fastapi", specifier = ">=0.143.1" },
     { name = "httpx", specifier = ">=0.28.1" },
+    { name = "huggingface-hub", specifier = ">=0.36.2" },
     { name = "sentence-transformers", specifier = ">=3.0.0" },
     { name = "uvicorn", specifier = ">=0.54.0" },
 ]

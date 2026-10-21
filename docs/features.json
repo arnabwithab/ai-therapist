@@ -2,11 +2,11 @@
  "project": "ai-therapist",
  "last_updated": "2026-10-21",
  "summary": {
-  "total": 16,
+  "total": 17,
   "completed": 12,
-  "in_progress": 1,
+  "in_progress": 2,
   "planned": 3,
-  "tests_passing": 57,
+  "tests_passing": 72,
   "tests_failing": 0,
   "tests_missing": 8
  },
@@ -575,6 +575,53 @@
     }
    ],
    "notes": "Phi detour 2026-10-21 abandoned after 4 failures: remote modeling.py needs utils.LossKwargs (gone after 4.50), pinned 4.50.3, then Phi3ForCausalLM rejects transformers>=4.53 dtype kwarg (shimmed with torch_dtype fallback) \u2014 then user pivoted to 1.7B. Right call: 1.7B base 10k done in ~3.7h (~1335 rows/h/GPU), judged Overall 3.72 (below 4B base 4.06, above sft5 3.21; Empathy holds at 4.58, gaps in Informativeness/Understanding/Relevance). DPO-from-1.7B pushed (unsloth/Qwen3-1.7B, qwen3-instruct, batch-1 recipe, max 2000/ckpt-250) and RUNNING on eros438.",
+   "added": "2026-10-21",
+   "completed": null
+  },
+  {
+   "id": "F017",
+   "name": "RAG eval pass on 24GB box (model + RAG pipeline)",
+   "description": "Same 10k MentalBench-100k contexts through the serving path (OARS prompt + retrieve) against a vLLM endpoint, with --no-rag ablation, per-shard HF dataset pushes for remote viewing, and one-flag model swaps. Runs: make init/setup/ingest, make model-server-24g, make eval-rag looped over shards.",
+   "status": "in_progress",
+   "priority": "high",
+   "module": "eval",
+   "design_doc": "docs/slm-finetuning.md",
+   "tests": {
+    "status": "passing",
+    "files": [
+     "tests/test_eval/test_generate_rag.py",
+     "tests/test_eval/test_hf_push.py"
+    ],
+    "notes": "15 pure-logic tests (sharding, resume/merge, retries, HF push, thread-safe RAG init); GPU/vLLM path fail-fasts on the server."
+   },
+   "subtasks": [
+    {
+     "id": "F017-1",
+     "name": "eval/mbench_rag/generate_rag.py (reuses build_messages + retrieve)",
+     "status": "completed"
+    },
+    {
+     "id": "F017-2",
+     "name": "eval/hf_push.py shared by generate + judge",
+     "status": "completed"
+    },
+    {
+     "id": "F017-3",
+     "name": "Makefile: model-server-24g, eval-rag, judge-eval, init",
+     "status": "completed"
+    },
+    {
+     "id": "F017-4",
+     "name": "Thread-safe RAG lazy init (chromadb race found by eval smoke)",
+     "status": "completed"
+    },
+    {
+     "id": "F017-5",
+     "name": "Server runs: RAG pass + no-rag ablation + judge",
+     "status": "planned"
+    }
+   ],
+   "notes": "Smoke-verified locally up to the model call (real Chroma retrieval + prompt build, ConnectError only \u2014 no vLLM here). Judge pushes scores per batch when --hf-repo is set. Caveat: OARS replies are 3-6 sentences vs base long paragraphs, so Informativeness/Helpfulness may dip on style alone.",
    "added": "2026-10-21",
    "completed": null
   }

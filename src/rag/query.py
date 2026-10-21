@@ -1,6 +1,7 @@
 """Read-only retrieval API — the only thing the serving layer imports."""
 
 import logging
+import threading
 
 import chromadb
 
@@ -10,21 +11,26 @@ log = logging.getLogger(__name__)
 
 _client = None
 _embedder = None
+_lock = threading.Lock()  # lazy init races under concurrent first requests
 
 
 def _collection():
     global _client
     if _client is None:
-        _client = chromadb.PersistentClient(path=config.CHROMA_DIR)
+        with _lock:
+            if _client is None:
+                _client = chromadb.PersistentClient(path=config.CHROMA_DIR)
     return _client.get_collection(config.COLLECTION)
 
 
 def _embed(texts):
     global _embedder
     if _embedder is None:
-        from sentence_transformers import SentenceTransformer
+        with _lock:
+            if _embedder is None:
+                from sentence_transformers import SentenceTransformer
 
-        _embedder = SentenceTransformer(config.EMBED_MODEL, device=config.EMBED_DEVICE)
+                _embedder = SentenceTransformer(config.EMBED_MODEL, device=config.EMBED_DEVICE)
     return _embedder.encode(texts, normalize_embeddings=True).tolist()
 
 
