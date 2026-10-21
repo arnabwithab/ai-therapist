@@ -12,7 +12,7 @@ output_mbench_sft5.csv as a dataset resumes a cap-killed run the same way
 import csv, glob, io, logging, os, subprocess, sys, time, urllib.request, zipfile
 
 OUT = "/kaggle/working/output_mbench_1p7b.csv"
-MODEL_ID = "Qwen/Qwen3-1.7B-Instruct-2507"
+MODEL_ID = "Qwen/Qwen3-1.7B"
 DATA_URL = "https://raw.githubusercontent.com/abeerbadawi/MentalBench-Align/main/MentalBench-100k/MentalBench-100k.zip"
 COL = "qwen3_1p7b_base"  # flags --col/--out/--model-id restore other runs
 BATCH = 8  # shortcut: fits T4-14.5GB with margin; raise to 16 only if a run logs VRAM headroom
