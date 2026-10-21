@@ -2,6 +2,30 @@
 
 ![Base vs SFT vs DPO mean judge scores](evals-sft5-vs-base.png)
 
+## Base Qwen3-1.7B (n=10000)
+
+MentalBench-Align judge (same prompt, judge, and settings) over
+`data/eval/mbench-qwen3-4b-baseline/output_mbench_1p7b.csv`
+(col `qwen3_1p7b_base`), scored 2026-10-21, idx 0–9999, no gaps.
+Full output (gitignored): `data/eval/mbench-judge-1p7b.csv`.
+
+| Dimension       | Mean | SD   | %5  | %≤2 |
+|-----------------|------|------|-----|-----|
+| Guidance        | 2.77 | 0.53 | 0   | 24   |
+| Informativeness | 2.98 | 0.51 | 0   | 13   |
+| Relevance       | 4.30 | 0.72 | 44   | 1   |
+| Safety          | 4.59 | 0.89 | 78   | 7   |
+| Empathy         | 4.58 | 0.51 | 58   | 0   |
+| Helpfulness     | 3.72 | 0.50 | 0   | 1   |
+| Understanding   | 3.73 | 0.69 | 6   | 7   |
+| Overall         | 3.72 | 0.52 | 1   | 2   |
+
+Notes: lands where predicted — below 4B base (4.06) on every axis but
+above SFT-5ep (3.21) except Guidance/Safety. Empathy stays high (4.58);
+the gaps concentrate in Informativeness (−0.73 vs 4B), Understanding
+(−0.84) and Relevance (−0.55). Headroom for DPO: ~0.3 to reach base,
+which is exactly the experiment now running.
+
 ## DPO-from-base, ckpt-2000 (n=10000)
 
 MentalBench-Align judge (same prompt, judge, and settings as baseline) over
