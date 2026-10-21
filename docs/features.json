@@ -1,14 +1,14 @@
 {
  "project": "ai-therapist",
- "last_updated": "2026-10-18",
+ "last_updated": "2026-10-21",
  "summary": {
-  "total": 15,
+  "total": 16,
   "completed": 12,
-  "in_progress": 0,
+  "in_progress": 1,
   "planned": 3,
-  "tests_passing": 42,
+  "tests_passing": 57,
   "tests_failing": 0,
-  "tests_missing": 10
+  "tests_missing": 8
  },
  "features": [
   {
@@ -261,30 +261,32 @@
    "id": "F008",
    "name": "DPO stage after SFT",
    "description": "Direct preference optimisation on PsychoPref after SFT to sharpen counselling response quality.",
-   "status": "in_progress",
+   "status": "completed",
    "priority": "medium",
    "module": "notebooks",
    "design_doc": "docs/slm-finetuning.md",
    "tests": {
-    "status": "missing",
-    "files": [],
-    "notes": ""
+    "status": "passing",
+    "files": [
+     "tests/test_notebooks/test_dpo.py"
+    ],
+    "notes": "4 pure-logic tests (pair formatting, parquet discovery); GPU path fail-fasts in-kernel."
    },
    "subtasks": [
     {
      "id": "F008-1",
      "name": "Fit DPO in memory (ctx 1024 + r=8 or Colab)",
-     "status": "planned"
+     "status": "completed"
     },
     {
      "id": "F008-2",
      "name": "DPO training run + artifact push",
-     "status": "planned"
+     "status": "completed"
     }
    ],
-   "notes": "DPO-from-base launched 2026-10-18 as eros483/ai-therapist-qwen3-dpo v1 (T4): skips SFT (sft5 memorized forum voice), Unsloth QLoRA r16 on base + PsyCoPref (34,329 pairs, margins +0.8..+1.7), beta 0.1, lr 5e-6, 1 epoch (~4.3k steps, ~5.4h). Pref data as private eros483/ai-therapist-dpo-pref. v1 ERROR at 731s: CUDA OOM (tried +4.09GB, 11.6GB used) \u2014 TRL defaulted to fp32 (Unsloth auto-mixed-precision did not cover DPOTrainer), ref-model fp32 conversion blew the T4. v2 sets fp16=True explicitly. v2 ERROR at 807s with identical footprint (fp16 changed nothing): the killer is full-vocab fp32 logits on the concatenated chosen+rejected batch (batch 2 x seq 2048 x 151k vocab x 4B ~ 4GB spike). v3 halves micro-batch to 1 (grad_acc 8, same effective batch). v3 CANCEL_ACKNOWLEDGED (9h cap) at step ~2000/4292 (47%): batch-1 fix worked, loss ~0, margins +8/-5, acc ~1.0 (possible over-opt; pairs are easy). Latest checkpoint-2000 (full adapter+tokenizer) recovered as private eros483/ai-therapist-dpo-2000. Generating 10k with the frozen harness (col qwen3_4b_dpo) as eros483/ai-therapist-qwen3-mbench-dpo v1; judge next, then decide resume-vs-stop on the second half. DPO gen COMPLETE 2026-10-19 (free run past the quota wall, never killed): 10k/10k rows, 0 empty, 0 echo, median 2051 chars; local copy data/eval/mbench-qwen3-4b-baseline/output_mbench_dpo.csv. Judging next (same judge).",
+   "notes": "DPO-from-base launched 2026-10-18 as eros483/ai-therapist-qwen3-dpo v1 (T4): skips SFT (sft5 memorized forum voice), Unsloth QLoRA r16 on base + PsyCoPref (34,329 pairs, margins +0.8..+1.7), beta 0.1, lr 5e-6, 1 epoch (~4.3k steps, ~5.4h). Pref data as private eros483/ai-therapist-dpo-pref. v1 ERROR at 731s: CUDA OOM (tried +4.09GB, 11.6GB used) \u2014 TRL defaulted to fp32 (Unsloth auto-mixed-precision did not cover DPOTrainer), ref-model fp32 conversion blew the T4. v2 sets fp16=True explicitly. v2 ERROR at 807s with identical footprint (fp16 changed nothing): the killer is full-vocab fp32 logits on the concatenated chosen+rejected batch (batch 2 x seq 2048 x 151k vocab x 4B ~ 4GB spike). v3 halves micro-batch to 1 (grad_acc 8, same effective batch). v3 CANCEL_ACKNOWLEDGED (9h cap) at step ~2000/4292 (47%): batch-1 fix worked, loss ~0, margins +8/-5, acc ~1.0 (possible over-opt; pairs are easy). Latest checkpoint-2000 (full adapter+tokenizer) recovered as private eros483/ai-therapist-dpo-2000. Generating 10k with the frozen harness (col qwen3_4b_dpo) as eros483/ai-therapist-qwen3-mbench-dpo v1; judge next, then decide resume-vs-stop on the second half. DPO gen COMPLETE 2026-10-19 (free run past the quota wall, never killed): 10k/10k rows, 0 empty, 0 echo, median 2051 chars; local copy data/eval/mbench-qwen3-4b-baseline/output_mbench_dpo.csv. Judging next (same judge). DPO-4B judged 2026-10-19: Overall 4.05 vs base 4.06 (all deltas <=0.09) \u2014 SFT damage undone, no gain over base. Second half (steps 2000-4292) deferred; ckpt-2000 stands. 1.7B DPO continues under F016.",
    "added": "2026-10-14",
-   "completed": null
+   "completed": "2026-10-21"
   },
   {
    "id": "F009",
@@ -329,9 +331,12 @@
    "module": "eval",
    "design_doc": "docs/slm-finetuning.md",
    "tests": {
-    "status": "missing",
-    "files": [],
-    "notes": "Not in repo \u2014 canonical output data/eval/mbench-qwen3-4b-baseline/output_mbench.csv (10,000 rows, idx 0-9999, no gaps, 0 empty; gitignored, like the finetune data). Seed dataset eros438/ai-therapist-mbench-seed (private) holds the original shard CSVs; rebuild with: kaggle datasets version -p data/eval/mbench-qwen3-4b-baseline (see data/eval/mbench-qwen3-4b-baseline/dataset-metadata.json)."
+    "status": "passing",
+    "files": [
+     "tests/test_eval/test_generate.py",
+     "tests/test_eval/test_judge.py"
+    ],
+    "notes": "Pure CSV/adapter/chat-template logic incl. the left-pad slice regression test; GPU path fail-fasts in-kernel."
    },
    "subtasks": [
     {
@@ -526,6 +531,52 @@
    "notes": "v1 (2026-10-16) ERROR at the model cell: no internet on the fresh eros483 account (unverified), so pip install unsloth failed silently under %%capture and the import died 17 min in. Root-caused with a CPU net-probe kernel (DNS failure), user phone-verified, probe re-run INTERNET OK. Notebook install cell hardened with a fail-fast assert (find_spec unsloth) so pip failures abort in seconds. v2 (2026-10-17) COMPLETE on T4: 6,120 examples, 5 epochs, 3,825 steps, train_loss 1.0005 (vs 1.9842 @2ep, 2.3051 @1ep), runtime 16719s (~4.6h, ~5 GPU-h). GGUF q4_k_m exported in-notebook. HF push no-op (no secret); fetching adapter + GGUF + log_history.json (F015-3). F015-3 done 2026-10-17: fetched to models/sft5/ (gitignored; caches pruned) - qwen_lora/ adapter (132MB) + qwen_finetune_gguf/Q4_K_M (2.5GB) + full 3,825-step log_history.json (loss 2.883 -> 0.095; copy at models/log_history_5epoch.json). Remaining: F015-4 publish 5-epoch adapter + GGUF to HF. Judge (muse-spark, temp 0, 10k rows each): sft5 Overall 3.21 vs base 4.06 (Guidance -0.27, Informativeness -0.78, Relevance -1.08, Safety -0.54, Empathy -1.46, Helpfulness -0.96, Understanding -1.36). Caveats: judge inflates polish (F009); sft5 eval prompt = base preamble, a distribution shift vs raw-concern training; smoke row flagged sft5 bluntness (Safety 2). Base echo-hybrids (6,324 rows incl. prompt tail) score = clean rows, so judge is blind to that defect. F015-4: overwriting HF LoRA weights (README kept) + Q4_K_M GGUF with 5-epoch artifacts. F015-4 done 2026-10-18: 5-epoch adapter+tokenizer live on arnabwithab/ai-therapist-qwen3-4b-lora (weights/configs swapped, user README kept) and Q4_K_M GGUF live on arnabwithab/ai-therapist-qwen3-4b-gguf (commit 538ec45). Card still describes v4 (user-owned).",
    "added": "2026-10-16",
    "completed": "2026-10-18"
+  },
+  {
+   "id": "F016",
+   "name": "Qwen3-1.7B fast loop (base + DPO + judge)",
+   "description": "Smaller-model loop to test whether DPO gains grow when the base leaves headroom: 10k baseline generation, judge, DPO-from-base (2000 steps, ckpt-250), regenerate, judge. Same harness/prompt/judge as the 4B runs.",
+   "status": "in_progress",
+   "priority": "high",
+   "module": "eval",
+   "design_doc": "docs/slm-finetuning.md",
+   "tests": {
+    "status": "passing",
+    "files": [
+     "tests/test_eval/test_generate.py"
+    ],
+    "notes": "Harness is model-agnostic (tested); training asserts in-kernel."
+   },
+   "subtasks": [
+    {
+     "id": "F016-1",
+     "name": "Phi-4-mini detour (abandoned)",
+     "status": "completed"
+    },
+    {
+     "id": "F016-2",
+     "name": "1.7B base 10k generation",
+     "status": "completed"
+    },
+    {
+     "id": "F016-3",
+     "name": "Judge 1.7B base",
+     "status": "completed"
+    },
+    {
+     "id": "F016-4",
+     "name": "DPO-from-1.7B-base (2000 steps)",
+     "status": "in_progress"
+    },
+    {
+     "id": "F016-5",
+     "name": "Generate + judge DPO-1.7B, compare 5-way",
+     "status": "planned"
+    }
+   ],
+   "notes": "Phi detour 2026-10-21 abandoned after 4 failures: remote modeling.py needs utils.LossKwargs (gone after 4.50), pinned 4.50.3, then Phi3ForCausalLM rejects transformers>=4.53 dtype kwarg (shimmed with torch_dtype fallback) \u2014 then user pivoted to 1.7B. Right call: 1.7B base 10k done in ~3.7h (~1335 rows/h/GPU), judged Overall 3.72 (below 4B base 4.06, above sft5 3.21; Empathy holds at 4.58, gaps in Informativeness/Understanding/Relevance). DPO-from-1.7B pushed (unsloth/Qwen3-1.7B, qwen3-instruct, batch-1 recipe, max 2000/ckpt-250) and RUNNING on eros438.",
+   "added": "2026-10-21",
+   "completed": null
   }
  ]
 }
