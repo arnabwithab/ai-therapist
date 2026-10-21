@@ -1,4 +1,4 @@
-"""Generate Phi-4-mini-instruct baseline responses for all 10,000 MentalBench-100k rows.
+"""Generate Qwen3-1.7B-Instruct baseline responses for all 10,000 MentalBench-100k rows.
 
 Base model + LoRA adapter (auto-discovered from attached datasets) via plain HF
 batched generation (vLLM abandoned: v1/v2 died on torch-cu130 vs torchaudio-cu128,
@@ -11,10 +11,10 @@ output_mbench_sft5.csv as a dataset resumes a cap-killed run the same way
 """
 import csv, glob, io, logging, os, subprocess, sys, time, urllib.request, zipfile
 
-OUT = "/kaggle/working/output_mbench_phi4.csv"
-MODEL_ID = "microsoft/Phi-4-mini-instruct"
+OUT = "/kaggle/working/output_mbench_1p7b.csv"
+MODEL_ID = "Qwen/Qwen3-1.7B-Instruct-2507"
 DATA_URL = "https://raw.githubusercontent.com/abeerbadawi/MentalBench-Align/main/MentalBench-100k/MentalBench-100k.zip"
-COL = "phi4_mini_base"  # flags --col/--out/--model-id restore other runs
+COL = "qwen3_1p7b_base"  # flags --col/--out/--model-id restore other runs
 BATCH = 8  # shortcut: fits T4-14.5GB with margin; raise to 16 only if a run logs VRAM headroom
 MAX_TOKENS = 512  # keep in lockstep with the 1,781 existing rows (temp 0.7 / top_p 0.8 too)
 
@@ -89,7 +89,7 @@ def run_parent(args):
             c, t = seed[idx]
             w.writerow({"idx": idx, "context": c, col: t})
 
-    if not transformers_has_loss_kwargs():
+    if needs_old_transformers(args.model_id):
         # Phi-4-mini's remote modeling.py needs utils.LossKwargs (4.46-4.50 only).
         log.info("downgrading transformers to 4.50.3 for Phi modeling...")
         subprocess.check_call(
@@ -131,6 +131,8 @@ def run_parent(args):
                     col,
                     "--out",
                     out_path,
+                    "--model-id",
+                    args.model_id,
                     "--adapter",
                     args.adapter or "",
                 ],
@@ -169,13 +171,18 @@ def chat_kwargs(model_id=MODEL_ID):
 
 
 def transformers_has_loss_kwargs():
-    """Phi-4-mini's remote modeling imports LossKwargs, which only exists in
-    transformers.utils up to 4.50.x (removed after; image ships 5.16.1)."""
+    """True if this env's transformers exports utils.LossKwargs."""
     try:
         from transformers.utils import LossKwargs  # noqa: F401
         return True
     except ImportError:
         return False
+
+
+def needs_old_transformers(model_id=MODEL_ID):
+    """Phi-4-mini's remote modeling needs utils.LossKwargs (gone after 4.50.x).
+    Gate on Phi: Qwen3 modeling needs a NEW transformers, downgrading breaks it."""
+    return "phi" in model_id.lower() and not transformers_has_loss_kwargs()
 
 
 def load_model(model_id, loader):

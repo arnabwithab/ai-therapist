@@ -1,6 +1,6 @@
 {
-  "id": "eros438/ai-therapist-phi4-mbench-base",
-  "title": "ai-therapist-phi4-mbench-base",
+  "id": "eros438/ai-therapist-qwen3-1p7b-mbench-base",
+  "title": "ai-therapist-qwen3-1p7b-mbench-base",
   "code_file": "generate.py",
   "language": "python",
   "kernel_type": "script",

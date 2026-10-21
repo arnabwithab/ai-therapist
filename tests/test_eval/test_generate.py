@@ -99,3 +99,11 @@ def test_load_model_falls_back_to_torch_dtype():
     assert G.load_model("m", Loader) == "model-ok"
     assert list(calls[0]) == ["trust_remote_code", "dtype", "device_map"]
     assert list(calls[1]) == ["trust_remote_code", "torch_dtype", "device_map"]
+
+
+def test_needs_old_transformers_only_for_phi():
+    assert G.needs_old_transformers("microsoft/Phi-4-mini-instruct") == (
+        not G.transformers_has_loss_kwargs()
+    )
+    assert G.needs_old_transformers("Qwen/Qwen3-1.7B-Instruct-2507") is False
+    assert G.needs_old_transformers("Qwen/Qwen3-4B-Instruct-2507") is False
