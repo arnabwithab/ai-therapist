@@ -1,6 +1,6 @@
 {
-  "id": "eros438/ai-therapist-phi4-dpo",
-  "title": "ai-therapist-phi4-dpo",
+  "id": "eros438/ai-therapist-qwen3-1p7b-dpo",
+  "title": "ai-therapist-qwen3-1p7b-dpo",
   "code_file": "train_dpo.py",
   "language": "python",
   "kernel_type": "script",
