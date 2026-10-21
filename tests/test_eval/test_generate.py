@@ -83,3 +83,19 @@ def test_transformers_has_loss_kwargs_matches_real_import():
         __import__("transformers.utils", fromlist=["x"]), "LossKwargs"
     )
     assert G.transformers_has_loss_kwargs() == expected
+
+
+def test_load_model_falls_back_to_torch_dtype():
+    calls = []
+
+    class Loader:
+        @staticmethod
+        def from_pretrained(model_id, **kwargs):
+            calls.append(kwargs)
+            if "dtype" in kwargs:
+                raise TypeError("unexpected keyword argument 'dtype'")
+            return "model-ok"
+
+    assert G.load_model("m", Loader) == "model-ok"
+    assert list(calls[0]) == ["trust_remote_code", "dtype", "device_map"]
+    assert list(calls[1]) == ["trust_remote_code", "torch_dtype", "device_map"]

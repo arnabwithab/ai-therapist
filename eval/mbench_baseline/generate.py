@@ -178,6 +178,20 @@ def transformers_has_loss_kwargs():
         return False
 
 
+def load_model(model_id, loader):
+    """from_pretrained with dtype (new transformers) falling back to torch_dtype (<4.53)."""
+    import torch  # lazy: keeps module importable without GPU deps
+
+    try:
+        return loader.from_pretrained(
+            model_id, trust_remote_code=True, dtype=torch.float16, device_map="auto"
+        )
+    except TypeError:
+        return loader.from_pretrained(
+            model_id, trust_remote_code=True, torch_dtype=torch.float16, device_map="auto"
+        )
+
+
 def part_path(out_path, shard):
     return out_path.replace(".csv", f"_part_{shard}.csv")
 
@@ -203,9 +217,7 @@ def run_child(args, shard):
     tok.padding_side = "left"  # decoder-only batching must pad left
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
-    model = AutoModelForCausalLM.from_pretrained(
-        model_id, trust_remote_code=True, dtype=torch.float16, device_map="auto"
-    )
+    model = load_model(model_id, AutoModelForCausalLM)
     if adapter:
         from peft import PeftModel
 
