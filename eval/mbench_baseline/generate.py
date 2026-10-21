@@ -90,10 +90,10 @@ def run_parent(args):
             w.writerow({"idx": idx, "context": c, col: t})
 
     if not transformers_has_loss_kwargs():
-        # Phi-4-mini's remote modeling.py needs LossKwargs; image transformers predates it.
-        log.info("upgrading transformers for Phi modeling...")
+        # Phi-4-mini's remote modeling.py needs utils.LossKwargs (4.46-4.50 only).
+        log.info("downgrading transformers to 4.50.3 for Phi modeling...")
         subprocess.check_call(
-            [sys.executable, "-m", "pip", "install", "-q", "transformers==4.57.6"]
+            [sys.executable, "-m", "pip", "install", "-q", "transformers==4.50.3"]
         )
 
     if find_adapter(args.adapter) is not None:
@@ -169,7 +169,8 @@ def chat_kwargs(model_id=MODEL_ID):
 
 
 def transformers_has_loss_kwargs():
-    """Phi-4-mini's remote modeling imports LossKwargs (needs transformers>=4.48)."""
+    """Phi-4-mini's remote modeling imports LossKwargs, which only exists in
+    transformers.utils up to 4.50.x (removed after; image ships 5.16.1)."""
     try:
         from transformers.utils import LossKwargs  # noqa: F401
         return True
