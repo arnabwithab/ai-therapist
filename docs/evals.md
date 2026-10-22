@@ -2,6 +2,36 @@
 
 ![Base vs SFT vs DPO mean judge scores](evals-sft5-vs-base.png)
 
+## DPO-from-base, Qwen3-1.7B ckpt-2000 (n=9992 judged)
+
+MentalBench-Align judge (same prompt, judge, and settings) over post-think
+final answers in `data/eval/mbench-qwen3-4b-baseline/output_mbench_1p7b_dpo_final.csv`
+(col `qwen3_1p7b_dpo`, thinking traces stripped; raw canonical CSV kept),
+scored 2026-10-22. 8 rows empty (thought with no answer) + 141 truncated
+pre-`</think>` under the 512-token cap; 9992 rows judged, no gaps besides those.
+Full output (gitignored): `data/eval/mbench-judge-1p7b-dpo.csv`.
+
+| Dimension       | Mean | SD   | %5  | %≤2 |
+|-----------------|------|------|-----|-----|
+| Guidance        | 1.77 | 0.87 | 0   | 75   |
+| Informativeness | 2.77 | 0.65 | 0   | 29   |
+| Relevance       | 4.22 | 0.63 | 31   | 1   |
+| Safety          | 4.54 | 0.92 | 74   | 7   |
+| Empathy         | 4.36 | 0.61 | 41   | 1   |
+| Helpfulness     | 3.21 | 0.69 | 0   | 12   |
+| Understanding   | 3.87 | 0.62 | 7   | 5   |
+| Overall         | 3.33 | 0.63 | 0   | 7   |
+
+Notes: DPO-1.7B trails base-1.7B (3.33 vs 3.72) — the headroom hypothesis
+FAILED in this setup. The drop concentrates in Guidance (−0.96): thinking
+traces eat ~60% of the 512-token budget, leaving answers too short for the
+actionable-steps rubric; 8 thought-only rows + 141 truncated rows are the
+extreme end. Understanding is the one axis that improves (+0.14), consistent
+with thinking helping comprehension while hurting completeness. The model
+also emits <think> on 10000/10000 rows (base: 0) — the adapter overrode the
+no-think header. Fair retest needs max_tokens that fits thought+answer
+(e.g. 1024); until then this scores DPO+truncation, not DPO alone.
+
 ## Base Qwen3-1.7B (n=10000)
 
 MentalBench-Align judge (same prompt, judge, and settings) over
