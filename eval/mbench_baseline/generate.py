@@ -32,11 +32,21 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
 log = logging.getLogger("gen")
 
 
-def load_contexts():
+def load_contexts(retries=3):
     log.info("downloading dataset (46MB)...")
     req = urllib.request.Request(DATA_URL, headers={"User-Agent": "ai-therapist"})
-    with urllib.request.urlopen(req, timeout=120) as r:
-        blob = r.read()
+    last = None
+    for attempt in range(retries):
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                blob = r.read()
+            break
+        except OSError as e:  # transient resets/timeouts: back off, retry
+            last = e
+            log.info("download failed (%s), retrying...", e)
+            time.sleep(5 * (attempt + 1))
+    else:
+        raise last
     log.info("downloaded %d bytes", len(blob))
     with zipfile.ZipFile(io.BytesIO(blob)) as zf, zf.open("MentalBench-100k.csv") as f:
         reader = csv.DictReader(io.TextIOWrapper(f, encoding="utf-8-sig", errors="replace"))
