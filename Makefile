@@ -48,6 +48,7 @@ frontend: ## run the anse chat UI (set its Base URL to http://localhost:8001)
 	cd frontend/anse && npm ci --no-audit --no-fund && npm run dev
 
 MODEL_ID ?= Qwen/Qwen3-4B-Instruct-2507
+MAX_MODEL_LEN ?= 4096
 LORA_MODULES ?=
 EVAL_MODEL ?= $(MODEL_ID)
 EVAL_COL ?= response
@@ -59,7 +60,7 @@ HF_EVAL_REPO ?= arnabwithab/ai-therapist-mbench-rag
 
 model-server-24g: ## serve full-precision MODEL_ID on :8000 (24GB box; LORA_MODULES="name=path" optional)
 	uv sync --group serving --frozen
-	uv run --no-sync vllm serve $(MODEL_ID) --port 8000 --max-model-len 4096 --gpu-memory-utilization 0.9 --served-model-name $(MODEL_ID) $(if $(LORA_MODULES),--enable-lora --lora-modules $(LORA_MODULES))
+	uv run --no-sync vllm serve $(MODEL_ID) --port 8000 --max-model-len $(MAX_MODEL_LEN) --gpu-memory-utilization 0.9 --served-model-name $(MODEL_ID) $(if $(LORA_MODULES),--enable-lora --lora-modules $(LORA_MODULES))
 
 eval-rag: ## one OARS+RAG eval shard (EVAL_MODEL/SHARD/N_SHARDS/OUT/EVAL_COL/RAG_TOP_K/HF_EVAL_REPO; NO_RAG=1 = ablation, HF_EVAL_REPO= to disable push)
 	uv run python -m eval.mbench_rag.generate_rag --model $(EVAL_MODEL) --out $(OUT) --col $(EVAL_COL) --shard $(SHARD) --num-shards $(N_SHARDS) --rag-top-k $(RAG_TOP_K) --hf-repo $(HF_EVAL_REPO) $(if $(NO_RAG),--no-rag)
