@@ -11,12 +11,12 @@ output_mbench_sft5.csv as a dataset resumes a cap-killed run the same way
 """
 import csv, glob, io, logging, os, subprocess, sys, time, urllib.request, zipfile
 
-OUT = "/kaggle/working/output_mbench_1p7b_dpo.csv"
+OUT = "/kaggle/working/output_mbench_1p7b_dpo_1024.csv"
 MODEL_ID = "Qwen/Qwen3-1.7B"
 DATA_URL = "https://raw.githubusercontent.com/abeerbadawi/MentalBench-Align/main/MentalBench-100k/MentalBench-100k.zip"
 COL = "qwen3_1p7b_dpo"  # flags --col/--out/--model-id restore other runs
 BATCH = 8  # shortcut: fits T4-14.5GB with margin; raise to 16 only if a run logs VRAM headroom
-MAX_TOKENS = 512  # keep in lockstep with the 1,781 existing rows (temp 0.7 / top_p 0.8 too)
+MAX_TOKENS = 1024  # DPO-1.7B thinks (~1500 chars) before answering; 512 truncated 141 rows + starved Guidance
 
 PROMPT = (
     "You are a licensed psychiatrist responding to a user who has expressed mental health concerns.\n"
