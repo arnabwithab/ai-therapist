@@ -9,7 +9,7 @@
   "enable_tpu": false,
   "enable_internet": true,
   "machine_shape": "NvidiaTeslaT4",
-  "dataset_sources": ["eros438/ai-therapist-dpo-1p7b"],
+  "dataset_sources": ["eros438/ai-therapist-dpo-1p7b", "eros438/ai-therapist-dpo17-1024-partial"],
   "competition_sources": [],
   "kernel_sources": [],
   "model_sources": []
