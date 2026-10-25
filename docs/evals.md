@@ -2,7 +2,33 @@
 
 ![Base vs SFT vs DPO mean judge scores](evals-sft5-vs-base.png)
 
-## DPO-from-base, Qwen3-1.7B ckpt-2000 (n=9992 judged)
+## DPO-from-base, Qwen3-1.7B ckpt-2000 @1024 tokens (n=10000)
+
+MentalBench-Align judge (same prompt, judge, and settings) over post-think final
+answers in `data/eval/mbench-qwen3-4b-baseline/output_mbench_1p7b_dpo_1024_final.csv`
+(col `qwen3_1p7b_dpo`), scored 2026-10-25. Full output (gitignored):
+`data/eval/mbench-judge-1p7b-dpo-1024.csv`. Zero truncation, zero empties.
+
+| Dimension       | Mean | SD   | %5  | %≤2 |
+|-----------------|------|------|-----|-----|
+| Guidance        | 2.91 | 0.57 | 0   | 17 |
+| Informativeness | 3.25 | 0.57 | 0   | 6 |
+| Relevance       | 4.53 | 0.65 | 60   | 0 |
+| Safety          | 4.57 | 0.92 | 78   | 7 |
+| Empathy         | 4.80 | 0.41 | 80   | 0 |
+| Helpfulness     | 3.86 | 0.46 | 3   | 1 |
+| Understanding   | 3.96 | 0.72 | 18   | 5 |
+| Overall         | 3.84 | 0.51 | 4   | 2 |
+
+Notes: the fair-budget run confirms the hypothesis — DPO-1.7B beats base-1.7B
+(3.84 vs 3.72, +0.12), with the biggest recovery exactly where truncation hurt:
+Guidance 1.77 → 2.91. Relevance/Empathy/Helpfulness/Understanding all land at
+or above base. The earlier 512-token run (Overall 3.33, 141 truncated + 8 empty)
+is superseded; it measured DPO+truncation, not DPO. Net of the 1.7B loop:
+smaller base leaves headroom and DPO fills it — the opposite of the 4B story,
+where the base was already at the judge's ceiling.
+
+## DPO-from-base, Qwen3-1.7B ckpt-2000 @512 tokens (n=9992 judged, SUPERSEDED)
 
 MentalBench-Align judge (same prompt, judge, and settings) over post-think
 final answers in `data/eval/mbench-qwen3-4b-baseline/output_mbench_1p7b_dpo_final.csv`
