@@ -1,6 +1,6 @@
 # Evals
 
-![Base vs SFT vs DPO mean judge scores](evals-sft5-vs-base.png)
+![MentalBench-Align judge means: 4B (base/SFT/DPO) and 1.7B (base/DPO)](evals-judge-means.png)
 
 ## DPO-from-base, Qwen3-1.7B ckpt-2000 @1024 tokens (n=10000)
 
