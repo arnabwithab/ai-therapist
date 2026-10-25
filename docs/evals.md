@@ -2,6 +2,10 @@
 
 ![MentalBench-Align judge means: 4B (base/SFT/DPO) and 1.7B (base/DPO)](evals-judge-means.png)
 
+![Qwen3-4B per-dimension: base, SFT, DPO](evals-4b.png)
+
+![Qwen3-1.7B per-dimension: base vs DPO](evals-1p7b.png)
+
 ## DPO-from-base, Qwen3-1.7B ckpt-2000 @1024 tokens (n=10000)
 
 MentalBench-Align judge (same prompt, judge, and settings) over post-think final
