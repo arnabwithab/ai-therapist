@@ -107,3 +107,22 @@ def test_needs_old_transformers_only_for_phi():
     )
     assert G.needs_old_transformers("Qwen/Qwen3-1.7B") is False
     assert G.needs_old_transformers("Qwen/Qwen3-4B-Instruct-2507") is False
+
+
+def test_seeded_rows_finds_both_mount_layouts(tmp_path, monkeypatch):
+    import glob as globmod
+
+    nested = tmp_path / "datasets" / "owner" / "seed"
+    nested.mkdir(parents=True)
+    (nested / "output_a.csv").write_text("idx,context,qwen3_1p7b_dpo\n0,c0,r0\n", encoding="utf-8")
+    flat = tmp_path / "seed"
+    flat.mkdir()
+    (flat / "output_b.csv").write_text("idx,context,qwen3_1p7b_dpo\n1,c1,r1\n", encoding="utf-8")
+    real_glob = globmod.glob
+
+    def fake_glob(pattern, **kwargs):
+        return real_glob(pattern.replace("/kaggle/input", str(tmp_path)), **kwargs)
+
+    monkeypatch.setattr("eval.mbench_baseline.generate.glob.glob", fake_glob)
+    got = G.seeded_rows("qwen3_1p7b_dpo")
+    assert got == {0: ("c0", "r0"), 1: ("c1", "r1")}

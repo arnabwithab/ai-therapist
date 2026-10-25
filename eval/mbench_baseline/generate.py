@@ -79,11 +79,22 @@ def find_adapter(explicit=None, _roots=None):
 
 
 def seeded_rows(col=COL):
-    """Rows from attached datasets: the seed shards and any prior partial output (resume)."""
+    """Rows from attached datasets: the seed shards and any prior partial output (resume).
+
+    Kaggle mounts datasets either nested (/kaggle/input/datasets/<owner>/<slug>/)
+    or flat (/kaggle/input/<slug>/); the seed CSVs have been missed before by
+    globbing only one layout, so check both (dict keyed by idx absorbs dupes).
+    """
     out = {}
-    for p in sorted(glob.glob("/kaggle/input/datasets/*/*/output_*.csv")):
-        for idx, (c, t) in read_generated(p, col).items():
-            out[idx] = (c, t)
+    pats = [
+        "/kaggle/input/datasets/*/*/output_*.csv",
+        "/kaggle/input/*/output_*.csv",
+    ]
+    for pat in pats:
+        for p in sorted(glob.glob(pat)):
+            for idx, (c, t) in read_generated(p, col).items():
+                out[idx] = (c, t)
+    log.info("input datasets: %s", sorted(glob.glob("/kaggle/input/*")))
     return out
 
 
