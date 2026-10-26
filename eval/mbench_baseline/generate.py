@@ -15,7 +15,7 @@ OUT = "/kaggle/working/output_mbench_0p6b_dpo.csv"
 MODEL_ID = "Qwen/Qwen3-0.6B"
 DATA_URL = "https://raw.githubusercontent.com/abeerbadawi/MentalBench-Align/main/MentalBench-100k/MentalBench-100k.zip"
 COL = "qwen3_0p6b_dpo"  # flags --col/--out/--model-id restore other runs
-BATCH = 8  # shortcut: fits T4-14.5GB with margin; raise to 16 only if a run logs VRAM headroom
+BATCH = 16  # doubled from 8: 0.6B fits T4-14.5GB with margin even at 1024 tokens
 MAX_TOKENS = 1024  # DPO-1.7B thinks (~1500 chars) before answering; 512 truncated 141 rows + starved Guidance
 
 PROMPT = (
