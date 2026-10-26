@@ -665,11 +665,26 @@
      "name": "Thread-safe RAG lazy init (chromadb race found by eval smoke)",
      "status": "completed"
     },
-    {
-     "id": "F017-5",
-     "name": "Server runs: RAG pass + no-rag ablation + judge",
-     "status": "planned"
-    }
+     {
+      "id": "F017-5",
+      "name": "gen: qwen3-4b-base + OARS prompt + RAG top-5 (10k/10k)",
+      "status": "completed"
+     },
+     {
+      "id": "F017-6",
+      "name": "gen: qwen3-4b-base + OARS prompt + no-RAG ablation (10k/10k)",
+      "status": "completed"
+     },
+     {
+      "id": "F017-7",
+      "name": "judge: qwen3-4b-base + OARS prompt + RAG top-5",
+      "status": "planned"
+     },
+     {
+      "id": "F017-8",
+      "name": "judge: qwen3-4b-base + OARS prompt + no-RAG ablation",
+      "status": "planned"
+     }
    ],
    "notes": "Smoke-verified locally up to the model call (real Chroma retrieval + prompt build, ConnectError only \u2014 no vLLM here). Judge pushes scores per batch when --hf-repo is set. Caveat: OARS replies are 3-6 sentences vs base long paragraphs, so Informativeness/Helpfulness may dip on style alone.",
    "added": "2026-10-21",
