@@ -710,12 +710,12 @@
     {
      "id": "F017-7",
      "name": "judge: qwen3-4b-base + OARS prompt + RAG top-5",
-     "status": "in_progress"
+     "status": "completed"
     },
     {
      "id": "F017-8",
      "name": "judge: qwen3-4b-base + OARS prompt + no-RAG ablation",
-     "status": "planned"
+     "status": "completed"
     },
     {
      "id": "F017-9",
