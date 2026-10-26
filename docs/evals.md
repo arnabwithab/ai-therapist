@@ -14,7 +14,7 @@ Machine-readable version of this table: `eval_coverage` in `docs/features.json`.
 | Model    | Base | SFT | DPO | Base+OARS | Base+OARS+RAG | DPO+OARS | DPO+OARS+RAG |
 |----------|------|-----|-----|-----------|---------------|----------|--------------|
 | Qwen3-4B | ✓✓ | ✓✓ | ✓✓ | ✓ | ✓ |  |  |
-| Qwen3-1.7B | ✓✓ |  | ✓✓ |  |  |  |  |
+| Qwen3-1.7B | ✓✓ |  | ✓✓ |  |  | ✓✓ | ✓ |
 | Qwen3-0.6B | ✓✓ |  |  |  |  |  |  |
 
 DPO is the canonical run per model (1.7B = 1024-token rerun; the 512-token run
@@ -73,6 +73,55 @@ or above base. The earlier 512-token run (Overall 3.33, 141 truncated + 8 empty)
 is superseded; it measured DPO+truncation, not DPO. Net of the 1.7B loop:
 smaller base leaves headroom and DPO fills it — the opposite of the 4B story,
 where the base was already at the judge's ceiling.
+
+## DPO-1.7B + OARS, no RAG (n=10000)
+
+MentalBench-Align judge (same prompt, judge, and settings) over post-think final
+answers in `data/eval/mbench-1p7b-dpo-oars-final.csv` (col `dpo_oars`, vLLM-served
+DPO adapter via LoRA, OARS serving prompt, 1024 tokens), scored 2026-10-27.
+Full output (gitignored): `data/eval/mbench-judge-1p7b-dpo-oars.csv`.
+Zero truncation, zero empties.
+
+| Dimension       | Mean | SD   | %5  | %≤2 |
+|-----------------|------|------|-----|-----|
+| Guidance        | 1.53 | 0.64 | 0   | 92 |
+| Informativeness | 2.27 | 0.50 | 0   | 71 |
+| Relevance       | 4.16 | 0.83 | 40  | 4  |
+| Safety          | 4.52 | 0.98 | 77  | 9  |
+| Empathy         | 4.25 | 0.49 | 28  | 0  |
+| Helpfulness     | 3.11 | 0.58 | 0   | 12 |
+| Understanding   | 3.72 | 0.76 | 8   | 10 |
+| Overall         | 3.19 | 0.60 | 0   | 10 |
+
+Notes: Guidance collapse (1.53, 92% ≤2) is prompt-style × rubric mismatch, not
+model quality — OARS replies are 3–6 sentences by design and withhold advice
+unless asked, while the Guidance rubric demands specific actionable steps.
+Empathy (4.25) and Understanding (3.72) hold: the voice stays warm and
+attuned, just non-directive. Compare the RAG sibling when it lands — same
+voice, plus grounding.
+
+## DPO-1.7B regular-prompt vLLM regen (n=10000)
+
+MentalBench-Align judge (same prompt, judge, and settings) over post-think final
+answers in `data/eval/mbench-1p7b-dpo-regular-final.csv` (col `dpo_regular`,
+same DPO adapter served via vLLM LoRA instead of Kaggle HF-batched, paper
+preamble, 1024 tokens), scored 2026-10-27. Full output (gitignored):
+`data/eval/mbench-judge-1p7b-dpo-regular.csv`. Zero truncation, zero empties.
+
+| Dimension       | Mean | SD   | %5  | %≤2 |
+|-----------------|------|------|-----|-----|
+| Guidance        | 2.98 | 0.60 | 1   | 16 |
+| Informativeness | 3.35 | 0.60 | 1   | 6  |
+| Relevance       | 4.48 | 0.68 | 58  | 1  |
+| Safety          | 4.55 | 0.93 | 77  | 8  |
+| Empathy         | 4.81 | 0.40 | 82  | 0  |
+| Helpfulness     | 3.87 | 0.50 | 6   | 1  |
+| Understanding   | 3.94 | 0.74 | 19  | 6  |
+| Overall         | 3.86 | 0.55 | 6   | 2  |
+
+Notes: reproduces the canonical Kaggle number (3.86 vs 3.84, all-axis deltas
+≤0.10) — vLLM+LoRA serving is score-equivalent to HF-batched generation, so
+the OARS/RAG siblings measured on this stack are directly comparable.
 
 ## DPO-from-base, Qwen3-1.7B ckpt-2000 @512 tokens (n=9992 judged, SUPERSEDED)
 
