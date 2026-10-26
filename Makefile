@@ -57,6 +57,7 @@ RAG_TOP_K ?= 5
 RAG_CSV ?=
 RAG_JSONL ?=
 MAX_TOKENS ?= 512
+PROMPT ?= oars
 N_SHARDS ?= 1
 SHARD ?= 0
 OUT ?= data/eval/mbench-rag/output_rag.csv
@@ -66,8 +67,8 @@ model-server-24g: ## serve full-precision MODEL_ID on :8000 (24GB box; LORA_MODU
 	uv sync --group serving --frozen
 	uv run --no-sync vllm serve $(MODEL_ID) --port 8000 --max-model-len $(MAX_MODEL_LEN) --gpu-memory-utilization $(GPU_MEM_UTIL) --served-model-name $(MODEL_ID) $(if $(LORA_MODULES),--enable-lora --lora-modules $(LORA_MODULES))
 
-eval-rag: ## one OARS+RAG eval shard (EVAL_MODEL/SHARD/N_SHARDS/OUT/EVAL_COL/RAG_TOP_K/MAX_TOKENS/HF_EVAL_REPO; NO_RAG=1 = ablation, RAG_CSV/RAG_JSONL = precomputed, HF_EVAL_REPO= to disable push)
-	uv run python -m eval.mbench_rag.generate_rag --model $(EVAL_MODEL) --out $(OUT) --col $(EVAL_COL) --shard $(SHARD) --num-shards $(N_SHARDS) --rag-top-k $(RAG_TOP_K) --max-tokens $(MAX_TOKENS) --hf-repo $(HF_EVAL_REPO) $(if $(NO_RAG),--no-rag) $(if $(RAG_CSV),--rag-csv $(RAG_CSV)) $(if $(RAG_JSONL),--rag-jsonl $(RAG_JSONL))
+eval-rag: ## one OARS+RAG eval shard (EVAL_MODEL/SHARD/N_SHARDS/OUT/EVAL_COL/RAG_TOP_K/MAX_TOKENS/PROMPT/HF_EVAL_REPO; NO_RAG=1 = ablation, RAG_CSV/RAG_JSONL = precomputed, HF_EVAL_REPO= to disable push)
+	uv run python -m eval.mbench_rag.generate_rag --model $(EVAL_MODEL) --out $(OUT) --col $(EVAL_COL) --shard $(SHARD) --num-shards $(N_SHARDS) --rag-top-k $(RAG_TOP_K) --max-tokens $(MAX_TOKENS) --prompt $(PROMPT) --hf-repo $(HF_EVAL_REPO) $(if $(NO_RAG),--no-rag) $(if $(RAG_CSV),--rag-csv $(RAG_CSV)) $(if $(RAG_JSONL),--rag-jsonl $(RAG_JSONL))
 
 judge: ## score the baseline with muse-spark-1.3-contributor (needs OPENCODE_GO_KEY)
 	uv run python -m eval.mbench_baseline.judge --all

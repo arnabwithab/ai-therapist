@@ -27,6 +27,7 @@ def _ns(tmp_path, **kw):
         "rag_csv": "",
         "rag_jsonl": "",
         "rag_col": "rag_context",
+        "prompt": "oars",
     }
     base.update(kw)
     return argparse.Namespace(**base)
@@ -240,3 +241,31 @@ def test_run_shard_precomputed_missing_idx_fails_fast(monkeypatch, tmp_path):
         pass
     else:
         raise AssertionError("row without a precomputed block did not fail fast")
+
+
+def test_answer_one_regular_prompt_uses_paper_preamble(monkeypatch):
+    seen = {}
+
+    def fake_generate(client, messages, model, max_tokens):
+        seen["messages"] = messages
+        return "r"
+
+    def no_retrieve(*a, **k):
+        raise AssertionError("regular prompt must not retrieve")
+
+    monkeypatch.setattr(R, "retrieve", no_retrieve)
+    monkeypatch.setattr(R, "generate_one", fake_generate)
+    row = R.answer_one(object(), 0, "worry", "m", 1024, 5, False, prompt="regular")
+    assert len(seen["messages"]) == 1
+    assert seen["messages"][0]["role"] == "user"
+    assert "worry" in seen["messages"][0]["content"]
+    assert "psychiatrist" in seen["messages"][0]["content"]
+    assert row["sources"] == "[]"
+
+
+def test_answer_one_oars_default_unchanged(monkeypatch):
+    seen = {}
+    monkeypatch.setattr(R, "retrieve", lambda q, n=5: [])
+    monkeypatch.setattr(R, "generate_one", lambda c, m, *a, **k: seen.update(messages=m) or "r")
+    R.answer_one(object(), 0, "worry", "m", 512, 5, False)
+    assert seen["messages"][0]["role"] == "system"

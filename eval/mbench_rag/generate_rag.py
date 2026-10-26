@@ -26,6 +26,7 @@ import httpx
 
 from backend.core.chat import build_messages
 from eval.hf_push import push_file
+from eval.mbench_baseline.generate import PROMPT as REGULAR_PROMPT
 from eval.mbench_baseline.generate import completed, load_contexts
 from src.rag.query import retrieve
 
@@ -105,17 +106,21 @@ def generate_one(client, messages, model, max_tokens=MAX_TOKENS, retries=3):
 
 
 def answer_one(client, idx, context, model, max_tokens, rag_top_k, no_rag,
-               rag_block=None, rag_sources="[]"):
-    """One eval row: live retrieve, precomputed block, or empty (ablation)."""
-    turn = [{"role": "user", "content": context}]
-    if no_rag:
-        messages, sources = build_messages(turn, []), "[]"
-    elif rag_block is not None:
-        messages = build_messages(turn, []) + [{"role": "user", "content": rag_block}]
-        sources = rag_sources
+               rag_block=None, rag_sources="[]", prompt="oars"):
+    """One eval row: live retrieve, precomputed block, empty (ablation), or regular."""
+    if prompt == "regular":
+        messages = [{"role": "user", "content": REGULAR_PROMPT.format(user_concern=context)}]
+        sources = "[]"
     else:
-        passages = retrieve(context, n=rag_top_k)
-        messages, sources = build_messages(turn, passages), format_sources(passages)
+        turn = [{"role": "user", "content": context}]
+        if no_rag:
+            messages, sources = build_messages(turn, []), "[]"
+        elif rag_block is not None:
+            messages = build_messages(turn, []) + [{"role": "user", "content": rag_block}]
+            sources = rag_sources
+        else:
+            passages = retrieve(context, n=rag_top_k)
+            messages, sources = build_messages(turn, passages), format_sources(passages)
     text = generate_one(client, messages, model, max_tokens)
     return {"idx": idx, "context": context, "text": text, "sources": sources}
 
@@ -196,6 +201,7 @@ def run_shard(args):
                     args.no_rag,
                     rag_block=blocks.get(idx),
                     rag_sources=block_sources.get(idx, "[]"),
+                    prompt=args.prompt,
                 )
                 return {
                     "idx": idx,
@@ -229,6 +235,7 @@ def run_shard(args):
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default=os.getenv("AI_THERAPIST_MODEL", "ai-therapist-qwen3-4b"))
+    ap.add_argument("--prompt", choices=["oars", "regular"], default="oars")
     ap.add_argument("--vllm-url", default=os.getenv("VLLM_URL", "http://localhost:8000"))
     ap.add_argument("--col", default=COL)
     ap.add_argument("--out", default=OUT)
