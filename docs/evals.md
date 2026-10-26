@@ -11,16 +11,17 @@
 ✓ = generated, ✓✓ = generated + judged, blank = not done.
 Machine-readable version of this table: `eval_coverage` in `docs/features.json`.
 
-| Model    | Base | SFT | DPO | RAG |
-|----------|------|-----|-----|-----|
-| Qwen3-4B | ✓✓ | ✓✓ | ✓✓ | ✓ |
-| Qwen3-1.7B | ✓✓ |  | ✓✓ |  |
-| Qwen3-0.6B | ✓✓ |  |  |  |
+| Model    | Base | SFT | DPO | Base+OARS | Base+OARS+RAG | DPO+OARS | DPO+OARS+RAG |
+|----------|------|-----|-----|-----------|---------------|----------|--------------|
+| Qwen3-4B | ✓✓ | ✓✓ | ✓✓ | ✓ | ✓ |  |  |
+| Qwen3-1.7B | ✓✓ |  | ✓✓ |  |  |  |  |
+| Qwen3-0.6B | ✓✓ |  |  |  |  |  |  |
 
 DPO is the canonical run per model (1.7B = 1024-token rerun; the 512-token run
-was truncated and is superseded). RAG = OARS + retrieved context generated,
-judging still to come; regular-prompt + RAG is the missing cell (tracked as
-F017-9 in `docs/features.json`).
+was truncated and is superseded). Base/SFT/DPO use the regular paper preamble;
++OARS variants use the serving voice prompt instead. RAG runs attach the
+precomputed serving-identical blocks. The missing combination is
+regular-prompt + RAG (tracked as F017-9 in `docs/features.json`).
 
 ## Base Qwen3-0.6B (n=10000)
 

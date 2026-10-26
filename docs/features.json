@@ -21,7 +21,10 @@
    "base",
    "sft",
    "dpo",
-   "rag"
+   "base_oars",
+   "base_oars_rag",
+   "dpo_oars",
+   "dpo_oars_rag"
   ],
   "rows": [
    {
@@ -29,24 +32,33 @@
     "base": "\u2713\u2713",
     "sft": "\u2713\u2713",
     "dpo": "\u2713\u2713",
-    "rag": "\u2713"
+    "base_oars": "\u2713",
+    "base_oars_rag": "\u2713",
+    "dpo_oars": "",
+    "dpo_oars_rag": ""
    },
    {
     "model": "Qwen3-1.7B",
     "base": "\u2713\u2713",
     "sft": "",
     "dpo": "\u2713\u2713",
-    "rag": ""
+    "base_oars": "",
+    "base_oars_rag": "",
+    "dpo_oars": "",
+    "dpo_oars_rag": ""
    },
    {
     "model": "Qwen3-0.6B",
     "base": "\u2713\u2713",
     "sft": "",
     "dpo": "",
-    "rag": ""
+    "base_oars": "",
+    "base_oars_rag": "",
+    "dpo_oars": "",
+    "dpo_oars_rag": ""
    }
   ],
-  "notes": "DPO column is the canonical run (1.7B = 1024-token rerun; 512 run superseded). RAG column = OARS+RAG generation done, judging planned (F017-7/8); regular+RAG is the missing cell (F017-9)."
+  "notes": "DPO column is the canonical run per model (1.7B = 1024-token rerun; 512 run superseded). +OARS columns use the serving voice prompt; RAG columns attach precomputed serving-identical blocks. Regular-prompt + RAG is the missing cell (F017-9)."
  },
  "features": [
   {
