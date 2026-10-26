@@ -1,6 +1,6 @@
 {
-  "id": "eros438/ai-therapist-qwen3-0p6b-mbench-base",
-  "title": "ai-therapist-qwen3-0p6b-mbench-base",
+  "id": "eros438/ai-therapist-qwen3-0p6b-mbench-dpo",
+  "title": "ai-therapist-qwen3-0p6b-mbench-dpo",
   "code_file": "generate.py",
   "language": "python",
   "kernel_type": "script",
@@ -9,7 +9,7 @@
   "enable_tpu": false,
   "enable_internet": true,
   "machine_shape": "NvidiaTeslaT4",
-  "dataset_sources": [],
+  "dataset_sources": ["eros438/ai-therapist-dpo-0p6b"],
   "competition_sources": [],
   "kernel_sources": [],
   "model_sources": []

@@ -1,4 +1,4 @@
-"""Generate Qwen3-0.6B baseline responses for all 10,000 MentalBench-100k rows.
+"""Generate DPO-0.6B responses for all 10,000 MentalBench-100k rows.
 
 Base model + LoRA adapter (auto-discovered from attached datasets) via plain HF
 batched generation (vLLM abandoned: v1/v2 died on torch-cu130 vs torchaudio-cu128,
@@ -11,10 +11,10 @@ output_mbench_sft5.csv as a dataset resumes a cap-killed run the same way
 """
 import csv, glob, io, logging, os, subprocess, sys, time, urllib.request, zipfile
 
-OUT = "/kaggle/working/output_mbench_0p6b.csv"
+OUT = "/kaggle/working/output_mbench_0p6b_dpo.csv"
 MODEL_ID = "Qwen/Qwen3-0.6B"
 DATA_URL = "https://raw.githubusercontent.com/abeerbadawi/MentalBench-Align/main/MentalBench-100k/MentalBench-100k.zip"
-COL = "qwen3_0p6b_base"  # flags --col/--out/--model-id restore other runs
+COL = "qwen3_0p6b_dpo"  # flags --col/--out/--model-id restore other runs
 BATCH = 8  # shortcut: fits T4-14.5GB with margin; raise to 16 only if a run logs VRAM headroom
 MAX_TOKENS = 1024  # DPO-1.7B thinks (~1500 chars) before answering; 512 truncated 141 rows + starved Guidance
 
