@@ -746,6 +746,11 @@
      "id": "F017-14",
      "name": "judge: qwen3-1p7b-dpo + OARS prompt + RAG top-5",
      "status": "planned"
+    },
+    {
+     "id": "F017-15",
+     "name": "gen: qwen3-1p7b-dpo + regular prompt, no-RAG (10k)",
+     "status": "in_progress"
     }
    ],
    "notes": "Smoke-verified locally up to the model call (real Chroma retrieval + prompt build, ConnectError only \u2014 no vLLM here). Judge pushes scores per batch when --hf-repo is set. Caveat: OARS replies are 3-6 sentences vs base long paragraphs, so Informativeness/Helpfulness may dip on style alone. Coverage matrix: see eval_coverage table (missing cell: regular-prompt+RAG, F017-9). Note: generate_rag.py hardcodes the OARS path via build_messages, so the regular cell needs a prompt-style switch (or a standalone run reusing mbench-rag-judge.csv passages with the paper preamble).",
