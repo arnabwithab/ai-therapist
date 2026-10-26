@@ -6,6 +6,22 @@
 
 ![Qwen3-1.7B per-dimension: base vs DPO](evals-1p7b.png)
 
+## Coverage: what has been generated and judged
+
+✓ = generated, ✓✓ = generated + judged, blank = not done.
+Machine-readable version of this table: `eval_coverage` in `docs/features.json`.
+
+| Model    | Base | SFT | DPO | RAG |
+|----------|------|-----|-----|-----|
+| Qwen3-4B | ✓✓ | ✓✓ | ✓✓ | ✓ |
+| Qwen3-1.7B | ✓✓ |  | ✓✓ |  |
+| Qwen3-0.6B | ✓✓ |  |  |  |
+
+DPO is the canonical run per model (1.7B = 1024-token rerun; the 512-token run
+was truncated and is superseded). RAG = OARS + retrieved context generated,
+judging still to come; regular-prompt + RAG is the missing cell (tracked as
+F017-9 in `docs/features.json`).
+
 ## Base Qwen3-0.6B (n=10000)
 
 MentalBench-Align judge (same prompt, judge, and settings) over
