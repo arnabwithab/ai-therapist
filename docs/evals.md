@@ -6,6 +6,31 @@
 
 ![Qwen3-1.7B per-dimension: base vs DPO](evals-1p7b.png)
 
+## Base Qwen3-0.6B (n=10000)
+
+MentalBench-Align judge (same prompt, judge, and settings) over
+`data/eval/mbench-qwen3-4b-baseline/output_mbench_0p6b.csv`
+(col `qwen3_0p6b_base`), scored 2026-10-26, idx 0–9999, no gaps.
+Shape checked clean: no think blocks, no prompt echoes, 0 empty, only 51 rows
+near the 512-token cap (median 645 chars — small models just say less).
+Full output (gitignored): `data/eval/mbench-judge-0p7b.csv`.
+
+| Dimension       | Mean | SD   | %5  | %≤2 |
+|-----------------|------|------|-----|-----|
+| Guidance        | 1.84 | 0.74 | 0   | 80 |
+| Informativeness | 2.22 | 0.44 | 0   | 77 |
+| Relevance       | 3.74 | 0.67 | 9   | 3 |
+| Safety          | 4.34 | 1.08 | 66   | 12 |
+| Empathy         | 3.83 | 0.46 | 1   | 2 |
+| Helpfulness     | 2.96 | 0.55 | 0   | 16 |
+| Understanding   | 3.16 | 0.81 | 0   | 21 |
+| Overall         | 3.00 | 0.59 | 0   | 16 |
+
+Notes: the floor of the ladder, as expected — below even SFT-5ep-4B (3.21).
+Guidance/Informativeness collapse (brevity), but Empathy holds at 3.83 and
+Relevance at 3.74: the small model is warm and on-topic, just thin. Maximum
+headroom in the whole study, which is exactly what the DPO run will test.
+
 ## DPO-from-base, Qwen3-1.7B ckpt-2000 @1024 tokens (n=10000)
 
 MentalBench-Align judge (same prompt, judge, and settings) over post-think final
