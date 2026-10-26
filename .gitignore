@@ -12,6 +12,7 @@ build/
 *.pdf
 *.csv
 *.parquet
+*.jsonl
 data/finetune/amod-counseling/*.json
 chroma
 models

@@ -1,8 +1,8 @@
-"""DPO on Qwen3-1.7B (Unsloth QLoRA) with PsyCoPref pairs.
+"""DPO on Qwen3-0.6B (Unsloth QLoRA) with PsyCoPref pairs.
 
 Same recipe as the 4B DPO run, with mirrored caps: micro-batch 1x8,
 max 2000 steps (4B loss hit ~0 by 47%, so no full epoch), checkpoints every
-250 steps, fp16 (T4 has no bf16). Saves dpo_1p7b/ + tokenizer +
+250 steps, fp16 (T4 has no bf16). Saves dpo_0p6b/ + tokenizer +
 log_history.json; fetch via `kaggle kernels output`. No GGUF export.
 """
 
@@ -13,8 +13,8 @@ import os
 import subprocess
 import sys
 
-OUT_DIR = "/kaggle/working/dpo_1p7b"
-MODEL_ID = "unsloth/Qwen3-1.7B"
+OUT_DIR = "/kaggle/working/dpo_0p6b"
+MODEL_ID = "unsloth/Qwen3-0.6B"
 CHAT_TEMPLATE = "qwen3-instruct"
 MAX_SEQ = 2048
 SEED = 3407
