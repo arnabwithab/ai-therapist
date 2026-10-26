@@ -320,10 +320,10 @@
     {
      "id": "F009-4",
      "name": "Precomputed RAG judge dataset (serving-identical blocks)",
-     "status": "in_progress"
+     "status": "completed"
     }
    ],
-   "notes": "Caveat: LLM judges inflate affective scores by +0.4\u20130.8 and are weakest on Safety/Relevance. F009-4 (2026-10-26, in progress): eval/mbench_rag/fetch_contexts.py precomputes top-5 passages per row + serving-identical rag_context block into data/eval/mbench-rag-judge.csv; covered by tests/test_eval/test_fetch_contexts.py (4 tests incl. byte-identical check vs backend._retrieved_message). Reviewed by greptile-reviewer (5 findings, all fixed): top-k now forwarded, emit_csv refuses incomplete runs, resume checks meta, format single-sourced from serving.",
+   "notes": "Caveat: LLM judges inflate affective scores by +0.4\u20130.8 and are weakest on Safety/Relevance. F009-4 (2026-10-26, in progress): eval/mbench_rag/fetch_contexts.py precomputes top-5 passages per row + serving-identical rag_context block into data/eval/mbench-rag-judge.csv; covered by tests/test_eval/test_fetch_contexts.py (4 tests incl. byte-identical check vs backend._retrieved_message). Reviewed by greptile-reviewer (5 findings, all fixed): top-k now forwarded, emit_csv refuses incomplete runs, resume checks meta, format single-sourced from serving. F009-4 done 2026-10-26: 10k rows fetched in ~8 min locally, meta recorded (bge-small-en-v1.5, 2526 chunks, top_k 5); CSV verified 10k rows, serving-identical blocks. Evals can now run with zero RAG infra.",
    "added": "2026-10-14",
    "completed": null
   },
