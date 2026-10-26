@@ -1,4 +1,4 @@
-.PHONY: init setup test style check ci ingest serve model-server model-server-24g eval-rag frontend judge judge-eval clean
+.PHONY: init setup test style check ci ingest serve model-server model-server-24g eval-rag frontend judge judge-eval fetch-rag-contexts clean
 
 init: ## check system prereqs (Ubuntu only) and install what's missing: python3.11+, uv
 	grep -qi ubuntu /etc/os-release || (echo "make init supports Ubuntu only" && exit 1)
@@ -71,6 +71,9 @@ judge: ## score the baseline with muse-spark-1.3-contributor (needs OPENCODE_GO_
 judge-eval: ## judge any eval CSV with the same rubric (BASELINE=.. RESP_COL=.. OUT=..)
 	test -n "$(BASELINE)$(RESP_COL)$(OUT)" || (echo "set BASELINE=.. RESP_COL=.. OUT=.." && exit 1)
 	uv run python -m eval.mbench_baseline.judge --baseline $(BASELINE) --resp-col $(RESP_COL) --out $(OUT) --all --hf-repo $(HF_EVAL_REPO)
+
+fetch-rag-contexts: ## precompute serving-identical RAG blocks for all 10k mbench contexts (TOP_K=.., default 5)
+	uv run python -m eval.mbench_rag.fetch_contexts $(if $(TOP_K),--top-k $(TOP_K))
 
 clean: ## remove build artifacts, caches, chroma index
 	rm -rf __pycache__ .pytest_cache .ruff_cache chroma/

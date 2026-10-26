@@ -6,7 +6,7 @@
   "completed": 13,
   "in_progress": 1,
   "planned": 3,
-  "tests_passing": 72,
+  "tests_passing": 77,
   "tests_failing": 0,
   "tests_missing": 8
  },
@@ -316,9 +316,14 @@
      "id": "F009-3",
      "name": "Human spot-check protocol",
      "status": "planned"
+    },
+    {
+     "id": "F009-4",
+     "name": "Precomputed RAG judge dataset (serving-identical blocks)",
+     "status": "in_progress"
     }
    ],
-   "notes": "Caveat: LLM judges inflate affective scores by +0.4\u20130.8 and are weakest on Safety/Relevance.",
+   "notes": "Caveat: LLM judges inflate affective scores by +0.4\u20130.8 and are weakest on Safety/Relevance. F009-4 (2026-10-26, in progress): eval/mbench_rag/fetch_contexts.py precomputes top-5 passages per row + serving-identical rag_context block into data/eval/mbench-rag-judge.csv; covered by tests/test_eval/test_fetch_contexts.py (4 tests incl. byte-identical check vs backend._retrieved_message).",
    "added": "2026-10-14",
    "completed": null
   },
