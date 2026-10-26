@@ -24,6 +24,9 @@ def _ns(tmp_path, **kw):
         "limit": 0,
         "push_every": 250,
         "hf_repo": "",
+        "rag_csv": "",
+        "rag_jsonl": "",
+        "rag_col": "rag_context",
     }
     base.update(kw)
     return argparse.Namespace(**base)
@@ -165,3 +168,75 @@ def test_run_shard_resumes_and_merges(monkeypatch, tmp_path):
     with open(out, newline="", encoding="utf-8") as f:
         merged = {r["idx"]: r["response"] for r in csv.DictReader(f)}
     assert merged == {"0": "old", "2": "new2"}
+
+
+def _rag_csv(tmp_path, rows):
+    p = str(tmp_path / "rag.csv")
+    with open(p, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=["idx", "context", "rag_context"])
+        w.writeheader()
+        w.writerows(rows)
+    return p
+
+
+def test_load_precomputed_maps_idx_to_block(tmp_path):
+    p = _rag_csv(tmp_path, [{"idx": "3", "context": "c", "rag_context": "BLOCK"}])
+    assert R.load_precomputed(p) == {3: "BLOCK"}
+
+
+def test_load_precomputed_missing_file_fails_fast(tmp_path):
+    try:
+        R.load_precomputed(str(tmp_path / "nope.csv"))
+    except SystemExit:
+        pass
+    else:  # shortcut: fail loudly instead of generating 10k rows block-less
+        raise AssertionError("missing rag csv did not fail fast")
+
+
+def test_load_precomputed_sources_formats_passages(tmp_path):
+    p = str(tmp_path / "r.jsonl")
+    with open(p, "w", encoding="utf-8") as f:
+        f.write(
+            json.dumps(
+                {
+                    "idx": 7,
+                    "passages": [{"text": "t", "source": "s", "chapter": "c", "score": 0.5}],
+                }
+            )
+            + "\n"
+        )
+    assert json.loads(R.load_precomputed_sources(p)[7]) == [
+        {"source": "s", "chapter": "c", "score": 0.5}
+    ]
+
+
+def test_answer_one_precomputed_appends_block_verbatim(monkeypatch):
+    seen = {}
+
+    def fake_generate(client, messages, model, max_tokens):
+        seen["messages"] = messages
+        return "r"
+
+    def no_retrieve(*a, **k):
+        raise AssertionError("live retrieval must not run in precomputed mode")
+
+    monkeypatch.setattr(R, "retrieve", no_retrieve)
+    monkeypatch.setattr(R, "generate_one", fake_generate)
+    row = R.answer_one(
+        object(), 0, "worry", "m", 1024, 5, False, rag_block="BLOCK", rag_sources="[s]"
+    )
+    assert seen["messages"][-1] == {"role": "user", "content": "BLOCK"}
+    assert seen["messages"][0]["role"] == "system"  # same OARS prompt as live mode
+    assert (row["text"], row["sources"]) == ("r", "[s]")
+
+
+def test_run_shard_precomputed_missing_idx_fails_fast(monkeypatch, tmp_path):
+    p = _rag_csv(tmp_path, [{"idx": "0", "context": "c0", "rag_context": "B"}])
+    monkeypatch.setattr(R, "load_contexts", lambda: [(0, "c0"), (1, "c1")])
+    monkeypatch.setattr(R, "answer_one", lambda *a, **k: {"text": "x", "sources": "[]"})
+    try:
+        R.run_shard(_ns(tmp_path, rag_csv=p))
+    except SystemExit:
+        pass
+    else:
+        raise AssertionError("row without a precomputed block did not fail fast")

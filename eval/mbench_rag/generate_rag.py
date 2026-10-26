@@ -57,6 +57,27 @@ def format_sources(passages):
     )
 
 
+def load_precomputed(path, col="rag_context"):
+    """Precomputed serving-identical RAG blocks as {idx: block}. Fails fast."""
+    if not os.path.exists(path):
+        raise SystemExit(f"missing precomputed RAG csv: {path}")
+    with open(path, newline="", encoding="utf-8") as f:
+        return {int(r["idx"]): r[col] for r in csv.DictReader(f) if r.get("idx", "").isdigit()}
+
+
+def load_precomputed_sources(path):
+    """Per-row sources from the fetch jsonl (same shape as live retrieve)."""
+    if not os.path.exists(path):
+        raise SystemExit(f"missing precomputed RAG jsonl: {path}")
+    out = {}
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            if line.strip():
+                r = json.loads(line)
+                out[int(r["idx"])] = format_sources(r["passages"])
+    return out
+
+
 def request_body(messages, model, max_tokens=MAX_TOKENS):
     return {
         "model": model,
@@ -83,12 +104,20 @@ def generate_one(client, messages, model, max_tokens=MAX_TOKENS, retries=3):
     raise last
 
 
-def answer_one(client, idx, context, model, max_tokens, rag_top_k, no_rag):
-    """One eval row: retrieve (unless ablated), build the serving prompt, generate."""
-    passages = [] if no_rag else retrieve(context, n=rag_top_k)
-    messages = build_messages([{"role": "user", "content": context}], passages)
+def answer_one(client, idx, context, model, max_tokens, rag_top_k, no_rag,
+               rag_block=None, rag_sources="[]"):
+    """One eval row: live retrieve, precomputed block, or empty (ablation)."""
+    turn = [{"role": "user", "content": context}]
+    if no_rag:
+        messages, sources = build_messages(turn, []), "[]"
+    elif rag_block is not None:
+        messages = build_messages(turn, []) + [{"role": "user", "content": rag_block}]
+        sources = rag_sources
+    else:
+        passages = retrieve(context, n=rag_top_k)
+        messages, sources = build_messages(turn, passages), format_sources(passages)
     text = generate_one(client, messages, model, max_tokens)
-    return {"idx": idx, "context": context, "text": text, "sources": format_sources(passages)}
+    return {"idx": idx, "context": context, "text": text, "sources": sources}
 
 
 def merge_parts(out_path, col, num_shards):
@@ -126,6 +155,14 @@ def run_shard(args):
     part = part_path(args.out, args.shard)
     done = completed(part, args.col) | completed(args.out, args.col)
     todo = [(i, c) for i, c in mine if i not in done]
+    blocks, block_sources = {}, {}
+    if args.rag_csv:
+        blocks = load_precomputed(args.rag_csv, args.rag_col)
+        if args.rag_jsonl:
+            block_sources = load_precomputed_sources(args.rag_jsonl)
+        missing = [i for i, _ in todo if i not in blocks]
+        if missing:
+            raise SystemExit(f"{len(missing)} todo rows lack a precomputed block (e.g. {missing[:5]})")
     log.info(
         "shard %d/%d: todo=%d already_done=%d",
         args.shard,
@@ -157,6 +194,8 @@ def run_shard(args):
                     args.max_tokens,
                     args.rag_top_k,
                     args.no_rag,
+                    rag_block=blocks.get(idx),
+                    rag_sources=block_sources.get(idx, "[]"),
                 )
                 return {
                     "idx": idx,
@@ -197,6 +236,9 @@ def main(argv=None):
     ap.add_argument("--num-shards", type=int, default=1)
     ap.add_argument("--rag-top-k", type=int, default=int(os.getenv("RAG_TOP_K", "5")))
     ap.add_argument("--no-rag", action="store_true", help="same OARS prompt, empty retrieval")
+    ap.add_argument("--rag-csv", default="", help="precomputed rag_context CSV (skips live retrieval)")
+    ap.add_argument("--rag-jsonl", default="", help="fetch jsonl for the sources column (optional)")
+    ap.add_argument("--rag-col", default="rag_context")
     ap.add_argument("--max-tokens", type=int, default=MAX_TOKENS)
     ap.add_argument("--workers", type=int, default=WORKERS)
     ap.add_argument("--limit", type=int, default=0, help="smoke-test first N rows")

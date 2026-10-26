@@ -49,10 +49,14 @@ frontend: ## run the anse chat UI (set its Base URL to http://localhost:8001)
 
 MODEL_ID ?= Qwen/Qwen3-4B-Instruct-2507
 MAX_MODEL_LEN ?= 4096
+GPU_MEM_UTIL ?= 0.9
 LORA_MODULES ?=
 EVAL_MODEL ?= $(MODEL_ID)
 EVAL_COL ?= response
 RAG_TOP_K ?= 5
+RAG_CSV ?=
+RAG_JSONL ?=
+MAX_TOKENS ?= 512
 N_SHARDS ?= 1
 SHARD ?= 0
 OUT ?= data/eval/mbench-rag/output_rag.csv
@@ -60,10 +64,10 @@ HF_EVAL_REPO ?= arnabwithab/ai-therapist-mbench-rag
 
 model-server-24g: ## serve full-precision MODEL_ID on :8000 (24GB box; LORA_MODULES="name=path" optional)
 	uv sync --group serving --frozen
-	uv run --no-sync vllm serve $(MODEL_ID) --port 8000 --max-model-len $(MAX_MODEL_LEN) --gpu-memory-utilization 0.9 --served-model-name $(MODEL_ID) $(if $(LORA_MODULES),--enable-lora --lora-modules $(LORA_MODULES))
+	uv run --no-sync vllm serve $(MODEL_ID) --port 8000 --max-model-len $(MAX_MODEL_LEN) --gpu-memory-utilization $(GPU_MEM_UTIL) --served-model-name $(MODEL_ID) $(if $(LORA_MODULES),--enable-lora --lora-modules $(LORA_MODULES))
 
-eval-rag: ## one OARS+RAG eval shard (EVAL_MODEL/SHARD/N_SHARDS/OUT/EVAL_COL/RAG_TOP_K/HF_EVAL_REPO; NO_RAG=1 = ablation, HF_EVAL_REPO= to disable push)
-	uv run python -m eval.mbench_rag.generate_rag --model $(EVAL_MODEL) --out $(OUT) --col $(EVAL_COL) --shard $(SHARD) --num-shards $(N_SHARDS) --rag-top-k $(RAG_TOP_K) --hf-repo $(HF_EVAL_REPO) $(if $(NO_RAG),--no-rag)
+eval-rag: ## one OARS+RAG eval shard (EVAL_MODEL/SHARD/N_SHARDS/OUT/EVAL_COL/RAG_TOP_K/MAX_TOKENS/HF_EVAL_REPO; NO_RAG=1 = ablation, RAG_CSV/RAG_JSONL = precomputed, HF_EVAL_REPO= to disable push)
+	uv run python -m eval.mbench_rag.generate_rag --model $(EVAL_MODEL) --out $(OUT) --col $(EVAL_COL) --shard $(SHARD) --num-shards $(N_SHARDS) --rag-top-k $(RAG_TOP_K) --max-tokens $(MAX_TOKENS) --hf-repo $(HF_EVAL_REPO) $(if $(NO_RAG),--no-rag) $(if $(RAG_CSV),--rag-csv $(RAG_CSV)) $(if $(RAG_JSONL),--rag-jsonl $(RAG_JSONL))
 
 judge: ## score the baseline with muse-spark-1.3-contributor (needs OPENCODE_GO_KEY)
 	uv run python -m eval.mbench_baseline.judge --all
