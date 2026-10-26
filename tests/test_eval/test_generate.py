@@ -126,3 +126,8 @@ def test_seeded_rows_finds_both_mount_layouts(tmp_path, monkeypatch):
     monkeypatch.setattr("eval.mbench_baseline.generate.glob.glob", fake_glob)
     got = G.seeded_rows("qwen3_1p7b_dpo")
     assert got == {0: ("c0", "r0"), 1: ("c1", "r1")}
+
+
+def test_model_ids_route_to_qwen_template():
+    assert G.chat_kwargs("Qwen/Qwen3-0.6B") == {"enable_thinking": False}
+    assert G.needs_old_transformers("Qwen/Qwen3-0.6B") is False
