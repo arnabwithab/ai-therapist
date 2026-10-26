@@ -677,8 +677,30 @@
     },
     {
      "id": "F017-9",
-     "name": "Regular prompt + RAG run (gen + judge, missing matrix cell)",
-     "status": "planned"
+     "name": "Prompt x RAG matrix: run + judge every combination (see matrix)",
+     "status": "planned",
+     "matrix": [
+      {
+       "pair": "regular prompt + no RAG",
+       "status": "completed",
+       "note": "F010 baseline output_mbench.csv, judged (mbench-judge-500.csv)"
+      },
+      {
+       "pair": "regular prompt + RAG top-5",
+       "status": "planned",
+       "note": "MISSING CELL: needs prompt-style switch in generate_rag.py (hardcodes OARS via build_messages) or standalone run over mbench-rag-judge.csv passages with paper preamble"
+      },
+      {
+       "pair": "OARS + RAG top-5",
+       "status": "in_progress",
+       "note": "generated 10k/10k (F017-5); judging planned (F017-7)"
+      },
+      {
+       "pair": "OARS + no RAG",
+       "status": "in_progress",
+       "note": "generated 10k/10k ablation (F017-6); judging planned (F017-8)"
+      }
+     ]
     }
    ],
    "notes": "Smoke-verified locally up to the model call (real Chroma retrieval + prompt build, ConnectError only \u2014 no vLLM here). Judge pushes scores per batch when --hf-repo is set. Caveat: OARS replies are 3-6 sentences vs base long paragraphs, so Informativeness/Helpfulness may dip on style alone. Matrix (qwen3-4b-base): regular+noRAG done+judged (F010 baseline); OARS+RAG generated (F017-5), OARS+noRAG generated (F017-6), judge of both planned (F017-7/8). Missing: regular-prompt+RAG gen+judge (new F017-9). Note: generate_rag.py hardcodes the OARS path via build_messages, so the regular cell needs a prompt-style switch (or a standalone run reusing mbench-rag-judge.csv passages with the paper preamble).",
