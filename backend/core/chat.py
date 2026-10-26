@@ -124,9 +124,14 @@ class ModelError(Exception):
     """The model server failed or timed out."""
 
 
+def format_passages(passages):
+    """Passage block in serving format. Single source of truth — evals import this."""
+    return "\n\n".join(f"[{p['source']} — {p['chapter']}]\n{p['text']}" for p in passages)
+
+
 def _retrieved_message(passages):
     """Retrieved passages as a trailing block, exactly as the prompt promises."""
-    body = "\n\n".join(f"[{p['source']} — {p['chapter']}]\n{p['text']}" for p in passages)
+    body = format_passages(passages)
     return {
         "role": "user",
         "content": (

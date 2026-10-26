@@ -17,6 +17,7 @@ import logging
 import os
 
 from backend.core.chat import RAG_TOP_K
+from backend.core.chat import format_passages as build_rag_block
 from src.rag import config as rag_config
 from src.rag.query import retrieve
 
@@ -27,9 +28,30 @@ OUT_CSV = "data/eval/mbench-rag-judge.csv"
 log = logging.getLogger("fetch-contexts")
 
 
-def build_rag_block(passages):
-    """Serving-identical passage block (cf. backend.core.chat._retrieved_message)."""
-    return "\n\n".join(f"[{p['source']} — {p['chapter']}]\n{p['text']}" for p in passages)
+# build_rag_block is backend.core.chat.format_passages (single source of truth,
+# imported at module top). The wire format is pinned by test_exact_block_format.
+
+
+def check_resume_meta(meta, top_k, embed_model, collection_count):
+    """Refuse to append rows fetched under different settings (silent mix otherwise)."""
+    problems = []
+    if meta.get("top_k") != top_k:
+        problems.append(f"top_k {meta.get('top_k')} != {top_k}")
+    if meta.get("embed_model") != embed_model:
+        problems.append(f"embed_model {meta.get('embed_model')} != {embed_model}")
+    if meta.get("collection_count") != collection_count:
+        problems.append(f"collection_count {meta.get('collection_count')} != {collection_count}")
+    if problems:
+        raise SystemExit(
+            "refusing resume: " + "; ".join(problems) + " (delete the jsonl + meta to start over)"
+        )
+
+
+def _read_meta(path):
+    if not os.path.exists(path):
+        return None
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
 
 
 def append_record(path, idx, passages):
@@ -71,15 +93,18 @@ def fetch_all(rows, out_path, retrieve_fn=retrieve, top_k=RAG_TOP_K):
     return fresh
 
 
-def write_meta(jsonl_path, top_k):
+def collection_count():
     import chromadb
 
     client = chromadb.PersistentClient(path=rag_config.CHROMA_DIR)
-    count = client.get_collection(rag_config.COLLECTION).count()
+    return client.get_collection(rag_config.COLLECTION).count()
+
+
+def write_meta(jsonl_path, top_k):
     meta = {
         "embed_model": rag_config.EMBED_MODEL,
         "collection": rag_config.COLLECTION,
-        "collection_count": count,
+        "collection_count": collection_count(),
         "top_k": top_k,
     }
     with open(jsonl_path + ".meta.json", "w", encoding="utf-8") as f:
@@ -92,16 +117,20 @@ def emit_csv(jsonl_path, csv_path, baseline_path=BASELINE):
     contexts = dict(load_contexts(baseline_path))
     with open(jsonl_path, encoding="utf-8") as f:
         records = [json.loads(line) for line in f if line.strip()]
+    if len(records) != len(contexts):
+        missing = sorted(set(contexts) - {r["idx"] for r in records})[:5]
+        raise SystemExit(
+            f"refusing to emit: {len(records)}/{len(contexts)} rows (e.g. missing {missing}) — fetch is incomplete"
+        )
     with open(csv_path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=["idx", "context", "rag_context"])
         w.writeheader()
         for r in sorted(records, key=lambda r: r["idx"]):
+            ctx = contexts.get(r["idx"])
+            if ctx is None:
+                raise SystemExit(f"jsonl idx {r['idx']} not in baseline {baseline_path}")
             w.writerow(
-                {
-                    "idx": r["idx"],
-                    "context": contexts[r["idx"]],
-                    "rag_context": build_rag_block(r["passages"]),
-                }
+                {"idx": r["idx"], "context": ctx, "rag_context": build_rag_block(r["passages"])}
             )
     log.info("wrote %d rows -> %s", len(records), csv_path)
 
@@ -116,7 +145,15 @@ def main(argv=None):
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
     rows = load_contexts(a.baseline)
     log.info("contexts: %d", len(rows))
-    fetch_all(rows, a.out)
+    meta = _read_meta(a.out + ".meta.json")
+    if meta is not None and load_done(a.out):
+        check_resume_meta(
+            meta,
+            top_k=a.top_k,
+            embed_model=rag_config.EMBED_MODEL,
+            collection_count=collection_count(),
+        )
+    fetch_all(rows, a.out, retrieve_fn=retrieve, top_k=a.top_k)
     write_meta(a.out, a.top_k)
     emit_csv(a.out, a.csv, a.baseline)
 

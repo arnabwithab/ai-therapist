@@ -2,6 +2,8 @@
 
 import json
 
+import pytest
+
 from backend.core import chat as serving
 from eval.mbench_rag import fetch_contexts as F
 
@@ -16,10 +18,12 @@ def _passages():
 def test_build_rag_block_matches_serving_byte_for_byte():
     served = serving._retrieved_message(_passages())["content"]
     assert F.build_rag_block(_passages()) in served
-    # exact body format: [source — chapter]\ntext joined by blank lines
-    assert F.build_rag_block(_passages()) == (
-        "[s1 — c1]\nBreathe with the belly.\n\n[s2 — c2]\nNotice the feeling."
-    )
+
+
+def test_build_rag_block_is_servings_formatter():
+    from backend.core import chat as serving_mod
+
+    assert F.build_rag_block is serving_mod.format_passages
 
 
 def test_record_round_trips_through_jsonl(tmp_path):
@@ -52,3 +56,67 @@ def test_fetch_all_only_calls_retrieve_for_missing(tmp_path):
     assert n == 2
     assert calls == ["ctx0", "ctx2"]
     assert F.load_done(str(out)) == {0, 1, 2}
+
+
+def test_main_forwards_top_k_to_fetch(tmp_path, monkeypatch, caplog):
+    seen = {}
+
+    def fake_retrieve(q, n=5, source_filter=None):
+        seen.setdefault("n", n)
+        return [{"text": "t", "source": "s", "chapter": "c", "score": 1.0}]
+
+    monkeypatch.setattr(F, "retrieve", fake_retrieve)
+    monkeypatch.setattr(F, "write_meta", lambda *a: None)
+    base = tmp_path / "base.csv"
+    base.write_text("idx,context\n0,hello\n", encoding="utf-8")
+    out = tmp_path / "ctx.jsonl"
+    F.main(
+        [
+            "--baseline",
+            str(base),
+            "--out",
+            str(out),
+            "--csv",
+            str(tmp_path / "o.csv"),
+            "--top-k",
+            "3",
+        ]
+    )
+    assert seen["n"] == 3
+    assert F.load_done(str(out)) == {0}
+
+
+def test_emit_csv_refuses_incomplete_run(tmp_path):
+
+    base = tmp_path / "base.csv"
+    base.write_text("idx,context\n0,a\n1,b\n", encoding="utf-8")
+    out = tmp_path / "ctx.jsonl"
+    F.append_record(str(out), 0, _passages())
+    with pytest.raises(SystemExit, match="incomplete"):
+        F.emit_csv(str(out), str(tmp_path / "o.csv"), str(base))
+
+
+def test_emit_csv_rejects_unknown_idx(tmp_path):
+
+    base = tmp_path / "base.csv"
+    base.write_text("idx,context\n0,a\n", encoding="utf-8")
+    out = tmp_path / "ctx.jsonl"
+    F.append_record(str(out), 9, _passages())
+    with pytest.raises(SystemExit, match="not in baseline"):
+        F.emit_csv(str(out), str(tmp_path / "o.csv"), str(base))
+
+
+def test_check_resume_meta():
+
+    ok = {"top_k": 5, "embed_model": "m", "collection_count": 10}
+    F.check_resume_meta(ok, top_k=5, embed_model="m", collection_count=10)
+    with pytest.raises(SystemExit, match="top_k"):
+        F.check_resume_meta({**ok, "top_k": 3}, top_k=5, embed_model="m", collection_count=10)
+    with pytest.raises(SystemExit, match="embed_model"):
+        F.check_resume_meta(
+            {**ok, "embed_model": "x"}, top_k=5, embed_model="m", collection_count=10
+        )
+    with pytest.raises(SystemExit, match="collection_count"):
+        F.check_resume_meta(
+            {**ok, "collection_count": 11}, top_k=5, embed_model="m", collection_count=10
+        )
