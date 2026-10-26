@@ -606,16 +606,6 @@
     {
      "id": "F016-11",
      "name": "DPO-from-0.6B (2000 steps, ckpt-250)",
-     "status": "in_progress"
-    },
-    {
-     "id": "F016-12",
-     "name": "Generate + judge DPO-0.6B",
-     "status": "planned"
-    },
-    {
-     "id": "F016-11",
-     "name": "DPO-from-0.6B (2000 steps, ckpt-250)",
      "status": "completed"
     },
     {
@@ -665,28 +655,33 @@
      "name": "Thread-safe RAG lazy init (chromadb race found by eval smoke)",
      "status": "completed"
     },
-     {
-      "id": "F017-5",
-      "name": "gen: qwen3-4b-base + OARS prompt + RAG top-5 (10k/10k)",
-      "status": "completed"
-     },
-     {
-      "id": "F017-6",
-      "name": "gen: qwen3-4b-base + OARS prompt + no-RAG ablation (10k/10k)",
-      "status": "completed"
-     },
-     {
-      "id": "F017-7",
-      "name": "judge: qwen3-4b-base + OARS prompt + RAG top-5",
-      "status": "planned"
-     },
-     {
-      "id": "F017-8",
-      "name": "judge: qwen3-4b-base + OARS prompt + no-RAG ablation",
-      "status": "planned"
-     }
+    {
+     "id": "F017-5",
+     "name": "gen: qwen3-4b-base + OARS prompt + RAG top-5 (10k/10k)",
+     "status": "completed"
+    },
+    {
+     "id": "F017-6",
+     "name": "gen: qwen3-4b-base + OARS prompt + no-RAG ablation (10k/10k)",
+     "status": "completed"
+    },
+    {
+     "id": "F017-7",
+     "name": "judge: qwen3-4b-base + OARS prompt + RAG top-5",
+     "status": "planned"
+    },
+    {
+     "id": "F017-8",
+     "name": "judge: qwen3-4b-base + OARS prompt + no-RAG ablation",
+     "status": "planned"
+    },
+    {
+     "id": "F017-9",
+     "name": "Regular prompt + RAG run (gen + judge, missing matrix cell)",
+     "status": "planned"
+    }
    ],
-   "notes": "Smoke-verified locally up to the model call (real Chroma retrieval + prompt build, ConnectError only \u2014 no vLLM here). Judge pushes scores per batch when --hf-repo is set. Caveat: OARS replies are 3-6 sentences vs base long paragraphs, so Informativeness/Helpfulness may dip on style alone.",
+   "notes": "Smoke-verified locally up to the model call (real Chroma retrieval + prompt build, ConnectError only \u2014 no vLLM here). Judge pushes scores per batch when --hf-repo is set. Caveat: OARS replies are 3-6 sentences vs base long paragraphs, so Informativeness/Helpfulness may dip on style alone. Matrix (qwen3-4b-base): regular+noRAG done+judged (F010 baseline); OARS+RAG generated (F017-5), OARS+noRAG generated (F017-6), judge of both planned (F017-7/8). Missing: regular-prompt+RAG gen+judge (new F017-9). Note: generate_rag.py hardcodes the OARS path via build_messages, so the regular cell needs a prompt-style switch (or a standalone run reusing mbench-rag-judge.csv passages with the paper preamble).",
    "added": "2026-10-21",
    "completed": null
   }
