@@ -17,7 +17,7 @@ Machine-readable version of this table: `eval_coverage` in `docs/features.json`.
 |----------|------|-----|-----|-----------|---------------|----------|--------------|
 | Qwen3-4B | ✓✓ | ✓✓ | ✓✓ | ✓✓ | ✓✓ |  |  |
 | Qwen3-1.7B | ✓✓ |  | ✓✓ |  |  | ✓✓ | ✓✓ |
-| Qwen3-0.6B | ✓✓ |  |  |  |  |  |  |
+| Qwen3-0.6B | ✓✓ |  | ✓ |  |  |  |  |
 
 DPO is the canonical run per model (1.7B = 1024-token rerun; the 512-token run
 was truncated and is superseded). Base/SFT/DPO use the regular paper preamble;
