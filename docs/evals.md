@@ -1,12 +1,12 @@
 # Evals
 
-![MentalBench-Align judge means: 4B (base/SFT/DPO) and 1.7B (base/DPO)](evals-judge-means.png)
+![MentalBench-Align Overall means: all judged runs](evals-judge-means.png)
 
-![Qwen3-4B per-dimension: base, SFT, DPO](evals-4b.png)
+![Qwen3-4B per-dimension: base, SFT, DPO, OARS, OARS+RAG](evals-4b.png)
 
-![Qwen3-1.7B per-dimension: base vs DPO](evals-1p7b.png)
+![Qwen3-1.7B per-dimension: base, DPO, regular-regen, OARS, OARS+RAG](evals-1p7b.png)
 
-![OARS ablation: regular preamble vs OARS vs OARS+RAG, 4B base and 1.7B DPO](evals-oars.png)
+![Qwen3-0.6B per-dimension: base vs DPO](evals-0p6b.png)
 
 ## Coverage: what has been generated and judged
 
@@ -17,7 +17,7 @@ Machine-readable version of this table: `eval_coverage` in `docs/features.json`.
 |----------|------|-----|-----|-----------|---------------|----------|--------------|
 | Qwen3-4B | ✓✓ | ✓✓ | ✓✓ | ✓✓ | ✓✓ |  |  |
 | Qwen3-1.7B | ✓✓ |  | ✓✓ |  |  | ✓✓ | ✓✓ |
-| Qwen3-0.6B | ✓✓ |  | ✓ |  |  |  |  |
+| Qwen3-0.6B | ✓✓ |  | ✓✓ |  |  |  |  |
 
 DPO is the canonical run per model (1.7B = 1024-token rerun; the 512-token run
 was truncated and is superseded). Base/SFT/DPO use the regular paper preamble;
@@ -72,8 +72,36 @@ idx 0–9999, no gaps. Full output (gitignored):
 
 Notes: no measurable RAG effect under the OARS voice (Overall 3.32 vs 3.31,
 all-axis deltas ≤0.04). Retrieval grounding does not move judge scores when
-the reply stays short and non-directive. See the OARS ablation chart at the
+the reply stays short and non-directive. See the 4B per-dimension chart at the
 top of this file.
+
+## DPO-from-base, Qwen3-0.6B ckpt-250 (n=10000)
+
+MentalBench-Align judge (same prompt, judge, and settings) over post-think final
+answers in `data/eval/mbench-qwen3-4b-baseline/output_mbench_0p6b_dpo_final.csv`
+(col `qwen3_0p6b_dpo`, DPO-from-base unsloth/Qwen3-0.6B, same batch-1/max-2000
+recipe, ckpt-250, train_loss 0.112), scored 2026-10-27, idx 0–9999, no gaps.
+Full output (gitignored): `data/eval/mbench-judge-0p6b-dpo.csv`.
+Zero truncation, zero empties.
+
+| Dimension       | Mean | SD   | %5  | %≤2 |
+|-----------------|------|------|-----|-----|
+| Guidance        | 1.85 | 0.75 | 0   | 79 |
+| Informativeness | 2.30 | 0.49 | 0   | 69 |
+| Relevance       | 3.77 | 0.79 | 17  | 4  |
+| Safety          | 4.13 | 1.26 | 60  | 18 |
+| Empathy         | 3.96 | 0.55 | 11  | 1  |
+| Helpfulness     | 2.99 | 0.68 | 0   | 22 |
+| Understanding   | 3.16 | 0.91 | 1   | 28 |
+| Overall         | 3.03 | 0.71 | 0   | 22 |
+
+Notes: DPO adds nothing at the floor (Overall 3.03 vs base 3.00, +0.03).
+Guidance is flat (1.84 → 1.85), Relevance/Understanding flat — at 0.6B the
+capacity constraint binds before preference tuning can help. Safety is the one
+mover, and the wrong way (4.34 → 4.13, ≤2 rows 12% → 18%): the DPO voice is
+slightly less safe at the tail. Empathy ticks up (3.83 → 3.96). The headroom
+the base section predicted is not reachable by DPO at this scale. See the
+0.6B per-dimension chart at the top of this file.
 
 ## Base Qwen3-0.6B (n=10000)
 
