@@ -6,6 +6,8 @@
 
 ![Qwen3-1.7B per-dimension: base vs DPO](evals-1p7b.png)
 
+![OARS ablation: regular preamble vs OARS vs OARS+RAG, 4B base and 1.7B DPO](evals-oars.png)
+
 ## Coverage: what has been generated and judged
 
 ✓ = generated, ✓✓ = generated + judged, blank = not done.
@@ -13,7 +15,7 @@ Machine-readable version of this table: `eval_coverage` in `docs/features.json`.
 
 | Model    | Base | SFT | DPO | Base+OARS | Base+OARS+RAG | DPO+OARS | DPO+OARS+RAG |
 |----------|------|-----|-----|-----------|---------------|----------|--------------|
-| Qwen3-4B | ✓✓ | ✓✓ | ✓✓ | ✓ | ✓ |  |  |
+| Qwen3-4B | ✓✓ | ✓✓ | ✓✓ | ✓✓ | ✓✓ |  |  |
 | Qwen3-1.7B | ✓✓ |  | ✓✓ |  |  | ✓✓ | ✓✓ |
 | Qwen3-0.6B | ✓✓ |  |  |  |  |  |  |
 
@@ -22,6 +24,56 @@ was truncated and is superseded). Base/SFT/DPO use the regular paper preamble;
 +OARS variants use the serving voice prompt instead. RAG runs attach the
 precomputed serving-identical blocks. The missing combination is
 regular-prompt + RAG (tracked as F017-9 in `docs/features.json`).
+
+## Base Qwen3-4B + OARS, no RAG (n=10000)
+
+MentalBench-Align judge (same prompt, judge, and settings) over
+`data/eval/mbench-rag/output_norag.csv` (col `norag`, 4B base, OARS serving
+prompt, no retrieval), scored 2026-10-26, idx 0–9999, no gaps.
+Full output (gitignored): `data/eval/mbench-judge-oars-norag.csv`.
+Zero truncation, zero empties (median reply 422 chars).
+
+| Dimension       | Mean | SD   | %5  | %≤2 |
+|-----------------|------|------|-----|-----|
+| Guidance        | 1.10 | 0.34 | 0   | 99 |
+| Informativeness | 2.16 | 0.48 | 0   | 79 |
+| Relevance       | 4.67 | 0.56 | 70  | 0  |
+| Safety          | 4.68 | 0.85 | 84  | 6  |
+| Empathy         | 4.67 | 0.48 | 66  | 0  |
+| Helpfulness     | 3.17 | 0.54 | 0   | 7  |
+| Understanding   | 4.28 | 0.60 | 34  | 1  |
+| Overall         | 3.31 | 0.53 | 0   | 3  |
+
+Notes: the ~0.75 Overall drop vs the regular preamble (4.06) is a
+prompt-style artifact, not a capability loss — OARS replies are short and
+non-directive by design, which the Guidance/Informativeness rubrics punish
+(99%/79% ≤2). Relevance/Safety/Empathy hold at regular-prompt levels.
+Compare the RAG sibling below — retrieval adds nothing here (+0.01).
+
+## Base Qwen3-4B + OARS + RAG (n=10000)
+
+MentalBench-Align judge (same prompt, judge, and settings) over
+`data/eval/mbench-rag/output_rag.csv` (col `response`, 4B base, OARS serving
+prompt, precomputed serving-identical top-5 blocks), scored 2026-10-26,
+idx 0–9999, no gaps. Full output (gitignored):
+`data/eval/mbench-judge-oars-rag.csv`. Zero truncation, zero empties
+(median reply 468 chars).
+
+| Dimension       | Mean | SD   | %5  | %≤2 |
+|-----------------|------|------|-----|-----|
+| Guidance        | 1.13 | 0.38 | 0   | 98 |
+| Informativeness | 2.19 | 0.50 | 0   | 76 |
+| Relevance       | 4.66 | 0.57 | 70  | 0  |
+| Safety          | 4.65 | 0.88 | 83  | 7  |
+| Empathy         | 4.69 | 0.47 | 68  | 0  |
+| Helpfulness     | 3.17 | 0.56 | 0   | 8  |
+| Understanding   | 4.32 | 0.64 | 39  | 1  |
+| Overall         | 3.32 | 0.55 | 0   | 3  |
+
+Notes: no measurable RAG effect under the OARS voice (Overall 3.32 vs 3.31,
+all-axis deltas ≤0.04). Retrieval grounding does not move judge scores when
+the reply stays short and non-directive. See the OARS ablation chart at the
+top of this file.
 
 ## Base Qwen3-0.6B (n=10000)
 
