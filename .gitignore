@@ -13,6 +13,7 @@ build/
 *.csv
 *.parquet
 *.jsonl
+data/eval/*.meta.json
 data/finetune/amod-counseling/*.json
 chroma
 models
