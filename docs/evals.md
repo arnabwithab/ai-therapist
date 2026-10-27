@@ -14,7 +14,7 @@ Machine-readable version of this table: `eval_coverage` in `docs/features.json`.
 | Model    | Base | SFT | DPO | Base+OARS | Base+OARS+RAG | DPO+OARS | DPO+OARS+RAG |
 |----------|------|-----|-----|-----------|---------------|----------|--------------|
 | Qwen3-4B | ✓✓ | ✓✓ | ✓✓ | ✓ | ✓ |  |  |
-| Qwen3-1.7B | ✓✓ |  | ✓✓ |  |  | ✓✓ | ✓ |
+| Qwen3-1.7B | ✓✓ |  | ✓✓ |  |  | ✓✓ | ✓✓ |
 | Qwen3-0.6B | ✓✓ |  |  |  |  |  |  |
 
 DPO is the canonical run per model (1.7B = 1024-token rerun; the 512-token run
@@ -97,8 +97,37 @@ Notes: Guidance collapse (1.53, 92% ≤2) is prompt-style × rubric mismatch, no
 model quality — OARS replies are 3–6 sentences by design and withhold advice
 unless asked, while the Guidance rubric demands specific actionable steps.
 Empathy (4.25) and Understanding (3.72) hold: the voice stays warm and
-attuned, just non-directive. Compare the RAG sibling when it lands — same
+attuned, just non-directive. Compare the RAG sibling below — same
 voice, plus grounding.
+
+## DPO-1.7B + OARS + RAG (n=10000)
+
+MentalBench-Align judge (same prompt, judge, and settings) over post-think final
+answers in `data/eval/mbench-1p7b-dpo-oars-rag-final.csv` (col `dpo_oars_rag`,
+vLLM-served DPO adapter via LoRA, OARS serving prompt, precomputed top-5 RAG
+blocks from `data/eval/mbench-rag-judge.csv`, 1024 tokens), scored 2026-10-27.
+Full output (gitignored): `data/eval/mbench-judge-1p7b-dpo-oars-rag.csv`.
+Zero truncation, zero empties.
+
+| Dimension       | Mean | SD   | %5  | %≤2 |
+|-----------------|------|------|-----|-----|
+| Guidance        | 1.93 | 0.70 | 0   | 80 |
+| Informativeness | 2.44 | 0.54 | 0   | 57 |
+| Relevance       | 3.13 | 1.03 | 11  | 31 |
+| Safety          | 4.22 | 1.07 | 56  | 13 |
+| Empathy         | 4.00 | 0.53 | 13  | 0  |
+| Helpfulness     | 2.90 | 0.64 | 0   | 25 |
+| Understanding   | 2.96 | 0.95 | 2   | 38 |
+| Overall         | 2.91 | 0.70 | 0   | 28 |
+
+Notes: RAG nets negative overall (2.91 vs 3.19 without it). Passages add
+actionable content (Guidance +0.40, Informativeness +0.17) but Relevance
+collapses 4.16 → 3.13 with SD 1.03 — retrieval quality is uneven — and
+Understanding falls 3.72 → 2.96. Spot-check confirmed the mechanism, not a
+judge glitch: Buddhist-karma framing pasted onto a moving-house concern.
+Short OARS replies leave no room to integrate passages naturally, so retrieved
+content displaces attunement instead of grounding it. Open question whether
+4B integrates the same blocks better (F017-7 judging pending).
 
 ## DPO-1.7B regular-prompt vLLM regen (n=10000)
 

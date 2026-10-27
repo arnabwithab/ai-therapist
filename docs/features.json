@@ -735,7 +735,7 @@
     {
      "id": "F017-12",
      "name": "gen: qwen3-1p7b-dpo + OARS prompt + precomputed RAG top-5 (10k)",
-     "status": "in_progress"
+     "status": "completed"
     },
     {
      "id": "F017-13",
@@ -745,7 +745,7 @@
     {
      "id": "F017-14",
      "name": "judge: qwen3-1p7b-dpo + OARS prompt + RAG top-5",
-     "status": "planned"
+     "status": "completed"
     },
     {
      "id": "F017-15",
