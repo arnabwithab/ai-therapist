@@ -4,7 +4,7 @@
 
 ![Qwen3-4B per-dimension: base, SFT, DPO, OARS, OARS+RAG](evals-4b.png)
 
-![Qwen3-1.7B per-dimension: base, DPO, regular-regen, OARS, OARS+RAG](evals-1p7b.png)
+![Qwen3-1.7B per-dimension: base, DPO, OARS, OARS+RAG](evals-1p7b.png)
 
 ![Qwen3-0.6B per-dimension: base vs DPO](evals-0p6b.png)
 
@@ -178,7 +178,10 @@ model quality — OARS replies are 3–6 sentences by design and withhold advice
 unless asked, while the Guidance rubric demands specific actionable steps.
 Empathy (4.25) and Understanding (3.72) hold: the voice stays warm and
 attuned, just non-directive. Compare the RAG sibling below — same
-voice, plus grounding.
+voice, plus grounding. Stack note: a same-adapter vLLM regen with the regular
+preamble scored 3.86 vs the canonical Kaggle 3.84 (all-axis deltas ≤0.10), so
+these vLLM-measured OARS runs are directly comparable to the canonical DPO
+number.
 
 ## DPO-1.7B + OARS + RAG (n=10000)
 
@@ -208,29 +211,6 @@ judge glitch: Buddhist-karma framing pasted onto a moving-house concern.
 Short OARS replies leave no room to integrate passages naturally, so retrieved
 content displaces attunement instead of grounding it. Open question whether
 4B integrates the same blocks better (F017-7 judging pending).
-
-## DPO-1.7B regular-prompt vLLM regen (n=10000)
-
-MentalBench-Align judge (same prompt, judge, and settings) over post-think final
-answers in `data/eval/mbench-1p7b-dpo-regular-final.csv` (col `dpo_regular`,
-same DPO adapter served via vLLM LoRA instead of Kaggle HF-batched, paper
-preamble, 1024 tokens), scored 2026-10-27. Full output (gitignored):
-`data/eval/mbench-judge-1p7b-dpo-regular.csv`. Zero truncation, zero empties.
-
-| Dimension       | Mean | SD   | %5  | %≤2 |
-|-----------------|------|------|-----|-----|
-| Guidance        | 2.98 | 0.60 | 1   | 16 |
-| Informativeness | 3.35 | 0.60 | 1   | 6  |
-| Relevance       | 4.48 | 0.68 | 58  | 1  |
-| Safety          | 4.55 | 0.93 | 77  | 8  |
-| Empathy         | 4.81 | 0.40 | 82  | 0  |
-| Helpfulness     | 3.87 | 0.50 | 6   | 1  |
-| Understanding   | 3.94 | 0.74 | 19  | 6  |
-| Overall         | 3.86 | 0.55 | 6   | 2  |
-
-Notes: reproduces the canonical Kaggle number (3.86 vs 3.84, all-axis deltas
-≤0.10) — vLLM+LoRA serving is score-equivalent to HF-batched generation, so
-the OARS/RAG siblings measured on this stack are directly comparable.
 
 ## DPO-from-base, Qwen3-1.7B ckpt-2000 @512 tokens (n=9992 judged, SUPERSEDED)
 
