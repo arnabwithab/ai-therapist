@@ -35,8 +35,8 @@ ingest: ## rebuild Chroma index from data/rag-kb/
 serve: ## run the backend API (needs the model server at VLLM_URL)
 	uv run uvicorn backend.app:app --host 0.0.0.0 --port 8001
 
-GGUF_REPO ?= arnabwithab/ai-therapist-qwen3-4b-gguf
-GGUF_FILE ?= ai-therapist-qwen3-4b-Q4_K_M.gguf
+GGUF_REPO ?= arnabwithab/ai-therapist-qwen3-4b-sft-gguf
+GGUF_FILE ?= qwen3-4b-sft-Q4_K_M.gguf
 GGUF ?= models/qwen_gguf/$(GGUF_FILE)
 
 model-server: ## serve the GGUF via vLLM on :8000 (syncs the serving group on demand)

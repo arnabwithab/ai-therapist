@@ -7,7 +7,7 @@ import os
 import subprocess
 import sys
 
-ADAPTER = "arnabwithab/ai-therapist-qwen3-4b-lora"  # 2-epoch LoRA, public
+ADAPTER = "arnabwithab/ai-therapist-qwen3-4b-sft-lora"  # 5-epoch SFT LoRA, public
 OUT = "/kaggle/working/qwen_gguf"
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
