@@ -1,7 +1,7 @@
 # AGENTS.md
 
 ## Project Overview
-AI counsellor: a finetuned small language model for counselling (Qwen3-4B primary, Phi-4-mini alternate), served with RAG over South Asian therapeutic techniques (Chroma + bge-small embeddings) and, eventually, a voice interface layer. No agentic work. College project demo — counselling-style conversational quality, evaluated with MentalBench-Align and a rebuilt T-BARS RCC pillar.
+AI counsellor: a finetuned small language model for counselling (Qwen3-1.7B DPO LoRA, served via vLLM with --enable-lora and --reasoning-parser qwen3 so thinking stays out of replies), served with RAG over South Asian therapeutic techniques (Chroma + bge-small embeddings) and, eventually, a voice interface layer. No agentic work. College project demo — counselling-style conversational quality, evaluated with MentalBench-Align and a rebuilt T-BARS RCC pillar.
 
 ## Development Philosophy
 - TDD first: write the test, then the implementation. Never skip.

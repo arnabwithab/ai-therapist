@@ -12,9 +12,8 @@ init: ## check system prereqs (Ubuntu only) and install what's missing: python3.
 	fi
 	python3 --version && (uv --version || echo 'uv not on PATH yet: export PATH="$$HOME/.local/bin:$$PATH"')
 
-setup: ## install all deps + fetch the GGUF (idempotent, skips if present)
+setup: ## install all deps (model weights stream from HF at serve time)
 	uv sync --group dev
-	test -f $(GGUF) || uv run --no-sync hf download $(GGUF_REPO) $(GGUF_FILE) --local-dir $(dir $(GGUF))
 
 test: ## run all tests
 	uv run pytest
@@ -35,23 +34,15 @@ ingest: ## rebuild Chroma index from data/rag-kb/
 serve: ## run the backend API (needs the model server at VLLM_URL)
 	uv run uvicorn backend.app:app --host 0.0.0.0 --port 8001
 
-GGUF_REPO ?= arnabwithab/ai-therapist-qwen3-4b-sft-gguf
-GGUF_FILE ?= qwen3-4b-sft-Q4_K_M.gguf
-GGUF ?= models/qwen_gguf/$(GGUF_FILE)
-
-model-server: ## serve the GGUF via vLLM on :8000 (syncs the serving group on demand)
-	test -f $(GGUF) || (echo "missing $(GGUF) — run make setup to fetch it" && exit 1)
+model-server: ## serve our DPO model (base + LoRA) via vLLM on :8000
 	uv sync --group serving --frozen
-	uv run --no-sync vllm serve $(GGUF) --tokenizer Qwen/Qwen3-4B-Instruct-2507 --port 8000 --max-model-len 4096 --enforce-eager --gpu-memory-utilization 0.7 --served-model-name ai-therapist-qwen3-4b
+	# native sampler: flashinfer 0.6.11 sampling JIT doesn't compile on CUDA 13
+	VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync vllm serve Qwen/Qwen3-1.7B --port 8000 --max-model-len 8192 --enforce-eager --gpu-memory-utilization 0.7 --enable-lora --lora-modules ai-therapist-qwen3-1.7b-dpo=arnabwithab/ai-therapist-qwen3-1.7b-dpo-lora --served-model-name ai-therapist-qwen3-1.7b-dpo --reasoning-parser qwen3
 
 frontend: ## serve the chat UI at http://localhost:3000 (talks to the backend on :8001)
 	cd frontend && python3 -m http.server 3000
 
-MODEL_ID ?= Qwen/Qwen3-4B-Instruct-2507
-MAX_MODEL_LEN ?= 4096
-GPU_MEM_UTIL ?= 0.9
-LORA_MODULES ?=
-EVAL_MODEL ?= $(MODEL_ID)
+EVAL_MODEL ?= ai-therapist-qwen3-1.7b-dpo
 EVAL_COL ?= response
 RAG_TOP_K ?= 5
 RAG_CSV ?=
@@ -63,9 +54,9 @@ SHARD ?= 0
 OUT ?= data/eval/mbench-rag/output_rag.csv
 HF_EVAL_REPO ?= arnabwithab/ai-therapist-mbench-rag
 
-model-server-24g: ## serve full-precision MODEL_ID on :8000 (24GB box; LORA_MODULES="name=path" optional)
+model-server-24g: ## serve our DPO model on :8000 (24GB box)
 	uv sync --group serving --frozen
-	uv run --no-sync vllm serve $(MODEL_ID) --port 8000 --max-model-len $(MAX_MODEL_LEN) --gpu-memory-utilization $(GPU_MEM_UTIL) --served-model-name $(MODEL_ID) $(if $(LORA_MODULES),--enable-lora --lora-modules $(LORA_MODULES))
+	VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync vllm serve Qwen/Qwen3-1.7B --port 8000 --max-model-len 8192 --gpu-memory-utilization 0.9 --enable-lora --lora-modules ai-therapist-qwen3-1.7b-dpo=arnabwithab/ai-therapist-qwen3-1.7b-dpo-lora --served-model-name ai-therapist-qwen3-1.7b-dpo --reasoning-parser qwen3
 
 eval-rag: ## one OARS+RAG eval shard (EVAL_MODEL/SHARD/N_SHARDS/OUT/EVAL_COL/RAG_TOP_K/MAX_TOKENS/PROMPT/HF_EVAL_REPO; NO_RAG=1 = ablation, RAG_CSV/RAG_JSONL = precomputed, HF_EVAL_REPO= to disable push)
 	uv run python -m eval.mbench_rag.generate_rag --model $(EVAL_MODEL) --out $(OUT) --col $(EVAL_COL) --shard $(SHARD) --num-shards $(N_SHARDS) --rag-top-k $(RAG_TOP_K) --max-tokens $(MAX_TOKENS) --prompt $(PROMPT) --hf-repo $(HF_EVAL_REPO) $(if $(NO_RAG),--no-rag) $(if $(RAG_CSV),--rag-csv $(RAG_CSV)) $(if $(RAG_JSONL),--rag-jsonl $(RAG_JSONL))

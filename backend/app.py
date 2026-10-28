@@ -15,7 +15,7 @@ app = FastAPI(title="ai-therapist")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1)(:\d+)?",
+    allow_origins=["*"],  # local demo server with no credentials; any origin may use it
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -60,8 +60,9 @@ def completions(req: ChatRequest):
         raise HTTPException(422, "no non-empty user message")
     history = [{"role": m.role, "content": m.content} for m in req.messages[:idx]]
     current = req.messages[idx].content
-    # cap generation so prompt + completion fits our 2048-token window
-    max_tokens = min(req.max_tokens, 256)
+    # cap generation so prompt + completion fits our 8192-token window
+    # (1024 fits the DPO adapter's thinking traces plus the reply)
+    max_tokens = min(req.max_tokens, 1024)
     if req.stream:
         stream = core.chat_stream(
             current,

@@ -21,8 +21,8 @@ dev = [
 ]
 serving = [
     # GPU model server only; kept out of dev/CI. Installed on demand by `make model-server`.
-    # Pinned: 0.22.x still carries in-tree GGUF (the OOT plugin double-registers
-    # its ops against it and crashes); newer vLLM removed in-tree GGUF entirely.
+    # Pinned: 0.22.x is the verified version for our base + LoRA serve path
+    # (eval gens F017-11+ ran against it); newer vLLM removed in-tree GGUF entirely.
     "vllm==0.22.1",
 ]
 

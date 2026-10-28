@@ -234,7 +234,7 @@ def run_shard(args):
 
 def main(argv=None):
     ap = argparse.ArgumentParser()
-    ap.add_argument("--model", default=os.getenv("AI_THERAPIST_MODEL", "ai-therapist-qwen3-4b"))
+    ap.add_argument("--model", default=os.getenv("AI_THERAPIST_MODEL", "ai-therapist-qwen3-1.7b-dpo"))
     ap.add_argument("--prompt", choices=["oars", "regular"], default="oars")
     ap.add_argument("--vllm-url", default=os.getenv("VLLM_URL", "http://localhost:8000"))
     ap.add_argument("--col", default=COL)

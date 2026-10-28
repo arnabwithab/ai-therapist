@@ -14,7 +14,7 @@ from src.rag.query import retrieve
 
 log = logging.getLogger(__name__)
 
-MODEL_ID = os.getenv("AI_THERAPIST_MODEL", "ai-therapist-qwen3-4b")
+MODEL_ID = os.getenv("AI_THERAPIST_MODEL", "ai-therapist-qwen3-1.7b-dpo")
 VLLM_URL = os.getenv("VLLM_URL", "http://localhost:8000")
 RAG_TOP_K = int(os.getenv("RAG_TOP_K", "5"))
 TIMEOUT_S = float(os.getenv("MODEL_TIMEOUT_S", "120"))
@@ -156,6 +156,8 @@ def build_messages(turns, passages):
 
 def _fit_budget(turns, passages, max_tokens):
     """Drop oldest turns until the estimated prompt fits the server window."""
+    # Conservative 4096 budget against the 8192 server window: history is cut
+    # early, but prompt + completion always fits with room for estimator error.
     budget = 4096 - max_tokens - 256
     turns = list(turns)
     while len(turns) > 1:

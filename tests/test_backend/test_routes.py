@@ -162,4 +162,17 @@ def test_completions_answers_cors_preflight():
         },
     )
     assert r.status_code == 200, r.text
-    assert r.headers["access-control-allow-origin"] == "http://localhost:3000"
+    assert r.headers["access-control-allow-origin"] == "*"
+
+
+def test_completions_answers_cors_preflight_from_non_localhost_origin():
+    c = TestClient(app_module.app)
+    r = c.options(
+        "/v1/chat/completions",
+        headers={
+            "Origin": "http://192.168.1.5:3000",
+            "Access-Control-Request-Method": "POST",
+            "Access-Control-Request-Headers": "content-type",
+        },
+    )
+    assert r.status_code == 200, r.text

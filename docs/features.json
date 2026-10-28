@@ -458,7 +458,7 @@
   {
    "id": "F012",
    "name": "FastAPI serving layer",
-   "description": "OpenAI-compatible backend for the counsellor: thin FastAPI routes over backend/core/chat.py, which injects src/rag/query.py:retrieve() context and forwards to the vLLM GGUF model server (streaming + non-streaming); the frontend points its endpoint here.",
+   "description": "OpenAI-compatible backend for the counsellor: thin FastAPI routes over backend/core/chat.py, which injects src/rag/query.py:retrieve() context and forwards to the vLLM LoRA model server (streaming + non-streaming); the frontend points its endpoint here.",
    "status": "completed",
    "priority": "high",
    "module": "backend",
@@ -488,7 +488,7 @@
      "status": "completed"
     }
    ],
-   "notes": "Stateless server, stateful conversation: history arrives in the OpenAI messages array and is truncated oldest-first to a 4096-max_tokens-256 token budget; last user turn drives retrieval. Single system message (counsellor voice + crisis tiers + RAG rules). Endpoints: GET /health, GET /v1/models, POST /v1/chat/completions (no user turn -> 422, RAG/model failure -> 502). Run with `make serve` (port 8001, VLLM_URL default http://localhost:8000); model server via `make model-server`. Prompt reworked to OARS voice + cultural attunement + tiered safety (docs/prompt.md mirrors backend/core/chat.py); retrieved passages ride in a trailing <retrieved_techniques> block as the prompt promises. Sampling temp 0.7/top_p 0.8/top_k 20/repetition_penalty 1.1 (repetition loops seen live without the penalty), max_tokens 256 server-clamped; model-server flags: served-model-name, max-model-len 4096, eager, 0.7 util (8GB card). Prompt is the user's OARS/XML version (role/style/cultural/retrieved/safety/example), India-only scope, India crisis numbers (112/Tele MANAS/Vandrevala); docs/prompt.md mirrors backend/core/chat.py. Live-verified end to end.",
+   "notes": "Stateless server, stateful conversation: history arrives in the OpenAI messages array and is truncated oldest-first to a 4096-max_tokens-256 token budget; last user turn drives retrieval. Single system message (counsellor voice + crisis tiers + RAG rules). Endpoints: GET /health, GET /v1/models, POST /v1/chat/completions (no user turn -> 422, RAG/model failure -> 502). Run with `make serve` (port 8001, VLLM_URL default http://localhost:8000); model server via `make model-server`. Prompt reworked to OARS voice + cultural attunement + tiered safety (docs/prompt.md mirrors backend/core/chat.py); retrieved passages ride in a trailing <retrieved_techniques> block as the prompt promises. Sampling temp 0.7/top_p 0.8/top_k 20/repetition_penalty 1.1 (repetition loops seen live without the penalty), max_tokens 256 server-clamped; model-server flags: base Qwen/Qwen3-1.7B + --enable-lora ai-therapist-qwen3-1.7b-dpo, served-model-name ai-therapist-qwen3-1.7b-dpo, max-model-len 4096, eager, 0.7 util. Prompt is the user's OARS/XML version (role/style/cultural/retrieved/safety/example), India-only scope, India crisis numbers (112/Tele MANAS/Vandrevala); docs/prompt.md mirrors backend/core/chat.py. Live-verified end to end.",
    "added": "2026-10-14",
    "completed": "2026-10-15"
   },
