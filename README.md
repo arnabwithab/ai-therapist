@@ -39,7 +39,7 @@ make model-server
 # terminal 2 — backend API on :8001
 make serve
 
-# terminal 3 — chat UI at http://localhost:3000 (already points at the backend on :8001)
+# terminal 3 — chat UI at http://localhost:3000
 make frontend
 ```
 
