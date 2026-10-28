@@ -15,7 +15,7 @@ AI counsellor: a finetuned small language model for counselling (Qwen3-4B primar
 - ML training: Unsloth QLoRA notebooks (`notebooks/`), run on Kaggle T4 (Eros438 account)
 - RAG: Chroma (embedded persistent, `./chroma/`, gitignored) + `BAAI/bge-small-en-v1.5` via sentence-transformers (CPU-only)
 - Backend (planned): FastAPI (Python)
-- Frontend: anse (MIT) as a git submodule at `frontend/anse`, pointed at the F012 backend
+- Frontend: vendored Local-LLM-Chat v3 single HTML (MIT) at `frontend/index.html`, default endpoint `http://localhost:8001`, served via `make frontend`
 - Package Manager: uv (Python) — never pip directly
 - Build/Task Runner: **Make** — root `Makefile` is the single entry point
 

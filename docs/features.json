@@ -1,6 +1,6 @@
 {
  "project": "ai-therapist",
- "last_updated": "2026-10-27",
+ "last_updated": "2026-10-28",
  "summary": {
   "total": 17,
   "completed": 13,
@@ -458,7 +458,7 @@
   {
    "id": "F012",
    "name": "FastAPI serving layer",
-   "description": "OpenAI-compatible backend for the counsellor: thin FastAPI routes over backend/core/chat.py, which injects src/rag/query.py:retrieve() context and forwards to the vLLM GGUF model server (streaming + non-streaming); anse points its Base URL here.",
+   "description": "OpenAI-compatible backend for the counsellor: thin FastAPI routes over backend/core/chat.py, which injects src/rag/query.py:retrieve() context and forwards to the vLLM GGUF model server (streaming + non-streaming); the frontend points its endpoint here.",
    "status": "completed",
    "priority": "high",
    "module": "backend",
@@ -494,8 +494,8 @@
   },
   {
    "id": "F013",
-   "name": "anse chat frontend (submodule)",
-   "description": "anse (MIT, Astro/TS, ~1MB) as a git submodule at frontend/anse, pointed at the F012 backend via its OpenAI provider Base URL setting. No custom UI code.",
+   "name": "Local-LLM-Chat v3 frontend (vendored)",
+   "description": "Local-LLM-Chat v3 (MIT, single HTML file) vendored as a regular tracked file at frontend/index.html — no submodule, no build step. Default API endpoint edited to http://localhost:8001/v1/chat/completions, model-name field removed (backend ignores it), sidebar starts collapsed. Served via `make frontend` (python http.server on :3000).",
    "status": "completed",
    "priority": "medium",
    "module": "frontend",
@@ -508,21 +508,16 @@
    "subtasks": [
     {
      "id": "F013-1",
-     "name": "Pin anse as submodule at frontend/anse",
+     "name": "Vendor v3 HTML as regular file: :8001 default, no model field, sidebar collapsed",
      "status": "completed"
     },
     {
      "id": "F013-2",
-     "name": "Wire Base URL to F012 + smoke-test a chat turn",
-     "status": "completed"
-    },
-    {
-     "id": "F013-3",
-     "name": "SSE streaming follow-up (needs F012-3)",
+     "name": "Serve via make frontend + smoke-test a chat turn",
      "status": "completed"
     }
    ],
-   "notes": "open-webui evaluated and rejected: 482MB repo, custom proprietary license (NOASSERTION), Svelte+Python stack. anse wins on all three (MIT, 1MB, TS) and its OpenAI provider exposes Base URL + handles non-streaming responses; the backend ignores the client model field, so any model label works. Neither is React, but neither needs code changes, which is the point. Run it with `make frontend`, then set Base URL to http://localhost:8001 in its OpenAI provider settings. Smoke-tested live 2026-10-15: multi-turn chat streams anse->F012->vLLM; debugging along the way fixed the model-name mismatch, context overflow, and repetition loops.",
+   "notes": "Replaced the anse submodule 2026-10-28 (git rm + .gitmodules deleted). Chose v3 over v1 (7.6KB, endpoint hardcoded, no settings) and v2 (38KB, endpoint hardcoded in JS): v3 (83KB) has a settings modal persisted to localStorage so endpoint/system-prompt need no code edits, plus stop-generation, export, and a debug console. Pinned to dmeldrum6/Local-LLM-Chat tag v3 (8f936d2); local changes: localhost:1234 -> localhost:8001 (3 spots), model-name input + CONFIG/localStorage/fetch references removed (backend ChatRequest.model defaults server-side), char-counter span + references removed, sidebar ships with `collapsed` class.",
    "added": "2026-10-14",
    "completed": "2026-10-15"
   },

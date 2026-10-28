@@ -16,8 +16,9 @@ maintained part-time, so fixes land on a best-effort basis; critical issues
 ## Scope
 
 In scope: `backend/`, `src/`, `Makefile` targets, and the default configs
-that ship in this repo. Out of scope: the `frontend/anse` submodule
-(report upstream), third-party model weights, and findings that require a
+that ship in this repo. Out of scope: the vendored
+`frontend/index.html` (upstream Local-LLM-Chat — report
+upstream), third-party model weights, and findings that require a
 committed `.env` or other ignored file (see "Never commit" in
 `CONTRIBUTING.md` — secrets must never be in the repo in the first place).
 

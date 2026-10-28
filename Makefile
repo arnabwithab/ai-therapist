@@ -44,8 +44,8 @@ model-server: ## serve the GGUF via vLLM on :8000 (syncs the serving group on de
 	uv sync --group serving --frozen
 	uv run --no-sync vllm serve $(GGUF) --tokenizer Qwen/Qwen3-4B-Instruct-2507 --port 8000 --max-model-len 4096 --enforce-eager --gpu-memory-utilization 0.7 --served-model-name ai-therapist-qwen3-4b
 
-frontend: ## run the anse chat UI (set its Base URL to http://localhost:8001)
-	cd frontend/anse && npm ci --no-audit --no-fund && npm run dev
+frontend: ## serve the chat UI at http://localhost:3000 (talks to the backend on :8001)
+	cd frontend && python3 -m http.server 3000
 
 MODEL_ID ?= Qwen/Qwen3-4B-Instruct-2507
 MAX_MODEL_LEN ?= 4096

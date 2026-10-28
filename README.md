@@ -16,20 +16,17 @@
 
 ## Get started
 
-**Requirements:** Python 3.11+, `uv`, Node 18+, and a GPU with **min 8 GB VRAM** for the model server.
+**Requirements:** Python 3.11+, `uv`, and a GPU with **min 8 GB VRAM** for the model server.
 
 ```bash
 # 1. clone & enter
 git clone https://github.com/arnabwithab/ai-therapist.git
 cd ai-therapist
 
-# 2. update submodules
-git submodule update --init --recursive
-
-# 3. install & fetch model
+# 2. install & fetch model
 make setup
 
-# 4. build the RAG index
+# 3. build the RAG index
 make ingest
 ```
 
@@ -42,7 +39,7 @@ make model-server
 # terminal 2 — backend API on :8001
 make serve
 
-# terminal 3 — chat UI (set its OpenAI provider Base URL to http://localhost:8001)
+# terminal 3 — chat UI at http://localhost:3000 (already points at the backend on :8001)
 make frontend
 ```
 
