@@ -3,8 +3,7 @@
 <p align="center">Finetuned SLM for counselling, served with RAG over South Asian techniques, with a voice interface layer.</p>
 
 <p align="center">
-  <a href="https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507"><img src="https://img.shields.io/badge/base_model-Qwen3--4B-yellow?logo=huggingface&logoColor=white" alt="base model: Qwen3-4B"></a>
-  <a href="https://huggingface.co/arnabwithab/ai-therapist-qwen3-4b-sft-lora"><img src="https://img.shields.io/badge/🤗_LoRA-ai--therapist--qwen3--4b--sft--lora-orange" alt="SFT LoRA adapter on Hugging Face"></a>
+  <a href="https://huggingface.co/collections/arnabwithab/counselling-slms"><img src="https://img.shields.io/badge/Models-counselling--slms-yellow?logo=huggingface" alt="counselling SLMs on Hugging Face"></a>
   <img src="https://img.shields.io/badge/python-3.11+-blue?logo=python&logoColor=white" alt="python 3.11+">
   <img src="https://img.shields.io/badge/uv-0.12.19-black?logo=astral&logoColor=white" alt="managed with uv 0.12.19">
   <img src="https://img.shields.io/badge/black-26.10.1-black?logo=python&logoColor=white" alt="formatted with black 26.10.1">
