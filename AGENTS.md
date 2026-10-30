@@ -1,5 +1,7 @@
 # AGENTS.md
 
+> Remote access: see `SSH.md` (gitignored, local-only) for cselab11-41 connection details.
+
 ## Project Overview
 AI counsellor: a finetuned small language model for counselling (Qwen3-1.7B DPO LoRA, served via vLLM with --enable-lora and --reasoning-parser qwen3 so thinking stays out of replies), served with RAG over South Asian therapeutic techniques (Chroma + bge-small embeddings) and, eventually, a voice interface layer. No agentic work. College project demo — counselling-style conversational quality, evaluated with MentalBench-Align and a rebuilt T-BARS RCC pillar.
 

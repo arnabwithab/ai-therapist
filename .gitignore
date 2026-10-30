@@ -17,3 +17,4 @@ data/eval/*.meta.json
 data/finetune/amod-counseling/*.json
 chroma
 models
+SSH.md
