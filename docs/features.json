@@ -1,12 +1,13 @@
 {
  "project": "ai-therapist",
- "last_updated": "2026-10-28",
+ "last_updated": "2026-10-30",
  "summary": {
   "total": 17,
-  "completed": 13,
+  "completed": 14,
   "in_progress": 1,
-  "planned": 3,
-  "tests_passing": 94,
+  "planned": 0,
+  "deferred": 2,
+  "tests_passing": 95,
   "tests_failing": 0,
   "tests_missing": 7
  },
@@ -341,8 +342,8 @@
   {
    "id": "F009",
    "name": "MentalBench-Align evaluation harness",
-   "description": "Automated counselling-quality evaluation using the MentalBench-Align repo (CSS = Guidance/Informativeness/Relevance/Safety; ARS = Empathy/Helpfulness/Understanding) with its 1\u20135 rubrics plus judge prompt and JSON schema, including a human spot-check on Safety/Relevance.",
-   "status": "planned",
+   "description": "Automated counselling-quality evaluation using the MentalBench-Align repo (CSS = Guidance/Informativeness/Relevance/Safety; ARS = Empathy/Helpfulness/Understanding) with its 1\u20135 rubrics plus judge prompt and JSON schema.",
+   "status": "completed",
    "priority": "high",
    "module": "eval",
    "design_doc": "docs/slm-finetuning.md",
@@ -357,17 +358,12 @@
     {
      "id": "F009-1",
      "name": "Judge prompt + JSON schema integration",
-     "status": "planned"
+     "status": "completed"
     },
     {
      "id": "F009-2",
      "name": "Scoring script for CSS/ARS dimensions",
-     "status": "planned"
-    },
-    {
-     "id": "F009-3",
-     "name": "Human spot-check protocol",
-     "status": "planned"
+     "status": "completed"
     },
     {
      "id": "F009-4",
@@ -377,7 +373,7 @@
    ],
    "notes": "Caveat: LLM judges inflate affective scores by +0.4\u20130.8 and are weakest on Safety/Relevance. F009-4 done 2026-10-26: eval/mbench_rag/fetch_contexts.py precomputes top-5 passages per row + serving-identical rag_context block into data/eval/mbench-rag-judge.csv; covered by tests/test_eval/test_fetch_contexts.py (9 tests incl. byte-identical check vs backend._retrieved_message, greptile-reviewed); 10k rows fetched in ~8 min locally, meta recorded (bge-small-en-v1.5, 2526 chunks, top_k 5). Evals can now run with zero RAG infra.",
    "added": "2026-10-14",
-   "completed": null
+   "completed": "2026-10-30"
   },
   {
    "id": "F010",
@@ -428,9 +424,9 @@
   },
   {
    "id": "F011",
-   "name": "T-BARS RCC pillar rebuild",
-   "description": "Rebuild the T-BARS Responsible Counselling Communication pillar from the coTherapist paper \u00a75.2: 5 subskills scored 0\u20134 by a LLaMA-3.1-8B judge. Code and data were never released, so this is a from-paper rebuild.",
-   "status": "planned",
+   "name": "Better counselling eval (design pending)",
+   "description": "Design a better counselling eval than the current LLM-as-judge. References: the T-BARS Responsible Counselling Communication pillar from the coTherapist paper (\u00a75.2: 5 subskills scored 0\u20134) and our existing MentalBench-Align harness (F009: judge prompt + scoring script + precomputed RAG contexts). Needs more thinking before any build \u2014 open question what the eval should measure and how.",
+   "status": "deferred",
    "priority": "medium",
    "module": "eval",
    "design_doc": "docs/research.md",
@@ -442,16 +438,16 @@
    "subtasks": [
     {
      "id": "F011-1",
-     "name": "Encode 5 subskills + 0\u20134 rubric",
-     "status": "planned"
+     "name": "Survey options (T-BARS RCC, F009 gaps, human eval)",
+     "status": "deferred"
     },
     {
      "id": "F011-2",
-     "name": "LLaMA-3.1-8B judge runner",
-     "status": "planned"
+     "name": "Decide eval design + rubric/judge protocol",
+     "status": "deferred"
     }
    ],
-   "notes": "Checked arXiv/ACM/author GitHub/site/lab \u2014 not released, only a 'release upon acceptance' promise. cotherapistai.com is an unrelated product; ignore.",
+   "notes": "T-BARS code/data checked on arXiv/ACM/author GitHub/site/lab \u2014 not released, only a 'release upon acceptance' promise; keep as reference only. cotherapistai.com is an unrelated product; ignore. Existing F009 harness is the other reference. No build until the eval design is thought through.",
    "added": "2026-10-14",
    "completed": null
   },
@@ -525,7 +521,7 @@
    "id": "F014",
    "name": "Voice interface layer",
    "description": "Speech input/output layer over the counselling chat, built after the text stack works.",
-   "status": "planned",
+   "status": "deferred",
    "priority": "low",
    "module": "backend",
    "design_doc": "AGENTS.md",
@@ -538,7 +534,7 @@
     {
      "id": "F014-1",
      "name": "Decide STT/TTS stack",
-     "status": "planned"
+     "status": "deferred"
     }
    ],
    "notes": "Explicitly deferred; no agents, no tools.",
@@ -715,7 +711,8 @@
     {
      "id": "F017-9",
      "name": "Regular prompt + RAG run (gen + judge, missing matrix cell)",
-     "status": "planned"
+     "status": "in_progress",
+     "notes": "2026-10-30: 1.7B-DPO only (no other models). generate_rag prompt=regular now appends the RAG block as a second user message (same shape as OARS+RAG precomputed); gen running on cselab11-41 (RTX 4500 Ada 24GB, vLLM 0.9 util, precomputed blocks, 1024 tokens)."
     },
     {
      "id": "F017-10",

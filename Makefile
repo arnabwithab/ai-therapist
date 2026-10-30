@@ -49,6 +49,7 @@ RAG_CSV ?=
 RAG_JSONL ?=
 MAX_TOKENS ?= 512
 PROMPT ?= oars
+WORKERS ?= 16
 N_SHARDS ?= 1
 SHARD ?= 0
 OUT ?= data/eval/mbench-rag/output_rag.csv
@@ -58,8 +59,8 @@ model-server-24g: ## serve our DPO model on :8000 (24GB box)
 	uv sync --group serving --frozen
 	VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync vllm serve Qwen/Qwen3-1.7B --port 8000 --max-model-len 8192 --gpu-memory-utilization 0.9 --enable-lora --lora-modules ai-therapist-qwen3-1.7b-dpo=arnabwithab/ai-therapist-qwen3-1.7b-dpo-lora --served-model-name ai-therapist-qwen3-1.7b-dpo --reasoning-parser qwen3
 
-eval-rag: ## one OARS+RAG eval shard (EVAL_MODEL/SHARD/N_SHARDS/OUT/EVAL_COL/RAG_TOP_K/MAX_TOKENS/PROMPT/HF_EVAL_REPO; NO_RAG=1 = ablation, RAG_CSV/RAG_JSONL = precomputed, HF_EVAL_REPO= to disable push)
-	uv run python -m eval.mbench_rag.generate_rag --model $(EVAL_MODEL) --out $(OUT) --col $(EVAL_COL) --shard $(SHARD) --num-shards $(N_SHARDS) --rag-top-k $(RAG_TOP_K) --max-tokens $(MAX_TOKENS) --prompt $(PROMPT) --hf-repo $(HF_EVAL_REPO) $(if $(NO_RAG),--no-rag) $(if $(RAG_CSV),--rag-csv $(RAG_CSV)) $(if $(RAG_JSONL),--rag-jsonl $(RAG_JSONL))
+eval-rag: ## one eval shard (EVAL_MODEL/SHARD/N_SHARDS/OUT/EVAL_COL/RAG_TOP_K/MAX_TOKENS/PROMPT/WORKERS/HF_EVAL_REPO; NO_RAG=1 = ablation, RAG_CSV/RAG_JSONL = precomputed, HF_EVAL_REPO= to disable push)
+	uv run python -m eval.mbench_rag.generate_rag --model $(EVAL_MODEL) --out $(OUT) --col $(EVAL_COL) --shard $(SHARD) --num-shards $(N_SHARDS) --rag-top-k $(RAG_TOP_K) --max-tokens $(MAX_TOKENS) --prompt $(PROMPT) --workers $(WORKERS) --hf-repo $(HF_EVAL_REPO) $(if $(NO_RAG),--no-rag) $(if $(RAG_CSV),--rag-csv $(RAG_CSV)) $(if $(RAG_JSONL),--rag-jsonl $(RAG_JSONL))
 
 judge: ## score the baseline with muse-spark-1.3-contributor (needs OPENCODE_GO_KEY)
 	uv run python -m eval.mbench_baseline.judge --all

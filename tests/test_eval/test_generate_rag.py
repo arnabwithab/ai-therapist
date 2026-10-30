@@ -255,12 +255,64 @@ def test_answer_one_regular_prompt_uses_paper_preamble(monkeypatch):
 
     monkeypatch.setattr(R, "retrieve", no_retrieve)
     monkeypatch.setattr(R, "generate_one", fake_generate)
-    row = R.answer_one(object(), 0, "worry", "m", 1024, 5, False, prompt="regular")
+    row = R.answer_one(object(), 0, "worry", "m", 1024, 5, True, prompt="regular")
     assert len(seen["messages"]) == 1
     assert seen["messages"][0]["role"] == "user"
     assert "worry" in seen["messages"][0]["content"]
     assert "psychiatrist" in seen["messages"][0]["content"]
     assert row["sources"] == "[]"
+
+
+def test_answer_one_regular_rag_appends_precomputed_block(monkeypatch):
+    seen = {}
+    monkeypatch.setattr(
+        R, "retrieve", lambda *a, **k: (_ for _ in ()).throw(AssertionError("must use precomputed"))
+    )
+    monkeypatch.setattr(R, "generate_one", lambda c, m, *a, **k: seen.update(messages=m) or "r")
+    row = R.answer_one(
+        object(),
+        0,
+        "worry",
+        "m",
+        1024,
+        5,
+        False,
+        rag_block="BLOCK",
+        rag_sources="[s]",
+        prompt="regular",
+    )
+    assert len(seen["messages"]) == 2
+    assert "psychiatrist" in seen["messages"][0]["content"]
+    assert seen["messages"][1] == {"role": "user", "content": "BLOCK"}
+    assert row["sources"] == "[s]"
+
+
+def test_answer_one_regular_rag_live_retrieves(monkeypatch):
+    seen = {}
+    monkeypatch.setattr(
+        R, "retrieve", lambda q, n=5: [{"text": "t", "source": "s", "chapter": "c", "score": 0.5}]
+    )
+    monkeypatch.setattr(R, "generate_one", lambda c, m, *a, **k: seen.update(messages=m) or "r")
+    row = R.answer_one(object(), 0, "worry", "m", 1024, 5, False, prompt="regular")
+    assert len(seen["messages"]) == 2
+    assert "[s — c]\nt" in seen["messages"][1]["content"]
+    assert json.loads(row["sources"]) == [{"source": "s", "chapter": "c", "score": 0.5}]
+
+
+def test_answer_one_regular_no_rag_ignores_block(monkeypatch):
+    seen = {}
+    monkeypatch.setattr(R, "generate_one", lambda c, m, *a, **k: seen.update(messages=m) or "r")
+    row = R.answer_one(object(), 0, "w", "m", 512, 5, True, rag_block="B", prompt="regular")
+    assert len(seen["messages"]) == 1
+    assert row["sources"] == "[]"
+
+
+def test_answer_one_regular_live_empty_retrieval_single_message(monkeypatch):
+    seen = {}
+    monkeypatch.setattr(R, "retrieve", lambda q, n=5: [])
+    monkeypatch.setattr(R, "generate_one", lambda c, m, *a, **k: seen.update(messages=m) or "r")
+    R.answer_one(object(), 0, "w", "m", 512, 5, False, prompt="regular")
+    assert len(seen["messages"]) == 1
 
 
 def test_answer_one_oars_default_unchanged(monkeypatch):

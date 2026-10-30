@@ -24,7 +24,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 import httpx
 
-from backend.core.chat import build_messages
+from backend.core.chat import build_messages, format_passages
 from eval.hf_push import push_file
 from eval.mbench_baseline.generate import PROMPT as REGULAR_PROMPT
 from eval.mbench_baseline.generate import completed, load_contexts
@@ -105,12 +105,36 @@ def generate_one(client, messages, model, max_tokens=MAX_TOKENS, retries=3):
     raise last
 
 
-def answer_one(client, idx, context, model, max_tokens, rag_top_k, no_rag,
-               rag_block=None, rag_sources="[]", prompt="oars"):
+def answer_one(
+    client,
+    idx,
+    context,
+    model,
+    max_tokens,
+    rag_top_k,
+    no_rag,
+    rag_block=None,
+    rag_sources="[]",
+    prompt="oars",
+):
     """One eval row: live retrieve, precomputed block, empty (ablation), or regular."""
+    # Live regular+RAG appends the raw block (precomputed shape), not the
+    # <retrieved_techniques> wrapper OARS-live uses: compare via --rag-csv.
     if prompt == "regular":
+        # Same paper preamble as the base runs; RAG rides as a second user
+        # message holding the same block OARS+RAG appends, so the two cells
+        # differ only in the base prompt.
         messages = [{"role": "user", "content": REGULAR_PROMPT.format(user_concern=context)}]
-        sources = "[]"
+        if no_rag:
+            sources = "[]"
+        elif rag_block is not None:
+            messages.append({"role": "user", "content": rag_block})
+            sources = rag_sources
+        else:
+            passages = retrieve(context, n=rag_top_k)
+            if passages:
+                messages.append({"role": "user", "content": format_passages(passages)})
+            sources = format_sources(passages)
     else:
         turn = [{"role": "user", "content": context}]
         if no_rag:
@@ -167,7 +191,9 @@ def run_shard(args):
             block_sources = load_precomputed_sources(args.rag_jsonl)
         missing = [i for i, _ in todo if i not in blocks]
         if missing:
-            raise SystemExit(f"{len(missing)} todo rows lack a precomputed block (e.g. {missing[:5]})")
+            raise SystemExit(
+                f"{len(missing)} todo rows lack a precomputed block (e.g. {missing[:5]})"
+            )
     log.info(
         "shard %d/%d: todo=%d already_done=%d",
         args.shard,
@@ -234,7 +260,9 @@ def run_shard(args):
 
 def main(argv=None):
     ap = argparse.ArgumentParser()
-    ap.add_argument("--model", default=os.getenv("AI_THERAPIST_MODEL", "ai-therapist-qwen3-1.7b-dpo"))
+    ap.add_argument(
+        "--model", default=os.getenv("AI_THERAPIST_MODEL", "ai-therapist-qwen3-1.7b-dpo")
+    )
     ap.add_argument("--prompt", choices=["oars", "regular"], default="oars")
     ap.add_argument("--vllm-url", default=os.getenv("VLLM_URL", "http://localhost:8000"))
     ap.add_argument("--col", default=COL)
@@ -242,8 +270,10 @@ def main(argv=None):
     ap.add_argument("--shard", type=int, default=0)
     ap.add_argument("--num-shards", type=int, default=1)
     ap.add_argument("--rag-top-k", type=int, default=int(os.getenv("RAG_TOP_K", "5")))
-    ap.add_argument("--no-rag", action="store_true", help="same OARS prompt, empty retrieval")
-    ap.add_argument("--rag-csv", default="", help="precomputed rag_context CSV (skips live retrieval)")
+    ap.add_argument("--no-rag", action="store_true", help="same prompt, empty retrieval")
+    ap.add_argument(
+        "--rag-csv", default="", help="precomputed rag_context CSV (skips live retrieval)"
+    )
     ap.add_argument("--rag-jsonl", default="", help="fetch jsonl for the sources column (optional)")
     ap.add_argument("--rag-col", default="rag_context")
     ap.add_argument("--max-tokens", type=int, default=MAX_TOKENS)
