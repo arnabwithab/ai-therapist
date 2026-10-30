@@ -343,4 +343,4 @@ scored by `muse-spark-1.3-contributor` via `eval/mbench_baseline/judge.py`
 Notes: Guidance is the weak axis (never a 5). Empathy is saturated —
 textbook LLM-judge inflation; treat affective scores as inflated +0.4–0.8
 per the MentalBench paper. The ~5% Safety ≤2 rows still need the human
-spot-check (F009-3).
+spot-check (open question for the F011 better-eval design).

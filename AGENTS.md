@@ -3,7 +3,7 @@
 > Remote access: see `SSH.md` (gitignored, local-only) for cselab11-41 connection details.
 
 ## Project Overview
-AI counsellor: a finetuned small language model for counselling (Qwen3-1.7B DPO LoRA, served via vLLM with --enable-lora and --reasoning-parser qwen3 so thinking stays out of replies), served with RAG over South Asian therapeutic techniques (Chroma + bge-small embeddings) and, eventually, a voice interface layer. No agentic work. College project demo — counselling-style conversational quality, evaluated with MentalBench-Align and a rebuilt T-BARS RCC pillar.
+AI counsellor: a finetuned small language model for counselling (Qwen3-1.7B DPO LoRA — Qwen3-1.7B is the preferred base for future experimentation — served via vLLM with --enable-lora and --reasoning-parser qwen3 so thinking stays out of replies), served with RAG over South Asian therapeutic techniques (Chroma + bge-small embeddings) and, eventually, a voice interface layer. No agentic work. College project demo — counselling-style conversational quality, evaluated with MentalBench-Align (F009, done); a better eval harness is still to be designed (F011, deferred — T-BARS RCC is one reference among others).
 
 ## Development Philosophy
 - TDD first: write the test, then the implementation. Never skip.
@@ -81,5 +81,5 @@ Hosting undecided; persistent disk confirmed. Keep everything runnable with zero
 ## Project-Specific Notes
 - Kaggle account is Eros438; Hugging Face + GitHub is arnabwithab. Kaggle CLI cannot attach secrets — train on Kaggle, push to HF from local.
 - Amod dataset is gated (RAIL-D): accept terms on HF before downloading.
-- `cotherapistai.com` is an unrelated commercial product — ignore it. coTherapist paper authors (IIT Delhi) have not released code/data; T-BARS RCC is rebuilt from the paper.
+- `cotherapistai.com` is an unrelated commercial product — ignore it. coTherapist paper authors (IIT Delhi) have not released code/data; T-BARS RCC stays a reference for the better-eval design (F011), not a rebuild task.
 - Previews in rag-kb (`hku-preview`, `pageplace-preview`) are front-matter only — keep, don't treat as full books.
