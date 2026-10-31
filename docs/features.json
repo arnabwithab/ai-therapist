@@ -2,12 +2,12 @@
  "project": "ai-therapist",
  "last_updated": "2026-10-30",
  "summary": {
-  "total": 17,
+  "total": 18,
   "completed": 14,
   "in_progress": 1,
-  "planned": 0,
+  "planned": 1,
   "deferred": 2,
-  "tests_passing": 95,
+  "tests_passing": 99,
   "tests_failing": 0,
   "tests_missing": 7
  },
@@ -59,7 +59,7 @@
     "dpo_oars_rag": ""
    }
   ],
-  "notes": "DPO column is the canonical run per model (1.7B = 1024-token rerun; 512 run superseded). +OARS columns use the serving voice prompt; RAG columns attach precomputed serving-identical blocks. Regular-prompt + RAG is the missing cell (F017-9)."
+  "notes": "DPO column is the canonical run per model (1.7B = 1024-token rerun; 512 run superseded). +OARS columns use the serving voice prompt; RAG columns attach precomputed serving-identical blocks. Regular-prompt + RAG cell (F017-9) filled 2026-10-31: 1.7B-DPO regular+RAG Overall 3.27 vs regular no-RAG 3.86."
  },
  "features": [
   {
@@ -711,8 +711,8 @@
     {
      "id": "F017-9",
      "name": "Regular prompt + RAG run (gen + judge, missing matrix cell)",
-     "status": "in_progress",
-     "notes": "2026-10-30: 1.7B-DPO only (no other models). generate_rag prompt=regular now appends the RAG block as a second user message (same shape as OARS+RAG precomputed); gen running on cselab11-41 (RTX 4500 Ada 24GB, vLLM 0.9 util, precomputed blocks, 1024 tokens)."
+     "status": "completed",
+     "notes": "2026-10-30/31: 1.7B-DPO only. Gen DONE on cselab11-41 (vLLM 0.9 util, precomputed blocks, 1024 tokens, workers 64): data/eval/mbench-rag/output_regular_rag.csv, 10k/10k unique idx, 0 blank, 0 think leak, median 2904 chars. Judged 2026-10-31 (local, same rubric): Overall 3.27 vs regular no-RAG 3.86 (-0.59) — RAG hurts under both prompts (OARS 3.19 -> 2.91); Relevance 4.48 -> 3.27, Understanding 3.94 -> 3.14. Full output: data/eval/mbench-judge-1p7b-dpo-regular-rag.csv."
     },
     {
      "id": "F017-10",
@@ -752,6 +752,24 @@
    ],
    "notes": "Smoke-verified locally up to the model call (real Chroma retrieval + prompt build, ConnectError only \u2014 no vLLM here). Judge pushes scores per batch when --hf-repo is set. Caveat: OARS replies are 3-6 sentences vs base long paragraphs, so Informativeness/Helpfulness may dip on style alone. Coverage matrix: see eval_coverage table (missing cell: regular-prompt+RAG, F017-9). Note: generate_rag.py hardcodes the OARS path via build_messages, so the regular cell needs a prompt-style switch (or a standalone run reusing mbench-rag-judge.csv passages with the paper preamble). Judged 2026-10-26: 4B OARS no-RAG Overall 3.31 and OARS+RAG Overall 3.32 (both n=10000 contiguous; RAG delta +0.01, no measurable effect); sections added 2026-10-27. Same-day cleanup: vLLM regen section removed (redundant with canonical 3.84; equivalence note folded into DPO+OARS section); charts reconsolidated to master (11 runs) + per-model (4B x5, 1.7B x4, 0.6B x2), evals-oars.png removed. F017-15/16 stay completed (work happened).",
    "added": "2026-10-21",
+   "completed": null
+  },
+  {
+   "id": "F018",
+   "name": "Rethinking post-training for Qwen3-1.7B",
+   "description": "Rethink how the 1.7B is post-trained: whether DPO-from-base over PsyCoPref is still the right stage, what data/objective the serving behaviour actually needs, and how the training distribution should match the OARS serving prompt. Design first; no build until the approach is decided. Related: F016 (DPO loop), F017 (serving-path evals), F011 (better eval).",
+   "status": "planned",
+   "priority": "high",
+   "module": "notebooks",
+   "design_doc": "docs/slm-finetuning.md",
+   "tests": {
+    "status": "missing",
+    "files": [],
+    "notes": ""
+   },
+   "subtasks": [],
+   "notes": "Motivation from the eval ladder: DPO-1.7B scores 3.84 with the regular paper preamble but only 3.19 under the OARS serving prompt (Guidance 2.91 -> 1.53), and 2.91 with RAG on top — the model was trained on raw concern -> long-answer pairs while serving asks for short, non-directive replies with retrieved passages. Also open: adapter emits </think> on all 10k rows despite the no-think header, eating the token budget; 4B SFT regressed hard (3.21 vs 4.06), so the SFT stage is suspect too. Scope to be decided — candidates include DPO data closer to the serving voice, SFT-on-OARS-style targets, RAG-aware training, or dropping SFT entirely. Nothing designed or built yet.",
+   "added": "2026-10-30",
    "completed": null
   }
  ]
