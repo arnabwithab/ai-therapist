@@ -1,10 +1,10 @@
 # Evals
 
-![MentalBench-Align Overall means: all judged runs](evals-judge-means.png)
+![MentalBench-Align Overall means: best run per model](evals-judge-means.png)
 
 ![Qwen3-4B per-dimension: base, SFT, DPO, OARS, OARS+RAG](evals-4b.png)
 
-![Qwen3-1.7B per-dimension: base, DPO, OARS, OARS+RAG](evals-1p7b.png)
+![Qwen3-1.7B per-dimension: base, DPO, OARS, OARS+RAG, regular+RAG](evals-1p7b.png)
 
 ![Qwen3-0.6B per-dimension: base vs DPO](evals-0p6b.png)
 
@@ -13,17 +13,18 @@
 ✓ = generated, ✓✓ = generated + judged, blank = not done.
 Machine-readable version of this table: `eval_coverage` in `docs/features.json`.
 
-| Model    | Base | SFT | DPO | Base+OARS | Base+OARS+RAG | DPO+OARS | DPO+OARS+RAG |
-|----------|------|-----|-----|-----------|---------------|----------|--------------|
-| Qwen3-4B | ✓✓ | ✓✓ | ✓✓ | ✓✓ | ✓✓ |  |  |
-| Qwen3-1.7B | ✓✓ |  | ✓✓ |  |  | ✓✓ | ✓✓ |
-| Qwen3-0.6B | ✓✓ |  | ✓✓ |  |  |  |  |
+| Model    | Base | SFT | DPO | Base+OARS | Base+OARS+RAG | DPO+OARS | DPO+OARS+RAG | DPO+reg+RAG |
+|----------|------|-----|-----|-----------|---------------|----------|--------------|-------------|
+| Qwen3-4B | ✓✓ | ✓✓ | ✓✓ | ✓✓ | ✓✓ |  |  |  |
+| Qwen3-1.7B | ✓✓ |  | ✓✓ |  |  | ✓✓ | ✓✓ | ✓✓ |
+| Qwen3-0.6B | ✓✓ |  | ✓✓ |  |  |  |  |  |
 
 DPO is the canonical run per model (1.7B = 1024-token rerun; the 512-token run
 was truncated and is superseded). Base/SFT/DPO use the regular paper preamble;
 +OARS variants use the serving voice prompt instead. RAG runs attach the
-precomputed serving-identical blocks. The missing combination is
-regular-prompt + RAG (tracked as F017-9 in `docs/features.json`).
+precomputed serving-identical blocks. The last missing cell, regular-prompt +
+RAG on 1.7B-DPO (F017-9), was filled 2026-10-31: Overall 3.27 vs regular
+no-RAG 3.86.
 
 ## Base Qwen3-4B + OARS, no RAG (n=10000)
 
@@ -209,8 +210,38 @@ collapses 4.16 → 3.13 with SD 1.03 — retrieval quality is uneven — and
 Understanding falls 3.72 → 2.96. Spot-check confirmed the mechanism, not a
 judge glitch: Buddhist-karma framing pasted onto a moving-house concern.
 Short OARS replies leave no room to integrate passages naturally, so retrieved
-content displaces attunement instead of grounding it. Open question whether
-4B integrates the same blocks better (F017-7 judging pending).
+content displaces attunement instead of grounding it. F017-7 judged the 4B
+counterpart: +0.01, no effect, so the RAG penalty looks 1.7B-specific.
+
+## DPO-1.7B + regular prompt + RAG (n=10000)
+
+MentalBench-Align judge (same prompt, judge, and settings) over
+`data/eval/mbench-rag/output_regular_rag.csv` (col `dpo_regular_rag`,
+vLLM-served DPO adapter via LoRA, regular paper preamble, precomputed top-5
+RAG blocks from `data/eval/mbench-rag-judge.csv`, 1024 tokens), scored
+2026-10-31, idx 0–9999, no gaps. Full output (gitignored):
+`data/eval/mbench-judge-1p7b-dpo-regular-rag.csv`. Zero truncation, zero
+empties, zero think leakage (reasoning parser strips), median reply 2904 chars.
+
+| Dimension       | Mean | SD   | %5  | %≤2 |
+|-----------------|------|------|-----|-----|
+| Guidance        | 2.73 | 0.80 | 2   | 36 |
+| Informativeness | 3.11 | 0.68 | 1   | 17 |
+| Relevance       | 3.27 | 1.02 | 12  | 26 |
+| Safety          | 4.23 | 1.08 | 57  | 13 |
+| Empathy         | 4.32 | 0.57 | 38  | 0  |
+| Helpfulness     | 3.29 | 0.69 | 2   | 11 |
+| Understanding   | 3.14 | 0.95 | 4   | 29 |
+| Overall         | 3.27 | 0.73 | 2   | 14 |
+
+Notes: RAG hurts under the regular prompt too (3.27 vs 3.86 no-RAG control,
+same adapter vLLM-measured, all-axis deltas ≤0.10 vs canonical) — the same
+Relevance collapse (4.48 → 3.27) and Understanding fall (3.94 → 3.14) seen
+under OARS. Guidance degrades less here (2.98 → 2.73) than under OARS
+(1.53 flat): long-form answers absorb passages without starving directive
+content. Net: precomputed retrieval grounding lowers judge scores on 1.7B-DPO
+under both prompts; no evidence it helps anywhere measured so far (4B OARS
+delta was +0.01).
 
 ## DPO-from-base, Qwen3-1.7B ckpt-2000 @512 tokens (n=9992 judged, SUPERSEDED)
 

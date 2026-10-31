@@ -25,7 +25,8 @@
    "base_oars",
    "base_oars_rag",
    "dpo_oars",
-   "dpo_oars_rag"
+   "dpo_oars_rag",
+   "dpo_regular_rag"
   ],
   "rows": [
    {
@@ -36,7 +37,8 @@
     "base_oars": "\u2713\u2713",
     "base_oars_rag": "\u2713\u2713",
     "dpo_oars": "",
-    "dpo_oars_rag": ""
+    "dpo_oars_rag": "",
+    "dpo_regular_rag": ""
    },
    {
     "model": "Qwen3-1.7B",
@@ -46,7 +48,8 @@
     "base_oars": "",
     "base_oars_rag": "",
     "dpo_oars": "\u2713\u2713",
-    "dpo_oars_rag": "\u2713\u2713"
+    "dpo_oars_rag": "\u2713\u2713",
+    "dpo_regular_rag": "\u2713\u2713"
    },
    {
     "model": "Qwen3-0.6B",
@@ -56,7 +59,8 @@
     "base_oars": "",
     "base_oars_rag": "",
     "dpo_oars": "",
-    "dpo_oars_rag": ""
+    "dpo_oars_rag": "",
+    "dpo_regular_rag": ""
    }
   ],
   "notes": "DPO column is the canonical run per model (1.7B = 1024-token rerun; 512 run superseded). +OARS columns use the serving voice prompt; RAG columns attach precomputed serving-identical blocks. Regular-prompt + RAG cell (F017-9) filled 2026-10-31: 1.7B-DPO regular+RAG Overall 3.27 vs regular no-RAG 3.86."
@@ -647,7 +651,7 @@
      "status": "completed"
     }
    ],
-   "notes": "Phi detour 2026-10-21 abandoned after 4 failures: remote modeling.py needs utils.LossKwargs (gone after 4.50), pinned 4.50.3, then Phi3ForCausalLM rejects transformers>=4.53 dtype kwarg (shimmed with torch_dtype fallback) \u2014 then user pivoted to 1.7B. Right call: 1.7B base 10k done in ~3.7h (~1335 rows/h/GPU), judged Overall 3.72 (below 4B base 4.06, above sft5 3.21; Empathy holds at 4.58, gaps in Informativeness/Understanding/Relevance). DPO-from-1.7B pushed (unsloth/Qwen3-1.7B, qwen3-instruct, batch-1 recipe, max 2000/ckpt-250) and RUNNING on eros438. DPO-1.7B COMPLETE 2026-10-21: 2000/2000 steps, train_loss 0.098 (healthier than 4B ckpt, no collapse to 0). Adapter+tokenizer fetched; eval gen pushed as eros438/ai-therapist-qwen3-1p7b-mbench-dpo (RUNNING). DPO-1.7B gen COMPLETE (10k, 0 empty, 0 real echo): ALL rows carry <think> traces (base: 0) - adapter overrode the no-think header; traces show sound clinical reasoning. 141 rows truncated pre-</think> (512 cap vs ~1500-char thoughts). Judging post-</think> final answers only (output_mbench_1p7b_dpo_final.csv); raw CSV kept canonical. DPO-1.7B judged 2026-10-22: Overall 3.33 vs base 3.72 (-0.39). Drop is Guidance collapse (1.77): thoughts eat the 512 budget, 8 thought-only + 141 truncated rows; Understanding up +0.14. Verdict: setup measures DPO+truncation, not DPO. 1024-regen COMPLETE: seed fix worked (9904 seeded, gpu1 0 new + gpu0 96 new), merged 10k/10k, zero truncation (vs 141) and zero empties (vs 8). 1024-regen JUDGED 2026-10-25: Overall 3.84 vs base 3.72 (+0.12) \u2014 hypothesis confirmed. Guidance recovered 1.77 -> 2.91. Resume v5 (dual-layout seed glob) COMPLETE: seed 9904 attached (fix verified), gpu0 +96, merged 10k/10k, 0 empty. Think blocks on all 10k, zero truncation at 1024 (vs 141 at 512). Extended 2026-10-26: Qwen3-0.6B loop to find the capability floor (same harness/judge). 0.6B base COMPLETE: 10k/10k, 0 empty/echo, median 645 chars. 0.6B base judged 2026-10-26: Overall 3.00 (floor of the ladder, below sft5-4B 3.21). Guidance 1.77->1.84 territory collapse confirmed as capacity, not cap (no truncation here). DPO-0.6B pushed (unsloth/Qwen3-0.6B, same batch-1/max-2000/ckpt-250 recipe; expect <think> traces as with 1.7B, strip at eval). DPO-0.6B COMPLETE: 2000/2000 steps, train_loss 0.112 (healthy, no collapse). Eval gen pushed (eros438/ai-therapist-qwen3-0p6b-mbench-dpo v1, RUNNING). DPO-0.6B gen fetched 2026-10-27: 10k/10k contiguous (col qwen3_0p6b_dpo), think blocks on all 10k, stripped to output_mbench_0p6b_dpo_final.csv (0 empty); judged, see below. DPO-0.6B JUDGED 2026-10-27: Overall 3.03 vs base 3.00 (+0.03, n=10000 contiguous) \u2014 no lift at the floor; Guidance flat 1.84->1.85, Safety tail worsens 4.34->4.13 (12%%->18%% <=2). F016-12 complete. Charts consolidated 2026-10-27: master Overall chart + per-model per-dim charts (4B x5, 1.7B x4, 0.6B x2); evals-oars.png removed. vLLM regen (3.86) dropped same day as redundant with canonical 3.84 \u2014 master now 11 runs.",
+   "notes": "Phi detour 2026-10-21 abandoned after 4 failures: remote modeling.py needs utils.LossKwargs (gone after 4.50), pinned 4.50.3, then Phi3ForCausalLM rejects transformers>=4.53 dtype kwarg (shimmed with torch_dtype fallback) \u2014 then user pivoted to 1.7B. Right call: 1.7B base 10k done in ~3.7h (~1335 rows/h/GPU), judged Overall 3.72 (below 4B base 4.06, above sft5 3.21; Empathy holds at 4.58, gaps in Informativeness/Understanding/Relevance). DPO-from-1.7B pushed (unsloth/Qwen3-1.7B, qwen3-instruct, batch-1 recipe, max 2000/ckpt-250) and RUNNING on eros438. DPO-1.7B COMPLETE 2026-10-21: 2000/2000 steps, train_loss 0.098 (healthier than 4B ckpt, no collapse to 0). Adapter+tokenizer fetched; eval gen pushed as eros438/ai-therapist-qwen3-1p7b-mbench-dpo (RUNNING). DPO-1.7B gen COMPLETE (10k, 0 empty, 0 real echo): ALL rows carry <think> traces (base: 0) - adapter overrode the no-think header; traces show sound clinical reasoning. 141 rows truncated pre-</think> (512 cap vs ~1500-char thoughts). Judging post-</think> final answers only (output_mbench_1p7b_dpo_final.csv); raw CSV kept canonical. DPO-1.7B judged 2026-10-22: Overall 3.33 vs base 3.72 (-0.39). Drop is Guidance collapse (1.77): thoughts eat the 512 budget, 8 thought-only + 141 truncated rows; Understanding up +0.14. Verdict: setup measures DPO+truncation, not DPO. 1024-regen COMPLETE: seed fix worked (9904 seeded, gpu1 0 new + gpu0 96 new), merged 10k/10k, zero truncation (vs 141) and zero empties (vs 8). 1024-regen JUDGED 2026-10-25: Overall 3.84 vs base 3.72 (+0.12) \u2014 hypothesis confirmed. Guidance recovered 1.77 -> 2.91. Resume v5 (dual-layout seed glob) COMPLETE: seed 9904 attached (fix verified), gpu0 +96, merged 10k/10k, 0 empty. Think blocks on all 10k, zero truncation at 1024 (vs 141 at 512). Extended 2026-10-26: Qwen3-0.6B loop to find the capability floor (same harness/judge). 0.6B base COMPLETE: 10k/10k, 0 empty/echo, median 645 chars. 0.6B base judged 2026-10-26: Overall 3.00 (floor of the ladder, below sft5-4B 3.21). Guidance 1.77->1.84 territory collapse confirmed as capacity, not cap (no truncation here). DPO-0.6B pushed (unsloth/Qwen3-0.6B, same batch-1/max-2000/ckpt-250 recipe; expect <think> traces as with 1.7B, strip at eval). DPO-0.6B COMPLETE: 2000/2000 steps, train_loss 0.112 (healthy, no collapse). Eval gen pushed (eros438/ai-therapist-qwen3-0p6b-mbench-dpo v1, RUNNING). DPO-0.6B gen fetched 2026-10-27: 10k/10k contiguous (col qwen3_0p6b_dpo), think blocks on all 10k, stripped to output_mbench_0p6b_dpo_final.csv (0 empty); judged, see below. DPO-0.6B JUDGED 2026-10-27: Overall 3.03 vs base 3.00 (+0.03, n=10000 contiguous) \u2014 no lift at the floor; Guidance flat 1.84->1.85, Safety tail worsens 4.34->4.13 (12%%->18%% <=2). F016-12 complete. Charts consolidated 2026-10-27 (superseded 2026-10-31): master Overall chart + per-model per-dim charts; evals-oars.png removed. vLLM regen (3.86) dropped same day as redundant with canonical 3.84.",
    "added": "2026-10-21",
    "completed": "2026-10-27"
   },
@@ -750,7 +754,7 @@
      "status": "completed"
     }
    ],
-   "notes": "Smoke-verified locally up to the model call (real Chroma retrieval + prompt build, ConnectError only \u2014 no vLLM here). Judge pushes scores per batch when --hf-repo is set. Caveat: OARS replies are 3-6 sentences vs base long paragraphs, so Informativeness/Helpfulness may dip on style alone. Coverage matrix: see eval_coverage table (missing cell: regular-prompt+RAG, F017-9). Note: generate_rag.py hardcodes the OARS path via build_messages, so the regular cell needs a prompt-style switch (or a standalone run reusing mbench-rag-judge.csv passages with the paper preamble). Judged 2026-10-26: 4B OARS no-RAG Overall 3.31 and OARS+RAG Overall 3.32 (both n=10000 contiguous; RAG delta +0.01, no measurable effect); sections added 2026-10-27. Same-day cleanup: vLLM regen section removed (redundant with canonical 3.84; equivalence note folded into DPO+OARS section); charts reconsolidated to master (11 runs) + per-model (4B x5, 1.7B x4, 0.6B x2), evals-oars.png removed. F017-15/16 stay completed (work happened).",
+   "notes": "Smoke-verified locally up to the model call (real Chroma retrieval + prompt build, ConnectError only \u2014 no vLLM here). Judge pushes scores per batch when --hf-repo is set. Caveat: OARS replies are 3-6 sentences vs base long paragraphs, so Informativeness/Helpfulness may dip on style alone. Coverage matrix: see eval_coverage table (regular-prompt+RAG cell filled 2026-10-31: 1.7B-DPO 3.27). Note: generate_rag.py hardcodes the OARS path via build_messages, so the regular cell needs a prompt-style switch (or a standalone run reusing mbench-rag-judge.csv passages with the paper preamble). Judged 2026-10-26: 4B OARS no-RAG Overall 3.31 and OARS+RAG Overall 3.32 (both n=10000 contiguous; RAG delta +0.01, no measurable effect); sections added 2026-10-27. Same-day cleanup: vLLM regen section removed (redundant with canonical 3.84; equivalence note folded into DPO+OARS section); charts reconsolidated (11-run master + per-model), evals-oars.png removed. 2026-10-31 (supersedes that layout): master rebuilt as best-per-model (4B base 4.06, 1.7B DPO 3.84, 0.6B DPO 3.03), 1.7B chart to x5 series (regular+RAG added); eval/plot_evals.py + make plots regenerate both from judge CSVs. F017-15/16 stay completed (work happened).",
    "added": "2026-10-21",
    "completed": null
   },
