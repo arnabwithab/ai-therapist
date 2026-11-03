@@ -1,15 +1,15 @@
 {
  "project": "ai-therapist",
- "last_updated": "2026-10-30",
+ "last_updated": "2026-11-03",
  "summary": {
-  "total": 18,
+  "total": 19,
   "completed": 14,
   "in_progress": 1,
-  "planned": 1,
+  "planned": 2,
   "deferred": 2,
   "tests_passing": 99,
   "tests_failing": 0,
-  "tests_missing": 7
+  "tests_missing": 8
  },
  "eval_coverage": {
   "legend": {
@@ -774,6 +774,55 @@
    "subtasks": [],
    "notes": "Motivation from the eval ladder: DPO-1.7B scores 3.84 with the regular paper preamble but only 3.19 under the OARS serving prompt (Guidance 2.91 -> 1.53), and 2.91 with RAG on top — the model was trained on raw concern -> long-answer pairs while serving asks for short, non-directive replies with retrieved passages. Also open: adapter emits </think> on all 10k rows despite the no-think header, eating the token budget; 4B SFT regressed hard (3.21 vs 4.06), so the SFT stage is suspect too. Scope to be decided — candidates include DPO data closer to the serving voice, SFT-on-OARS-style targets, RAG-aware training, or dropping SFT entirely. Nothing designed or built yet.",
    "added": "2026-10-30",
+   "completed": null
+  },
+  {
+   "id": "F019",
+   "name": "Evals v2 rubrics (counselling counts + culture flags, no humans)",
+   "description": "Design for the next judge: MITI counts (R:Q, %CR, MI-nonadherent), TherapyGym 4 safety binaries, CounselBench-Adv 6 binaries, goal-displacement deletion-test, CURE-thick YES/NO + DECASTE binaries + 14416 regex. Explicitly excludes T-BARS 20-Likert (unvalidated) and CultureBench-quiz-as-judge (regression only). No build yet.",
+   "status": "planned",
+   "priority": "high",
+   "module": "eval",
+   "design_doc": "docs/evals-v2.md",
+   "tests": {
+    "status": "missing",
+    "files": [],
+    "notes": ""
+   },
+   "subtasks": [
+    {
+     "id": "F019-1",
+     "name": "MITI counts prompt (R:Q, %CR, MI-nonadherent)",
+     "status": "planned"
+    },
+    {
+     "id": "F019-2",
+     "name": "TherapyGym 4 safety binaries gate",
+     "status": "planned"
+    },
+    {
+     "id": "F019-3",
+     "name": "CounselBench-Adv 6 binaries",
+     "status": "planned"
+    },
+    {
+     "id": "F019-4",
+     "name": "GDB deletion-test probe",
+     "status": "planned"
+    },
+    {
+     "id": "F019-5",
+     "name": "CURE-thick + DECASTE + 14416 regex",
+     "status": "planned"
+    },
+    {
+     "id": "F019-6",
+     "name": "judge_v2.py + tests + make judge-v2 + 100-row pilot",
+     "status": "planned"
+    }
+   ],
+   "notes": "Spec frozen 2026-11-03 in docs/evals-v2.md with full citations (paper trail section). Peer-reviewed: MITI 4.2.1, EPITOME, PsyCoPref, CultureCare, CultureBench/BLEnD. Preprints: CounselBench, TherapyGym, T-BARS (reference only), GDB, CURE, DECASTE/IndiCASA, crisis audit, placebo test. Headline = pairwise win-rate + flag rates; MentalBench Overall stays secondary.",
+   "added": "2026-11-03",
    "completed": null
   }
  ]
