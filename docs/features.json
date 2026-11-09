@@ -1,15 +1,15 @@
 {
  "project": "ai-therapist",
- "last_updated": "2026-11-03",
+ "last_updated": "2026-11-09",
  "summary": {
-  "total": 19,
-  "completed": 14,
+  "total": 17,
+  "completed": 15,
   "in_progress": 1,
-  "planned": 2,
-  "deferred": 2,
-  "tests_passing": 99,
+  "planned": 0,
+  "deferred": 1,
+  "tests_passing": 131,
   "tests_failing": 0,
-  "tests_missing": 8
+  "tests_missing": 5
  },
  "eval_coverage": {
   "legend": {
@@ -427,35 +427,6 @@
    "completed": "2026-10-16"
   },
   {
-   "id": "F011",
-   "name": "Better counselling eval (design pending)",
-   "description": "Design a better counselling eval than the current LLM-as-judge. References: the T-BARS Responsible Counselling Communication pillar from the coTherapist paper (\u00a75.2: 5 subskills scored 0\u20134) and our existing MentalBench-Align harness (F009: judge prompt + scoring script + precomputed RAG contexts). Needs more thinking before any build \u2014 open question what the eval should measure and how.",
-   "status": "deferred",
-   "priority": "medium",
-   "module": "eval",
-   "design_doc": "docs/research.md",
-   "tests": {
-    "status": "missing",
-    "files": [],
-    "notes": ""
-   },
-   "subtasks": [
-    {
-     "id": "F011-1",
-     "name": "Survey options (T-BARS RCC, F009 gaps, human eval)",
-     "status": "deferred"
-    },
-    {
-     "id": "F011-2",
-     "name": "Decide eval design + rubric/judge protocol",
-     "status": "deferred"
-    }
-   ],
-   "notes": "T-BARS code/data checked on arXiv/ACM/author GitHub/site/lab \u2014 not released, only a 'release upon acceptance' promise; keep as reference only. cotherapistai.com is an unrelated product; ignore. Existing F009 harness is the other reference. No build until the eval design is thought through.",
-   "added": "2026-10-14",
-   "completed": null
-  },
-  {
    "id": "F012",
    "name": "FastAPI serving layer",
    "description": "OpenAI-compatible backend for the counsellor: thin FastAPI routes over backend/core/chat.py, which injects src/rag/query.py:retrieve() context and forwards to the vLLM LoRA model server (streaming + non-streaming); the frontend points its endpoint here.",
@@ -495,7 +466,7 @@
   {
    "id": "F013",
    "name": "Local-LLM-Chat v3 frontend (vendored)",
-   "description": "Local-LLM-Chat v3 (MIT, single HTML file) vendored as a regular tracked file at frontend/index.html — no submodule, no build step. Default API endpoint edited to http://localhost:8001/v1/chat/completions, model-name field removed (backend ignores it), sidebar starts collapsed. Served via `make frontend` (python http.server on :3000).",
+   "description": "Local-LLM-Chat v3 (MIT, single HTML file) vendored as a regular tracked file at frontend/index.html \u2014 no submodule, no build step. Default API endpoint edited to http://localhost:8001/v1/chat/completions, model-name field removed (backend ignores it), sidebar starts collapsed. Served via `make frontend` (python http.server on :3000).",
    "status": "completed",
    "priority": "medium",
    "module": "frontend",
@@ -520,30 +491,6 @@
    "notes": "Replaced the anse submodule 2026-10-28 (git rm + .gitmodules deleted). Chose v3 over v1 (7.6KB, endpoint hardcoded, no settings) and v2 (38KB, endpoint hardcoded in JS): v3 (83KB) has a settings modal persisted to localStorage so endpoint/system-prompt need no code edits, plus stop-generation, export, and a debug console. Pinned to dmeldrum6/Local-LLM-Chat tag v3 (8f936d2); local changes: localhost:1234 -> localhost:8001 (3 spots), model-name input + CONFIG/localStorage/fetch references removed (backend ChatRequest.model defaults server-side), char-counter span + references removed, sidebar ships with `collapsed` class.",
    "added": "2026-10-14",
    "completed": "2026-10-15"
-  },
-  {
-   "id": "F014",
-   "name": "Voice interface layer",
-   "description": "Speech input/output layer over the counselling chat, built after the text stack works.",
-   "status": "deferred",
-   "priority": "low",
-   "module": "backend",
-   "design_doc": "AGENTS.md",
-   "tests": {
-    "status": "missing",
-    "files": [],
-    "notes": ""
-   },
-   "subtasks": [
-    {
-     "id": "F014-1",
-     "name": "Decide STT/TTS stack",
-     "status": "deferred"
-    }
-   ],
-   "notes": "Explicitly deferred; no agents, no tools.",
-   "added": "2026-10-14",
-   "completed": null
   },
   {
    "id": "F015",
@@ -659,7 +606,7 @@
    "id": "F017",
    "name": "RAG eval pass on 24GB box (model + RAG pipeline)",
    "description": "Same 10k MentalBench-100k contexts through the serving path (OARS prompt + retrieve) against a vLLM endpoint, with --no-rag ablation, per-shard HF dataset pushes for remote viewing, and one-flag model swaps. Runs: make init/setup/ingest, make model-server-24g, make eval-rag looped over shards.",
-   "status": "in_progress",
+   "status": "completed",
    "priority": "high",
    "module": "eval",
    "design_doc": "docs/slm-finetuning.md",
@@ -716,7 +663,7 @@
      "id": "F017-9",
      "name": "Regular prompt + RAG run (gen + judge, missing matrix cell)",
      "status": "completed",
-     "notes": "2026-10-30/31: 1.7B-DPO only. Gen DONE on cselab11-41 (vLLM 0.9 util, precomputed blocks, 1024 tokens, workers 64): data/eval/mbench-rag/output_regular_rag.csv, 10k/10k unique idx, 0 blank, 0 think leak, median 2904 chars. Judged 2026-10-31 (local, same rubric): Overall 3.27 vs regular no-RAG 3.86 (-0.59) — RAG hurts under both prompts (OARS 3.19 -> 2.91); Relevance 4.48 -> 3.27, Understanding 3.94 -> 3.14. Full output: data/eval/mbench-judge-1p7b-dpo-regular-rag.csv."
+     "notes": "2026-10-30/31: 1.7B-DPO only. Gen DONE on cselab11-41 (vLLM 0.9 util, precomputed blocks, 1024 tokens, workers 64): data/eval/mbench-rag/output_regular_rag.csv, 10k/10k unique idx, 0 blank, 0 think leak, median 2904 chars. Judged 2026-10-31 (local, same rubric): Overall 3.27 vs regular no-RAG 3.86 (-0.59) \u2014 RAG hurts under both prompts (OARS 3.19 -> 2.91); Relevance 4.48 -> 3.27, Understanding 3.94 -> 3.14. Full output: data/eval/mbench-judge-1p7b-dpo-regular-rag.csv."
     },
     {
      "id": "F017-10",
@@ -756,13 +703,13 @@
    ],
    "notes": "Smoke-verified locally up to the model call (real Chroma retrieval + prompt build, ConnectError only \u2014 no vLLM here). Judge pushes scores per batch when --hf-repo is set. Caveat: OARS replies are 3-6 sentences vs base long paragraphs, so Informativeness/Helpfulness may dip on style alone. Coverage matrix: see eval_coverage table (regular-prompt+RAG cell filled 2026-10-31: 1.7B-DPO 3.27). Note: generate_rag.py hardcodes the OARS path via build_messages, so the regular cell needs a prompt-style switch (or a standalone run reusing mbench-rag-judge.csv passages with the paper preamble). Judged 2026-10-26: 4B OARS no-RAG Overall 3.31 and OARS+RAG Overall 3.32 (both n=10000 contiguous; RAG delta +0.01, no measurable effect); sections added 2026-10-27. Same-day cleanup: vLLM regen section removed (redundant with canonical 3.84; equivalence note folded into DPO+OARS section); charts reconsolidated (11-run master + per-model), evals-oars.png removed. 2026-10-31 (supersedes that layout): master rebuilt as best-per-model (4B base 4.06, 1.7B DPO 3.84, 0.6B DPO 3.03), 1.7B chart to x5 series (regular+RAG added); eval/plot_evals.py + make plots regenerate both from judge CSVs. F017-15/16 stay completed (work happened).",
    "added": "2026-10-21",
-   "completed": null
+   "completed": "2026-10-31"
   },
   {
    "id": "F018",
    "name": "Rethinking post-training for Qwen3-1.7B",
-   "description": "Rethink how the 1.7B is post-trained: whether DPO-from-base over PsyCoPref is still the right stage, what data/objective the serving behaviour actually needs, and how the training distribution should match the OARS serving prompt. Design first; no build until the approach is decided. Related: F016 (DPO loop), F017 (serving-path evals), F011 (better eval).",
-   "status": "planned",
+   "description": "Rethink how the 1.7B is post-trained: whether DPO-from-base over PsyCoPref is still the right stage, what data/objective the serving behaviour actually needs, and how the training distribution should match the OARS serving prompt. Design first; no build until the approach is decided. Related: F016 (DPO loop), F017 (serving-path evals), F019 (evals v2).",
+   "status": "deferred",
    "priority": "high",
    "module": "notebooks",
    "design_doc": "docs/slm-finetuning.md",
@@ -772,7 +719,7 @@
     "notes": ""
    },
    "subtasks": [],
-   "notes": "Motivation from the eval ladder: DPO-1.7B scores 3.84 with the regular paper preamble but only 3.19 under the OARS serving prompt (Guidance 2.91 -> 1.53), and 2.91 with RAG on top — the model was trained on raw concern -> long-answer pairs while serving asks for short, non-directive replies with retrieved passages. Also open: adapter emits </think> on all 10k rows despite the no-think header, eating the token budget; 4B SFT regressed hard (3.21 vs 4.06), so the SFT stage is suspect too. Scope to be decided — candidates include DPO data closer to the serving voice, SFT-on-OARS-style targets, RAG-aware training, or dropping SFT entirely. Nothing designed or built yet.",
+   "notes": "Motivation from the eval ladder: DPO-1.7B scores 3.84 with the regular paper preamble but only 3.19 under the OARS serving prompt (Guidance 2.91 -> 1.53), and 2.91 with RAG on top \u2014 the model was trained on raw concern -> long-answer pairs while serving asks for short, non-directive replies with retrieved passages. Also open: adapter emits </think> on all 10k rows despite the no-think header, eating the token budget; 4B SFT regressed hard (3.21 vs 4.06), so the SFT stage is suspect too. Scope to be decided \u2014 candidates include DPO data closer to the serving voice, SFT-on-OARS-style targets, RAG-aware training, or dropping SFT entirely. Nothing designed or built yet.",
    "added": "2026-10-30",
    "completed": null
   },
@@ -780,48 +727,52 @@
    "id": "F019",
    "name": "Evals v2 rubrics (counselling counts + culture flags, no humans)",
    "description": "Design for the next judge: MITI counts (R:Q, %CR, MI-nonadherent), TherapyGym 4 safety binaries, CounselBench-Adv 6 binaries, goal-displacement deletion-test, CURE-thick YES/NO + DECASTE binaries + 14416 regex. Explicitly excludes T-BARS 20-Likert (unvalidated) and CultureBench-quiz-as-judge (regression only). No build yet.",
-   "status": "planned",
+   "status": "in_progress",
    "priority": "high",
    "module": "eval",
    "design_doc": "docs/evals-v2.md",
    "tests": {
-    "status": "missing",
-    "files": [],
-    "notes": ""
+    "status": "passing",
+    "files": [
+     "tests/test_eval/test_judge_v2.py",
+     "tests/test_eval/test_evals_v2_report.py"
+    ],
+    "notes": "22 new tests: prompt/parse/ratio/regex/resume/order-swap/batch-isolation/gate. 131 passed, 1 skipped full suite."
    },
    "subtasks": [
     {
      "id": "F019-1",
      "name": "MITI counts prompt (R:Q, %CR, MI-nonadherent)",
-     "status": "planned"
+     "status": "completed"
     },
     {
      "id": "F019-2",
      "name": "TherapyGym 4 safety binaries gate",
-     "status": "planned"
+     "status": "completed"
     },
     {
      "id": "F019-3",
      "name": "CounselBench-Adv 6 binaries",
-     "status": "planned"
+     "status": "completed"
     },
     {
      "id": "F019-4",
      "name": "GDB deletion-test probe",
-     "status": "planned"
+     "status": "completed"
     },
     {
      "id": "F019-5",
      "name": "CURE-thick + DECASTE + 14416 regex",
-     "status": "planned"
+     "status": "completed"
     },
     {
      "id": "F019-6",
      "name": "judge_v2.py + tests + make judge-v2 + 100-row pilot",
-     "status": "planned"
+     "status": "in_progress",
+     "notes": "judge_v2.py + report/gate + make judge-v2/report-v2/evals-v2 done. Pilot gate PASS on 100 main rows + 100 probes x 2 judges: completeness ok, no flat flags, cross-judge agreement 1.0 (est. flags), culture flags ok, crisis join ok. WARN: pairwise order-swap flip 19% on 100 pairs -> pairwise demoted to exploratory. Full 10k flag pass running."
     }
    ],
-   "notes": "Spec frozen 2026-11-03 in docs/evals-v2.md with full citations (paper trail section). Peer-reviewed: MITI 4.2.1, EPITOME, PsyCoPref, CultureCare, CultureBench/BLEnD. Preprints: CounselBench, TherapyGym, T-BARS (reference only), GDB, CURE, DECASTE/IndiCASA, crisis audit, placebo test. Headline = pairwise win-rate + flag rates; MentalBench Overall stays secondary.",
+   "notes": "Spec frozen 2026-11-03 in docs/evals-v2.md with full citations (paper trail section). Peer-reviewed: MITI 4.2.1, EPITOME, PsyCoPref, CultureCare, CultureBench/BLEnD. Preprints: CounselBench, TherapyGym, T-BARS (reference only), GDB, CURE, DECASTE/IndiCASA, crisis audit, placebo test. Headline = pairwise win-rate + flag rates; MentalBench Overall stays secondary. 2026-11-09 BUILD: judge_v2.py implements MITI 4.2.1 counts (per-utterance deviation from the volley cap documented), TherapyGym 4 + CounselBench-Adv 6 binaries, CURE thick 4 + DECASTE-derived bias flags, GDB deletion test (DS 0-3, displaced = DS>=2), and the India helpline regex (14416 / Tele MANAS / 112 / Vandrevala). Two judges: muse-spark-1.3-contributor (primary) and deepseek-v4.1-flash. 100 India probes built from fetched sources (eval/prompts/culture_probes.csv + sources md), responses generated on the 24GB box with the serving OARS prompt. Pilot findings (n=100 rows, 100 probes): MITI R:Q 1.52, %CR 89.2, MINA 0.035; safety tg_failed_crisis 2.3%, tg_failed_abuse 5.8%, adv_assumptions 4.8%, meds 0%; GDB mean DS 1.51, displaced 60.3%; culture flags not all-true. CRITICAL: crisis routing 0/17 probes mention 14416/Tele MANAS/112, and one explicit-suicide reply validated a funeral date - the OARS 1.7B-DPO cell has no crisis escalation. Caveats: pairwise 19% flips (exploratory only), DS agreement 0.5 across judges, probes synthetic.",
    "added": "2026-11-03",
    "completed": null
   }
