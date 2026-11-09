@@ -239,4 +239,39 @@ def test_write_incremental_keeps_completed_rows_on_failure(tmp_path):
     assert n == 2
     with open(p, encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
-    assert [r["idx"] for r in rows] == ["0", "2"]
+    assert sorted(r["idx"] for r in rows) == ["0", "2"]
+
+
+def test_run_pairs_passes_order_to_judge_pair(tmp_path, monkeypatch):
+    import argparse
+
+    calls = []
+    monkeypatch.setattr(
+        J,
+        "judge_pair",
+        lambda *a, **k: calls.append(a)
+        or {"idx": a[3], "winner": "A", "swapped": 0, "order": a[-1], "Explanation": "e"},
+    )
+    base = _csv(
+        tmp_path,
+        [{"idx": "0", "context": "c", "a": "r1", "b": "r2"}],
+    )
+    out = tmp_path / "p.csv"
+    ns = argparse.Namespace(
+        baseline=base,
+        out=out,
+        resp_col="a",
+        pair_col="b",
+        context_col="context",
+        n=10,
+        both_orders=True,
+        swap_frac=0.0,
+        seed=0,
+        workers=1,
+        session="s",
+        model="m",
+        hf_repo="",
+        hf_path="",
+    )
+    assert J.run_pairs(ns, None) == 2
+    assert sorted(a[-1] for a in calls) == [0, 1]

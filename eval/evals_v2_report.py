@@ -116,6 +116,9 @@ def agreement(rows_a, rows_b):
 
 def pair_stats(rows):
     """Win rate for --resp-col (A) vs --pair-col (B), plus order-swap flip rate."""
+    # last write wins: resuming a pair file must not double-count a pair
+    latest = {(r["idx"], r.get("order", "0")): r for r in rows}
+    rows = list(latest.values())
     first = [r for r in rows if r.get("order", "0") == "0"]
     wins = defaultdict(int)
     for r in first:

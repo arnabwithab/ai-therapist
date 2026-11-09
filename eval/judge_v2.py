@@ -479,14 +479,31 @@ def run_pairs(a, client):
     if not todo:
         return 0
     log.info("pair todo=%d", len(todo))
-    with ThreadPoolExecutor(max_workers=a.workers) as ex:
-        rows = list(
-            ex.map(
-                lambda t: judge_pair(client, a.session, a.model, *t, a.swap_frac, a.seed),
-                todo,
-            )
+
+    def fn(t):
+        idx, context, reply_a, reply_b, order = t
+        return judge_pair(
+            client,
+            a.session,
+            a.model,
+            idx,
+            context,
+            reply_a,
+            reply_b,
+            a.swap_frac,
+            a.seed,
+            order,
         )
-    write_rows(a.out, rows, ["idx", "winner", "swapped", "order", "Explanation"])
+
+    n = write_incremental(
+        a.out,
+        ["idx", "winner", "swapped", "order", "Explanation"],
+        todo,
+        lambda t: safe_call(fn, t),
+        a.workers,
+    )
+    if not n:
+        return 0
     push_file(a.out, a.hf_repo, a.hf_path or os.path.basename(a.out))
     return n
 

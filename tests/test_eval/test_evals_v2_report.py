@@ -54,6 +54,17 @@ def test_pair_stats_win_and_flip():
     assert s["both_order_pairs"] == 2 and s["flip_rate"] == 0.5
 
 
+def test_pair_stats_dedupes_repeated_pairs():
+    rows = [
+        {"idx": "0", "winner": "A", "order": "0"},
+        {"idx": "0", "winner": "B", "order": "0"},  # last wins
+        {"idx": "0", "winner": "A", "order": "1"},
+    ]
+    s = R.pair_stats(rows)
+    assert s["n_pairs"] == 1 and s["b_win_rate"] == 1.0
+    assert s["flip_rate"] == 1.0
+
+
 def test_gate_passes_on_clean_pilot():
     summary = {
         "instruments": {
