@@ -237,5 +237,6 @@ def test_write_incremental_keeps_completed_rows_on_failure(tmp_path):
 
     n = J.write_incremental(p, fields, [0, 1, 2], lambda t: J.safe_call(fn, t), workers=3)
     assert n == 2
-    rows = list(csv.DictReader(open(p, encoding="utf-8")))
+    with open(p, encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
     assert [r["idx"] for r in rows] == ["0", "2"]
