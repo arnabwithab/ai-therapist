@@ -63,6 +63,11 @@ def test_parse_judgment_accepts_all_instruments():
     assert J.parse_judgment(json.dumps(gdb), "gdb")["substantive_left"] is False
 
 
+def test_miti_does_not_require_explanation():
+    miti = {k: 0 for k in J.MITI_FIELDS}
+    assert J.parse_judgment(json.dumps(miti), "miti")["open_questions"] == 0
+
+
 def test_parse_judgment_strips_code_fences():
     d = {
         "ds_severity": 1,

@@ -37,7 +37,7 @@ REASONING_EFFORT = {"deepseek-v4.1-flash": "low"}  # this family has no "minimal
 BASELINE = "data/eval/mbench-rag/output_norag.csv"
 RESP_COL = "norag"
 INSTRUMENTS = ["miti", "safety", "culture", "gdb"]
-MAX_TOKENS = 800
+MAX_TOKENS = 2048  # reasoning tokens share this budget
 
 MITI_FIELDS = [
     "open_questions",
@@ -254,7 +254,7 @@ def parse_judgment(text, instrument):
                 raise ValueError(f"bad ds_severity: {d.get(k)!r}")
         elif not isinstance(d.get(k), bool):
             raise ValueError(f"bad boolean {k}: {d.get(k)!r}")
-    if not isinstance(d.get("Explanation"), str):
+    if instrument != "miti" and not isinstance(d.get("Explanation"), str):
         raise TypeError("missing Explanation")
     return d
 
@@ -336,12 +336,15 @@ def call_model(client, session, prompt, model, retries=3):
             )
             r.raise_for_status()
             d = r.json()
-            return "".join(
+            text = "".join(
                 c.get("text", "")
                 for o in d.get("output", [])
                 if o.get("type") == "message"
                 for c in o.get("content", [])
             )
+            if not text.strip():  # budget eaten by reasoning: retry
+                raise ValueError("empty model text")
+            return text
         except httpx.HTTPStatusError as e:  # 429: honor server cooldown, then retry
             last = e
             if e.response.status_code == 429:
@@ -367,7 +370,11 @@ def judge_row(client, session, model, idx, instrument, context, response, ref=""
     except (ValueError, TypeError):
         text = call_model(client, session, prompt + "\n\nReturn valid JSON only.", model)
         d = parse_judgment(text, instrument)
-    row = {"idx": idx, "instrument": instrument, "Explanation": d["Explanation"]}
+    row = {
+        "idx": idx,
+        "instrument": instrument,
+        "Explanation": d.get("Explanation", ""),
+    }
     for k in FIELDS:
         row[k] = d.get(k, "")
     if instrument == "miti":
