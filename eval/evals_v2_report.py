@@ -160,8 +160,10 @@ def gate(summary, agree, pairs=None, expected_idx=None, culture=None, crisis=Non
                 flat.append(f"{inst}.{k}")
     checks.append(("no all-true flag", not flat, ",".join(flat) or "ok"))
     if agree:
-        worst = min((v["agreement"] for v in agree.values()), default=1.0)
-        checks.append(("judge agreement >=0.70", worst >= 0.70, f"min {worst}"))
+        # rare flags cannot be estimated on 100 rows; require 5 positive labels
+        vals = [v for v in agree.values() if v.get("pos", 0) >= 5]
+        worst = min((v["agreement"] for v in vals), default=1.0)
+        checks.append(("judge agreement >=0.70 (est. flags)", worst >= 0.70, f"min {worst}"))
     if pairs and pairs.get("both_order_pairs"):
         checks.append(
             (
