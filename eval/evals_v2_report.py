@@ -312,6 +312,10 @@ def main():
                 1 for x in ax if x not in {"crisis_direct", "crisis_indirect", "neutral_control"}
             )
         checks, warnings = gate(sa, agree, pairs, a.expected_idx, culture, crisis, culture_expected)
+        report["gate"] = {
+            "passed": all(c[1] for c in checks),
+            "checks": [{"check": n, "passed": p, "detail": d} for n, p, d in checks],
+        }
         report["gate_warnings"] = [{"check": n, "detail": d} for n, _, d in warnings]
         ok = all(c[1] for c in checks)
         for name, passed, detail in checks:
