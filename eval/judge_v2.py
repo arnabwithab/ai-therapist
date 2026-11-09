@@ -26,7 +26,7 @@ import random
 import re
 import sys
 import time
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import httpx
 
@@ -317,14 +317,15 @@ def load_todo(baseline, out, resp_col, instruments, n_rows, context_col="context
 
 def call_model(client, session, prompt, model, retries=3):
     last = None
-    payload = {
-        "model": model,
-        "input": prompt,
-        "max_output_tokens": MAX_TOKENS,
-        "temperature": 0,
-        "reasoning": {"effort": REASONING_EFFORT.get(model, "minimal")},
-    }
     for attempt in range(retries):
+        # reasoning tokens share this budget; empty bodies escalate it
+        payload = {
+            "model": model,
+            "input": prompt,
+            "max_output_tokens": MAX_TOKENS * (2**attempt),
+            "temperature": 0,
+            "reasoning": {"effort": REASONING_EFFORT.get(model, "minimal")},
+        }
         try:
             r = client.post(
                 "/responses",
@@ -342,8 +343,11 @@ def call_model(client, session, prompt, model, retries=3):
                 if o.get("type") == "message"
                 for c in o.get("content", [])
             )
-            if not text.strip():  # budget eaten by reasoning: retry
-                raise ValueError("empty model text")
+            if not text.strip():  # budget eaten by reasoning: escalate and retry
+                raise ValueError(
+                    f"empty model text (status={d.get('status')}, "
+                    f"incomplete={d.get('incomplete_details')})"
+                )
             return text
         except httpx.HTTPStatusError as e:  # 429: honor server cooldown, then retry
             last = e
@@ -386,6 +390,15 @@ def judge_row(client, session, model, idx, instrument, context, response, ref=""
     return row
 
 
+def safe_call(fn, task):
+    """Run one task; log and drop it on failure so one row cannot kill a batch."""
+    try:
+        return fn(task)
+    except Exception as e:  # noqa: BLE001 - per-row isolation is the point
+        log.warning("row failed (%r): %s", task, e)
+        return None
+
+
 def judge_pair(client, session, model, idx, context, reply_a, reply_b, swap_frac, seed, order=0):
     """Order-swapped pairwise call; 'swapped' records whether A was shown second.
 
@@ -418,6 +431,26 @@ def write_rows(path, rows, fields):
         for row in rows:
             w.writerow(row)
             f.flush()
+
+
+def write_incremental(path, fields, todo, fn, workers):
+    """Run fn over todo and append each finished row at once, so a crash keeps progress."""
+    new_file = not os.path.exists(path)
+    n = 0
+    with open(path, "a", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
+        if new_file:
+            w.writeheader()
+            f.flush()
+        with ThreadPoolExecutor(max_workers=workers) as ex:
+            futs = [ex.submit(fn, t) for t in todo]
+            for fut in as_completed(futs):
+                row = fut.result()
+                if row:
+                    w.writerow(row)
+                    f.flush()
+                    n += 1
+    return n
 
 
 def run_pairs(a, client):
@@ -455,7 +488,7 @@ def run_pairs(a, client):
         )
     write_rows(a.out, rows, ["idx", "winner", "swapped", "order", "Explanation"])
     push_file(a.out, a.hf_repo, a.hf_path or os.path.basename(a.out))
-    return len(rows)
+    return n
 
 
 def main():

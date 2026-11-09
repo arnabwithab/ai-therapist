@@ -186,3 +186,57 @@ def test_write_rows_header_once(tmp_path):
     with open(p, encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
     assert len(rows) == 2 and rows[1]["idx"] == "2"
+
+
+class _FakeClient:
+    def __init__(self, texts):
+        self.texts = list(texts)
+        self.budgets = []
+
+    def post(self, path, json=None, headers=None):
+        self.budgets.append(json["max_output_tokens"])
+        text = self.texts.pop(0)
+
+        class R:
+            def raise_for_status(self):
+                pass
+
+            def json(self):
+                return {
+                    "status": "completed",
+                    "output": [{"type": "message", "content": [{"text": text}]}],
+                }
+
+        return R()
+
+
+def test_call_model_escalates_budget_on_empty_text():
+    c = _FakeClient(["", '{"ok": 1}'])
+    out = J.call_model(c, "s", "p", "muse")
+    assert out == '{"ok": 1}'
+    assert c.budgets == [J.MAX_TOKENS, J.MAX_TOKENS * 2]
+
+
+def test_safe_call_drops_failures():
+    def boom(_):
+        raise ValueError("x")
+
+    assert J.safe_call(boom, ("idx", "inst")) is None
+    assert J.safe_call(lambda t: t[0], ("idx", "inst")) == "idx"
+
+
+def test_write_incremental_keeps_completed_rows_on_failure(tmp_path):
+    import itertools
+
+    p = tmp_path / "o.csv"
+    fields = ["idx", "instrument"]
+
+    def fn(t):
+        if t == 1:
+            raise ValueError("bad row")
+        return {"idx": t, "instrument": "miti"}
+
+    n = J.write_incremental(p, fields, [0, 1, 2], lambda t: J.safe_call(fn, t), workers=3)
+    assert n == 2
+    rows = list(csv.DictReader(open(p, encoding="utf-8")))
+    assert [r["idx"] for r in rows] == ["0", "2"]
