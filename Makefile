@@ -1,4 +1,4 @@
-.PHONY: init setup test style check ci ingest serve model-server model-server-24g eval-rag frontend judge judge-v2 report-v2 judge-eval fetch-rag-contexts probe-data clean
+.PHONY: init setup test style check ci ingest serve model-server model-server-24g eval-rag frontend judge judge-v2 report-v2 evals-v2 judge-eval fetch-rag-contexts probe-data clean
 
 init: ## check system prereqs (Ubuntu only) and install what's missing: python3.11+, uv
 	grep -qi ubuntu /etc/os-release || (echo "make init supports Ubuntu only" && exit 1)
@@ -79,6 +79,9 @@ judge-v2: ## evals-v2 judge (V2_MODEL/V2_INSTR/V2_BASELINE/V2_COL/V2_OUT; PAIR_C
 report-v2: ## evals-v2 report/gate (A=.. B=.. PAIRS=.. PROBES=.. AXES=.. EXPECTED=.. GATE=1 JSON=..)
 	test -n "$(A)" || (echo "set A=judge csv" && exit 1)
 	uv run python -m eval.evals_v2_report --judge-a $(A) $(if $(B),--judge-b $(B)) $(if $(PAIRS),--pairs $(PAIRS)) $(if $(PROBES),--probes $(PROBES)) $(if $(AXES),--probe-axes $(AXES)) $(if $(EXPECTED),--expected-idx $(EXPECTED)) $(if $(GATE),--gate) $(if $(JSON),--json $(JSON))
+
+evals-v2: ## F019 pilot gate then full 10k (JUDGES=.. PILOT_N=.. PAIRS=.. PILOT_ONLY=1)
+	bash eval/run_evals_v2.sh
 
 judge-eval: ## judge any eval CSV with the same rubric (BASELINE=.. RESP_COL=.. OUT=..)
 	test -n "$(BASELINE)$(RESP_COL)$(OUT)" || (echo "set BASELINE=.. RESP_COL=.. OUT=.." && exit 1)
