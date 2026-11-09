@@ -315,7 +315,7 @@ def load_todo(baseline, out, resp_col, instruments, n_rows, context_col="context
     return todo
 
 
-def call_model(client, session, prompt, model, retries=3):
+def call_model(client, session, prompt, model, retries=4):
     last = None
     for attempt in range(retries):
         # reasoning tokens share this budget; empty bodies escalate it
@@ -559,6 +559,7 @@ def main():
         + [
             "reflection_question_ratio",
             "pct_complex_reflections",
+            "displaced",
             "crisis_helpline",
         ]
     )
@@ -568,16 +569,16 @@ def main():
         if not todo:
             break
         log.info("batch todo=%d", len(todo))
-        with ThreadPoolExecutor(max_workers=a.workers) as ex:
-            rows = list(
-                ex.map(
-                    lambda t: judge_row(client, a.session, a.model, *t),
-                    todo,
-                )
-            )
-        write_rows(a.out, rows, fields)
-        total += len(rows)
-        log.info("batch DONE %d rows (total %d) -> %s", len(rows), total, a.out)
+
+        def fn(t):
+            return judge_row(client, a.session, a.model, *t)
+
+        n = write_incremental(a.out, fields, todo, lambda t: safe_call(fn, t), a.workers)
+        if not n:
+            log.error("batch produced no rows; stopping (rows stay pending)")
+            break
+        total += n
+        log.info("batch DONE %d rows (total %d) -> %s", n, total, a.out)
         push_file(a.out, a.hf_repo, a.hf_path or os.path.basename(a.out))
         if not a.all:
             break
