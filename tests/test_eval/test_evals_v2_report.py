@@ -23,7 +23,9 @@ def test_summarize_miti_means_and_zero_question_rows():
     s = R.summarize(rows)["instruments"]["miti"]
     assert s["n"] == 2 and s["open_questions"] == 1.0
     assert s["zero_question_rows"] == 1
-    assert s["pct_complex_reflections"] == 50.0  # mean(100, 0)
+    # pooled: 2 reflections / 2 questions; 1 complex / 2 reflections
+    assert s["reflection_question_ratio"] == 1.0
+    assert s["pct_complex_reflections"] == 50.0
 
 
 def test_summarize_binary_rates():
@@ -46,8 +48,8 @@ def test_agreement_uses_shared_rows():
     a = [_safety("0", adv_apathetic=1), _safety("1")]
     b = [_safety("0", adv_apathetic=1), _safety("1", adv_apathetic=1)]
     agree = R.agreement(a, b)
-    assert agree["adv_apathetic"] == {"n": 2, "agreement": 0.5}
-    assert agree["tg_failed_crisis"]["agreement"] == 1.0
+    assert agree["adv_apathetic"] == {"n": 2, "pos": 2, "agreement": 0.5}
+    assert agree["tg_failed_crisis"] == {"n": 2, "pos": 0, "agreement": 1.0}
 
 
 def test_pair_stats_win_and_flip():
@@ -82,7 +84,7 @@ def test_gate_passes_on_clean_pilot():
             "gdb": {"idx": 100, "substantive_left": 0.6},
         }
     }
-    agree = {"adv_apathetic": {"n": 100, "agreement": 0.8}}
+    agree = {"adv_apathetic": {"n": 100, "pos": 20, "agreement": 0.8}}
     pairs = {"both_order_pairs": 20, "flip_rate": 0.05, "tie_rate": 0.2}
     checks, warnings = R.gate(summary, agree, pairs, expected_idx=100)
     assert all(ok for _, ok, _ in checks), checks
@@ -105,7 +107,9 @@ def test_gate_fails_on_flat_flag_and_low_completeness():
 def test_gate_turns_high_flip_into_a_warning():
     summary = {"instruments": {"miti": {"idx": 100}}}
     pairs = {"both_order_pairs": 100, "flip_rate": 0.19, "tie_rate": 0.0}
-    checks, warnings = R.gate(summary, {}, pairs)
+    checks, warnings = R.gate(
+        summary, {"adv_apathetic": {"n": 100, "pos": 20, "agreement": 0.8}}, pairs
+    )
     assert all(ok for _, ok, _ in checks)
     assert warnings and warnings[0][0].startswith("flip rate")
 
@@ -159,3 +163,24 @@ def test_to_markdown_renders_all_blocks():
     md = R.to_markdown(report)
     assert "| miti | 2 |" in md and "| safety | 2 |" in md
     assert "pairwise" in md and "crisis regex" in md
+
+
+def test_agreement_includes_ordinal_severity():
+    a = [{"idx": "0", "instrument": "gdb", "ds_severity": "0"}]
+    b = [{"idx": "0", "instrument": "gdb", "ds_severity": "2"}]
+    assert R.agreement(a, b)["ds_severity"] == {"n": 1, "pos": 1, "agreement": 0.0}
+
+
+def test_gate_fails_when_no_flag_is_estimable():
+    summary = {"instruments": {"miti": {"idx": 100}}}
+    agree = {"adv_apathetic": {"n": 100, "pos": 0, "agreement": 1.0}}
+    checks, _ = R.gate(summary, agree, None, expected_idx=100)
+    names = {n: ok for n, ok, _ in checks}
+    assert not names["judge agreement estimable"]
+
+
+def test_gate_fails_when_judge_b_missing():
+    summary = {"instruments": {"miti": {"idx": 100}}}
+    checks, _ = R.gate(summary, {}, None, expected_idx=100)
+    names = {n: ok for n, ok, _ in checks}
+    assert not names["judge B agreement computed"]

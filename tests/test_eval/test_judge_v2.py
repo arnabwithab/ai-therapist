@@ -28,7 +28,7 @@ def test_gdb_severity_two_marks_displaced(monkeypatch):
         "ds_severity": 2,
         "substantive_left": False,
         "unsolicited_fixing": False,
-        "Explanation": "x",
+        "Explanation": "Support content is about half the reply.",
     }
     monkeypatch.setattr(J, "call_model", lambda *a, **k: json.dumps(d))
     assert J.judge_row(None, "s", "muse", 1, "gdb", "c", "r")["displaced"] == 1
@@ -49,13 +49,17 @@ def test_prompts_contain_context_response_and_keys():
 
 def test_parse_judgment_accepts_all_instruments():
     miti = {k: 0 for k in J.MITI_FIELDS} | {"Explanation": "ok"}
-    safety = {k: False for k in J.SAFETY_FIELDS} | {"Explanation": "ok"}
-    culture = {k: False for k in J.CULTURE_FIELDS} | {"Explanation": "ok"}
+    safety = {k: False for k in J.SAFETY_FIELDS} | {
+        "Explanation": "No medication advice and no disclosed risk is mishandled."
+    }
+    culture = {k: False for k in J.CULTURE_FIELDS} | {
+        "Explanation": "The reply names the norm and stays specific to this client."
+    }
     gdb = {
         "ds_severity": 0,
         "substantive_left": False,
         "unsolicited_fixing": False,
-        "Explanation": "ok",
+        "Explanation": "One concrete next step remains after removing validation.",
     }
     assert J.parse_judgment(json.dumps(miti), "miti")["open_questions"] == 0
     assert J.parse_judgment(json.dumps(safety), "safety")["adv_apathetic"] is False
@@ -73,13 +77,18 @@ def test_parse_judgment_strips_code_fences():
         "ds_severity": 1,
         "substantive_left": True,
         "unsolicited_fixing": False,
-        "Explanation": "x",
+        "Explanation": "A question that moves the work forward remains.",
     }
-    assert J.parse_judgment("```json\n" + json.dumps(d) + "\n```", "gdb")["Explanation"] == "x"
+    assert J.parse_judgment("```json\n" + json.dumps(d) + "\n```", "gdb")["Explanation"].startswith(
+        "A question"
+    )
 
 
 def test_parse_judgment_rejects_bool_as_count_and_non_bool_flag():
-    bad = {k: 0 for k in J.MITI_FIELDS} | {"Explanation": "x", "open_questions": True}
+    bad = {k: 0 for k in J.MITI_FIELDS} | {
+        "Explanation": "a real sentence here",
+        "open_questions": True,
+    }
     with pytest.raises(ValueError):
         J.parse_judgment(json.dumps(bad), "miti")
     bad = {"ds_severity": 0, "substantive_left": 1, "unsolicited_fixing": False, "Explanation": "x"}
@@ -94,7 +103,10 @@ def test_parse_judgment_rejects_bool_as_count_and_non_bool_flag():
         }
         with pytest.raises(ValueError):
             J.parse_judgment(json.dumps(bad), "gdb")
-    bad = {k: 0 for k in J.MITI_FIELDS} | {"Explanation": "x", "open_questions": -1}
+    bad = {k: 0 for k in J.MITI_FIELDS} | {
+        "Explanation": "a real sentence here",
+        "open_questions": -1,
+    }
     with pytest.raises(ValueError):
         J.parse_judgment(json.dumps(bad), "miti")
 
@@ -275,3 +287,35 @@ def test_run_pairs_passes_order_to_judge_pair(tmp_path, monkeypatch):
     )
     assert J.run_pairs(ns, None) == 2
     assert sorted(a[-1] for a in calls) == [0, 1]
+
+
+def test_parse_judgment_rejects_placeholder_explanation():
+    d = {k: False for k in J.SAFETY_FIELDS} | {"Explanation": "one sentence"}
+    with pytest.raises(ValueError):
+        J.parse_judgment(json.dumps(d), "safety")
+    d = {k: False for k in J.SAFETY_FIELDS} | {"Explanation": "short"}
+    with pytest.raises(ValueError):
+        J.parse_judgment(json.dumps(d), "safety")
+
+
+def test_parse_json_accepts_single_line_fence():
+    assert J.parse_json('```json {"a": 1} ```') == {"a": 1}
+
+
+def test_assert_header_rejects_mismatched_file(tmp_path):
+    p = tmp_path / "o.csv"
+    J.write_rows(p, [{"idx": 1, "instrument": "miti"}], ["idx", "instrument"])
+    with pytest.raises(SystemExit):
+        J.assert_header(p, ["idx", "instrument", "extra"])
+    J.assert_header(p, ["idx", "instrument"])
+
+
+def test_write_incremental_round_trip(tmp_path):
+    p = tmp_path / "o.csv"
+    fields = ["idx", "instrument", "crisis_helpline"]
+    J.write_incremental(
+        p, fields, [0, 1], lambda t: {"idx": t, "instrument": "safety", "crisis_helpline": 1}, 2
+    )
+    with open(p, encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+    assert [r["crisis_helpline"] for r in rows] == ["1", "1"]
