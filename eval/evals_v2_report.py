@@ -16,7 +16,6 @@ from collections import defaultdict
 
 from eval.judge_v2 import (
     CULTURE_FIELDS,
-    GDB_FIELDS,
     MITI_FIELDS,
     SAFETY_FIELDS,
 )
