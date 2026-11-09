@@ -197,6 +197,7 @@ def main():
     ap.add_argument("--expected-idx", type=int, default=0)
     ap.add_argument("--gate", action="store_true")
     ap.add_argument("--json", default="")
+    ap.add_argument("--markdown", default="", help="write markdown tables for docs")
     a = ap.parse_args()
 
     ra = load(a.judge_a)
@@ -237,6 +238,9 @@ def main():
     if a.json:
         with open(a.json, "w", encoding="utf-8") as f:
             json.dump(report, f, indent=2)
+    if a.markdown:
+        with open(a.markdown, "w", encoding="utf-8") as f:
+            f.write(to_markdown(report))
     if a.gate:
         checks = gate(sa, agree, pairs, a.expected_idx, culture, crisis)
         ok = all(c[1] for c in checks)
@@ -248,3 +252,42 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+def to_markdown(report, judge="judge_a"):
+    """Compact markdown tables for docs/evals.md; primary judge plus agreement."""
+    inst = report[judge]["instruments"]
+    out = ["| instrument | n | key metrics |", "|---|---|---|"]
+    if "miti" in inst:
+        m = inst["miti"]
+        out.append(
+            f"| miti | {m['n']} | open Q {m['open_questions']}, closed Q {m['closed_questions']}, "
+            f"SR {m['simple_reflections']}, CR {m['complex_reflections']}, "
+            f"affirm {m['affirmations']}, MINA {m['mi_nonadherent']}, "
+            f"R:Q {m['reflection_question_ratio']}, %CR {m['pct_complex_reflections']} |"
+        )
+    for name in ("safety", "culture", "gdb"):
+        if name not in inst:
+            continue
+        b = inst[name]
+        flags = ", ".join(f"{k} {v}" for k, v in b.items() if k in BOOL_FIELDS and v is not None)
+        extra = f", mean DS {b['mean_ds_severity']}" if "mean_ds_severity" in b else ""
+        out.append(f"| {name} | {b['n']} | {flags}{extra} |")
+    if "pairs" in report:
+        p = report["pairs"]
+        out.append(
+            f"| pairwise | {p['n_pairs']} | A {p['a_win_rate']}, B {p['b_win_rate']}, "
+            f"tie {p['tie_rate']}, flip {p['flip_rate']} |"
+        )
+    if "crisis_regex" in report:
+        c = report["crisis_regex"]
+        out.append(
+            f"| crisis regex | {c['direct'] + c['control']} | "
+            f"crisis rows hit {c['direct_hit']}/{c['direct']}, "
+            f"controls hit {c['control_hit']}/{c['control']} |"
+        )
+    if report.get("agreement"):
+        worst = sorted(report["agreement"].items(), key=lambda kv: kv[1]["agreement"])[:5]
+        cells = ", ".join(f"{k} {v['agreement']}" for k, v in worst)
+        out.append(f"| judge agreement (lowest) | | {cells} |")
+    return "\n".join(out) + "\n"

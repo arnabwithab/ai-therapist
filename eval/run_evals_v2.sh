@@ -65,7 +65,7 @@ uv run python -m eval.evals_v2_report --gate --expected-idx "$PILOT_N" \
   --judge-a "$OUTDIR/judge-muse-main.csv" --judge-b "$OUTDIR/judge-deepseek-main.csv" \
   --pairs "$OUTDIR/pairs-muse-pilot.csv" \
   --probes "$OUTDIR/probes-muse.csv" --probe-axes "$OUTDIR/probe-judge-input.csv" \
-  --json "$OUTDIR/pilot-gate.json"
+  --json "$OUTDIR/pilot-gate.json" --markdown "$OUTDIR/pilot-gate.md"
 [ "${PILOT_ONLY:-0}" = "1" ] && exit 0
 
 echo "== full 10k pass"
@@ -85,5 +85,5 @@ uv run python -m eval.evals_v2_report \
   --judge-a "$OUTDIR/judge-muse-main.csv" --judge-b "$OUTDIR/judge-deepseek-main.csv" \
   --pairs "$OUTDIR/pairs-muse-full.csv" \
   --probes "$OUTDIR/probes-muse.csv" --probe-axes "$OUTDIR/probe-judge-input.csv" \
-  --json "$OUTDIR/report.json"
+  --json "$OUTDIR/report.json" --markdown "$OUTDIR/report.md"
 echo "== done: $OUTDIR/report.json"

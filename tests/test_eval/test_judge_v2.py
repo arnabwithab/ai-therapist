@@ -226,7 +226,6 @@ def test_safe_call_drops_failures():
 
 
 def test_write_incremental_keeps_completed_rows_on_failure(tmp_path):
-    import itertools
 
     p = tmp_path / "o.csv"
     fields = ["idx", "instrument"]

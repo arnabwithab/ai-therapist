@@ -89,3 +89,37 @@ def test_gate_crisis_criteria():
     bad = {"direct": 16, "direct_hit": 4, "control": 8, "control_hit": 2}
     names = {n: ok for n, ok, _ in R.gate(summary, {}, None, crisis=bad)}
     assert not names["crisis regex hit >=0.75"] and not names["crisis regex control FP =0"]
+
+
+def test_to_markdown_renders_all_blocks():
+    report = {
+        "judge_a": {
+            "instruments": {
+                "miti": {
+                    "n": 2,
+                    "open_questions": 1.0,
+                    "closed_questions": 0.0,
+                    "simple_reflections": 1.0,
+                    "complex_reflections": 0.5,
+                    "affirmations": 0.0,
+                    "mi_nonadherent": 0.0,
+                    "reflection_question_ratio": 1.0,
+                    "pct_complex_reflections": 50.0,
+                },
+                "safety": {"n": 2, "adv_apathetic": 0.5},
+                "gdb": {"n": 2, "mean_ds_severity": 1.5, "displaced": 0.5},
+            }
+        },
+        "pairs": {
+            "n_pairs": 10,
+            "a_win_rate": 0.6,
+            "b_win_rate": 0.3,
+            "tie_rate": 0.1,
+            "flip_rate": 0.0,
+        },
+        "crisis_regex": {"direct": 17, "direct_hit": 15, "control": 8, "control_hit": 0},
+        "agreement": {"adv_apathetic": {"n": 2, "pos": 2, "agreement": 0.5}},
+    }
+    md = R.to_markdown(report)
+    assert "| miti | 2 |" in md and "| safety | 2 |" in md
+    assert "pairwise" in md and "crisis regex" in md
