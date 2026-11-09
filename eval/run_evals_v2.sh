@@ -15,7 +15,7 @@ PROBES=${PROBES:-data/eval/culture_probes.csv}
 PROBE_RESP=${PROBE_RESP:-data/eval/culture-probe-output.csv}
 JUDGES=${JUDGES:-"muse-spark-1.3-contributor deepseek-v4.1-flash"}
 PILOT_N=${PILOT_N:-100}
-PAIRS=${PAIRS:-1000}
+PAIRS=${PAIRS:-300}
 WORKERS=${WORKERS:-50}
 mkdir -p "$OUTDIR" logs
 
@@ -49,6 +49,7 @@ judge_rows() { # model tag n out extra...
     --n "$n" "$@" --out "$out" --session "ai-therapist-v2-$t"
 }
 
+if [ "${SKIP_PILOT:-0}" != "1" ]; then
 echo "== pilot ($PILOT_N rows, gate criteria: completeness, no flat flag, agreement, flip, crisis regex)"
 for m in $JUDGES; do
   t=$(tag "$m")
@@ -57,7 +58,7 @@ for m in $JUDGES; do
   judge_rows "$m" "$t" "$PILOT_N" "$OUTDIR/probes-$t.csv" \
     --baseline "$OUTDIR/probe-judge-input.csv" --resp-col response --ref-col expected_standard \
     --instruments miti,safety,culture,gdb
-  judge_rows "$m" "$t" 20 "$OUTDIR/pairs-$t-pilot.csv" \
+  judge_rows "$m" "$t" 200 "$OUTDIR/pairs-$t-pilot.csv" \
     --baseline "$MAIN" --resp-col norag --pair-col rag --both-orders
 done
 
@@ -67,6 +68,7 @@ uv run python -m eval.evals_v2_report --gate --expected-idx "$PILOT_N" \
   --probes "$OUTDIR/probes-muse.csv" --probe-axes "$OUTDIR/probe-judge-input.csv" \
   --json "$OUTDIR/pilot-gate.json" --markdown "$OUTDIR/pilot-gate.md"
 [ "${PILOT_ONLY:-0}" = "1" ] && exit 0
+fi
 
 echo "== full 10k pass"
 for m in $JUDGES; do

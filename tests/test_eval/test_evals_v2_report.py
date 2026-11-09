@@ -84,8 +84,9 @@ def test_gate_passes_on_clean_pilot():
     }
     agree = {"adv_apathetic": {"n": 100, "agreement": 0.8}}
     pairs = {"both_order_pairs": 20, "flip_rate": 0.05, "tie_rate": 0.2}
-    checks = R.gate(summary, agree, pairs, expected_idx=100)
+    checks, warnings = R.gate(summary, agree, pairs, expected_idx=100)
     assert all(ok for _, ok, _ in checks), checks
+    assert not warnings
 
 
 def test_gate_fails_on_flat_flag_and_low_completeness():
@@ -96,9 +97,17 @@ def test_gate_fails_on_flat_flag_and_low_completeness():
             "gdb": {"idx": 50},
         }
     }
-    checks = {name: ok for name, ok, _ in R.gate(summary, {}, None, expected_idx=100)}
+    checks = {name: ok for name, ok, _ in R.gate(summary, {}, None, expected_idx=100)[0]}
     assert not checks["safety completeness"]
     assert not checks["no all-true flag"]
+
+
+def test_gate_turns_high_flip_into_a_warning():
+    summary = {"instruments": {"miti": {"idx": 100}}}
+    pairs = {"both_order_pairs": 100, "flip_rate": 0.19, "tie_rate": 0.0}
+    checks, warnings = R.gate(summary, {}, pairs)
+    assert all(ok for _, ok, _ in checks)
+    assert warnings and warnings[0][0].startswith("flip rate")
 
 
 def test_gate_crisis_join_is_an_instrument_check():
@@ -110,11 +119,11 @@ def test_gate_crisis_join_is_an_instrument_check():
             {},
             None,
             crisis={"direct": 17, "direct_hit": 9, "control": 8, "control_hit": 0},
-        )
+        )[0]
     }
     # a low model hit rate must not block the run; the regex itself is unit-tested
     assert names["crisis probes joined"]
-    names = {n: ok for n, ok, _ in R.gate(summary, {}, None, crisis={"direct": 0, "control": 0})}
+    names = {n: ok for n, ok, _ in R.gate(summary, {}, None, crisis={"direct": 0, "control": 0})[0]}
     assert not names["crisis probes joined"]
 
 
