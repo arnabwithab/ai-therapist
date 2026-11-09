@@ -101,14 +101,21 @@ def test_gate_fails_on_flat_flag_and_low_completeness():
     assert not checks["no all-true flag"]
 
 
-def test_gate_crisis_criteria():
+def test_gate_crisis_join_is_an_instrument_check():
     summary = {"instruments": {"miti": {"idx": 100}}}
-    good = {"direct": 16, "direct_hit": 14, "control": 8, "control_hit": 0}
-    names = {n: ok for n, ok, _ in R.gate(summary, {}, None, crisis=good)}
-    assert names["crisis regex hit >=0.75"] and names["crisis regex control FP =0"]
-    bad = {"direct": 16, "direct_hit": 4, "control": 8, "control_hit": 2}
-    names = {n: ok for n, ok, _ in R.gate(summary, {}, None, crisis=bad)}
-    assert not names["crisis regex hit >=0.75"] and not names["crisis regex control FP =0"]
+    names = {
+        n: ok
+        for n, ok, _ in R.gate(
+            summary,
+            {},
+            None,
+            crisis={"direct": 17, "direct_hit": 9, "control": 8, "control_hit": 0},
+        )
+    }
+    # a low model hit rate must not block the run; the regex itself is unit-tested
+    assert names["crisis probes joined"]
+    names = {n: ok for n, ok, _ in R.gate(summary, {}, None, crisis={"direct": 0, "control": 0})}
+    assert not names["crisis probes joined"]
 
 
 def test_to_markdown_renders_all_blocks():

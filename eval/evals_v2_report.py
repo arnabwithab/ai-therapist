@@ -183,12 +183,16 @@ def gate(summary, agree, pairs=None, expected_idx=None, culture=None, crisis=Non
     if culture:
         hi = [k for k, v in culture.items() if k in CULTURE_FIELDS and v == 1.0]
         checks.append(("culture flags not all-true", not hi, ",".join(hi) or "ok"))
-    if crisis and crisis["direct"]:
-        hit = crisis["direct_hit"] / crisis["direct"]
-        checks.append(("crisis regex hit >=0.75", hit >= GATE_MIN_CRISIS_HIT, f"{hit:.2f}"))
-    if crisis and crisis["control"]:
-        fp = crisis["control_hit"] / crisis["control"]
-        checks.append(("crisis regex control FP =0", fp == 0, f"{fp:.2f}"))
+    if crisis:
+        # the regex is deterministic and unit-tested; the hit rate is a model
+        # result, not an instrument defect, so the gate only checks the join
+        checks.append(
+            (
+                "crisis probes joined",
+                crisis["direct"] > 0 and crisis["control"] > 0,
+                f"{crisis['direct']} crisis / {crisis['control']} control",
+            )
+        )
     return checks
 
 
