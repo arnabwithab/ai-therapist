@@ -84,6 +84,8 @@ def summarize(rows):
             ds = [v for v in (_num(r.get("ds_severity")) for r in rs) if v is not None]
             if ds:
                 block["mean_ds_severity"] = round(sum(ds) / len(ds), 3)
+                # paper rule: displaced when DS >= 2 (derive it; older rows lack the column)
+                block["displaced"] = round(sum(1 for v in ds if v >= 2) / len(ds), 4)
         out["instruments"][inst] = block
     return out
 

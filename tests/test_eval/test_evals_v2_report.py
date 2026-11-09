@@ -33,6 +33,15 @@ def test_summarize_binary_rates():
     assert s["tg_failed_crisis"] == 0.0
 
 
+def test_summarize_gdb_derives_displaced_from_severity():
+    rows = [
+        {"idx": "0", "instrument": "gdb", "ds_severity": "1"},
+        {"idx": "1", "instrument": "gdb", "ds_severity": "3"},
+    ]
+    b = R.summarize(rows)["instruments"]["gdb"]
+    assert b["mean_ds_severity"] == 2.0 and b["displaced"] == 0.5
+
+
 def test_agreement_uses_shared_rows():
     a = [_safety("0", adv_apathetic=1), _safety("1")]
     b = [_safety("0", adv_apathetic=1), _safety("1", adv_apathetic=1)]
