@@ -1,4 +1,4 @@
-.PHONY: init setup test style check ci ingest serve model-server model-server-24g eval-rag frontend judge judge-eval fetch-rag-contexts clean
+.PHONY: init setup test style check ci ingest serve model-server model-server-24g eval-rag frontend judge judge-v2 report-v2 judge-eval fetch-rag-contexts clean
 
 init: ## check system prereqs (Ubuntu only) and install what's missing: python3.11+, uv
 	grep -qi ubuntu /etc/os-release || (echo "make init supports Ubuntu only" && exit 1)
@@ -64,6 +64,20 @@ eval-rag: ## one eval shard (EVAL_MODEL/SHARD/N_SHARDS/OUT/EVAL_COL/RAG_TOP_K/MA
 
 judge: ## score the baseline with muse-spark-1.3-contributor (needs OPENCODE_GO_KEY)
 	uv run python -m eval.mbench_baseline.judge --all
+
+V2_MODEL ?= muse-spark-1.3-contributor
+V2_INSTR ?= miti,safety,gdb
+V2_BASELINE ?= data/eval/mbench-rag/output_norag.csv
+V2_COL ?= norag
+V2_OUT ?= data/eval/mbench-judge-v2.csv
+V2_WORKERS ?= 50
+
+judge-v2: ## evals-v2 judge (V2_MODEL/V2_INSTR/V2_BASELINE/V2_COL/V2_OUT; PAIR_COL=.. PAIR=1 BOTH_ORDERS=1)
+	uv run python -m eval.judge_v2 --baseline $(V2_BASELINE) --resp-col $(V2_COL) --instruments $(V2_INSTR) --model $(V2_MODEL) --out $(V2_OUT) --workers $(V2_WORKERS) --n $(if $(N),$(N),500) $(if $(ALL),--all) $(if $(PAIR_COL),--pair-col $(PAIR_COL)) $(if $(BOTH_ORDERS),--both-orders) $(if $(HF_EVAL_REPO),--hf-repo $(HF_EVAL_REPO))
+
+report-v2: ## evals-v2 report/gate (A=.. B=.. PAIRS=.. PROBES=.. AXES=.. EXPECTED=.. GATE=1 JSON=..)
+	test -n "$(A)" || (echo "set A=judge csv" && exit 1)
+	uv run python -m eval.evals_v2_report --judge-a $(A) $(if $(B),--judge-b $(B)) $(if $(PAIRS),--pairs $(PAIRS)) $(if $(PROBES),--probes $(PROBES)) $(if $(AXES),--probe-axes $(AXES)) $(if $(EXPECTED),--expected-idx $(EXPECTED)) $(if $(GATE),--gate) $(if $(JSON),--json $(JSON))
 
 judge-eval: ## judge any eval CSV with the same rubric (BASELINE=.. RESP_COL=.. OUT=..)
 	test -n "$(BASELINE)$(RESP_COL)$(OUT)" || (echo "set BASELINE=.. RESP_COL=.. OUT=.." && exit 1)
