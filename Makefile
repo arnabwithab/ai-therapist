@@ -1,4 +1,4 @@
-.PHONY: init setup test style check ci ingest serve model-server model-server-24g eval-rag frontend judge judge-v2 report-v2 judge-eval fetch-rag-contexts clean
+.PHONY: init setup test style check ci ingest serve model-server model-server-24g eval-rag frontend judge judge-v2 report-v2 judge-eval fetch-rag-contexts probe-data clean
 
 init: ## check system prereqs (Ubuntu only) and install what's missing: python3.11+, uv
 	grep -qi ubuntu /etc/os-release || (echo "make init supports Ubuntu only" && exit 1)
@@ -47,6 +47,7 @@ EVAL_COL ?= response
 RAG_TOP_K ?= 5
 RAG_CSV ?=
 RAG_JSONL ?=
+CONTEXTS ?=
 MAX_TOKENS ?= 512
 PROMPT ?= oars
 WORKERS ?= 16
@@ -60,7 +61,7 @@ model-server-24g: ## serve our DPO model on :8000 (24GB box)
 	VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync vllm serve Qwen/Qwen3-1.7B --port 8000 --max-model-len 8192 --gpu-memory-utilization 0.9 --enable-lora --lora-modules ai-therapist-qwen3-1.7b-dpo=arnabwithab/ai-therapist-qwen3-1.7b-dpo-lora --served-model-name ai-therapist-qwen3-1.7b-dpo --reasoning-parser qwen3
 
 eval-rag: ## one eval shard (EVAL_MODEL/SHARD/N_SHARDS/OUT/EVAL_COL/RAG_TOP_K/MAX_TOKENS/PROMPT/WORKERS/HF_EVAL_REPO; NO_RAG=1 = ablation, RAG_CSV/RAG_JSONL = precomputed, HF_EVAL_REPO= to disable push)
-	uv run python -m eval.mbench_rag.generate_rag --model $(EVAL_MODEL) --out $(OUT) --col $(EVAL_COL) --shard $(SHARD) --num-shards $(N_SHARDS) --rag-top-k $(RAG_TOP_K) --max-tokens $(MAX_TOKENS) --prompt $(PROMPT) --workers $(WORKERS) $(if $(HF_EVAL_REPO),--hf-repo $(HF_EVAL_REPO)) $(if $(NO_RAG),--no-rag) $(if $(RAG_CSV),--rag-csv $(RAG_CSV)) $(if $(RAG_JSONL),--rag-jsonl $(RAG_JSONL))
+	uv run python -m eval.mbench_rag.generate_rag --model $(EVAL_MODEL) --out $(OUT) --col $(EVAL_COL) --shard $(SHARD) --num-shards $(N_SHARDS) --rag-top-k $(RAG_TOP_K) --max-tokens $(MAX_TOKENS) --prompt $(PROMPT) --workers $(WORKERS) $(if $(HF_EVAL_REPO),--hf-repo $(HF_EVAL_REPO)) $(if $(NO_RAG),--no-rag) $(if $(RAG_CSV),--rag-csv $(RAG_CSV)) $(if $(RAG_JSONL),--rag-jsonl $(RAG_JSONL)) $(if $(CONTEXTS),--contexts $(CONTEXTS))
 
 judge: ## score the baseline with muse-spark-1.3-contributor (needs OPENCODE_GO_KEY)
 	uv run python -m eval.mbench_baseline.judge --all
@@ -89,6 +90,9 @@ plots: ## regenerate the two live eval charts (means + 1.7B); 4B/0.6B PNGs froze
 strip-think: ## strip <think> blocks for judging (IN=.. COL=.. OUT=..)
 	test -n "$(IN)$(COL)$(OUT)" || (echo "set IN=.. COL=.. OUT=.." && exit 1)
 	uv run python -m eval.mbench_rag.strip_think --in $(IN) --col $(COL) --out $(OUT)
+
+probe-data: ## derive data/eval/culture_probes.csv (idx,axis,context,expected_standard) from the tracked probes
+	uv run python -c "import csv;rows=list(csv.DictReader(open('eval/prompts/culture_probes.csv')));f=open('data/eval/culture_probes.csv','w',newline='');w=csv.DictWriter(f,fieldnames=['idx','axis','context','expected_standard']);w.writeheader();[w.writerow({'idx':i,'axis':r['axis'],'context':r['scenario'],'expected_standard':r['expected_standard']}) for i,r in enumerate(rows)];f.close()"
 
 fetch-rag-contexts: ## precompute serving-identical RAG blocks for all 10k mbench contexts (RAG_TOP_K=.., default 5)
 	uv run python -m eval.mbench_rag.fetch_contexts $(if $(RAG_TOP_K),--top-k $(RAG_TOP_K))

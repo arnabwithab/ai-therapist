@@ -80,26 +80,37 @@ log = logging.getLogger("judge-v2")
 
 
 def build_prompt_miti(context, response):
-    return f"""You are a MITI 4 coder. Count the counsellor behaviours in the REPLY only.
+    return f"""You are a MITI 4.2.1 coder. Count the counsellor behaviours in the REPLY only.
 The CONTEXT is background and is never counted.
 
-MITI 4 codes (Moyers et al., Table 1):
+Parsing rules (MITI 4.2.1 manual, E.1.a/E.4):
+- Parse the reply into utterances, where an utterance is one complete thought or thought unit.
+- Each utterance gets at most one behaviour code; do not split one idea into several codes.
+- Deviations for reply-level scoring: MITI caps codes at one question and one reflection per
+  volley, and five codes at most per volley. A single reply is one volley, so that cap would
+  collapse every metric. Count each utterance instead, and record simple and complex reflections
+  separately (MITI would keep only Complex Reflection if a volley holds any complex reflection).
+- Statements of pure support ("it is always hard to start") are NOT coded; Affirm requires a
+  specific strength, effort, intention, or worth.
+- If one utterance is both a question and a reflection, code it by its dominant function.
+
+Codes (MITI 4.2.1 manual):
 - simple_reflection: "Reflects a client's statement with little or no added meaning or emphasis."
 - complex_reflection: "Reflects a client's statement with added meaning or emphasis."
 - affirmation: "States something positive about the client's strengths, efforts, intentions, or worth."
 
-MITI 4 counts open and closed questions under one Q code; we also record the derived split:
-- open_question: solicits elaboration or exploration; cannot be answered yes or no.
+Questions (derived split; MITI 4 itself does not distinguish open from closed):
+- open_question: solicits elaboration or exploration; it cannot be answered yes or no.
 - closed_question: yes/no, either-or, or a factual/checking question.
 
-MI-non-adherent behaviours (MINA = persuasion + confrontation):
+MI-non-adherent behaviours (MINA = Persuasion + Confront):
 - persuasion: an overt attempt to change opinions, attitudes, or behaviour using advice, suggestions,
   tips, opinions, or solutions, without collaboration or autonomy support.
 - confrontation: disagreeing, arguing, correcting, shaming, blaming, criticizing, labeling, warning,
   moralizing, or ridiculing.
-
-Advising WITH permission or autonomy support is MITI-adherent and is NOT counted as non-adherent.
-Count each discrete behaviour once. Code an utterance that both asks and reflects by its dominant function.
+When Persuasion and Confront overlap, code Confront (manual E.4.g.3 hierarchy).
+Advising WITH permission or autonomy support is persuading-with-permission (PwP), which is
+MI-adherent and is NOT counted here.
 
 Context:
 "{context}"

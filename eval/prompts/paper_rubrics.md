@@ -12,6 +12,21 @@ Quote convention: `"..."` = verbatim from the fetched text, with section/table/p
 
 **Source caveat:** the fetched article documents **MITI 4.0**, not 4.2.1. The 4.2.1 field-trial DOI supplied (10.1016/j.jsat.2018.11.004) was **not retrieved** (paywalled); every quote below is from the PMC article.
 
+### Primary source: MITI 4.2.1 coding manual (fetched 2026-11-09)
+
+**Citation:** Moyers TB, Manuel JK, Ernst D. *Motivational Interviewing Treatment Integrity Coding Manual 4.2.1.* Revised June 2015. https://casaa.unm.edu/assets/docs/miti4_21.pdf (mirror: https://motivationalinterviewing.org/sites/default/files/miti4_2.pdf). The PDF is marked "Draft: Do not cite without permission"; cite the published validation paper above, not the manual, in prose.
+
+Key rules, verbatim:
+
+- Parsing (§E.1.a): "Each utterance may receive only one behavior code and each volley earns each code only once."
+- Reflections (§E.1.a): "There is only one reflection code given per volley, regardless of the combination of simple and complex reflections in that volley. If any of the reflections are complex, then the Complex Reflection (CR) code is used."
+- Questions (§E.4.d): "All questions from clinicians (open, closed, evocative, fact-finding, etc.) receive the Question code but only one question per volley is coded." and "Closed and open questions are not differentiated in the MITI 4.0."
+- Affirm (§E.4.f): "statements of support ("It's always hard when you are getting started") are no longer coded in the MITI."
+- MINA (§E.4.g.3): "Persuasion and confrontation sometimes overlap... the following hierarchy should be used" — Confront above Persuade.
+- Cap (§E.1.a): "The maximum possible number of codes per volley is 8."
+
+**Deviation used by judge_v2.py (record in results):** a single generated reply is one volley, so the volley caps would reduce every reply to at most one question and one reflection and make R:Q and %CR degenerate. We count per utterance (one code per thought unit) and keep simple/complex reflections separate; the open/closed question split is derived, not MITI. Cite MITI as the code source, not as an exact implementation.
+
 ### Behavior counts (Table 1, "Description of MITI codes")
 
 | Code | Verbatim definition (Table 1) |

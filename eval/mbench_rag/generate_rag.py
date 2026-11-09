@@ -176,8 +176,18 @@ def merge_parts(out_path, col, num_shards):
     return len(merged)
 
 
+def load_contexts_csv(path):
+    """(idx, context) from any eval CSV, e.g. the India culture probes."""
+    with open(path, newline="", encoding="utf-8") as f:
+        return [
+            (int(r["idx"]), r["context"])
+            for r in csv.DictReader(f)
+            if r.get("idx", "").isdigit() and (r.get("context") or "").strip()
+        ]
+
+
 def run_shard(args):
-    rows = load_contexts()
+    rows = load_contexts_csv(args.contexts) if args.contexts else load_contexts()
     if args.limit:
         rows = rows[: args.limit]
     mine = shard_rows(rows, args.shard, args.num_shards)
@@ -279,6 +289,7 @@ def main(argv=None):
     ap.add_argument("--max-tokens", type=int, default=MAX_TOKENS)
     ap.add_argument("--workers", type=int, default=WORKERS)
     ap.add_argument("--limit", type=int, default=0, help="smoke-test first N rows")
+    ap.add_argument("--contexts", default="", help="CSV with idx,context (default: MentalBench)")
     ap.add_argument("--push-every", type=int, default=PUSH_EVERY)
     ap.add_argument("--hf-repo", default="", help="HF dataset repo for live shard pushes")
     args = ap.parse_args(argv)

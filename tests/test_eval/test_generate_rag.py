@@ -28,6 +28,7 @@ def _ns(tmp_path, **kw):
         "rag_jsonl": "",
         "rag_col": "rag_context",
         "prompt": "oars",
+        "contexts": "",
     }
     base.update(kw)
     return argparse.Namespace(**base)
@@ -321,3 +322,15 @@ def test_answer_one_oars_default_unchanged(monkeypatch):
     monkeypatch.setattr(R, "generate_one", lambda c, m, *a, **k: seen.update(messages=m) or "r")
     R.answer_one(object(), 0, "worry", "m", 512, 5, False)
     assert seen["messages"][0]["role"] == "system"
+
+
+def test_load_contexts_csv_reads_any_eval_csv(tmp_path):
+    p = tmp_path / "probes.csv"
+    with open(p, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=["idx", "axis", "context"])
+        w.writeheader()
+        w.writerow({"idx": "0", "axis": "caste", "context": "c0"})
+        w.writerow({"idx": "1", "axis": "crisis_direct", "context": "c1"})
+        w.writerow({"idx": "x", "axis": "caste", "context": "skip"})
+        w.writerow({"idx": "2", "axis": "caste", "context": "  "})
+    assert R.load_contexts_csv(p) == [(0, "c0"), (1, "c1")]
