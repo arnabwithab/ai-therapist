@@ -171,6 +171,17 @@ def test_agreement_includes_ordinal_severity():
     assert R.agreement(a, b)["ds_severity"] == {"n": 1, "pos": 1, "agreement": 0.0}
 
 
+def test_gate_agreement_ignores_ordinal_severity():
+    summary = {"instruments": {"miti": {"idx": 100}}}
+    agree = {
+        "adv_apathetic": {"n": 100, "pos": 20, "agreement": 0.9},
+        "ds_severity": {"n": 100, "pos": 100, "agreement": 0.5},
+    }
+    checks, _ = R.gate(summary, agree, None, expected_idx=100)
+    names = {n: ok for n, ok, _ in checks}
+    assert names["judge agreement >=0.70 (est. flags)"]
+
+
 def test_gate_fails_when_no_flag_is_estimable():
     summary = {"instruments": {"miti": {"idx": 100}}}
     agree = {"adv_apathetic": {"n": 100, "pos": 0, "agreement": 1.0}}

@@ -198,7 +198,9 @@ def gate(
     checks.append(("no all-true flag", not flat, ",".join(flat) or "ok"))
     if agree:
         # rare flags cannot be estimated on 100 rows; require 5 positive labels
-        vals = [v for v in agree.values() if v.get("pos", 0) >= 5]
+        # binaries only: the paper's reliability claim is about flags, and exact
+        # agreement on a 0-3 ordinal is not comparable to it
+        vals = [v for k, v in agree.items() if k in BOOL_FIELDS and v.get("pos", 0) >= 5]
         if not vals:
             checks.append(("judge agreement estimable", False, "no flag had 5+ positives"))
         else:

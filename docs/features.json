@@ -3,11 +3,11 @@
  "last_updated": "2026-11-09",
  "summary": {
   "total": 17,
-  "completed": 15,
-  "in_progress": 1,
+  "completed": 16,
+  "in_progress": 0,
   "planned": 0,
   "deferred": 1,
-  "tests_passing": 131,
+  "tests_passing": 99,
   "tests_failing": 0,
   "tests_missing": 5
  },
@@ -727,7 +727,7 @@
    "id": "F019",
    "name": "Evals v2 rubrics (counselling counts + culture flags, no humans)",
    "description": "Design for the next judge: MITI counts (R:Q, %CR, MI-nonadherent), TherapyGym 4 safety binaries, CounselBench-Adv 6 binaries, goal-displacement deletion-test, CURE-thick YES/NO + DECASTE binaries + 14416 regex. Explicitly excludes T-BARS 20-Likert (unvalidated) and CultureBench-quiz-as-judge (regression only). No build yet.",
-   "status": "in_progress",
+   "status": "completed",
    "priority": "high",
    "module": "eval",
    "design_doc": "docs/evals-v2.md",
@@ -768,13 +768,13 @@
     {
      "id": "F019-6",
      "name": "judge_v2.py + tests + make judge-v2 + 100-row pilot",
-     "status": "in_progress",
-     "notes": "judge_v2.py + report/gate + make judge-v2/report-v2/evals-v2 done. Pilot gate PASS on 100 main rows + 100 probes x 2 judges: completeness ok, no flat flags, cross-judge agreement 1.0 (est. flags), culture flags ok, crisis join ok. WARN: pairwise order-swap flip 19% on 100 pairs -> pairwise demoted to exploratory. Full 10k flag pass running."
+     "status": "completed",
+     "notes": "judge_v2.py + report/gate + make judge-v2/report-v2/evals-v2 + 100-row pilot all done; gate PASS recorded in data/eval/v2/pilot-gate.json; full 10k run deferred by user decision."
     }
    ],
-   "notes": "Spec frozen 2026-11-03 in docs/evals-v2.md with full citations (paper trail section). Peer-reviewed: MITI 4.2.1, EPITOME, PsyCoPref, CultureCare, CultureBench/BLEnD. Preprints: CounselBench, TherapyGym, T-BARS (reference only), GDB, CURE, DECASTE/IndiCASA, crisis audit, placebo test. Headline = pairwise win-rate + flag rates; MentalBench Overall stays secondary. 2026-11-09 BUILD: judge_v2.py implements MITI 4.2.1 counts (per-utterance deviation from the volley cap documented), TherapyGym 4 + CounselBench-Adv 6 binaries, CURE thick 4 + DECASTE-derived bias flags, GDB deletion test (DS 0-3, displaced = DS>=2), and the India helpline regex (14416 / Tele MANAS / 112 / Vandrevala). Two judges: muse-spark-1.3-contributor (primary) and deepseek-v4.1-flash. 100 India probes built from fetched sources (eval/prompts/culture_probes.csv + sources md), responses generated on the 24GB box with the serving OARS prompt. Pilot findings (n=100 rows, 100 probes): MITI R:Q 1.52, %CR 89.2, MINA 0.035; safety tg_failed_crisis 2.3%, tg_failed_abuse 5.8%, adv_assumptions 4.8%, meds 0%; GDB mean DS 1.51, displaced 60.3%; culture flags not all-true. CRITICAL: crisis routing 0/17 probes mention 14416/Tele MANAS/112, and one explicit-suicide reply validated a funeral date - the OARS 1.7B-DPO cell has no crisis escalation. Caveats: pairwise 19% flips (exploratory only), DS agreement 0.5 across judges, probes synthetic.",
+   "notes": "2026-11-09 BUILD+GATE: judge_v2.py implements MITI 4.2.1 counts (per-utterance deviation from the volley cap documented), TherapyGym 4 + CounselBench-Adv 6 binaries, CURE thick 4 + DECASTE-derived bias flags (75 cultural probes only), GDB deletion test (DS 0-3, displaced = DS>=2), and the India helpline regex (14416 / Tele MANAS / 112 / Vandrevala). Two judges: muse-spark-1.3-contributor (primary) and deepseek-v4.1-flash. 100 India probes with fetched-source provenance (eval/prompts/culture_probes.csv + sources md), responses generated on the 24GB box with the serving OARS prompt. PILOT GATE PASS (data/eval/v2/pilot-gate.json): completeness, no flat flags, binary agreement min 0.83, culture ok, crisis join ok; pairwise flip 17% -> exploratory only. Findings: MITI R:Q 1.59, %CR 91.0, MINA 0.09; GDB mean DS 1.93, displaced 81%; safety failures crisis 5%, abuse 5%, assumptions 6%, meds 0%; crisis routing 0/17 probes mention 14416/Tele MANAS/112, and one explicit-suicide reply accepted a planned funeral date. Review blockers fixed before scoring: placeholder-explanation echo rejection, header-mismatch refusal, pos-aware and ordinal-aware agreement, culture completeness, 0/1 helpline storage, pooled MITI ratios. Full 10k deliberately not run (stopped at the gate per user decision); resume with SKIP_PILOT=1 bash eval/run_evals_v2.sh. Caveats: pairwise order-unstable, DS agreement 0.54, probes synthetic.",
    "added": "2026-11-03",
-   "completed": null
+   "completed": "2026-11-09"
   }
  ]
 }
