@@ -1,6 +1,6 @@
 {
  "project": "ai-therapist",
- "last_updated": "2026-11-09",
+ "last_updated": "2026-11-11",
  "summary": {
   "total": 17,
   "completed": 16,
@@ -772,9 +772,9 @@
      "notes": "judge_v2.py + report/gate + make judge-v2/report-v2/evals-v2 + 100-row pilot all done; gate PASS recorded in data/eval/v2/pilot-gate.json; full 10k run deferred by user decision."
     }
    ],
-   "notes": "2026-11-09 BUILD+GATE: judge_v2.py implements MITI 4.2.1 counts (per-utterance deviation from the volley cap documented), TherapyGym 4 + CounselBench-Adv 6 binaries, CURE thick 4 + DECASTE-derived bias flags (75 cultural probes only), GDB deletion test (DS 0-3, displaced = DS>=2), and the India helpline regex (14416 / Tele MANAS / 112 / Vandrevala). Two judges: muse-spark-1.3-contributor (primary) and deepseek-v4.1-flash. 100 India probes with fetched-source provenance (eval/prompts/culture_probes.csv + sources md), responses generated on the 24GB box with the serving OARS prompt. PILOT GATE PASS (data/eval/v2/pilot-gate.json): completeness, no flat flags, binary agreement min 0.83, culture ok, crisis join ok; pairwise flip 17% -> exploratory only. Findings: MITI R:Q 1.59, %CR 91.0, MINA 0.09; GDB mean DS 1.93, displaced 81%; safety failures crisis 5%, abuse 5%, assumptions 6%, meds 0%; crisis routing 0/17 probes mention 14416/Tele MANAS/112, and one explicit-suicide reply accepted a planned funeral date. Review blockers fixed before scoring: placeholder-explanation echo rejection, header-mismatch refusal, pos-aware and ordinal-aware agreement, culture completeness, 0/1 helpline storage, pooled MITI ratios. Full 10k deliberately not run (stopped at the gate per user decision); resume with SKIP_PILOT=1 bash eval/run_evals_v2.sh. Caveats: pairwise order-unstable, DS agreement 0.54, probes synthetic.",
+   "notes": "2026-11-09/11: judge_v2.py implements MITI 4.2.1 counts, TherapyGym 4 + CounselBench-Adv 6 binaries, CURE thick 4 + DECASTE bias flags (75 cultural probes), GDB deletion test (DS 0-3, displaced = DS>=2), and the India helpline regex. 100 India probes with fetched-source provenance; responses generated on the 24GB box with the serving OARS prompt. PILOT GATE PASS (data/eval/v2/pilot-gate.json): completeness, no flat flags, binary agreement min 0.83, culture ok, crisis join ok; pairwise flip 17% -> exploratory. FULL 10k (muse primary, data/eval/v2/report.json): MITI R:Q 1.38, %CR 89.4, MINA 2.5%; displaced 67.3% (mean DS 1.71); safety crisis 2.42%, abuse 2.54%, assumptions 4.21%, functional 1.36%, meds 0.04%; crisis routing 0/17 probes; CURE coverage 0.0, coherence 0.29; bias flags 1-4%. Second judge (deepseek-v4.1-flash) ran the pilot and 280 rows of the 10k, then was stopped by decision: cross-family agreement on 276 shared rows is 0.84-1.00 on binaries, 0.77 displaced, 0.50 exact DS. Pairwise 10k is single-order and exploratory. Review blockers fixed before scoring: placeholder-explanation echo rejection, header-mismatch refusal, pos-aware/ordinal-aware agreement, culture completeness, 0/1 helpline storage, pooled MITI ratios. Tests: 99 passing in tests/test_eval.",
    "added": "2026-11-03",
-   "completed": "2026-11-09"
+   "completed": "2026-11-11"
   }
  ]
 }

@@ -440,8 +440,46 @@ pooled counts, not means of per-reply ratios.
   Indian clinical ground truth.
 - Two of 1,800 pilot calls returned a template-echo answer and were dropped by the
   placeholder guard; both were retried rows that stayed empty.
-- The full 10k pass was not run for this record: work stopped at the passed gate. The runner
-  resumes it with `SKIP_PILOT=1 bash eval/run_evals_v2.sh`, and `data/eval/v2/report.json`
-  will hold the final tables.
 - Reproduce the gate exactly with `make probe-data` then
   `WORKERS=60 PILOT_ONLY=1 bash eval/run_evals_v2.sh`.
+
+### Full run (n=10000, primary judge)
+
+Serving cell: 1.7B-DPO, OARS prompt, no RAG, 10,000 MentalBench contexts. Primary judge
+`muse-spark-1.3-contributor`; tables in `data/eval/v2/report.json` / `.md`.
+
+| instrument | n | result |
+|---|---|---|
+| MITI | 10000 | open Q 1.09, closed Q 0.17, SR 0.18, CR 1.56, affirm 0.58, MINA 0.025; R:Q 1.38, %CR 89.4 |
+| Safety | 10000 | failed crisis 2.42%, failed abuse 2.54%, functional impairment 1.36%, assumptions 4.21%, technique 0.36%, symptom speculation 0.90%, judgmental 0.12%, medication opinion 0.04%, apathetic 0% |
+| GDB | 10000 | mean DS 1.71; displaced (DS>=2) 67.3%; substantive content left 87.0% |
+| CURE (75 cultural probes) | 75 | coverage 0.0, specificity 0.027, connotation 0.013, coherence 0.293 |
+| DECASTE biases (75 cultural probes) | 75 | caste 0.040, religion 0.027, disability 0.027, gender 0.013, SES 0.013 |
+| India crisis routing | 17 probes | **0/17 name 14416 / Tele MANAS / 112**; 0/8 controls |
+| Pairwise, no-RAG (A) vs RAG (B) | 10000 | A 60.9%, B 38.5%, tie 0.6% -> RAG loses head-to-head; **exploratory**, single-order at 10k, pilot flip was 17% |
+
+Cross-family agreement (`deepseek-v4.1-flash`, n=276 shared rows; the second judge was
+stopped after 280 rows by decision): binaries 0.84-1.00 (`adv_assumptions` lowest at 0.84),
+`displaced` 0.77, exact `ds_severity` 0.50, crisis-helpline agreement 1.00.
+
+Reading the numbers:
+
+- The serving voice is genuinely reflective (R:Q 1.38, 89% complex reflections) and almost
+  never lectures (MINA 2.5%).
+- Displacement is the main quality problem: two thirds of replies lose their substance when
+  emotional-support sentences are deleted. Short OARS replies trade help for warmth.
+- Safety is not catastrophic on average but has a hard tail: ~2.5% crisis and abuse failures
+  at 10k means roughly 240 replies that miss a disclosure.
+- India crisis routing is the clearest failure: none of 17 crisis probes names a usable Indian
+  helpline, and one reply accepted a planned suicide date as a ceremony detail.
+- Culture: coverage sits at the floor and coherence is 0.29, so replies rarely engage the
+  Indian norm the client raised; bias flags stay low (1-4%).
+
+### Deviations from the frozen protocol
+
+- Second judge: full for the pilot and gate, then stopped at 280 rows by decision. The 10k
+  agreement figures come from n=276 shared rows, not all 10k.
+- Pairwise at 10k is single-order (10% swapped) because the pilot flip rate was 17%; it is
+  reported as exploratory, not as a headline.
+- The full pass survived a harness restart and then a machine restart; resume-by-row meant
+  only the in-flight rows were rescored.
