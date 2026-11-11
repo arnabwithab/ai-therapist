@@ -18,3 +18,6 @@ data/finetune/amod-counseling/*.json
 chroma
 models
 SSH.md
+# F019 v2 judge outputs (rerunnable via make evals-v2 / compare-v2; docs carry the numbers)
+data/eval/v2/
+data/eval/v2-invalid-0800/
