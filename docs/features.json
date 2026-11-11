@@ -1,780 +1,780 @@
 {
- "project": "ai-therapist",
- "last_updated": "2026-11-11",
- "summary": {
-  "total": 17,
-  "completed": 16,
-  "in_progress": 0,
-  "planned": 0,
-  "deferred": 1,
-  "tests_passing": 99,
-  "tests_failing": 0,
-  "tests_missing": 5
- },
- "eval_coverage": {
-  "legend": {
-   "\u2713": "generated",
-   "\u2713\u2713": "generated + judged",
-   "": "not done"
+  "project": "ai-therapist",
+  "last_updated": "2026-11-11",
+  "summary": {
+    "total": 17,
+    "completed": 16,
+    "in_progress": 0,
+    "planned": 0,
+    "deferred": 1,
+    "tests_passing": 99,
+    "tests_failing": 0,
+    "tests_missing": 5
   },
-  "columns": [
-   "model",
-   "base",
-   "sft",
-   "dpo",
-   "base_oars",
-   "base_oars_rag",
-   "dpo_oars",
-   "dpo_oars_rag",
-   "dpo_regular_rag"
-  ],
-  "rows": [
-   {
-    "model": "Qwen3-4B",
-    "base": "\u2713\u2713",
-    "sft": "\u2713\u2713",
-    "dpo": "\u2713\u2713",
-    "base_oars": "\u2713\u2713",
-    "base_oars_rag": "\u2713\u2713",
-    "dpo_oars": "",
-    "dpo_oars_rag": "",
-    "dpo_regular_rag": ""
-   },
-   {
-    "model": "Qwen3-1.7B",
-    "base": "\u2713\u2713",
-    "sft": "",
-    "dpo": "\u2713\u2713",
-    "base_oars": "",
-    "base_oars_rag": "",
-    "dpo_oars": "\u2713\u2713",
-    "dpo_oars_rag": "\u2713\u2713",
-    "dpo_regular_rag": "\u2713\u2713"
-   },
-   {
-    "model": "Qwen3-0.6B",
-    "base": "\u2713\u2713",
-    "sft": "",
-    "dpo": "\u2713\u2713",
-    "base_oars": "",
-    "base_oars_rag": "",
-    "dpo_oars": "",
-    "dpo_oars_rag": "",
-    "dpo_regular_rag": ""
-   }
-  ],
-  "notes": "DPO column is the canonical run per model (1.7B = 1024-token rerun; 512 run superseded). +OARS columns use the serving voice prompt; RAG columns attach precomputed serving-identical blocks. Regular-prompt + RAG cell (F017-9) filled 2026-10-31: 1.7B-DPO regular+RAG Overall 3.27 vs regular no-RAG 3.86."
- },
- "features": [
-  {
-   "id": "F001",
-   "name": "Repo scaffolding (uv + Makefile + AGENTS.md)",
-   "description": "uv-managed Python project with root Makefile as the single control surface (setup/test/style/ingest/clean), plus AGENTS.md conventions. Makes every workflow step runnable via make.",
-   "status": "completed",
-   "priority": "high",
-   "module": "root",
-   "design_doc": "AGENTS.md",
-   "tests": {
-    "status": "n/a",
-    "files": [],
-    "notes": "Infra only, no unit tests."
-   },
-   "subtasks": [
-    {
-     "id": "F001-1",
-     "name": "pyproject.toml + uv.lock",
-     "status": "completed"
+  "eval_coverage": {
+    "legend": {
+      "✓": "generated",
+      "✓✓": "generated + judged",
+      "": "not done"
     },
-    {
-     "id": "F001-2",
-     "name": "Root Makefile targets",
-     "status": "completed"
-    },
-    {
-     "id": "F001-3",
-     "name": "AGENTS.md conventions",
-     "status": "completed"
-    }
-   ],
-   "notes": "",
-   "added": "2026-10-14",
-   "completed": "2026-10-14"
-  },
-  {
-   "id": "F002",
-   "name": "RAG pipeline (chunk/ingest/query)",
-   "description": "Chunking, embedding and retrieval over the RAG knowledge base. Chroma embedded persistent (./chroma/, gitignored, rebuilt via make ingest) with BAAI/bge-small-en-v1.5 CPU embeddings. retrieve(query, n, source_filter) is the only API the serving layer imports; store-agnostic so Chroma\u2192Qdrant is a re-ingest only.",
-   "status": "completed",
-   "priority": "high",
-   "module": "src/rag",
-   "design_doc": "docs/research.md",
-   "tests": {
-    "status": "passing",
-    "files": [
-     "tests/test_rag/test_chunk.py",
-     "tests/test_rag/test_query.py"
+    "columns": [
+      "model",
+      "base",
+      "sft",
+      "dpo",
+      "base_oars",
+      "base_oars_rag",
+      "dpo_oars",
+      "dpo_oars_rag",
+      "dpo_regular_rag"
     ],
-    "notes": "6 tests green (4 chunk + 2 query, temp-collection based). Embedder reverted from Qwen3-Embedding-0.6B (OOM on 8GB GPU) to bge-small-en-v1.5 CPU."
-   },
-   "subtasks": [
-    {
-     "id": "F002-1",
-     "name": "config.py env-overridable settings (512/50 chunking)",
-     "status": "completed"
-    },
-    {
-     "id": "F002-2",
-     "name": "chunk.py paragraph-aware chunker",
-     "status": "completed"
-    },
-    {
-     "id": "F002-3",
-     "name": "ingest.py with --reset and per-chunk chapter headings",
-     "status": "completed"
-    },
-    {
-     "id": "F002-4",
-     "name": "query.py retrieve()",
-     "status": "completed"
-    },
-    {
-     "id": "F002-5",
-     "name": "Rebuild index and spot-check retrieval",
-     "status": "completed"
-    }
-   ],
-   "notes": "chroma/ is gitignored; rebuild with make ingest.",
-   "added": "2026-10-14",
-   "completed": "2026-10-14"
-  },
-  {
-   "id": "F003",
-   "name": "RAG knowledge base corpus (South Asian therapeutic techniques)",
-   "description": "Curated raw sources and extracted text for the RAG index: 30 text files (~640k words) plus 24 raw sources, focused on South Asian / Indian therapeutic and contemplative traditions.",
-   "status": "completed",
-   "priority": "medium",
-   "module": "data/rag-kb",
-   "design_doc": "docs/research.md",
-   "tests": {
-    "status": "n/a",
-    "files": [],
-    "notes": "Data only."
-   },
-   "subtasks": [
-    {
-     "id": "F003-1",
-     "name": "Fetch + extract raw sources",
-     "status": "completed"
-    },
-    {
-     "id": "F003-2",
-     "name": "text/_index.txt inventory",
-     "status": "completed"
-    }
-   ],
-   "notes": "Caveats: hku-preview, pageplace-preview, buddhist-psychotherapy-apa-sample are front-matter/ToC only; islamic-counselling-aligarh is a thin 656-word brochure; raw/dalal-book.pdf is typeset from extracted text. Still missing (browser-only): LWW Family Therapy in India, LWW guru-chela revisited, NBK159363 yoga-for-depression, MDPI yoga-integrative, NHM RMNCAH counselling manual, Palgrave Buddhist-psychology intro, jsneki.com Neki PDFs, APA full chapters.",
-   "added": "2026-10-14",
-   "completed": "2026-10-14"
-  },
-  {
-   "id": "F004",
-   "name": "SFT dataset preparation (CounselChat + Amod + PsychoPref)",
-   "description": "Assemble the training data: CounselChat CSV, PsychoPref train/test parquet and the gated Amod mental-health counseling conversations (RAIL-D). SFT uses combined + shuffled CounselChat + Amod in a single stage, not sequential.",
-   "status": "completed",
-   "priority": "high",
-   "module": "data/finetune",
-   "design_doc": "docs/slm-finetuning.md",
-   "tests": {
-    "status": "missing",
-    "files": [],
-    "notes": "Notebook asserts presence of both SFT datasets."
-   },
-   "subtasks": [
-    {
-     "id": "F004-1",
-     "name": "CounselChat CSV in data/finetune/counsel-chat/",
-     "status": "completed"
-    },
-    {
-     "id": "F004-2",
-     "name": "PsychoPref train/test parquet in data/finetune/psychopref/",
-     "status": "completed"
-    },
-    {
-     "id": "F004-3",
-     "name": "Accept RAIL-D terms and pull Amod into data/finetune/amod-counseling/",
-     "status": "completed"
-    }
-   ],
-   "notes": "Amod pulled with the .env HF_TOKEN as combined_dataset.json (JSONL, 3512 pairs; 4 rows have an empty Response) + LICENSE-RAIL-D.txt. Data files gitignored, so re-pull with curl -H \"Authorization: Bearer $HF_TOKEN\" from .../resolve/main/. Notebook glob extended to *.json since HF ships JSONL, not csv/parquet.",
-   "added": "2026-10-14",
-   "completed": "2026-10-14"
-  },
-  {
-   "id": "F005",
-   "name": "Qwen3-4B QLoRA finetune notebook",
-   "description": "Unsloth QLoRA SFT notebook for Qwen/Qwen3-4B-Instruct: combined+shuffled SFT, r=16, seq 2048, num_train_epochs configurable (v3 ran 1, v4 ran 2), train_on_responses_only; saves LoRA and GGUF q4_k_m. Runs on Kaggle T4; model choice justified against Phi-4-mini, Llama-3.2-3B, Gemma-3, SmolLM3-3B.",
-   "status": "completed",
-   "priority": "high",
-   "module": "notebooks",
-   "design_doc": "docs/slm-finetuning.md",
-   "tests": {
-    "status": "missing",
-    "files": [],
-    "notes": "No separate harness (needs GPU + gitignored data) \u2014 the notebook asserts for itself: non-degenerate source counts, zero blank/NaN turns, qwen_lora/ written. Verified out-of-repo with stubbed unsloth/model: 2775 CounselChat - 163 blank and 3512 Amod - 4 blank -> 6120 examples; save cell without HF_TOKEN saves qwen_lora/ and skips both pushes; disabling the blank filter makes the notebook's own assert fire."
-   },
-   "subtasks": [
-    {
-     "id": "F005-1",
-     "name": "Slim notebook to 17 cells + black format",
-     "status": "completed"
-    },
-    {
-     "id": "F005-2",
-     "name": "Data paths data/finetune/... with asserts",
-     "status": "completed"
-    },
-    {
-     "id": "F005-3",
-     "name": "Dual input path (Kaggle /kaggle/input/... vs local)",
-     "status": "completed"
-    },
-    {
-     "id": "F005-4",
-     "name": "HF-push cells must no-op on Kaggle",
-     "status": "completed"
-    }
-   ],
-   "notes": "DATA root is discovered by searching for counsel-chat/*.csv under /kaggle/input/datasets/<owner>/<slug>/ (Kaggle's current mount layout; older images used /kaggle/input/<slug>/) and falling back to data/finetune/, so a mount-path change fails loudly instead of silently training on nothing. Blank CSV fields arrive as NaN/None, so the filter rejects those too. Use enable_thinking=False, temp 0.7 / top_p 0.8. VRAM on 8GB laptop: Qwen SFT@2048 ~6.5-7.5GB fits. GGUF + hub pushes need HF_TOKEN, so Kaggle runs produce qwen_lora/ only.",
-   "added": "2026-10-14",
-   "completed": "2026-10-14"
-  },
-  {
-   "id": "F006",
-   "name": "SFT training run on Kaggle",
-   "description": "Upload data/finetune/ as private dataset Eros438/ai-therapist-sft, push the notebook kernel to a T4 with internet, run ~1\u20131.5h, fetch qwen_lora/ output.",
-   "status": "completed",
-   "priority": "high",
-   "module": "notebooks",
-   "design_doc": "docs/slm-finetuning.md",
-   "tests": {
-    "status": "missing",
-    "files": [],
-    "notes": "Requires F004 (Amod) and F005 dual-path gating \u2014 both complete."
-   },
-   "subtasks": [
-    {
-     "id": "F006-1",
-     "name": "Upload private dataset Eros438/ai-therapist-sft",
-     "status": "completed"
-    },
-    {
-     "id": "F006-2",
-     "name": "Push kernel (T4, internet on)",
-     "status": "completed"
-    },
-    {
-     "id": "F006-3",
-     "name": "kaggle kernels output to fetch qwen_lora/",
-     "status": "completed"
-    }
-   ],
-   "notes": "v3 (2026-10-14) COMPLETE in ~59 min on T4 x2 (~0.9 GPU-h): 6,120 examples, 765 steps, 1 epoch, batch 2x4, r=16. TrainOutput: train_loss 2.3051, train_runtime 3391.1s, 1.805 samples/s, epoch 1.0. Sanity inference coherent (anxiety prompt -> CBT/exposure/mindfulness guidance, non-thinking). qwen_lora/ (132MB adapter, 7 modules) + tokenizer fetched to models/ (gitignored). Per-step loss curve lives only in the Kaggle UI log \u2014 the fetched log is sampled and drops it, so the endpoint stats above are the in-repo record. Kaggle CLI cannot attach secrets, so training only; HF push happens from local (F007).",
-   "added": "2026-10-14",
-   "completed": "2026-10-14"
-  },
-  {
-   "id": "F007",
-   "name": "Publish adapters to Hugging Face",
-   "description": "Push the fine-tuned LoRA and GGUF artifacts from the laptop to arnabwithab/ai-therapist-qwen3-4b-sft-lora and ...-sft-gguf using HF_TOKEN from .env.",
-   "status": "completed",
-   "priority": "medium",
-   "module": "notebooks",
-   "design_doc": "docs/slm-finetuning.md",
-   "tests": {
-    "status": "missing",
-    "files": [],
-    "notes": ""
-   },
-   "subtasks": [
-    {
-     "id": "F007-1",
-     "name": "hf upload LoRA repo",
-     "status": "completed"
-    },
-    {
-     "id": "F007-2",
-     "name": "hf upload GGUF q4_k_m repo",
-     "status": "completed"
-    }
-   ],
-   "notes": "F007-1 done 2026-10-14: v3 1-epoch adapter + tokenizer uploaded to arnabwithab/ai-therapist-qwen3-4b-lora (public) via huggingface_hub, verified 11 files via API. Overwrite with the 2-epoch adapter when SFT v4 lands (re-upload README.md afterwards \u2014 upload_folder would clobber it with Unsloth's default; card source: models/qwen_lora/README.md). Done 2026-10-14: v4 adapter + user's edited card live (repo sha e2001fe2); card canonical backup at models/MODEL_CARD.md (updated for v4: 2 epochs, loss 1.9842). Auth note: login()/library whoami worked as arnabwithab (token autolinksv2, write) while curl Bearer checks 401'd with the same string \u2014 uploads must go through the library, not curl. F007-2 blocked: GGUF export needs ~8-10GB disk + unsloth/torch/triton locally, laptop has 6.5GB free; options are freeing disk or a Kaggle export kernel with a UI-attached HF secret. 2026-10-15: third path taken \u2014 CPU-only Kaggle kernel eros438/ai-therapist-gguf-export (code notebooks/gguf-export/export_gguf.py). v1 (Unsloth merge) died at import: Unsloth hard-requires a GPU. v2 uses transformers+peft merge_and_unload (~8GB RAM, Kaggle CPU has 30GB) plus a minimal llama.cpp build (llama-quantize target only) for Q4_K_M; fp16 intermediates are deleted to stay under /kaggle/working's 20GB. v3 got further (merge succeeded) then died serializing the merged-bnb model: transformers save_pretrained cannot reverse bnb weight conversions (NotImplementedError). v4 back to the Unsloth path on T4 (save_pretrained_gguf does its own serialization): needs ~20 min against 0.16h quota, likely dies mid-run \u2014 user's explicit call. Fetch the .gguf with kernels output and upload from local. FUTURE EXPORTS: if GPU quota is available, convert directly via Unsloth save_pretrained_gguf on a T4 kernel (one call does merge+quant, ~20 min) instead of this CPU path \u2014 use CPU only when quota is dry. v4 SUCCEEDED 2026-10-15 (Unsloth merge+quant on T4, burned the last 0.15h, 0.01h left): Q4_K_M 2.5GB (renamed ai-therapist-qwen3-4b-Q4_K_M.gguf) + README live at arnabwithab/ai-therapist-qwen3-4b-gguf (public, verified via API). HF collection (user-created 2026-10-15): arnabwithab/counselling-slms-6ad06ab0ca4ce4cf5ceb5ca4 ('Counselling SLMs') groups both repos.",
-   "added": "2026-10-14",
-   "completed": "2026-10-15"
-  },
-  {
-   "id": "F008",
-   "name": "DPO stage after SFT",
-   "description": "Direct preference optimisation on PsychoPref after SFT to sharpen counselling response quality.",
-   "status": "completed",
-   "priority": "medium",
-   "module": "notebooks",
-   "design_doc": "docs/slm-finetuning.md",
-   "tests": {
-    "status": "passing",
-    "files": [
-     "tests/test_notebooks/test_dpo.py"
+    "rows": [
+      {
+        "model": "Qwen3-4B",
+        "base": "✓✓",
+        "sft": "✓✓",
+        "dpo": "✓✓",
+        "base_oars": "✓✓",
+        "base_oars_rag": "✓✓",
+        "dpo_oars": "",
+        "dpo_oars_rag": "",
+        "dpo_regular_rag": ""
+      },
+      {
+        "model": "Qwen3-1.7B",
+        "base": "✓✓",
+        "sft": "",
+        "dpo": "✓✓",
+        "base_oars": "",
+        "base_oars_rag": "",
+        "dpo_oars": "✓✓",
+        "dpo_oars_rag": "✓✓",
+        "dpo_regular_rag": "✓✓"
+      },
+      {
+        "model": "Qwen3-0.6B",
+        "base": "✓✓",
+        "sft": "",
+        "dpo": "✓✓",
+        "base_oars": "",
+        "base_oars_rag": "",
+        "dpo_oars": "",
+        "dpo_oars_rag": "",
+        "dpo_regular_rag": ""
+      }
     ],
-    "notes": "4 pure-logic tests (pair formatting, parquet discovery); GPU path fail-fasts in-kernel."
-   },
-   "subtasks": [
-    {
-     "id": "F008-1",
-     "name": "Fit DPO in memory (ctx 1024 + r=8 or Colab)",
-     "status": "completed"
-    },
-    {
-     "id": "F008-2",
-     "name": "DPO training run + artifact push",
-     "status": "completed"
-    }
-   ],
-   "notes": "DPO-from-base launched 2026-10-18 as eros483/ai-therapist-qwen3-dpo v1 (T4): skips SFT (sft5 memorized forum voice), Unsloth QLoRA r16 on base + PsyCoPref (34,329 pairs, margins +0.8..+1.7), beta 0.1, lr 5e-6, 1 epoch (~4.3k steps, ~5.4h). Pref data as private eros483/ai-therapist-dpo-pref. v1 ERROR at 731s: CUDA OOM (tried +4.09GB, 11.6GB used) \u2014 TRL defaulted to fp32 (Unsloth auto-mixed-precision did not cover DPOTrainer), ref-model fp32 conversion blew the T4. v2 sets fp16=True explicitly. v2 ERROR at 807s with identical footprint (fp16 changed nothing): the killer is full-vocab fp32 logits on the concatenated chosen+rejected batch (batch 2 x seq 2048 x 151k vocab x 4B ~ 4GB spike). v3 halves micro-batch to 1 (grad_acc 8, same effective batch). v3 CANCEL_ACKNOWLEDGED (9h cap) at step ~2000/4292 (47%): batch-1 fix worked, loss ~0, margins +8/-5, acc ~1.0 (possible over-opt; pairs are easy). Latest checkpoint-2000 (full adapter+tokenizer) recovered as private eros483/ai-therapist-dpo-2000. Generating 10k with the frozen harness (col qwen3_4b_dpo) as eros483/ai-therapist-qwen3-mbench-dpo v1; judge next, then decide resume-vs-stop on the second half. DPO gen COMPLETE 2026-10-19 (free run past the quota wall, never killed): 10k/10k rows, 0 empty, 0 echo, median 2051 chars; local copy data/eval/mbench-qwen3-4b-baseline/output_mbench_dpo.csv. Judging next (same judge). DPO-4B judged 2026-10-19: Overall 4.05 vs base 4.06 (all deltas <=0.09) \u2014 SFT damage undone, no gain over base. Second half (steps 2000-4292) deferred; ckpt-2000 stands. 1.7B DPO continues under F016.",
-   "added": "2026-10-14",
-   "completed": "2026-10-21"
+    "notes": "DPO column is the canonical run per model (1.7B = 1024-token rerun; 512 run superseded). +OARS columns use the serving voice prompt; RAG columns attach precomputed serving-identical blocks. Regular-prompt + RAG cell (F017-9) filled 2026-10-31: 1.7B-DPO regular+RAG Overall 3.27 vs regular no-RAG 3.86."
   },
-  {
-   "id": "F009",
-   "name": "MentalBench-Align evaluation harness",
-   "description": "Automated counselling-quality evaluation using the MentalBench-Align repo (CSS = Guidance/Informativeness/Relevance/Safety; ARS = Empathy/Helpfulness/Understanding) with its 1\u20135 rubrics plus judge prompt and JSON schema.",
-   "status": "completed",
-   "priority": "high",
-   "module": "eval",
-   "design_doc": "docs/slm-finetuning.md",
-   "tests": {
-    "status": "passing",
-    "files": [
-     "tests/test_eval/test_fetch_contexts.py"
-    ],
-    "notes": "9 tests incl. byte-identical check vs backend._retrieved_message; resume/emit guards."
-   },
-   "subtasks": [
+  "features": [
     {
-     "id": "F009-1",
-     "name": "Judge prompt + JSON schema integration",
-     "status": "completed"
+      "id": "F001",
+      "name": "Repo scaffolding (uv + Makefile + AGENTS.md)",
+      "description": "uv-managed Python project with root Makefile as the single control surface (setup/test/style/ingest/clean), plus AGENTS.md conventions. Makes every workflow step runnable via make.",
+      "status": "completed",
+      "priority": "high",
+      "module": "root",
+      "design_doc": "AGENTS.md",
+      "tests": {
+        "status": "n/a",
+        "files": [],
+        "notes": "Infra only, no unit tests."
+      },
+      "subtasks": [
+        {
+          "id": "F001-1",
+          "name": "pyproject.toml + uv.lock",
+          "status": "completed"
+        },
+        {
+          "id": "F001-2",
+          "name": "Root Makefile targets",
+          "status": "completed"
+        },
+        {
+          "id": "F001-3",
+          "name": "AGENTS.md conventions",
+          "status": "completed"
+        }
+      ],
+      "notes": "",
+      "added": "2026-10-14",
+      "completed": "2026-10-14"
     },
     {
-     "id": "F009-2",
-     "name": "Scoring script for CSS/ARS dimensions",
-     "status": "completed"
+      "id": "F002",
+      "name": "RAG pipeline (chunk/ingest/query)",
+      "description": "Chunking, embedding and retrieval over the RAG knowledge base. Chroma embedded persistent (./chroma/, gitignored, rebuilt via make ingest) with BAAI/bge-small-en-v1.5 CPU embeddings. retrieve(query, n, source_filter) is the only API the serving layer imports; store-agnostic so Chroma→Qdrant is a re-ingest only.",
+      "status": "completed",
+      "priority": "high",
+      "module": "src/rag",
+      "design_doc": "docs/research.md",
+      "tests": {
+        "status": "passing",
+        "files": [
+          "tests/test_rag/test_chunk.py",
+          "tests/test_rag/test_query.py"
+        ],
+        "notes": "6 tests green (4 chunk + 2 query, temp-collection based). Embedder reverted from Qwen3-Embedding-0.6B (OOM on 8GB GPU) to bge-small-en-v1.5 CPU."
+      },
+      "subtasks": [
+        {
+          "id": "F002-1",
+          "name": "config.py env-overridable settings (512/50 chunking)",
+          "status": "completed"
+        },
+        {
+          "id": "F002-2",
+          "name": "chunk.py paragraph-aware chunker",
+          "status": "completed"
+        },
+        {
+          "id": "F002-3",
+          "name": "ingest.py with --reset and per-chunk chapter headings",
+          "status": "completed"
+        },
+        {
+          "id": "F002-4",
+          "name": "query.py retrieve()",
+          "status": "completed"
+        },
+        {
+          "id": "F002-5",
+          "name": "Rebuild index and spot-check retrieval",
+          "status": "completed"
+        }
+      ],
+      "notes": "chroma/ is gitignored; rebuild with make ingest.",
+      "added": "2026-10-14",
+      "completed": "2026-10-14"
     },
     {
-     "id": "F009-4",
-     "name": "Precomputed RAG judge dataset (serving-identical blocks)",
-     "status": "completed"
+      "id": "F003",
+      "name": "RAG knowledge base corpus (South Asian therapeutic techniques)",
+      "description": "Curated raw sources and extracted text for the RAG index: 30 text files (~640k words) plus 24 raw sources, focused on South Asian / Indian therapeutic and contemplative traditions.",
+      "status": "completed",
+      "priority": "medium",
+      "module": "data/rag-kb",
+      "design_doc": "docs/research.md",
+      "tests": {
+        "status": "n/a",
+        "files": [],
+        "notes": "Data only."
+      },
+      "subtasks": [
+        {
+          "id": "F003-1",
+          "name": "Fetch + extract raw sources",
+          "status": "completed"
+        },
+        {
+          "id": "F003-2",
+          "name": "text/_index.txt inventory",
+          "status": "completed"
+        }
+      ],
+      "notes": "Caveats: hku-preview, pageplace-preview, buddhist-psychotherapy-apa-sample are front-matter/ToC only; islamic-counselling-aligarh is a thin 656-word brochure; raw/dalal-book.pdf is typeset from extracted text. Still missing (browser-only): LWW Family Therapy in India, LWW guru-chela revisited, NBK159363 yoga-for-depression, MDPI yoga-integrative, NHM RMNCAH counselling manual, Palgrave Buddhist-psychology intro, jsneki.com Neki PDFs, APA full chapters.",
+      "added": "2026-10-14",
+      "completed": "2026-10-14"
+    },
+    {
+      "id": "F004",
+      "name": "SFT dataset preparation (CounselChat + Amod + PsychoPref)",
+      "description": "Assemble the training data: CounselChat CSV, PsychoPref train/test parquet and the gated Amod mental-health counseling conversations (RAIL-D). SFT uses combined + shuffled CounselChat + Amod in a single stage, not sequential.",
+      "status": "completed",
+      "priority": "high",
+      "module": "data/finetune",
+      "design_doc": "docs/slm-finetuning.md",
+      "tests": {
+        "status": "missing",
+        "files": [],
+        "notes": "Notebook asserts presence of both SFT datasets."
+      },
+      "subtasks": [
+        {
+          "id": "F004-1",
+          "name": "CounselChat CSV in data/finetune/counsel-chat/",
+          "status": "completed"
+        },
+        {
+          "id": "F004-2",
+          "name": "PsychoPref train/test parquet in data/finetune/psychopref/",
+          "status": "completed"
+        },
+        {
+          "id": "F004-3",
+          "name": "Accept RAIL-D terms and pull Amod into data/finetune/amod-counseling/",
+          "status": "completed"
+        }
+      ],
+      "notes": "Amod pulled with the .env HF_TOKEN as combined_dataset.json (JSONL, 3512 pairs; 4 rows have an empty Response) + LICENSE-RAIL-D.txt. Data files gitignored, so re-pull with curl -H \"Authorization: Bearer $HF_TOKEN\" from .../resolve/main/. Notebook glob extended to *.json since HF ships JSONL, not csv/parquet.",
+      "added": "2026-10-14",
+      "completed": "2026-10-14"
+    },
+    {
+      "id": "F005",
+      "name": "Qwen3-4B QLoRA finetune notebook",
+      "description": "Unsloth QLoRA SFT notebook for Qwen/Qwen3-4B-Instruct: combined+shuffled SFT, r=16, seq 2048, num_train_epochs configurable (v3 ran 1, v4 ran 2), train_on_responses_only; saves LoRA and GGUF q4_k_m. Runs on Kaggle T4; model choice justified against Phi-4-mini, Llama-3.2-3B, Gemma-3, SmolLM3-3B.",
+      "status": "completed",
+      "priority": "high",
+      "module": "notebooks",
+      "design_doc": "docs/slm-finetuning.md",
+      "tests": {
+        "status": "missing",
+        "files": [],
+        "notes": "No separate harness (needs GPU + gitignored data) — the notebook asserts for itself: non-degenerate source counts, zero blank/NaN turns, qwen_lora/ written. Verified out-of-repo with stubbed unsloth/model: 2775 CounselChat - 163 blank and 3512 Amod - 4 blank -> 6120 examples; save cell without HF_TOKEN saves qwen_lora/ and skips both pushes; disabling the blank filter makes the notebook's own assert fire."
+      },
+      "subtasks": [
+        {
+          "id": "F005-1",
+          "name": "Slim notebook to 17 cells + black format",
+          "status": "completed"
+        },
+        {
+          "id": "F005-2",
+          "name": "Data paths data/finetune/... with asserts",
+          "status": "completed"
+        },
+        {
+          "id": "F005-3",
+          "name": "Dual input path (Kaggle /kaggle/input/... vs local)",
+          "status": "completed"
+        },
+        {
+          "id": "F005-4",
+          "name": "HF-push cells must no-op on Kaggle",
+          "status": "completed"
+        }
+      ],
+      "notes": "DATA root is discovered by searching for counsel-chat/*.csv under /kaggle/input/datasets/<owner>/<slug>/ (Kaggle's current mount layout; older images used /kaggle/input/<slug>/) and falling back to data/finetune/, so a mount-path change fails loudly instead of silently training on nothing. Blank CSV fields arrive as NaN/None, so the filter rejects those too. Use enable_thinking=False, temp 0.7 / top_p 0.8. VRAM on 8GB laptop: Qwen SFT@2048 ~6.5-7.5GB fits. GGUF + hub pushes need HF_TOKEN, so Kaggle runs produce qwen_lora/ only.",
+      "added": "2026-10-14",
+      "completed": "2026-10-14"
+    },
+    {
+      "id": "F006",
+      "name": "SFT training run on Kaggle",
+      "description": "Upload data/finetune/ as private dataset Eros438/ai-therapist-sft, push the notebook kernel to a T4 with internet, run ~1–1.5h, fetch qwen_lora/ output.",
+      "status": "completed",
+      "priority": "high",
+      "module": "notebooks",
+      "design_doc": "docs/slm-finetuning.md",
+      "tests": {
+        "status": "missing",
+        "files": [],
+        "notes": "Requires F004 (Amod) and F005 dual-path gating — both complete."
+      },
+      "subtasks": [
+        {
+          "id": "F006-1",
+          "name": "Upload private dataset Eros438/ai-therapist-sft",
+          "status": "completed"
+        },
+        {
+          "id": "F006-2",
+          "name": "Push kernel (T4, internet on)",
+          "status": "completed"
+        },
+        {
+          "id": "F006-3",
+          "name": "kaggle kernels output to fetch qwen_lora/",
+          "status": "completed"
+        }
+      ],
+      "notes": "v3 (2026-10-14) COMPLETE in ~59 min on T4 x2 (~0.9 GPU-h): 6,120 examples, 765 steps, 1 epoch, batch 2x4, r=16. TrainOutput: train_loss 2.3051, train_runtime 3391.1s, 1.805 samples/s, epoch 1.0. Sanity inference coherent (anxiety prompt -> CBT/exposure/mindfulness guidance, non-thinking). qwen_lora/ (132MB adapter, 7 modules) + tokenizer fetched to models/ (gitignored). Per-step loss curve lives only in the Kaggle UI log — the fetched log is sampled and drops it, so the endpoint stats above are the in-repo record. Kaggle CLI cannot attach secrets, so training only; HF push happens from local (F007).",
+      "added": "2026-10-14",
+      "completed": "2026-10-14"
+    },
+    {
+      "id": "F007",
+      "name": "Publish adapters to Hugging Face",
+      "description": "Push the fine-tuned LoRA and GGUF artifacts from the laptop to arnabwithab/ai-therapist-qwen3-4b-sft-lora and ...-sft-gguf using HF_TOKEN from .env.",
+      "status": "completed",
+      "priority": "medium",
+      "module": "notebooks",
+      "design_doc": "docs/slm-finetuning.md",
+      "tests": {
+        "status": "missing",
+        "files": [],
+        "notes": ""
+      },
+      "subtasks": [
+        {
+          "id": "F007-1",
+          "name": "hf upload LoRA repo",
+          "status": "completed"
+        },
+        {
+          "id": "F007-2",
+          "name": "hf upload GGUF q4_k_m repo",
+          "status": "completed"
+        }
+      ],
+      "notes": "F007-1 done 2026-10-14: v3 1-epoch adapter + tokenizer uploaded to arnabwithab/ai-therapist-qwen3-4b-lora (public) via huggingface_hub, verified 11 files via API. Overwrite with the 2-epoch adapter when SFT v4 lands (re-upload README.md afterwards — upload_folder would clobber it with Unsloth's default; card source: models/qwen_lora/README.md). Done 2026-10-14: v4 adapter + user's edited card live (repo sha e2001fe2); card canonical backup at models/MODEL_CARD.md (updated for v4: 2 epochs, loss 1.9842). Auth note: login()/library whoami worked as arnabwithab (token autolinksv2, write) while curl Bearer checks 401'd with the same string — uploads must go through the library, not curl. F007-2 blocked: GGUF export needs ~8-10GB disk + unsloth/torch/triton locally, laptop has 6.5GB free; options are freeing disk or a Kaggle export kernel with a UI-attached HF secret. 2026-10-15: third path taken — CPU-only Kaggle kernel eros438/ai-therapist-gguf-export (code notebooks/gguf-export/export_gguf.py). v1 (Unsloth merge) died at import: Unsloth hard-requires a GPU. v2 uses transformers+peft merge_and_unload (~8GB RAM, Kaggle CPU has 30GB) plus a minimal llama.cpp build (llama-quantize target only) for Q4_K_M; fp16 intermediates are deleted to stay under /kaggle/working's 20GB. v3 got further (merge succeeded) then died serializing the merged-bnb model: transformers save_pretrained cannot reverse bnb weight conversions (NotImplementedError). v4 back to the Unsloth path on T4 (save_pretrained_gguf does its own serialization): needs ~20 min against 0.16h quota, likely dies mid-run — user's explicit call. Fetch the .gguf with kernels output and upload from local. FUTURE EXPORTS: if GPU quota is available, convert directly via Unsloth save_pretrained_gguf on a T4 kernel (one call does merge+quant, ~20 min) instead of this CPU path — use CPU only when quota is dry. v4 SUCCEEDED 2026-10-15 (Unsloth merge+quant on T4, burned the last 0.15h, 0.01h left): Q4_K_M 2.5GB (renamed ai-therapist-qwen3-4b-Q4_K_M.gguf) + README live at arnabwithab/ai-therapist-qwen3-4b-gguf (public, verified via API). HF collection (user-created 2026-10-15): arnabwithab/counselling-slms-6ad06ab0ca4ce4cf5ceb5ca4 ('Counselling SLMs') groups both repos.",
+      "added": "2026-10-14",
+      "completed": "2026-10-15"
+    },
+    {
+      "id": "F008",
+      "name": "DPO stage after SFT",
+      "description": "Direct preference optimisation on PsychoPref after SFT to sharpen counselling response quality.",
+      "status": "completed",
+      "priority": "medium",
+      "module": "notebooks",
+      "design_doc": "docs/slm-finetuning.md",
+      "tests": {
+        "status": "passing",
+        "files": [
+          "tests/test_notebooks/test_dpo.py"
+        ],
+        "notes": "4 pure-logic tests (pair formatting, parquet discovery); GPU path fail-fasts in-kernel."
+      },
+      "subtasks": [
+        {
+          "id": "F008-1",
+          "name": "Fit DPO in memory (ctx 1024 + r=8 or Colab)",
+          "status": "completed"
+        },
+        {
+          "id": "F008-2",
+          "name": "DPO training run + artifact push",
+          "status": "completed"
+        }
+      ],
+      "notes": "DPO-from-base launched 2026-10-18 as eros483/ai-therapist-qwen3-dpo v1 (T4): skips SFT (sft5 memorized forum voice), Unsloth QLoRA r16 on base + PsyCoPref (34,329 pairs, margins +0.8..+1.7), beta 0.1, lr 5e-6, 1 epoch (~4.3k steps, ~5.4h). Pref data as private eros483/ai-therapist-dpo-pref. v1 ERROR at 731s: CUDA OOM (tried +4.09GB, 11.6GB used) — TRL defaulted to fp32 (Unsloth auto-mixed-precision did not cover DPOTrainer), ref-model fp32 conversion blew the T4. v2 sets fp16=True explicitly. v2 ERROR at 807s with identical footprint (fp16 changed nothing): the killer is full-vocab fp32 logits on the concatenated chosen+rejected batch (batch 2 x seq 2048 x 151k vocab x 4B ~ 4GB spike). v3 halves micro-batch to 1 (grad_acc 8, same effective batch). v3 CANCEL_ACKNOWLEDGED (9h cap) at step ~2000/4292 (47%): batch-1 fix worked, loss ~0, margins +8/-5, acc ~1.0 (possible over-opt; pairs are easy). Latest checkpoint-2000 (full adapter+tokenizer) recovered as private eros483/ai-therapist-dpo-2000. Generating 10k with the frozen harness (col qwen3_4b_dpo) as eros483/ai-therapist-qwen3-mbench-dpo v1; judge next, then decide resume-vs-stop on the second half. DPO gen COMPLETE 2026-10-19 (free run past the quota wall, never killed): 10k/10k rows, 0 empty, 0 echo, median 2051 chars; local copy data/eval/mbench-qwen3-4b-baseline/output_mbench_dpo.csv. Judging next (same judge). DPO-4B judged 2026-10-19: Overall 4.05 vs base 4.06 (all deltas <=0.09) — SFT damage undone, no gain over base. Second half (steps 2000-4292) deferred; ckpt-2000 stands. 1.7B DPO continues under F016.",
+      "added": "2026-10-14",
+      "completed": "2026-10-21"
+    },
+    {
+      "id": "F009",
+      "name": "MentalBench-Align evaluation harness",
+      "description": "Automated counselling-quality evaluation using the MentalBench-Align repo (CSS = Guidance/Informativeness/Relevance/Safety; ARS = Empathy/Helpfulness/Understanding) with its 1–5 rubrics plus judge prompt and JSON schema.",
+      "status": "completed",
+      "priority": "high",
+      "module": "eval",
+      "design_doc": "docs/slm-finetuning.md",
+      "tests": {
+        "status": "passing",
+        "files": [
+          "tests/test_eval/test_fetch_contexts.py"
+        ],
+        "notes": "9 tests incl. byte-identical check vs backend._retrieved_message; resume/emit guards."
+      },
+      "subtasks": [
+        {
+          "id": "F009-1",
+          "name": "Judge prompt + JSON schema integration",
+          "status": "completed"
+        },
+        {
+          "id": "F009-2",
+          "name": "Scoring script for CSS/ARS dimensions",
+          "status": "completed"
+        },
+        {
+          "id": "F009-4",
+          "name": "Precomputed RAG judge dataset (serving-identical blocks)",
+          "status": "completed"
+        }
+      ],
+      "notes": "Caveat: LLM judges inflate affective scores by +0.4–0.8 and are weakest on Safety/Relevance. F009-4 done 2026-10-26: eval/mbench_rag/fetch_contexts.py precomputes top-5 passages per row + serving-identical rag_context block into data/eval/mbench-rag-judge.csv; covered by tests/test_eval/test_fetch_contexts.py (9 tests incl. byte-identical check vs backend._retrieved_message, greptile-reviewed); 10k rows fetched in ~8 min locally, meta recorded (bge-small-en-v1.5, 2526 chunks, top_k 5). Evals can now run with zero RAG infra.",
+      "added": "2026-10-14",
+      "completed": "2026-10-30"
+    },
+    {
+      "id": "F010",
+      "name": "MentalBench-100k Qwen3-4B baseline",
+      "description": "Generate a fresh Qwen3-4B baseline over MentalBench-100k (10k rows) on Kaggle T4 fp16 with the paper's generation prompt, enable_thinking=False, temp 0.7 / top_p 0.8, max 512 tokens. One kernel drives both T4s (two worker subprocesses, one GPU each via CUDA_VISIBLE_DEVICES) writing a single sorted idx,context,qwen3_4b_instruct_2507 CSV.",
+      "status": "completed",
+      "priority": "high",
+      "module": "eval",
+      "design_doc": "docs/slm-finetuning.md",
+      "tests": {
+        "status": "passing",
+        "files": [
+          "tests/test_eval/test_generate.py",
+          "tests/test_eval/test_judge.py"
+        ],
+        "notes": "Pure CSV/adapter/chat-template logic incl. the left-pad slice regression test; GPU path fail-fasts in-kernel."
+      },
+      "subtasks": [
+        {
+          "id": "F010-1",
+          "name": "Fix chat-template tokenize bug (two-step)",
+          "status": "completed"
+        },
+        {
+          "id": "F010-2",
+          "name": "Push v2 kernels with aligned metadata slugs",
+          "status": "completed"
+        },
+        {
+          "id": "F010-3",
+          "name": "Fetch both shard outputs and merge",
+          "status": "completed"
+        },
+        {
+          "id": "F010-4",
+          "name": "Judge pass with a current API model",
+          "status": "completed"
+        },
+        {
+          "id": "F010-5",
+          "name": "Re-run the remaining 8,219 rows with batched generation (required, not optional)",
+          "status": "completed"
+        }
+      ],
+      "notes": "Kernels eros438/ai-therapist-qwen3-mbench-{a-rows-0-5000,b-rows-5000-10000} both CANCEL_ACKNOWLEDGED (killed at the 9h cap). Outputs (2026-10-14): shard A 906 rows idx 0-905, shard B 875 rows idx 5000-5874, no gaps/dupes, 0 empty, 1781/10000 = 18% coverage. Rate ~35-37 s/row (~100 rows/h/kernel), so a full 5000-row shard needs ~50 GPU-h — unbatched single-stream fp16 generation is the bottleneck. FUTURE RUNS MUST USE BATCHED GENERATION (vLLM, or HF generate with left-padding at batch 8-16); do not re-run single-stream, it cannot finish inside the 30h/week GPU quota. Resume works only if the partial CSV is re-attached as an input dataset (both runs logged resume skipped=0 on a fresh /kaggle/working). vLLM rerun eros438/ai-therapist-qwen3-mbench-vllm pushed 2026-10-14 (code eval/mbench_baseline/generate.py, kernel-metadata.json): tensor_parallel_size=2 on T4 x2, max_model_len=2048, chunks of 256 prompts, same paper prompt and temp 0.7 / top_p 0.8 / 512 tokens; seed dataset eros438/ai-therapist-mbench-seed attached so the 1,781 existing rows are copied in, not regenerated. v1 failed at import: bare `pip install vllm` pulls cu130 torch while Kaggle's torchaudio stays cu128 (vLLM's import chain touches torchaudio); v2's cu128 pre-install did not hold because vLLM >= 0.28 pins torch==2.13.0 exactly (cu130-only), so pip upgraded torch anyway. v3 pins vllm==0.25.0 (torch/torchaudio==2.11.0, all on the cu128 index) with --upgrade-strategy only-if-needed — verified against PyPI metadata before pushing. v3 then failed differently (ImportError: libcudart.so.13 — vLLM 0.25.0's compiled extension needs CUDA 13 libs absent from Kaggle's CUDA 12.8 image), so vLLM is abandoned after three import-time deaths. Replacement kernel eros438/ai-therapist-qwen3-mbench-batched (code eval/mbench_baseline/generate.py): plain HF generate, batch 8 with left padding, parent + two subprocess workers each masked to one GPU via CUDA_VISIBLE_DEVICES, same prompt and sampling params; seed/partial CSVs attached as datasets are copied in, so a cap-killed run resumes by re-attaching its partial output. Batched run COMPLETE 2026-10-14/15 in ~6.5h: both workers held 630-651 rows/h with no decay, DONE 10000/10000, merged output verified (10k unique idx, 0 empty). Part files and kernel log deleted; output_mbench.csv is canonical. 50% of the 1781 responses are cut mid-sentence at the 512-token cap — caveat for the judge pass. Paper's GPT-4o/Claude-3.7/Gemini-2.5 judges are deprecated; their stored Qwen-3 scores are NOT reusable, so a fresh baseline is required (needs API keys + budget). Batched follow-up 2026-10-17: plain-HF batched generation (BATCH=8, 2xT4 workers, temp 0.7/top_p 0.8/512 tokens to match seed rows) re-pointed to eros483 (new private seed dataset eros483/ai-therapist-mbench-seed with the 1781 clean shard rows; local output_mbench.csv found polluted with 6324 prompt-echo rows and excluded) and pushed as eros483/ai-therapist-qwen3-mbench-batched v1 (RUNNING) to generate the remaining 8,219 rows. Pivot 2026-10-17: batched BASELINE kernel deleted after ~0.1 GPU-h (user wants 5-epoch outputs, not base). generate.py generalized with --col/--out/--adapter flags + auto LoRA discovery (PeftModel wrap, tokenizer from adapter dir) + column-tolerant resume; adapter uploaded as private eros483/ai-therapist-lora-5epoch; pushed eros483/ai-therapist-qwen3-mbench-sft5 v1 (RUNNING) for all 10k rows under col qwen3_4b_sft5. Covered by new tests/test_eval/test_generate.py (4 tests). v2 died the same way (parent skipped the conditional install: image preinstalls peft). v3 2026-10-17 upgrades torchao unconditionally + parent imports PeftModel as fail-fast gate; RUNNING. Note: script-kernel logs only stream after finish, so progress is blind until COMPLETE/ERROR/cap-kill (cap-killed outputs are still fetchable, resume supported). v3 COMPLETED 10k rows but all responses are prompt-echo garbage: batched left-padding + slicing at per-row real length re-emitted the prompt tail (old script used absolute input width). Model is fine (templates identical base vs adapter). Fix: strip_to_generated() slices at input width + CPU regression test. v4 pushed WITHOUT the new def (pipeline masked the pytest failure: tail -1 swallows exit codes) and will NameError; v5 re-pushes the complete fix. Lesson: never pipe pytest to tail in a push chain. sft5 generation COMPLETE 2026-10-17 (fresh kernel after queue jam): 10k/10k rows, 0 empty, 0 echo-leak, median 1005 chars; local copy data/eval/mbench-qwen3-4b-baseline/output_mbench_sft5.csv. v3 garbage + v4 NameError superseded.",
+      "added": "2026-10-14",
+      "completed": "2026-10-16"
+    },
+    {
+      "id": "F012",
+      "name": "FastAPI serving layer",
+      "description": "OpenAI-compatible backend for the counsellor: thin FastAPI routes over backend/core/chat.py, which injects src/rag/query.py:retrieve() context and forwards to the vLLM LoRA model server (streaming + non-streaming); the frontend points its endpoint here.",
+      "status": "completed",
+      "priority": "high",
+      "module": "backend",
+      "design_doc": "AGENTS.md",
+      "tests": {
+        "status": "passing",
+        "files": [
+          "tests/test_backend/test_chat.py",
+          "tests/test_backend/test_routes.py"
+        ],
+        "notes": "33 tests green (OARS prompt, tags-block placement, history, budget; MockTransport model, stubbed retrieve). No network/GPU in tests."
+      },
+      "subtasks": [
+        {
+          "id": "F012-1",
+          "name": "Core chat logic (RAG injection, stateless, model call)",
+          "status": "completed"
+        },
+        {
+          "id": "F012-2",
+          "name": "Thin OpenAI-compatible routes (non-streaming)",
+          "status": "completed"
+        },
+        {
+          "id": "F012-3",
+          "name": "SSE streaming passthrough from vLLM",
+          "status": "completed"
+        }
+      ],
+      "notes": "Stateless server, stateful conversation: history arrives in the OpenAI messages array and is truncated oldest-first to a 4096-max_tokens-256 token budget; last user turn drives retrieval. Single system message (counsellor voice + crisis tiers + RAG rules). Endpoints: GET /health, GET /v1/models, POST /v1/chat/completions (no user turn -> 422, RAG/model failure -> 502). Run with `make serve` (port 8001, VLLM_URL default http://localhost:8000); model server via `make model-server`. Prompt reworked to OARS voice + cultural attunement + tiered safety (docs/prompt.md mirrors backend/core/chat.py); retrieved passages ride in a trailing <retrieved_techniques> block as the prompt promises. Sampling temp 0.7/top_p 0.8/top_k 20/repetition_penalty 1.1 (repetition loops seen live without the penalty), max_tokens 256 server-clamped; model-server flags: base Qwen/Qwen3-1.7B + --enable-lora ai-therapist-qwen3-1.7b-dpo, served-model-name ai-therapist-qwen3-1.7b-dpo, max-model-len 4096, eager, 0.7 util. Prompt is the user's OARS/XML version (role/style/cultural/retrieved/safety/example), India-only scope, India crisis numbers (112/Tele MANAS/Vandrevala); docs/prompt.md mirrors backend/core/chat.py. Live-verified end to end.",
+      "added": "2026-10-14",
+      "completed": "2026-10-15"
+    },
+    {
+      "id": "F013",
+      "name": "Local-LLM-Chat v3 frontend (vendored)",
+      "description": "Local-LLM-Chat v3 (MIT, single HTML file) vendored as a regular tracked file at frontend/index.html — no submodule, no build step. Default API endpoint edited to http://localhost:8001/v1/chat/completions, model-name field removed (backend ignores it), sidebar starts collapsed. Served via `make frontend` (python http.server on :3000).",
+      "status": "completed",
+      "priority": "medium",
+      "module": "frontend",
+      "design_doc": "AGENTS.md",
+      "tests": {
+        "status": "n/a",
+        "files": [],
+        "notes": "Upstream UI; integration is config. Backend contract covered by tests/test_backend/."
+      },
+      "subtasks": [
+        {
+          "id": "F013-1",
+          "name": "Vendor v3 HTML as regular file: :8001 default, no model field, sidebar collapsed",
+          "status": "completed"
+        },
+        {
+          "id": "F013-2",
+          "name": "Serve via make frontend + smoke-test a chat turn",
+          "status": "completed"
+        }
+      ],
+      "notes": "Replaced the anse submodule 2026-10-28 (git rm + .gitmodules deleted). Chose v3 over v1 (7.6KB, endpoint hardcoded, no settings) and v2 (38KB, endpoint hardcoded in JS): v3 (83KB) has a settings modal persisted to localStorage so endpoint/system-prompt need no code edits, plus stop-generation, export, and a debug console. Pinned to dmeldrum6/Local-LLM-Chat tag v3 (8f936d2); local changes: localhost:1234 -> localhost:8001 (3 spots), model-name input + CONFIG/localStorage/fetch references removed (backend ChatRequest.model defaults server-side), char-counter span + references removed, sidebar ships with `collapsed` class.",
+      "added": "2026-10-14",
+      "completed": "2026-10-15"
+    },
+    {
+      "id": "F015",
+      "name": "Long SFT run (5 epochs) with in-notebook GGUF export",
+      "description": "Fresh 5-epoch QLoRA SFT from base (same seed, ~3,825 steps, ~5h) with GGUF q4_k_m exported in-notebook; fetch adapter + GGUF + log_history, publish both to HF.",
+      "status": "completed",
+      "priority": "high",
+      "module": "notebooks",
+      "design_doc": "docs/slm-finetuning.md",
+      "tests": {
+        "status": "missing",
+        "files": [],
+        "notes": "Notebook asserts for itself (counts, blank-filter, qwen_lora/ written); log_history.json emitted every run."
+      },
+      "subtasks": [
+        {
+          "id": "F015-1",
+          "name": "Notebook: num_train_epochs=5 + unconditional GGUF export",
+          "status": "completed"
+        },
+        {
+          "id": "F015-2",
+          "name": "Push 5-epoch kernel (T4, internet on)",
+          "status": "completed"
+        },
+        {
+          "id": "F015-3",
+          "name": "Fetch adapter + GGUF + log_history",
+          "status": "completed"
+        },
+        {
+          "id": "F015-4",
+          "name": "Publish 5-epoch adapter + GGUF to HF",
+          "status": "completed"
+        }
+      ],
+      "notes": "v1 (2026-10-16) ERROR at the model cell: no internet on the fresh eros483 account (unverified), so pip install unsloth failed silently under %%capture and the import died 17 min in. Root-caused with a CPU net-probe kernel (DNS failure), user phone-verified, probe re-run INTERNET OK. Notebook install cell hardened with a fail-fast assert (find_spec unsloth) so pip failures abort in seconds. v2 (2026-10-17) COMPLETE on T4: 6,120 examples, 5 epochs, 3,825 steps, train_loss 1.0005 (vs 1.9842 @2ep, 2.3051 @1ep), runtime 16719s (~4.6h, ~5 GPU-h). GGUF q4_k_m exported in-notebook. HF push no-op (no secret); fetching adapter + GGUF + log_history.json (F015-3). F015-3 done 2026-10-17: fetched to models/sft5/ (gitignored; caches pruned) - qwen_lora/ adapter (132MB) + qwen_finetune_gguf/Q4_K_M (2.5GB) + full 3,825-step log_history.json (loss 2.883 -> 0.095; copy at models/log_history_5epoch.json). Judge (muse-spark, temp 0, 10k rows each): sft5 Overall 3.21 vs base 4.06 (Guidance -0.27, Informativeness -0.78, Relevance -1.08, Safety -0.54, Empathy -1.46, Helpfulness -0.96, Understanding -1.36). Caveats: judge inflates polish (F009); sft5 eval prompt = base preamble, a distribution shift vs raw-concern training; smoke row flagged sft5 bluntness (Safety 2). Base echo-hybrids (6,324 rows incl. prompt tail) score = clean rows, so judge is blind to that defect. F015-4: overwriting HF LoRA weights (README kept) + Q4_K_M GGUF with 5-epoch artifacts. F015-4 done 2026-10-18: 5-epoch adapter+tokenizer live on arnabwithab/ai-therapist-qwen3-4b-lora (weights/configs swapped, user README kept) and Q4_K_M GGUF live on arnabwithab/ai-therapist-qwen3-4b-gguf (commit 538ec45). Card still describes v4 (user-owned). Canonical HF homes 2026-10-26 (renamed 2026-10-27 to ai-therapist-qwen3- prefix; hash-confirmed dupes ai-therapist-qwen3-4b-lora/-gguf deleted): ai-therapist-qwen3-4b-sft-lora, ai-therapist-qwen3-4b-sft-gguf, ai-therapist-qwen3-4b-dpo-lora, ai-therapist-qwen3-1.7b-dpo-lora, ai-therapist-qwen3-0.6b-dpo-lora.",
+      "added": "2026-10-16",
+      "completed": "2026-10-18"
+    },
+    {
+      "id": "F016",
+      "name": "Qwen3-1.7B fast loop (base + DPO + judge)",
+      "description": "Smaller-model loop to test whether DPO gains grow when the base leaves headroom: 10k baseline generation, judge, DPO-from-base (2000 steps, ckpt-250), regenerate, judge. Same harness/prompt/judge as the 4B runs.",
+      "status": "completed",
+      "priority": "high",
+      "module": "eval",
+      "design_doc": "docs/slm-finetuning.md",
+      "tests": {
+        "status": "passing",
+        "files": [
+          "tests/test_eval/test_generate.py"
+        ],
+        "notes": "Harness is model-agnostic (tested); training asserts in-kernel."
+      },
+      "subtasks": [
+        {
+          "id": "F016-1",
+          "name": "Phi-4-mini detour (abandoned)",
+          "status": "completed"
+        },
+        {
+          "id": "F016-2",
+          "name": "1.7B base 10k generation",
+          "status": "completed"
+        },
+        {
+          "id": "F016-3",
+          "name": "Judge 1.7B base",
+          "status": "completed"
+        },
+        {
+          "id": "F016-4",
+          "name": "DPO-from-1.7B-base (2000 steps)",
+          "status": "completed"
+        },
+        {
+          "id": "F016-5",
+          "name": "Generate + judge DPO-1.7B, compare 5-way",
+          "status": "completed"
+        },
+        {
+          "id": "F016-6",
+          "name": "Regenerate at 1024 + judge 5-way",
+          "status": "completed"
+        },
+        {
+          "id": "F016-7",
+          "name": "0.6B base 10k generation",
+          "status": "completed"
+        },
+        {
+          "id": "F016-8",
+          "name": "Judge 0.6B base",
+          "status": "completed"
+        },
+        {
+          "id": "F016-11",
+          "name": "DPO-from-0.6B (2000 steps, ckpt-250)",
+          "status": "completed"
+        },
+        {
+          "id": "F016-12",
+          "name": "Generate + judge DPO-0.6B",
+          "status": "completed"
+        }
+      ],
+      "notes": "Phi detour 2026-10-21 abandoned after 4 failures: remote modeling.py needs utils.LossKwargs (gone after 4.50), pinned 4.50.3, then Phi3ForCausalLM rejects transformers>=4.53 dtype kwarg (shimmed with torch_dtype fallback) — then user pivoted to 1.7B. Right call: 1.7B base 10k done in ~3.7h (~1335 rows/h/GPU), judged Overall 3.72 (below 4B base 4.06, above sft5 3.21; Empathy holds at 4.58, gaps in Informativeness/Understanding/Relevance). DPO-from-1.7B pushed (unsloth/Qwen3-1.7B, qwen3-instruct, batch-1 recipe, max 2000/ckpt-250) and RUNNING on eros438. DPO-1.7B COMPLETE 2026-10-21: 2000/2000 steps, train_loss 0.098 (healthier than 4B ckpt, no collapse to 0). Adapter+tokenizer fetched; eval gen pushed as eros438/ai-therapist-qwen3-1p7b-mbench-dpo (RUNNING). DPO-1.7B gen COMPLETE (10k, 0 empty, 0 real echo): ALL rows carry <think> traces (base: 0) - adapter overrode the no-think header; traces show sound clinical reasoning. 141 rows truncated pre-</think> (512 cap vs ~1500-char thoughts). Judging post-</think> final answers only (output_mbench_1p7b_dpo_final.csv); raw CSV kept canonical. DPO-1.7B judged 2026-10-22: Overall 3.33 vs base 3.72 (-0.39). Drop is Guidance collapse (1.77): thoughts eat the 512 budget, 8 thought-only + 141 truncated rows; Understanding up +0.14. Verdict: setup measures DPO+truncation, not DPO. 1024-regen COMPLETE: seed fix worked (9904 seeded, gpu1 0 new + gpu0 96 new), merged 10k/10k, zero truncation (vs 141) and zero empties (vs 8). 1024-regen JUDGED 2026-10-25: Overall 3.84 vs base 3.72 (+0.12) — hypothesis confirmed. Guidance recovered 1.77 -> 2.91. Resume v5 (dual-layout seed glob) COMPLETE: seed 9904 attached (fix verified), gpu0 +96, merged 10k/10k, 0 empty. Think blocks on all 10k, zero truncation at 1024 (vs 141 at 512). Extended 2026-10-26: Qwen3-0.6B loop to find the capability floor (same harness/judge). 0.6B base COMPLETE: 10k/10k, 0 empty/echo, median 645 chars. 0.6B base judged 2026-10-26: Overall 3.00 (floor of the ladder, below sft5-4B 3.21). Guidance 1.77->1.84 territory collapse confirmed as capacity, not cap (no truncation here). DPO-0.6B pushed (unsloth/Qwen3-0.6B, same batch-1/max-2000/ckpt-250 recipe; expect <think> traces as with 1.7B, strip at eval). DPO-0.6B COMPLETE: 2000/2000 steps, train_loss 0.112 (healthy, no collapse). Eval gen pushed (eros438/ai-therapist-qwen3-0p6b-mbench-dpo v1, RUNNING). DPO-0.6B gen fetched 2026-10-27: 10k/10k contiguous (col qwen3_0p6b_dpo), think blocks on all 10k, stripped to output_mbench_0p6b_dpo_final.csv (0 empty); judged, see below. DPO-0.6B JUDGED 2026-10-27: Overall 3.03 vs base 3.00 (+0.03, n=10000 contiguous) — no lift at the floor; Guidance flat 1.84->1.85, Safety tail worsens 4.34->4.13 (12%%->18%% <=2). F016-12 complete. Charts consolidated 2026-10-27 (superseded 2026-10-31): master Overall chart + per-model per-dim charts; evals-oars.png removed. vLLM regen (3.86) dropped same day as redundant with canonical 3.84.",
+      "added": "2026-10-21",
+      "completed": "2026-10-27"
+    },
+    {
+      "id": "F017",
+      "name": "RAG eval pass on 24GB box (model + RAG pipeline)",
+      "description": "Same 10k MentalBench-100k contexts through the serving path (OARS prompt + retrieve) against a vLLM endpoint, with --no-rag ablation, per-shard HF dataset pushes for remote viewing, and one-flag model swaps. Runs: make init/setup/ingest, make model-server-24g, make eval-rag looped over shards.",
+      "status": "completed",
+      "priority": "high",
+      "module": "eval",
+      "design_doc": "docs/slm-finetuning.md",
+      "tests": {
+        "status": "passing",
+        "files": [
+          "tests/test_eval/test_generate_rag.py",
+          "tests/test_eval/test_hf_push.py"
+        ],
+        "notes": "15 pure-logic tests (sharding, resume/merge, retries, HF push, thread-safe RAG init); GPU/vLLM path fail-fasts on the server."
+      },
+      "subtasks": [
+        {
+          "id": "F017-1",
+          "name": "eval/mbench_rag/generate_rag.py (reuses build_messages + retrieve)",
+          "status": "completed"
+        },
+        {
+          "id": "F017-2",
+          "name": "eval/hf_push.py shared by generate + judge",
+          "status": "completed"
+        },
+        {
+          "id": "F017-3",
+          "name": "Makefile: model-server-24g, eval-rag, judge-eval, init",
+          "status": "completed"
+        },
+        {
+          "id": "F017-4",
+          "name": "Thread-safe RAG lazy init (chromadb race found by eval smoke)",
+          "status": "completed"
+        },
+        {
+          "id": "F017-5",
+          "name": "gen: qwen3-4b-base + OARS prompt + RAG top-5 (10k/10k)",
+          "status": "completed"
+        },
+        {
+          "id": "F017-6",
+          "name": "gen: qwen3-4b-base + OARS prompt + no-RAG ablation (10k/10k)",
+          "status": "completed"
+        },
+        {
+          "id": "F017-7",
+          "name": "judge: qwen3-4b-base + OARS prompt + RAG top-5",
+          "status": "completed"
+        },
+        {
+          "id": "F017-8",
+          "name": "judge: qwen3-4b-base + OARS prompt + no-RAG ablation",
+          "status": "completed"
+        },
+        {
+          "id": "F017-9",
+          "name": "Regular prompt + RAG run (gen + judge, missing matrix cell)",
+          "status": "completed",
+          "notes": "2026-10-30/31: 1.7B-DPO only. Gen DONE on cselab11-41 (vLLM 0.9 util, precomputed blocks, 1024 tokens, workers 64): data/eval/mbench-rag/output_regular_rag.csv, 10k/10k unique idx, 0 blank, 0 think leak, median 2904 chars. Judged 2026-10-31 (local, same rubric): Overall 3.27 vs regular no-RAG 3.86 (-0.59) — RAG hurts under both prompts (OARS 3.19 -> 2.91); Relevance 4.48 -> 3.27, Understanding 3.94 -> 3.14. Full output: data/eval/mbench-judge-1p7b-dpo-regular-rag.csv."
+        },
+        {
+          "id": "F017-10",
+          "name": "generate_rag precomputed-RAG mode + GPU_MEM_UTIL cap",
+          "status": "completed"
+        },
+        {
+          "id": "F017-11",
+          "name": "gen: qwen3-1p7b-dpo + OARS prompt + no-RAG (10k)",
+          "status": "completed"
+        },
+        {
+          "id": "F017-12",
+          "name": "gen: qwen3-1p7b-dpo + OARS prompt + precomputed RAG top-5 (10k)",
+          "status": "completed"
+        },
+        {
+          "id": "F017-13",
+          "name": "judge: qwen3-1p7b-dpo + OARS prompt + no-RAG",
+          "status": "completed"
+        },
+        {
+          "id": "F017-14",
+          "name": "judge: qwen3-1p7b-dpo + OARS prompt + RAG top-5",
+          "status": "completed"
+        },
+        {
+          "id": "F017-15",
+          "name": "gen: qwen3-1p7b-dpo + regular prompt, no-RAG (10k)",
+          "status": "completed"
+        },
+        {
+          "id": "F017-16",
+          "name": "judge: qwen3-1p7b-dpo + regular prompt, no-RAG",
+          "status": "completed"
+        }
+      ],
+      "notes": "Smoke-verified locally up to the model call (real Chroma retrieval + prompt build, ConnectError only — no vLLM here). Judge pushes scores per batch when --hf-repo is set. Caveat: OARS replies are 3-6 sentences vs base long paragraphs, so Informativeness/Helpfulness may dip on style alone. Coverage matrix: see eval_coverage table (regular-prompt+RAG cell filled 2026-10-31: 1.7B-DPO 3.27). Note: generate_rag.py hardcodes the OARS path via build_messages, so the regular cell needs a prompt-style switch (or a standalone run reusing mbench-rag-judge.csv passages with the paper preamble). Judged 2026-10-26: 4B OARS no-RAG Overall 3.31 and OARS+RAG Overall 3.32 (both n=10000 contiguous; RAG delta +0.01, no measurable effect); sections added 2026-10-27. Same-day cleanup: vLLM regen section removed (redundant with canonical 3.84; equivalence note folded into DPO+OARS section); charts reconsolidated (11-run master + per-model), evals-oars.png removed. 2026-10-31 (supersedes that layout): master rebuilt as best-per-model (4B base 4.06, 1.7B DPO 3.84, 0.6B DPO 3.03), 1.7B chart to x5 series (regular+RAG added); eval/plot_evals.py + make plots regenerate both from judge CSVs. F017-15/16 stay completed (work happened).",
+      "added": "2026-10-21",
+      "completed": "2026-10-31"
+    },
+    {
+      "id": "F018",
+      "name": "Rethinking post-training for Qwen3-1.7B",
+      "description": "Rethink how the 1.7B is post-trained: whether DPO-from-base over PsyCoPref is still the right stage, what data/objective the serving behaviour actually needs, and how the training distribution should match the OARS serving prompt. Design first; no build until the approach is decided. Related: F016 (DPO loop), F017 (serving-path evals), F019 (evals v2).",
+      "status": "deferred",
+      "priority": "high",
+      "module": "notebooks",
+      "design_doc": "docs/slm-finetuning.md",
+      "tests": {
+        "status": "missing",
+        "files": [],
+        "notes": ""
+      },
+      "subtasks": [],
+      "notes": "Motivation from the eval ladder: DPO-1.7B scores 3.84 with the regular paper preamble but only 3.19 under the OARS serving prompt (Guidance 2.91 -> 1.53), and 2.91 with RAG on top — the model was trained on raw concern -> long-answer pairs while serving asks for short, non-directive replies with retrieved passages. Also open: adapter emits </think> on all 10k rows despite the no-think header, eating the token budget; 4B SFT regressed hard (3.21 vs 4.06), so the SFT stage is suspect too. Scope to be decided — candidates include DPO data closer to the serving voice, SFT-on-OARS-style targets, RAG-aware training, or dropping SFT entirely. Nothing designed or built yet.",
+      "added": "2026-10-30",
+      "completed": null
+    },
+    {
+      "id": "F019",
+      "name": "Evals v2 rubrics (counselling counts + culture flags, no humans)",
+      "description": "Design for the next judge: MITI counts (R:Q, %CR, MI-nonadherent), TherapyGym 4 safety binaries, CounselBench-Adv 6 binaries, goal-displacement deletion-test, CURE-thick YES/NO + DECASTE binaries + 14416 regex. Explicitly excludes T-BARS 20-Likert (unvalidated) and CultureBench-quiz-as-judge (regression only). No build yet.",
+      "status": "completed",
+      "priority": "high",
+      "module": "eval",
+      "design_doc": "docs/evals-v2.md",
+      "tests": {
+        "status": "passing",
+        "files": [
+          "tests/test_eval/test_judge_v2.py",
+          "tests/test_eval/test_evals_v2_report.py"
+        ],
+        "notes": "22 new tests: prompt/parse/ratio/regex/resume/order-swap/batch-isolation/gate. 131 passed, 1 skipped full suite."
+      },
+      "subtasks": [
+        {
+          "id": "F019-1",
+          "name": "MITI counts prompt (R:Q, %CR, MI-nonadherent)",
+          "status": "completed"
+        },
+        {
+          "id": "F019-2",
+          "name": "TherapyGym 4 safety binaries gate",
+          "status": "completed"
+        },
+        {
+          "id": "F019-3",
+          "name": "CounselBench-Adv 6 binaries",
+          "status": "completed"
+        },
+        {
+          "id": "F019-4",
+          "name": "GDB deletion-test probe",
+          "status": "completed"
+        },
+        {
+          "id": "F019-5",
+          "name": "CURE-thick + DECASTE + 14416 regex",
+          "status": "completed"
+        },
+        {
+          "id": "F019-6",
+          "name": "judge_v2.py + tests + make judge-v2 + 100-row pilot",
+          "status": "completed",
+          "notes": "judge_v2.py + report/gate + make judge-v2/report-v2/evals-v2 + 100-row pilot all done; gate PASS recorded in data/eval/v2/pilot-gate.json; full 10k run deferred by user decision."
+        }
+      ],
+      "notes": "2026-11-09/11: judge_v2.py implements MITI 4.2.1 counts, TherapyGym 4 + CounselBench-Adv 6 binaries, CURE thick 4 + DECASTE bias flags (75 cultural probes), GDB deletion test (DS 0-3, displaced = DS>=2), and the India helpline regex. 100 India probes with fetched-source provenance; responses generated on the 24GB box with the serving OARS prompt. PILOT GATE PASS (data/eval/v2/pilot-gate.json): completeness, no flat flags, binary agreement min 0.83, culture ok, crisis join ok; pairwise flip 17% -> exploratory. FULL 10k (muse primary, data/eval/v2/report.json): MITI R:Q 1.38, %CR 89.4, MINA 2.5%; displaced 67.3% (mean DS 1.71); safety crisis 2.42%, abuse 2.54%, assumptions 4.21%, functional 1.36%, meds 0.04%; crisis routing 0/17 probes; CURE coverage 0.0, coherence 0.29; bias flags 1-4%. Second judge (deepseek-v4.1-flash) ran the pilot and 280 rows of the 10k, then was stopped by decision: cross-family agreement on 276 shared rows is 0.84-1.00 on binaries, 0.77 displaced, 0.50 exact DS. Pairwise 10k is single-order and exploratory. Review blockers fixed before scoring: placeholder-explanation echo rejection, header-mismatch refusal, pos-aware/ordinal-aware agreement, culture completeness, 0/1 helpline storage, pooled MITI ratios. Tests: 99 passing in tests/test_eval. 2026-11-11: 4-cell 300-row comparison via make compare-v2 (base/DPO regular, DPO OARS, DPO OARS+RAG, muse only, same idxs 0-299 + 3 both-order pairings): DPO-regular beats base 59.7/30.3 (flip 0.21, exploratory), OARS beats regular-DPO 80.3/19.7 (flip 0.12), OARS no-RAG beats RAG 63.0/35.7 (flip 0.20, exploratory); tables in docs/evals-v2-results.md.",
+      "added": "2026-11-03",
+      "completed": "2026-11-11"
     }
-   ],
-   "notes": "Caveat: LLM judges inflate affective scores by +0.4\u20130.8 and are weakest on Safety/Relevance. F009-4 done 2026-10-26: eval/mbench_rag/fetch_contexts.py precomputes top-5 passages per row + serving-identical rag_context block into data/eval/mbench-rag-judge.csv; covered by tests/test_eval/test_fetch_contexts.py (9 tests incl. byte-identical check vs backend._retrieved_message, greptile-reviewed); 10k rows fetched in ~8 min locally, meta recorded (bge-small-en-v1.5, 2526 chunks, top_k 5). Evals can now run with zero RAG infra.",
-   "added": "2026-10-14",
-   "completed": "2026-10-30"
-  },
-  {
-   "id": "F010",
-   "name": "MentalBench-100k Qwen3-4B baseline",
-   "description": "Generate a fresh Qwen3-4B baseline over MentalBench-100k (10k rows) on Kaggle T4 fp16 with the paper's generation prompt, enable_thinking=False, temp 0.7 / top_p 0.8, max 512 tokens. One kernel drives both T4s (two worker subprocesses, one GPU each via CUDA_VISIBLE_DEVICES) writing a single sorted idx,context,qwen3_4b_instruct_2507 CSV.",
-   "status": "completed",
-   "priority": "high",
-   "module": "eval",
-   "design_doc": "docs/slm-finetuning.md",
-   "tests": {
-    "status": "passing",
-    "files": [
-     "tests/test_eval/test_generate.py",
-     "tests/test_eval/test_judge.py"
-    ],
-    "notes": "Pure CSV/adapter/chat-template logic incl. the left-pad slice regression test; GPU path fail-fasts in-kernel."
-   },
-   "subtasks": [
-    {
-     "id": "F010-1",
-     "name": "Fix chat-template tokenize bug (two-step)",
-     "status": "completed"
-    },
-    {
-     "id": "F010-2",
-     "name": "Push v2 kernels with aligned metadata slugs",
-     "status": "completed"
-    },
-    {
-     "id": "F010-3",
-     "name": "Fetch both shard outputs and merge",
-     "status": "completed"
-    },
-    {
-     "id": "F010-4",
-     "name": "Judge pass with a current API model",
-     "status": "completed"
-    },
-    {
-     "id": "F010-5",
-     "name": "Re-run the remaining 8,219 rows with batched generation (required, not optional)",
-     "status": "completed"
-    }
-   ],
-   "notes": "Kernels eros438/ai-therapist-qwen3-mbench-{a-rows-0-5000,b-rows-5000-10000} both CANCEL_ACKNOWLEDGED (killed at the 9h cap). Outputs (2026-10-14): shard A 906 rows idx 0-905, shard B 875 rows idx 5000-5874, no gaps/dupes, 0 empty, 1781/10000 = 18% coverage. Rate ~35-37 s/row (~100 rows/h/kernel), so a full 5000-row shard needs ~50 GPU-h \u2014 unbatched single-stream fp16 generation is the bottleneck. FUTURE RUNS MUST USE BATCHED GENERATION (vLLM, or HF generate with left-padding at batch 8-16); do not re-run single-stream, it cannot finish inside the 30h/week GPU quota. Resume works only if the partial CSV is re-attached as an input dataset (both runs logged resume skipped=0 on a fresh /kaggle/working). vLLM rerun eros438/ai-therapist-qwen3-mbench-vllm pushed 2026-10-14 (code eval/mbench_baseline/generate.py, kernel-metadata.json): tensor_parallel_size=2 on T4 x2, max_model_len=2048, chunks of 256 prompts, same paper prompt and temp 0.7 / top_p 0.8 / 512 tokens; seed dataset eros438/ai-therapist-mbench-seed attached so the 1,781 existing rows are copied in, not regenerated. v1 failed at import: bare `pip install vllm` pulls cu130 torch while Kaggle's torchaudio stays cu128 (vLLM's import chain touches torchaudio); v2's cu128 pre-install did not hold because vLLM >= 0.28 pins torch==2.13.0 exactly (cu130-only), so pip upgraded torch anyway. v3 pins vllm==0.25.0 (torch/torchaudio==2.11.0, all on the cu128 index) with --upgrade-strategy only-if-needed \u2014 verified against PyPI metadata before pushing. v3 then failed differently (ImportError: libcudart.so.13 \u2014 vLLM 0.25.0's compiled extension needs CUDA 13 libs absent from Kaggle's CUDA 12.8 image), so vLLM is abandoned after three import-time deaths. Replacement kernel eros438/ai-therapist-qwen3-mbench-batched (code eval/mbench_baseline/generate.py): plain HF generate, batch 8 with left padding, parent + two subprocess workers each masked to one GPU via CUDA_VISIBLE_DEVICES, same prompt and sampling params; seed/partial CSVs attached as datasets are copied in, so a cap-killed run resumes by re-attaching its partial output. Batched run COMPLETE 2026-10-14/15 in ~6.5h: both workers held 630-651 rows/h with no decay, DONE 10000/10000, merged output verified (10k unique idx, 0 empty). Part files and kernel log deleted; output_mbench.csv is canonical. 50% of the 1781 responses are cut mid-sentence at the 512-token cap \u2014 caveat for the judge pass. Paper's GPT-4o/Claude-3.7/Gemini-2.5 judges are deprecated; their stored Qwen-3 scores are NOT reusable, so a fresh baseline is required (needs API keys + budget). Batched follow-up 2026-10-17: plain-HF batched generation (BATCH=8, 2xT4 workers, temp 0.7/top_p 0.8/512 tokens to match seed rows) re-pointed to eros483 (new private seed dataset eros483/ai-therapist-mbench-seed with the 1781 clean shard rows; local output_mbench.csv found polluted with 6324 prompt-echo rows and excluded) and pushed as eros483/ai-therapist-qwen3-mbench-batched v1 (RUNNING) to generate the remaining 8,219 rows. Pivot 2026-10-17: batched BASELINE kernel deleted after ~0.1 GPU-h (user wants 5-epoch outputs, not base). generate.py generalized with --col/--out/--adapter flags + auto LoRA discovery (PeftModel wrap, tokenizer from adapter dir) + column-tolerant resume; adapter uploaded as private eros483/ai-therapist-lora-5epoch; pushed eros483/ai-therapist-qwen3-mbench-sft5 v1 (RUNNING) for all 10k rows under col qwen3_4b_sft5. Covered by new tests/test_eval/test_generate.py (4 tests). v2 died the same way (parent skipped the conditional install: image preinstalls peft). v3 2026-10-17 upgrades torchao unconditionally + parent imports PeftModel as fail-fast gate; RUNNING. Note: script-kernel logs only stream after finish, so progress is blind until COMPLETE/ERROR/cap-kill (cap-killed outputs are still fetchable, resume supported). v3 COMPLETED 10k rows but all responses are prompt-echo garbage: batched left-padding + slicing at per-row real length re-emitted the prompt tail (old script used absolute input width). Model is fine (templates identical base vs adapter). Fix: strip_to_generated() slices at input width + CPU regression test. v4 pushed WITHOUT the new def (pipeline masked the pytest failure: tail -1 swallows exit codes) and will NameError; v5 re-pushes the complete fix. Lesson: never pipe pytest to tail in a push chain. sft5 generation COMPLETE 2026-10-17 (fresh kernel after queue jam): 10k/10k rows, 0 empty, 0 echo-leak, median 1005 chars; local copy data/eval/mbench-qwen3-4b-baseline/output_mbench_sft5.csv. v3 garbage + v4 NameError superseded.",
-   "added": "2026-10-14",
-   "completed": "2026-10-16"
-  },
-  {
-   "id": "F012",
-   "name": "FastAPI serving layer",
-   "description": "OpenAI-compatible backend for the counsellor: thin FastAPI routes over backend/core/chat.py, which injects src/rag/query.py:retrieve() context and forwards to the vLLM LoRA model server (streaming + non-streaming); the frontend points its endpoint here.",
-   "status": "completed",
-   "priority": "high",
-   "module": "backend",
-   "design_doc": "AGENTS.md",
-   "tests": {
-    "status": "passing",
-    "files": [
-     "tests/test_backend/test_chat.py",
-     "tests/test_backend/test_routes.py"
-    ],
-    "notes": "33 tests green (OARS prompt, tags-block placement, history, budget; MockTransport model, stubbed retrieve). No network/GPU in tests."
-   },
-   "subtasks": [
-    {
-     "id": "F012-1",
-     "name": "Core chat logic (RAG injection, stateless, model call)",
-     "status": "completed"
-    },
-    {
-     "id": "F012-2",
-     "name": "Thin OpenAI-compatible routes (non-streaming)",
-     "status": "completed"
-    },
-    {
-     "id": "F012-3",
-     "name": "SSE streaming passthrough from vLLM",
-     "status": "completed"
-    }
-   ],
-   "notes": "Stateless server, stateful conversation: history arrives in the OpenAI messages array and is truncated oldest-first to a 4096-max_tokens-256 token budget; last user turn drives retrieval. Single system message (counsellor voice + crisis tiers + RAG rules). Endpoints: GET /health, GET /v1/models, POST /v1/chat/completions (no user turn -> 422, RAG/model failure -> 502). Run with `make serve` (port 8001, VLLM_URL default http://localhost:8000); model server via `make model-server`. Prompt reworked to OARS voice + cultural attunement + tiered safety (docs/prompt.md mirrors backend/core/chat.py); retrieved passages ride in a trailing <retrieved_techniques> block as the prompt promises. Sampling temp 0.7/top_p 0.8/top_k 20/repetition_penalty 1.1 (repetition loops seen live without the penalty), max_tokens 256 server-clamped; model-server flags: base Qwen/Qwen3-1.7B + --enable-lora ai-therapist-qwen3-1.7b-dpo, served-model-name ai-therapist-qwen3-1.7b-dpo, max-model-len 4096, eager, 0.7 util. Prompt is the user's OARS/XML version (role/style/cultural/retrieved/safety/example), India-only scope, India crisis numbers (112/Tele MANAS/Vandrevala); docs/prompt.md mirrors backend/core/chat.py. Live-verified end to end.",
-   "added": "2026-10-14",
-   "completed": "2026-10-15"
-  },
-  {
-   "id": "F013",
-   "name": "Local-LLM-Chat v3 frontend (vendored)",
-   "description": "Local-LLM-Chat v3 (MIT, single HTML file) vendored as a regular tracked file at frontend/index.html \u2014 no submodule, no build step. Default API endpoint edited to http://localhost:8001/v1/chat/completions, model-name field removed (backend ignores it), sidebar starts collapsed. Served via `make frontend` (python http.server on :3000).",
-   "status": "completed",
-   "priority": "medium",
-   "module": "frontend",
-   "design_doc": "AGENTS.md",
-   "tests": {
-    "status": "n/a",
-    "files": [],
-    "notes": "Upstream UI; integration is config. Backend contract covered by tests/test_backend/."
-   },
-   "subtasks": [
-    {
-     "id": "F013-1",
-     "name": "Vendor v3 HTML as regular file: :8001 default, no model field, sidebar collapsed",
-     "status": "completed"
-    },
-    {
-     "id": "F013-2",
-     "name": "Serve via make frontend + smoke-test a chat turn",
-     "status": "completed"
-    }
-   ],
-   "notes": "Replaced the anse submodule 2026-10-28 (git rm + .gitmodules deleted). Chose v3 over v1 (7.6KB, endpoint hardcoded, no settings) and v2 (38KB, endpoint hardcoded in JS): v3 (83KB) has a settings modal persisted to localStorage so endpoint/system-prompt need no code edits, plus stop-generation, export, and a debug console. Pinned to dmeldrum6/Local-LLM-Chat tag v3 (8f936d2); local changes: localhost:1234 -> localhost:8001 (3 spots), model-name input + CONFIG/localStorage/fetch references removed (backend ChatRequest.model defaults server-side), char-counter span + references removed, sidebar ships with `collapsed` class.",
-   "added": "2026-10-14",
-   "completed": "2026-10-15"
-  },
-  {
-   "id": "F015",
-   "name": "Long SFT run (5 epochs) with in-notebook GGUF export",
-   "description": "Fresh 5-epoch QLoRA SFT from base (same seed, ~3,825 steps, ~5h) with GGUF q4_k_m exported in-notebook; fetch adapter + GGUF + log_history, publish both to HF.",
-   "status": "completed",
-   "priority": "high",
-   "module": "notebooks",
-   "design_doc": "docs/slm-finetuning.md",
-   "tests": {
-    "status": "missing",
-    "files": [],
-    "notes": "Notebook asserts for itself (counts, blank-filter, qwen_lora/ written); log_history.json emitted every run."
-   },
-   "subtasks": [
-    {
-     "id": "F015-1",
-     "name": "Notebook: num_train_epochs=5 + unconditional GGUF export",
-     "status": "completed"
-    },
-    {
-     "id": "F015-2",
-     "name": "Push 5-epoch kernel (T4, internet on)",
-     "status": "completed"
-    },
-    {
-     "id": "F015-3",
-     "name": "Fetch adapter + GGUF + log_history",
-     "status": "completed"
-    },
-    {
-     "id": "F015-4",
-     "name": "Publish 5-epoch adapter + GGUF to HF",
-     "status": "completed"
-    }
-   ],
-   "notes": "v1 (2026-10-16) ERROR at the model cell: no internet on the fresh eros483 account (unverified), so pip install unsloth failed silently under %%capture and the import died 17 min in. Root-caused with a CPU net-probe kernel (DNS failure), user phone-verified, probe re-run INTERNET OK. Notebook install cell hardened with a fail-fast assert (find_spec unsloth) so pip failures abort in seconds. v2 (2026-10-17) COMPLETE on T4: 6,120 examples, 5 epochs, 3,825 steps, train_loss 1.0005 (vs 1.9842 @2ep, 2.3051 @1ep), runtime 16719s (~4.6h, ~5 GPU-h). GGUF q4_k_m exported in-notebook. HF push no-op (no secret); fetching adapter + GGUF + log_history.json (F015-3). F015-3 done 2026-10-17: fetched to models/sft5/ (gitignored; caches pruned) - qwen_lora/ adapter (132MB) + qwen_finetune_gguf/Q4_K_M (2.5GB) + full 3,825-step log_history.json (loss 2.883 -> 0.095; copy at models/log_history_5epoch.json). Judge (muse-spark, temp 0, 10k rows each): sft5 Overall 3.21 vs base 4.06 (Guidance -0.27, Informativeness -0.78, Relevance -1.08, Safety -0.54, Empathy -1.46, Helpfulness -0.96, Understanding -1.36). Caveats: judge inflates polish (F009); sft5 eval prompt = base preamble, a distribution shift vs raw-concern training; smoke row flagged sft5 bluntness (Safety 2). Base echo-hybrids (6,324 rows incl. prompt tail) score = clean rows, so judge is blind to that defect. F015-4: overwriting HF LoRA weights (README kept) + Q4_K_M GGUF with 5-epoch artifacts. F015-4 done 2026-10-18: 5-epoch adapter+tokenizer live on arnabwithab/ai-therapist-qwen3-4b-lora (weights/configs swapped, user README kept) and Q4_K_M GGUF live on arnabwithab/ai-therapist-qwen3-4b-gguf (commit 538ec45). Card still describes v4 (user-owned). Canonical HF homes 2026-10-26 (renamed 2026-10-27 to ai-therapist-qwen3- prefix; hash-confirmed dupes ai-therapist-qwen3-4b-lora/-gguf deleted): ai-therapist-qwen3-4b-sft-lora, ai-therapist-qwen3-4b-sft-gguf, ai-therapist-qwen3-4b-dpo-lora, ai-therapist-qwen3-1.7b-dpo-lora, ai-therapist-qwen3-0.6b-dpo-lora.",
-   "added": "2026-10-16",
-   "completed": "2026-10-18"
-  },
-  {
-   "id": "F016",
-   "name": "Qwen3-1.7B fast loop (base + DPO + judge)",
-   "description": "Smaller-model loop to test whether DPO gains grow when the base leaves headroom: 10k baseline generation, judge, DPO-from-base (2000 steps, ckpt-250), regenerate, judge. Same harness/prompt/judge as the 4B runs.",
-   "status": "completed",
-   "priority": "high",
-   "module": "eval",
-   "design_doc": "docs/slm-finetuning.md",
-   "tests": {
-    "status": "passing",
-    "files": [
-     "tests/test_eval/test_generate.py"
-    ],
-    "notes": "Harness is model-agnostic (tested); training asserts in-kernel."
-   },
-   "subtasks": [
-    {
-     "id": "F016-1",
-     "name": "Phi-4-mini detour (abandoned)",
-     "status": "completed"
-    },
-    {
-     "id": "F016-2",
-     "name": "1.7B base 10k generation",
-     "status": "completed"
-    },
-    {
-     "id": "F016-3",
-     "name": "Judge 1.7B base",
-     "status": "completed"
-    },
-    {
-     "id": "F016-4",
-     "name": "DPO-from-1.7B-base (2000 steps)",
-     "status": "completed"
-    },
-    {
-     "id": "F016-5",
-     "name": "Generate + judge DPO-1.7B, compare 5-way",
-     "status": "completed"
-    },
-    {
-     "id": "F016-6",
-     "name": "Regenerate at 1024 + judge 5-way",
-     "status": "completed"
-    },
-    {
-     "id": "F016-7",
-     "name": "0.6B base 10k generation",
-     "status": "completed"
-    },
-    {
-     "id": "F016-8",
-     "name": "Judge 0.6B base",
-     "status": "completed"
-    },
-    {
-     "id": "F016-11",
-     "name": "DPO-from-0.6B (2000 steps, ckpt-250)",
-     "status": "completed"
-    },
-    {
-     "id": "F016-12",
-     "name": "Generate + judge DPO-0.6B",
-     "status": "completed"
-    }
-   ],
-   "notes": "Phi detour 2026-10-21 abandoned after 4 failures: remote modeling.py needs utils.LossKwargs (gone after 4.50), pinned 4.50.3, then Phi3ForCausalLM rejects transformers>=4.53 dtype kwarg (shimmed with torch_dtype fallback) \u2014 then user pivoted to 1.7B. Right call: 1.7B base 10k done in ~3.7h (~1335 rows/h/GPU), judged Overall 3.72 (below 4B base 4.06, above sft5 3.21; Empathy holds at 4.58, gaps in Informativeness/Understanding/Relevance). DPO-from-1.7B pushed (unsloth/Qwen3-1.7B, qwen3-instruct, batch-1 recipe, max 2000/ckpt-250) and RUNNING on eros438. DPO-1.7B COMPLETE 2026-10-21: 2000/2000 steps, train_loss 0.098 (healthier than 4B ckpt, no collapse to 0). Adapter+tokenizer fetched; eval gen pushed as eros438/ai-therapist-qwen3-1p7b-mbench-dpo (RUNNING). DPO-1.7B gen COMPLETE (10k, 0 empty, 0 real echo): ALL rows carry <think> traces (base: 0) - adapter overrode the no-think header; traces show sound clinical reasoning. 141 rows truncated pre-</think> (512 cap vs ~1500-char thoughts). Judging post-</think> final answers only (output_mbench_1p7b_dpo_final.csv); raw CSV kept canonical. DPO-1.7B judged 2026-10-22: Overall 3.33 vs base 3.72 (-0.39). Drop is Guidance collapse (1.77): thoughts eat the 512 budget, 8 thought-only + 141 truncated rows; Understanding up +0.14. Verdict: setup measures DPO+truncation, not DPO. 1024-regen COMPLETE: seed fix worked (9904 seeded, gpu1 0 new + gpu0 96 new), merged 10k/10k, zero truncation (vs 141) and zero empties (vs 8). 1024-regen JUDGED 2026-10-25: Overall 3.84 vs base 3.72 (+0.12) \u2014 hypothesis confirmed. Guidance recovered 1.77 -> 2.91. Resume v5 (dual-layout seed glob) COMPLETE: seed 9904 attached (fix verified), gpu0 +96, merged 10k/10k, 0 empty. Think blocks on all 10k, zero truncation at 1024 (vs 141 at 512). Extended 2026-10-26: Qwen3-0.6B loop to find the capability floor (same harness/judge). 0.6B base COMPLETE: 10k/10k, 0 empty/echo, median 645 chars. 0.6B base judged 2026-10-26: Overall 3.00 (floor of the ladder, below sft5-4B 3.21). Guidance 1.77->1.84 territory collapse confirmed as capacity, not cap (no truncation here). DPO-0.6B pushed (unsloth/Qwen3-0.6B, same batch-1/max-2000/ckpt-250 recipe; expect <think> traces as with 1.7B, strip at eval). DPO-0.6B COMPLETE: 2000/2000 steps, train_loss 0.112 (healthy, no collapse). Eval gen pushed (eros438/ai-therapist-qwen3-0p6b-mbench-dpo v1, RUNNING). DPO-0.6B gen fetched 2026-10-27: 10k/10k contiguous (col qwen3_0p6b_dpo), think blocks on all 10k, stripped to output_mbench_0p6b_dpo_final.csv (0 empty); judged, see below. DPO-0.6B JUDGED 2026-10-27: Overall 3.03 vs base 3.00 (+0.03, n=10000 contiguous) \u2014 no lift at the floor; Guidance flat 1.84->1.85, Safety tail worsens 4.34->4.13 (12%%->18%% <=2). F016-12 complete. Charts consolidated 2026-10-27 (superseded 2026-10-31): master Overall chart + per-model per-dim charts; evals-oars.png removed. vLLM regen (3.86) dropped same day as redundant with canonical 3.84.",
-   "added": "2026-10-21",
-   "completed": "2026-10-27"
-  },
-  {
-   "id": "F017",
-   "name": "RAG eval pass on 24GB box (model + RAG pipeline)",
-   "description": "Same 10k MentalBench-100k contexts through the serving path (OARS prompt + retrieve) against a vLLM endpoint, with --no-rag ablation, per-shard HF dataset pushes for remote viewing, and one-flag model swaps. Runs: make init/setup/ingest, make model-server-24g, make eval-rag looped over shards.",
-   "status": "completed",
-   "priority": "high",
-   "module": "eval",
-   "design_doc": "docs/slm-finetuning.md",
-   "tests": {
-    "status": "passing",
-    "files": [
-     "tests/test_eval/test_generate_rag.py",
-     "tests/test_eval/test_hf_push.py"
-    ],
-    "notes": "15 pure-logic tests (sharding, resume/merge, retries, HF push, thread-safe RAG init); GPU/vLLM path fail-fasts on the server."
-   },
-   "subtasks": [
-    {
-     "id": "F017-1",
-     "name": "eval/mbench_rag/generate_rag.py (reuses build_messages + retrieve)",
-     "status": "completed"
-    },
-    {
-     "id": "F017-2",
-     "name": "eval/hf_push.py shared by generate + judge",
-     "status": "completed"
-    },
-    {
-     "id": "F017-3",
-     "name": "Makefile: model-server-24g, eval-rag, judge-eval, init",
-     "status": "completed"
-    },
-    {
-     "id": "F017-4",
-     "name": "Thread-safe RAG lazy init (chromadb race found by eval smoke)",
-     "status": "completed"
-    },
-    {
-     "id": "F017-5",
-     "name": "gen: qwen3-4b-base + OARS prompt + RAG top-5 (10k/10k)",
-     "status": "completed"
-    },
-    {
-     "id": "F017-6",
-     "name": "gen: qwen3-4b-base + OARS prompt + no-RAG ablation (10k/10k)",
-     "status": "completed"
-    },
-    {
-     "id": "F017-7",
-     "name": "judge: qwen3-4b-base + OARS prompt + RAG top-5",
-     "status": "completed"
-    },
-    {
-     "id": "F017-8",
-     "name": "judge: qwen3-4b-base + OARS prompt + no-RAG ablation",
-     "status": "completed"
-    },
-    {
-     "id": "F017-9",
-     "name": "Regular prompt + RAG run (gen + judge, missing matrix cell)",
-     "status": "completed",
-     "notes": "2026-10-30/31: 1.7B-DPO only. Gen DONE on cselab11-41 (vLLM 0.9 util, precomputed blocks, 1024 tokens, workers 64): data/eval/mbench-rag/output_regular_rag.csv, 10k/10k unique idx, 0 blank, 0 think leak, median 2904 chars. Judged 2026-10-31 (local, same rubric): Overall 3.27 vs regular no-RAG 3.86 (-0.59) \u2014 RAG hurts under both prompts (OARS 3.19 -> 2.91); Relevance 4.48 -> 3.27, Understanding 3.94 -> 3.14. Full output: data/eval/mbench-judge-1p7b-dpo-regular-rag.csv."
-    },
-    {
-     "id": "F017-10",
-     "name": "generate_rag precomputed-RAG mode + GPU_MEM_UTIL cap",
-     "status": "completed"
-    },
-    {
-     "id": "F017-11",
-     "name": "gen: qwen3-1p7b-dpo + OARS prompt + no-RAG (10k)",
-     "status": "completed"
-    },
-    {
-     "id": "F017-12",
-     "name": "gen: qwen3-1p7b-dpo + OARS prompt + precomputed RAG top-5 (10k)",
-     "status": "completed"
-    },
-    {
-     "id": "F017-13",
-     "name": "judge: qwen3-1p7b-dpo + OARS prompt + no-RAG",
-     "status": "completed"
-    },
-    {
-     "id": "F017-14",
-     "name": "judge: qwen3-1p7b-dpo + OARS prompt + RAG top-5",
-     "status": "completed"
-    },
-    {
-     "id": "F017-15",
-     "name": "gen: qwen3-1p7b-dpo + regular prompt, no-RAG (10k)",
-     "status": "completed"
-    },
-    {
-     "id": "F017-16",
-     "name": "judge: qwen3-1p7b-dpo + regular prompt, no-RAG",
-     "status": "completed"
-    }
-   ],
-   "notes": "Smoke-verified locally up to the model call (real Chroma retrieval + prompt build, ConnectError only \u2014 no vLLM here). Judge pushes scores per batch when --hf-repo is set. Caveat: OARS replies are 3-6 sentences vs base long paragraphs, so Informativeness/Helpfulness may dip on style alone. Coverage matrix: see eval_coverage table (regular-prompt+RAG cell filled 2026-10-31: 1.7B-DPO 3.27). Note: generate_rag.py hardcodes the OARS path via build_messages, so the regular cell needs a prompt-style switch (or a standalone run reusing mbench-rag-judge.csv passages with the paper preamble). Judged 2026-10-26: 4B OARS no-RAG Overall 3.31 and OARS+RAG Overall 3.32 (both n=10000 contiguous; RAG delta +0.01, no measurable effect); sections added 2026-10-27. Same-day cleanup: vLLM regen section removed (redundant with canonical 3.84; equivalence note folded into DPO+OARS section); charts reconsolidated (11-run master + per-model), evals-oars.png removed. 2026-10-31 (supersedes that layout): master rebuilt as best-per-model (4B base 4.06, 1.7B DPO 3.84, 0.6B DPO 3.03), 1.7B chart to x5 series (regular+RAG added); eval/plot_evals.py + make plots regenerate both from judge CSVs. F017-15/16 stay completed (work happened).",
-   "added": "2026-10-21",
-   "completed": "2026-10-31"
-  },
-  {
-   "id": "F018",
-   "name": "Rethinking post-training for Qwen3-1.7B",
-   "description": "Rethink how the 1.7B is post-trained: whether DPO-from-base over PsyCoPref is still the right stage, what data/objective the serving behaviour actually needs, and how the training distribution should match the OARS serving prompt. Design first; no build until the approach is decided. Related: F016 (DPO loop), F017 (serving-path evals), F019 (evals v2).",
-   "status": "deferred",
-   "priority": "high",
-   "module": "notebooks",
-   "design_doc": "docs/slm-finetuning.md",
-   "tests": {
-    "status": "missing",
-    "files": [],
-    "notes": ""
-   },
-   "subtasks": [],
-   "notes": "Motivation from the eval ladder: DPO-1.7B scores 3.84 with the regular paper preamble but only 3.19 under the OARS serving prompt (Guidance 2.91 -> 1.53), and 2.91 with RAG on top \u2014 the model was trained on raw concern -> long-answer pairs while serving asks for short, non-directive replies with retrieved passages. Also open: adapter emits </think> on all 10k rows despite the no-think header, eating the token budget; 4B SFT regressed hard (3.21 vs 4.06), so the SFT stage is suspect too. Scope to be decided \u2014 candidates include DPO data closer to the serving voice, SFT-on-OARS-style targets, RAG-aware training, or dropping SFT entirely. Nothing designed or built yet.",
-   "added": "2026-10-30",
-   "completed": null
-  },
-  {
-   "id": "F019",
-   "name": "Evals v2 rubrics (counselling counts + culture flags, no humans)",
-   "description": "Design for the next judge: MITI counts (R:Q, %CR, MI-nonadherent), TherapyGym 4 safety binaries, CounselBench-Adv 6 binaries, goal-displacement deletion-test, CURE-thick YES/NO + DECASTE binaries + 14416 regex. Explicitly excludes T-BARS 20-Likert (unvalidated) and CultureBench-quiz-as-judge (regression only). No build yet.",
-   "status": "completed",
-   "priority": "high",
-   "module": "eval",
-   "design_doc": "docs/evals-v2.md",
-   "tests": {
-    "status": "passing",
-    "files": [
-     "tests/test_eval/test_judge_v2.py",
-     "tests/test_eval/test_evals_v2_report.py"
-    ],
-    "notes": "22 new tests: prompt/parse/ratio/regex/resume/order-swap/batch-isolation/gate. 131 passed, 1 skipped full suite."
-   },
-   "subtasks": [
-    {
-     "id": "F019-1",
-     "name": "MITI counts prompt (R:Q, %CR, MI-nonadherent)",
-     "status": "completed"
-    },
-    {
-     "id": "F019-2",
-     "name": "TherapyGym 4 safety binaries gate",
-     "status": "completed"
-    },
-    {
-     "id": "F019-3",
-     "name": "CounselBench-Adv 6 binaries",
-     "status": "completed"
-    },
-    {
-     "id": "F019-4",
-     "name": "GDB deletion-test probe",
-     "status": "completed"
-    },
-    {
-     "id": "F019-5",
-     "name": "CURE-thick + DECASTE + 14416 regex",
-     "status": "completed"
-    },
-    {
-     "id": "F019-6",
-     "name": "judge_v2.py + tests + make judge-v2 + 100-row pilot",
-     "status": "completed",
-     "notes": "judge_v2.py + report/gate + make judge-v2/report-v2/evals-v2 + 100-row pilot all done; gate PASS recorded in data/eval/v2/pilot-gate.json; full 10k run deferred by user decision."
-    }
-   ],
-   "notes": "2026-11-09/11: judge_v2.py implements MITI 4.2.1 counts, TherapyGym 4 + CounselBench-Adv 6 binaries, CURE thick 4 + DECASTE bias flags (75 cultural probes), GDB deletion test (DS 0-3, displaced = DS>=2), and the India helpline regex. 100 India probes with fetched-source provenance; responses generated on the 24GB box with the serving OARS prompt. PILOT GATE PASS (data/eval/v2/pilot-gate.json): completeness, no flat flags, binary agreement min 0.83, culture ok, crisis join ok; pairwise flip 17% -> exploratory. FULL 10k (muse primary, data/eval/v2/report.json): MITI R:Q 1.38, %CR 89.4, MINA 2.5%; displaced 67.3% (mean DS 1.71); safety crisis 2.42%, abuse 2.54%, assumptions 4.21%, functional 1.36%, meds 0.04%; crisis routing 0/17 probes; CURE coverage 0.0, coherence 0.29; bias flags 1-4%. Second judge (deepseek-v4.1-flash) ran the pilot and 280 rows of the 10k, then was stopped by decision: cross-family agreement on 276 shared rows is 0.84-1.00 on binaries, 0.77 displaced, 0.50 exact DS. Pairwise 10k is single-order and exploratory. Review blockers fixed before scoring: placeholder-explanation echo rejection, header-mismatch refusal, pos-aware/ordinal-aware agreement, culture completeness, 0/1 helpline storage, pooled MITI ratios. Tests: 99 passing in tests/test_eval.",
-   "added": "2026-11-03",
-   "completed": "2026-11-11"
-  }
- ]
+  ]
 }

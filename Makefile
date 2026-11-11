@@ -1,4 +1,4 @@
-.PHONY: init setup test style check ci ingest serve model-server model-server-24g eval-rag frontend judge judge-v2 report-v2 evals-v2 judge-eval fetch-rag-contexts probe-data clean
+.PHONY: init setup test style check ci ingest serve model-server model-server-24g eval-rag frontend judge judge-v2 report-v2 evals-v2 compare-v2 judge-eval fetch-rag-contexts probe-data clean
 
 init: ## check system prereqs (Ubuntu only) and install what's missing: python3.11+, uv
 	grep -qi ubuntu /etc/os-release || (echo "make init supports Ubuntu only" && exit 1)
@@ -82,6 +82,16 @@ report-v2: ## evals-v2 report/gate (A=.. B=.. PAIRS=.. PROBES=.. AXES=.. EXPECTE
 
 evals-v2: ## F019 pilot gate then full 10k (JUDGES=.. PILOT_N=.. PAIRS=.. PILOT_ONLY=1)
 	bash eval/run_evals_v2.sh
+
+compare-v2: ## v2 1.7B cross-cell comparison: 4 cells x 300 rows + 3 both-order pairs (muse only, resumable)
+	uv run python -c "import csv;N=300;ld=lambda f:{r['idx']:r for r in csv.DictReader(open(f))};a=ld('data/eval/mbench-qwen3-4b-baseline/output_mbench_1p7b.csv');b=ld('data/eval/mbench-qwen3-4b-baseline/output_mbench_1p7b_dpo_1024_final.csv');c=ld('data/eval/mbench-pair-oars.csv');f=open('data/eval/v2/compare-pairs-300.csv','w',newline='');w=csv.DictWriter(f,fieldnames=['idx','context','base','dpo_reg','oars_norag','oars_rag']);w.writeheader();[w.writerow({'idx':str(i),'context':a[str(i)]['context'],'base':a[str(i)]['qwen3_1p7b_base'],'dpo_reg':b[str(i)]['qwen3_1p7b_dpo'],'oars_norag':c[str(i)]['norag'],'oars_rag':c[str(i)]['rag']}) for i in range(N)];f.close()"
+	$(MAKE) judge-v2 V2_BASELINE=data/eval/mbench-qwen3-4b-baseline/output_mbench_1p7b.csv V2_COL=qwen3_1p7b_base V2_OUT=data/eval/v2/compare-1p7b-base.csv N=300 HF_EVAL_REPO=
+	$(MAKE) judge-v2 V2_BASELINE=data/eval/mbench-qwen3-4b-baseline/output_mbench_1p7b_dpo_1024_final.csv V2_COL=qwen3_1p7b_dpo V2_OUT=data/eval/v2/compare-1p7b-dpo.csv N=300 HF_EVAL_REPO=
+	$(MAKE) judge-v2 V2_BASELINE=data/eval/mbench-pair-oars.csv V2_COL=norag V2_OUT=data/eval/v2/compare-1p7b-dpo-oars.csv N=300 HF_EVAL_REPO=
+	$(MAKE) judge-v2 V2_BASELINE=data/eval/mbench-pair-oars.csv V2_COL=rag V2_OUT=data/eval/v2/compare-1p7b-dpo-oars-rag.csv N=300 HF_EVAL_REPO=
+	$(MAKE) judge-v2 V2_BASELINE=data/eval/v2/compare-pairs-300.csv V2_COL=base PAIR_COL=dpo_reg BOTH_ORDERS=1 V2_OUT=data/eval/v2/compare-pairs-base-dpo.csv N=600 HF_EVAL_REPO=
+	$(MAKE) judge-v2 V2_BASELINE=data/eval/v2/compare-pairs-300.csv V2_COL=dpo_reg PAIR_COL=oars_norag BOTH_ORDERS=1 V2_OUT=data/eval/v2/compare-pairs-dpo-oars.csv N=600 HF_EVAL_REPO=
+	$(MAKE) judge-v2 V2_BASELINE=data/eval/v2/compare-pairs-300.csv V2_COL=oars_norag PAIR_COL=oars_rag BOTH_ORDERS=1 V2_OUT=data/eval/v2/compare-pairs-oars-rag.csv N=600 HF_EVAL_REPO=
 
 judge-eval: ## judge any eval CSV with the same rubric (BASELINE=.. RESP_COL=.. OUT=..)
 	test -n "$(BASELINE)$(RESP_COL)$(OUT)" || (echo "set BASELINE=.. RESP_COL=.. OUT=.." && exit 1)

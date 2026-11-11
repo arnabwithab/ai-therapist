@@ -1,6 +1,6 @@
 # Evals v2 — counselling + Indian attunement (no humans)
 
-**Status:** design only, nothing built. Companion to `docs/evals.md` (v1 results).
+**Status:** implemented (F019 completed 2026-11-11). This file is the method/design record. Numbers live in `docs/evals-v2-results.md`.
 **Date:** 2026-11-03. **Constraint:** no human raters — LLM-as-judge + regex only.
 **Paper use:** every rubric below is a published or preprint instrument. Our combination is new; cite the instruments, not this file.
 
@@ -65,9 +65,14 @@ Rule: stop scoring vibes 1–5. Score **counts + binary fail flags**. Those surv
 
 Keep MentalBench Overall as secondary continuity column. Headline = pairwise win-rate (PsyCoPref-style ranker) + flag rates. Temp 0, 2 judges from different families (report both + median, never mean-only), 10% order-swapped (report flip rate; drop dim if binaries flip >15%), tie allowed, length-capped replies with Spearman win↔length reported. 300 pairs detects ~59–60% win (n ≈ 2.63/δ²; d=0.2–0.3 → 55.6–58.4% win); 52–55% is "underpowered", not "no difference". Contamination: 13-gram + embedding cos>0.95 dedup vs CounselChat/Amod/PsyCoPref; private held-out + paraphrase split; judge family ≠ policy family; placebo neutral-cue controls. Calibrate on 100-row pilot, freeze prompts v1.0, then run full 10k.
 
-## Build plan (not started)
+## Where things run
 
-`eval/judge_v2.py` reusing `judge.py:103-149` loop (50 workers, resume/merge, `push_file`) with 4 paper-worded `build_prompt_*` fns + local regex; `tests/test_eval/test_judge_v2.py` (parse/regex/resume, stubbed client); `make judge-v2 BASELINE=.. RESP_COL=.. OUT=..`; `eval/plot_evals.py` flag-rate bars; results into `docs/evals.md`; ~2 LLM calls/row + regex on same `OPENCODE_GO_KEY`.
+- **Judge: local, API only.** `muse-spark-1.3-contributor` via the Go Responses API (`eval/mbench_baseline/judge.py:27-29`, needs `OPENCODE_GO_KEY`), temp 0, reasoning effort minimal, 50 workers. Same judge for v2 so numbers stay comparable — and it is a different family from Qwen, which dodges self-preference. Blocking deps: key + 429 backoff (already in the loop).
+- **Generation: 24GB GPU box, not local.** See `SSH.md` (gitignored, local-only — connection + vLLM server + gen commands live there, nothing remote is copied here). Pattern: `make model-server-24g`, then `make eval-rag SHARD=.. N_SHARDS=..` (F017 ran 10k in <30min at WORKERS=32, 1024 tokens, precomputed RAG blocks so no Chroma/embedder on the box). Judge-v2 needs no new generation for existing cells — it rescores columns already in `data/eval/`. New GPU run only for a model/prompt cell that does not exist yet.
+
+## Build plan (done, F019)
+
+`eval/judge_v2.py` reusing `judge.py:103-149` loop (50 workers, resume/merge, `push_file`) with 4 paper-worded `build_prompt_*` fns + local regex; `tests/test_eval/test_judge_v2.py` (parse/regex/resume, stubbed client); `make judge-v2 BASELINE=.. RESP_COL=.. OUT=..`; `eval/plot_evals.py` flag-rate bars; results in `docs/evals-v2-results.md` (machine-readable `data/eval/v2/report.json`); ~2 LLM calls/row + regex on same `OPENCODE_GO_KEY`. Run via `bash eval/run_evals_v2.sh`.
 
 ## References (paper trail)
 
@@ -83,4 +88,4 @@ Keep MentalBench Overall as secondary continuity column. Headline = pairwise win
 - CultureBench: https://arxiv.org/abs/2410.02677 ; BLEnD: https://arxiv.org/abs/2406.09948 ; NormAd-Eti: https://arxiv.org/abs/2404.12464
 - Placebo prompting: https://arxiv.org/abs/2406.11661 ; India crisis audit: https://arxiv.org/abs/2509.24857
 - coTherapist/T-BARS: https://arxiv.org/abs/2601.10246 ; MindEval: https://arxiv.org/abs/2511.18491
-- In-repo: `docs/evals.md` (v1 numbers), `docs/prompt.md` (OARS + India routing), `docs/slm-finetuning.md`, `research/posttraining/south-asian-cultural-attunement.md`, `research/posttraining/judge-dataset-design.md`
+- In-repo: `docs/evals.md` (v1 numbers), `docs/evals-v2-results.md` (v2 numbers), `docs/prompt.md` (OARS + India routing), `docs/slm-finetuning.md`, `research/posttraining/south-asian-cultural-attunement.md`, `research/posttraining/judge-dataset-design.md`
