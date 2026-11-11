@@ -45,6 +45,32 @@ Pairwise (chart 3): share of 300 head-to-head wins. Higher = the judge prefers t
 Trust it only when the order-swap flip rate is <= 0.15; above that the pair is a near-tie
 and the result is exploratory.
 
+### Verdict in plain language: what each step gets you, and what it costs
+
+**DPO (base → DPO, same regular prompt). Gets you a better listener, costs you a bigger advice-giver.**
+Replies reflect feelings back instead of parroting (complex reflections 65 → 81%) and fewer
+are warm-but-empty (displaced 71 → 52%). But the model also gets preachier: unasked
+therapy prescriptions triple (7 → 21%) and assumptions creep up (11 → 14%). It lectures
+just as much as before (MINA stuck at ~2.7). Head-to-head it wins 60/30, but the judge
+flip-flops on ordering, so treat that as "leans DPO", not proof.
+
+**OARS prompt (DPO → DPO + serving voice). Gets you a counsellor instead of a lecturer, costs you substance.**
+This is the biggest change of the three. The model stops telling and starts asking
+(questions 0.4 → 1.3 per reply, lecturing 2.7 → ~0) and the advice-giving flags collapse.
+Head-to-head it wins 80/20 and the result is stable. The cost: replies get short, and
+nearly three in four are now kind words with nothing usable left when you strip the
+warmth (displaced 52 → 73%). The old v1 scorecard rates OARS *lower* for exactly this
+reason — it demands actionable steps, which OARS withholds on purpose.
+
+**RAG (OARS → OARS + retrieved passages). Gets you nothing measurable, costs you complexity.**
+Every flag moves by at most ~1 point — noise. Head-to-head the judge prefers no-RAG 63/36,
+but again flip-flops, so call it "leans no-RAG". Right now the retrieved passages ride
+along without changing the reply; keep the pipeline, but it earns its place only when
+retrieval visibly improves a flag.
+
+**Bottom line:** the prompt is the lever (lecturer → counsellor), DPO is a mixed trade
+(better listener, preachier adviser), RAG is dead weight in its current form.
+
 ### Flag and voice rates
 
 | cell | OQ | CQ | %CR | MINA | mean DS | displaced | failed crisis | failed abuse | assumptions | technique Rx |
