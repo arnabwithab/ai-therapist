@@ -9,6 +9,78 @@ same serving cell. Primary judge `muse-spark-1.3-contributor`; second judge
 Machine-readable: `data/eval/v2/report.json` / `.md`, pilot `data/eval/v2/pilot-gate.json` / `.md`.
 Method: `docs/evals-v2.md`, `eval/prompts/paper_rubrics.md`.
 
+## Cross-cell comparison (1.7B ladder, 300-row subset, 2026-11-11)
+
+Same 300 idxs (0-299, contexts verified identical across files), muse judge,
+miti+safety+gdb. Rerun with `make compare-v2`; charts regenerate with `make plots`.
+Files: `data/eval/v2/compare-*.csv`, pairs input `data/eval/v2/compare-pairs-300.csv`.
+
+![fail flags by cell](evals-v2-flags.png)
+
+![counselling voice by cell](evals-v2-voice.png)
+
+![pairwise preferences](evals-v2-pairs.png)
+
+### How to read: what each metric means, which direction is good
+
+Voice counts (per reply; chart 2):
+
+| metric | what it is | direction |
+|---|---|---|
+| Open Q | open questions: asks the client to explore, not yes/no | higher = more exploratory, better |
+| Complex refl. | reflections with added meaning ("sounds like you felt...") | higher = better listening |
+| Affirm | names a client strength/effort | neutral, not a target — ~2.5 in the regular cells is cheerleading padding, not skill |
+| MINA | MI-nonadherent: persuasion + confrontation (advice, tips, correcting, warning) | lower = better; ~2.7 means the voice lectures |
+
+Fail flags (fraction of replies; chart 1 — lower is always better):
+
+| metric | what it is |
+|---|---|
+| Displaced | deletion test DS>=2: nothing substantive left after removing support sentences |
+| Assumptions | reply assumes facts the client never stated |
+| Technique Rx | prescribes a specific therapy technique unasked |
+| Failed crisis / abuse | client disclosed risk and the reply neither named it nor routed to help |
+
+Pairwise (chart 3): share of 300 head-to-head wins. Higher = the judge prefers that cell.
+Trust it only when the order-swap flip rate is <= 0.15; above that the pair is a near-tie
+and the result is exploratory.
+
+### Flag and voice rates
+
+| cell | OQ | CQ | %CR | MINA | mean DS | displaced | failed crisis | failed abuse | assumptions | technique Rx |
+|---|---|---|---|---|---|---|---|---|---|---|
+| base, regular | 0.02 | 0.04 | 65.4 | 2.66 | 1.77 | 0.707 | 0.013 | 0.033 | 0.110 | 0.070 |
+| DPO, regular | 0.23 | 0.16 | 81.4 | 2.74 | 1.32 | 0.523 | 0.007 | 0.017 | 0.137 | 0.207 |
+| DPO, OARS | 1.12 | 0.15 | 88.5 | 0.06 | 1.79 | 0.730 | 0.023 | 0.063 | 0.057 | 0.013 |
+| DPO, OARS+RAG | 1.11 | 0.24 | 88.2 | 0.05 | 1.81 | 0.700 | 0.017 | 0.063 | 0.067 | 0.017 |
+
+R:Q is not tabulated: the regular cells ask ~0.07 questions/row, so the pooled ratio
+explodes (31.1 base, 7.7 DPO) and means nothing; the OQ+CQ counts above are the signal.
+OARS cells: R:Q 1.46 both, no-RAG vs RAG.
+
+### Pairwise (300 pairs each, both orders, same judge)
+
+| A vs B | A wins | B wins | tie | flip | read |
+|---|---|---|---|---|---|
+| base vs DPO (regular) | 0.303 | 0.597 | 0.100 | 0.21 | DPO direction, **exploratory** (flip >0.15) |
+| DPO regular vs DPO OARS | 0.197 | 0.803 | 0.000 | 0.12 | OARS wins head-to-head, headline-grade stability |
+| DPO OARS vs OARS+RAG | 0.630 | 0.357 | 0.013 | 0.20 | no-RAG direction, **exploratory**; same direction as full-10k single-order (0.609/0.385) |
+
+Reading:
+
+- DPO effect (regular prompt): more complex reflections (65 -> 81%), less displacement
+  (0.71 -> 0.52), fewer crisis/abuse misses — but MORE technique-prescription flags
+  (0.07 -> 0.21) and assumptions (0.11 -> 0.14). DPO writes longer advice-giving answers
+  that trip Adv flags; MINA is unchanged (~2.7) because both voices lecture.
+- Prompt effect dominates training effect: OARS moves questions 0.4 -> 1.3/row and MINA
+  2.7 -> 0.06, and beats regular-DPO 80/20 head-to-head — even though v1 Overall scored
+  OARS lower (3.19 vs 3.84). The v1 Guidance rubric punishes exactly what the v2 judge
+  rewards here (questions over advice).
+- RAG under OARS: flag deltas all <= 0.013; pairwise leans no-RAG but flip 0.20 keeps it
+  exploratory. Consistent with the 10k result, not stronger than it.
+- Subset caveat: n=300 cannot resolve ~2% tail rates (crisis/abuse deltas above are noise);
+  use the full-run table for tails, this table for voice-level differences.
+
 ## Pilot gate (100 main rows, 100 India probes x 2 judges, 100 order-swapped pairs)
 
 | check | result |
@@ -89,43 +161,3 @@ Reading the numbers:
   reported as exploratory, not as a headline.
 - The full pass survived a harness restart and then a machine restart; resume-by-row meant
   only the in-flight rows were rescored.
-
-## Cross-cell comparison (1.7B ladder, 300-row subset, 2026-11-11)
-
-Same 300 idxs (0-299, contexts verified identical across files), muse judge,
-miti+safety+gdb. Rerun with `make compare-v2`. Files: `data/eval/v2/compare-*.csv`,
-pairs input `data/eval/v2/compare-pairs-300.csv`.
-
-| cell | OQ | CQ | %CR | MINA | mean DS | displaced | failed crisis | failed abuse | assumptions | technique Rx |
-|---|---|---|---|---|---|---|---|---|---|---|
-| base, regular | 0.02 | 0.04 | 65.4 | 2.66 | 1.77 | 0.707 | 0.013 | 0.033 | 0.110 | 0.070 |
-| DPO, regular | 0.23 | 0.16 | 81.4 | 2.74 | 1.32 | 0.523 | 0.007 | 0.017 | 0.137 | 0.207 |
-| DPO, OARS | 1.12 | 0.15 | 88.5 | 0.06 | 1.79 | 0.730 | 0.023 | 0.063 | 0.057 | 0.013 |
-| DPO, OARS+RAG | 1.11 | 0.24 | 88.2 | 0.05 | 1.81 | 0.700 | 0.017 | 0.063 | 0.067 | 0.017 |
-
-R:Q is not tabulated: the regular cells ask ~0.07 questions/row, so the pooled ratio
-explodes (31.1 base, 7.7 DPO) and means nothing; the OQ+CQ counts above are the signal.
-OARS cells: R:Q 1.46 both, no-RAG vs RAG.
-
-Pairwise, 300 pairs each, both orders, same judge:
-
-| A vs B | A wins | B wins | tie | flip | read |
-|---|---|---|---|---|---|
-| base vs DPO (regular) | 0.303 | 0.597 | 0.100 | 0.21 | DPO direction, **exploratory** (flip >0.15) |
-| DPO regular vs DPO OARS | 0.197 | 0.803 | 0.000 | 0.12 | OARS wins head-to-head, headline-grade stability |
-| DPO OARS vs OARS+RAG | 0.630 | 0.357 | 0.013 | 0.20 | no-RAG direction, **exploratory**; same direction as full-10k single-order (0.609/0.385) |
-
-Reading:
-
-- DPO effect (regular prompt): more complex reflections (65 -> 81%), less displacement
-  (0.71 -> 0.52), fewer crisis/abuse misses — but MORE technique-prescription flags
-  (0.07 -> 0.21) and assumptions (0.11 -> 0.14). DPO writes longer advice-giving answers
-  that trip Adv flags; MINA is unchanged (~2.7) because both voices lecture.
-- Prompt effect dominates training effect: OARS moves questions 0.4 -> 1.3/row and MINA
-  2.7 -> 0.06, and beats regular-DPO 80/20 head-to-head — even though v1 Overall scored
-  OARS lower (3.19 vs 3.84). The v1 Guidance rubric punishes exactly what the v2 judge
-  rewards here (questions over advice).
-- RAG under OARS: flag deltas all <= 0.013; pairwise leans no-RAG but flip 0.20 keeps it
-  exploratory. Consistent with the 10k result, not stronger than it.
-- Subset caveat: n=300 cannot resolve ~2% tail rates (crisis/abuse deltas above are noise);
-  use the full-run table for tails, this table for voice-level differences.
