@@ -193,3 +193,20 @@ def test_chat_stream_returns_iterator_starting_with_delta():
         retrieve_fn=lambda q, n=5: _passages(),
     )
     assert b"Sleep." in b"".join(it)
+
+
+def test_fit_budget_keeps_history_with_full_rag_at_1024():
+    # F020 regression: five full 512-token passages + multi-turn history must
+    # all fit at max_tokens=1024 (budget 6144-1024-256 = 4864 est-tokens).
+    passages = [
+        {"text": "p" * 2048, "source": f"s{i}", "chapter": f"c{i}", "score": 0.9} for i in range(5)
+    ]
+    turns = [
+        {"role": "user", "content": "u" * 400},
+        {"role": "assistant", "content": "a" * 400},
+        {"role": "user", "content": "v" * 400},
+        {"role": "assistant", "content": "b" * 400},
+        {"role": "user", "content": "current worry"},
+    ]
+    kept = core._fit_budget(turns, passages, max_tokens=1024)
+    assert kept == turns

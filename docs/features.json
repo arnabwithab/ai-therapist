@@ -3,11 +3,11 @@
   "last_updated": "2026-11-20",
   "summary": {
     "total": 23,
-    "completed": 16,
+    "completed": 17,
     "in_progress": 0,
-    "planned": 7,
+    "planned": 6,
     "deferred": 0,
-    "tests_passing": 139,
+    "tests_passing": 140,
     "tests_failing": 0,
     "tests_missing": 0
   },
@@ -762,24 +762,27 @@
       "id": "F020",
       "name": "Prompt budget fix (history survives RAG at 1024-token completions)",
       "description": "Raise _fit_budget's conservative prompt base from 4096 to 6144 est-tokens (server window 8192, completion cap 1024). Today system (~450 est) + five 512-token passages (~2560) already exceed the 2816 left at max_tokens=1024, so RAG-on turns drop nearly all history. Pre-req for every phase-2 personalisation feature.",
-      "status": "planned",
+      "status": "completed",
       "priority": "high",
       "module": "backend",
       "design_doc": "docs/phase2-plan.md",
       "tests": {
-        "status": "n/a",
-        "files": [],
-        "notes": "Planned; regression test (multi-turn history + full 5-passage block fits without dropping turns) lands in tests/test_backend/test_chat.py with the change, per TDD."
+        "status": "passing",
+        "files": [
+          "tests/test_backend/test_chat.py"
+        ],
+        "notes": "F020 regression test (multi-turn history + full 5-passage RAG block fits at max_tokens=1024) green with the fix; 140 passed, 1 skipped full suite."
       },
       "subtasks": [
         {
           "id": "F020-1",
           "name": "_fit_budget base 4096 -> 6144 (est-token margin kept against the 8192 window)",
-          "status": "planned"
+          "status": "completed"
         }
       ],
-      "notes": "docs/phase2-plan.md §4.",
-      "added": "2026-11-20"
+      "notes": "docs/phase2-plan.md §4. Done 2026-11-20: 1-line fix + regression test; measured system prompt is 1126 est-tokens (plan said ~450), so old budget dropped all but the last turn.",
+      "added": "2026-11-20",
+      "completed": "2026-11-20"
     },
     {
       "id": "F021",

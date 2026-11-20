@@ -156,9 +156,9 @@ def build_messages(turns, passages):
 
 def _fit_budget(turns, passages, max_tokens):
     """Drop oldest turns until the estimated prompt fits the server window."""
-    # Conservative 4096 budget against the 8192 server window: history is cut
+    # Conservative 6144 budget against the 8192 server window: history is cut
     # early, but prompt + completion always fits with room for estimator error.
-    budget = 4096 - max_tokens - 256
+    budget = 6144 - max_tokens - 256
     turns = list(turns)
     while len(turns) > 1:
         size = sum(_estimate_tokens(m["content"]) for m in build_messages(turns, passages))
