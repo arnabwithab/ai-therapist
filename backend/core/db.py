@@ -117,6 +117,46 @@ def username_for(user_id: int) -> str | None:
     return row[0] if row else None
 
 
+def add_message(user_id: int, session_id: str, role: str, content: str) -> None:
+    with _connect() as con:
+        con.execute(
+            "INSERT INTO messages (user_id, session_id, role, content, created_at)"
+            " VALUES (?,?,?,?,?)",
+            (user_id, session_id, role, content, _now()),
+        )
+
+
+def get_history(user_id: int, session_id: str) -> list:
+    with _connect() as con:
+        rows = con.execute(
+            "SELECT role, content FROM messages WHERE user_id=? AND session_id=?" " ORDER BY id",
+            (user_id, session_id),
+        ).fetchall()
+    return [{"role": r, "content": c} for r, c in rows]
+
+
+def list_sessions(user_id: int) -> list:
+    with _connect() as con:
+        rows = con.execute(
+            "SELECT id, session_id, content, created_at FROM messages"
+            " WHERE user_id=? ORDER BY id",
+            (user_id,),
+        ).fetchall()
+    sessions: dict = {}
+    latest: dict = {}
+    for mid, sid, content, created in rows:
+        sessions.setdefault(sid, content[:80])
+        latest[sid] = (created, mid)
+    return sorted(
+        (
+            {"id": sid, "preview": sessions[sid], "updated_at": updated}
+            for sid, (updated, _) in latest.items()
+        ),
+        key=lambda s: (s["updated_at"], latest[s["id"]][1]),
+        reverse=True,
+    )
+
+
 def get_profile(user_id: int) -> dict:
     import json
 

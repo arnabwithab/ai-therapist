@@ -1,6 +1,7 @@
 """Thin FastAPI routes over backend.core.chat. No logic lives here."""
 
 import itertools
+import json
 import time
 import uuid
 
@@ -47,6 +48,12 @@ class RegisterRequest(BaseModel):
 class LoginRequest(BaseModel):
     username: str
     password: str
+
+
+class ApiChatRequest(BaseModel):
+    session_id: str | None = None
+    message: str
+    stream: bool = False
 
 
 def _current_user(authorization: str | None = Header(default=None)) -> int:
@@ -99,6 +106,71 @@ def put_profile(fields: dict, user_id: int = Depends(_current_user)):
     except ValueError as e:
         raise HTTPException(400, str(e)) from e
     return saved
+
+
+@app.get("/api/sessions")
+def sessions(user_id: int = Depends(_current_user)):
+    return {"sessions": db.list_sessions(user_id)}
+
+
+def _delta_text(chunk: bytes) -> str:
+    """Best-effort extract of one SSE chunk's delta content (stream persist only)."""
+    text = ""
+    for line in chunk.decode("utf-8", "ignore").splitlines():
+        line = line.strip()
+        if not line.startswith("data:"):
+            continue
+        payload = line[5:].strip()
+        if payload == "[DONE]":
+            continue
+        try:
+            text += json.loads(payload)["choices"][0].get("delta", {}).get("content", "")
+        except (ValueError, KeyError, IndexError, TypeError):
+            continue
+    return text
+
+
+@app.post("/api/chat")
+def api_chat(req: ApiChatRequest, user_id: int = Depends(_current_user)):
+    if not req.message or not req.message.strip():
+        raise HTTPException(422, "no non-empty user message")
+    sid = (req.session_id or "").strip() or uuid.uuid4().hex
+    history = db.get_history(user_id, sid)
+    profile = db.get_profile(user_id) or None
+    message = req.message.strip()
+    # user turn is persisted before the model call: a failed turn still leaves a
+    # durable transcript of the attempt (a retry may duplicate it — intended).
+    if req.stream:
+        db.add_message(user_id, sid, "user", message)
+        stream = core.chat_stream(message, history=history, profile=profile)
+        try:
+            first = next(stream)  # surface RAG/model failures as 502, not a broken stream
+        except (core.RagError, core.ModelError) as e:
+            raise HTTPException(502, str(e)) from e
+
+        def relay():
+            raw = bytearray()
+            try:
+                for chunk in itertools.chain([first], stream):
+                    raw += chunk
+                    yield chunk
+            finally:
+                text = _delta_text(bytes(raw))
+                if text.strip():
+                    db.add_message(user_id, sid, "assistant", text)
+
+        return StreamingResponse(
+            relay(), media_type="text/event-stream", headers={"X-Session-Id": sid}
+        )
+    db.add_message(user_id, sid, "user", message)
+    try:
+        out = core.chat(message, history=history, profile=profile)
+    except ValueError as e:
+        raise HTTPException(422, str(e)) from e
+    except (core.RagError, core.ModelError) as e:
+        raise HTTPException(502, str(e)) from e
+    db.add_message(user_id, sid, "assistant", out["reply"])
+    return {"session_id": sid, "reply": out["reply"], "sources": out["sources"]}
 
 
 @app.get("/health")

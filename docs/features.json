@@ -3,11 +3,11 @@
   "last_updated": "2026-11-20",
   "summary": {
     "total": 23,
-    "completed": 21,
+    "completed": 22,
     "in_progress": 0,
-    "planned": 2,
+    "planned": 1,
     "deferred": 0,
-    "tests_passing": 181,
+    "tests_passing": 192,
     "tests_failing": 0,
     "tests_missing": 0
   },
@@ -948,34 +948,37 @@
       "id": "F025",
       "name": "Server-side conversation memory (/api/chat)",
       "description": "Replace client-held history with server-authoritative persistence: POST /api/chat {session_id?, message} loads profile + history from SQLite, runs the retrieve->prompt->vLLM pipeline, persists both turns, returns reply + sources + session_id (mints one on first message). Streaming = same SSE passthrough, then post-stream persist. Memory survives cleared storage / browser switches; the frontend stops sending the messages array. /v1/chat/completions stays untouched as the raw OpenAI-compatible path.",
-      "status": "planned",
+      "status": "completed",
       "priority": "high",
       "module": "backend",
       "design_doc": "docs/phase2-plan.md",
       "tests": {
-        "status": "n/a",
-        "files": [],
-        "notes": "Planned; tests/test_backend additions: persistence round-trip, user/session isolation, stream persist. No network/GPU in tests (MockTransport + stubbed retrieve, existing pattern)."
+        "status": "passing",
+        "files": [
+          "tests/test_backend/test_sessions.py"
+        ],
+        "notes": "11 tests green (mint+persist round-trip, history replay, profile passthrough, user/session isolation, auth+422, 502, stream persist incl. split-chunk reassembly, blank-session mint, sessions list + same-second newest-first). tmp_path DB, fake core.chat/chat_stream, no network/GPU."
       },
       "subtasks": [
         {
           "id": "F025-1",
           "name": "POST /api/chat non-streaming (history from DB, persist turns)",
-          "status": "planned"
+          "status": "completed"
         },
         {
           "id": "F025-2",
           "name": "SSE streaming variant + post-stream reply persistence",
-          "status": "planned"
+          "status": "completed"
         },
         {
           "id": "F025-3",
           "name": "GET /api/sessions conversation list",
-          "status": "planned"
+          "status": "completed"
         }
       ],
-      "notes": "docs/phase2-plan.md §6. Depends on F020 (budget) + F024 (users).",
-      "added": "2026-11-20"
+      "notes": "docs/phase2-plan.md §6. Depends on F020 (budget) + F024 (users). Done 2026-11-20: db.add_message/get_history/list_sessions; thin /api/chat + /api/sessions routes; stream session_id via X-Session-Id header; stream persist best-effort-parses SSE deltas. /v1/chat/completions untouched.",
+      "added": "2026-11-20",
+      "completed": "2026-11-20"
     },
     {
       "id": "F026",
