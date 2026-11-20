@@ -142,7 +142,9 @@ def api_chat(req: ApiChatRequest, user_id: int = Depends(_current_user)):
     # durable transcript of the attempt (a retry may duplicate it — intended).
     if req.stream:
         db.add_message(user_id, sid, "user", message)
-        stream = core.chat_stream(message, history=history, profile=profile)
+        # 1024 fits the DPO adapter's thinking traces plus the reply; at the
+        # 256 default the output truncates inside <think> and content is null.
+        stream = core.chat_stream(message, history=history, profile=profile, max_tokens=1024)
         try:
             first = next(stream)  # surface RAG/model failures as 502, not a broken stream
         except (core.RagError, core.ModelError) as e:
@@ -164,7 +166,7 @@ def api_chat(req: ApiChatRequest, user_id: int = Depends(_current_user)):
         )
     db.add_message(user_id, sid, "user", message)
     try:
-        out = core.chat(message, history=history, profile=profile)
+        out = core.chat(message, history=history, profile=profile, max_tokens=1024)
     except ValueError as e:
         raise HTTPException(422, str(e)) from e
     except (core.RagError, core.ModelError) as e:

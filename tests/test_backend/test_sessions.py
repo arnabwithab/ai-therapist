@@ -72,6 +72,8 @@ def test_chat_passes_profile_through(tdb, monkeypatch):
     tdb.put("/api/profile", headers=_auth(token), json={"call_name": "Ara"})
     tdb.post("/api/chat", headers=_auth(token), json={"message": "hi"})
     assert seen["profile"] == {"call_name": "Ara"}
+    # DPO thinking traces need room: truncated thinking means null content.
+    assert seen["max_tokens"] == 1024
 
 
 def test_chat_isolated_between_users_and_sessions(tdb, monkeypatch):
