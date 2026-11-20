@@ -221,6 +221,12 @@ def _full_profile(**over):
     return p
 
 
+def test_system_prompt_guards_substance_free_openers():
+    # regression: "hey there" must not get feelings presumed (line-40 guard).
+    assert "no substance yet" in core.SYSTEM_PROMPT
+    assert "don't presume feelings or problems" in core.SYSTEM_PROMPT
+
+
 def test_empty_profiles_render_none_and_v1_exact():
     assert core.render_person(None) is None
     assert core.render_person({}) is None
