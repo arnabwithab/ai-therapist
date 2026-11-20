@@ -3,9 +3,9 @@
   "last_updated": "2026-11-20",
   "summary": {
     "total": 23,
-    "completed": 22,
+    "completed": 23,
     "in_progress": 0,
-    "planned": 1,
+    "planned": 0,
     "deferred": 0,
     "tests_passing": 192,
     "tests_failing": 0,
@@ -984,39 +984,40 @@
       "id": "F026",
       "name": "Frontend product shell (auth + profile form + server chat)",
       "description": "Extend the vendored frontend/index.html: auth screen (login/register, token in localStorage), first-login profile form (the 11 plan-§5 fields, one screen, selects + short text; doubles as the Settings editor), chat rewired to /api/chat (token + session_id + latest message only, history from server), settings (profile edit, logout, delete-my-data). No chat wizard, no scripted onboarding bubbles.",
-      "status": "planned",
+      "status": "completed",
       "priority": "medium",
       "module": "frontend",
       "design_doc": "docs/phase2-plan.md",
       "tests": {
         "status": "n/a",
         "files": [],
-        "notes": "Vendored MIT UI; backend contract covered by tests/test_backend/. Smoke via make frontend against make serve."
+        "notes": "Vendored MIT UI — no JS unit tests per repo convention; node --check passes, backend contract covered by tests/test_backend/ (192 passed, 1 skipped). Route smoke via curl against make serve (temp DB): register/login/me/profile/sessions/logout + 18+ gates (400/403/401) all correct; /api/chat needs the vLLM server (covered by faked tests). Post-commit fix: profile-field DOM ids use hyphens (pf-call-name) but the code built pf-call_name — fixed via underscore-to-hyphen mapping in open/saveProfile, verified by a static id cross-check."
       },
       "subtasks": [
         {
           "id": "F026-1",
           "name": "Auth screen (login/register with 18+ attestation; token in localStorage)",
-          "status": "planned"
+          "status": "completed"
         },
         {
           "id": "F026-2",
           "name": "First-login profile form (reused as the Settings editor)",
-          "status": "planned"
+          "status": "completed"
         },
         {
           "id": "F026-3",
           "name": "Chat rewired to /api/chat (server history)",
-          "status": "planned"
+          "status": "completed"
         },
         {
           "id": "F026-4",
           "name": "Settings: profile edit, logout, delete-my-data",
-          "status": "planned"
+          "status": "completed"
         }
       ],
-      "notes": "docs/phase2-plan.md §10. Optional nice-to-have: one-time localStorage chatHistory migration into the first server session.",
-      "added": "2026-11-20"
+      "notes": "docs/phase2-plan.md §10. Done 2026-11-20: single-file change, old OpenAI path/SSE/streaming + localStorage history removed; new chat mints session_id via crypto.randomUUID; sidebar renders GET /api/sessions previews, resume keeps server history (no transcript route, noted in UI). Option values carry the backend's gating keywords (not at all / keep it neutral / weighs down / both). Delete-my-data = token revoke + browser clear only (shortcut comment in file); server wipe needs a DELETE /api/me route — flagged follow-up. Skipped per brief: localStorage chatHistory migration (flagged follow-up).",
+      "added": "2026-11-20",
+      "completed": "2026-11-20"
     }
   ]
 }
