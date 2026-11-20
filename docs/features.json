@@ -2,12 +2,12 @@
   "project": "ai-therapist",
   "last_updated": "2026-11-20",
   "summary": {
-    "total": 16,
+    "total": 23,
     "completed": 16,
     "in_progress": 0,
-    "planned": 0,
+    "planned": 7,
     "deferred": 0,
-    "tests_passing": 99,
+    "tests_passing": 139,
     "tests_failing": 0,
     "tests_missing": 0
   },
@@ -757,6 +757,247 @@
       "notes": "2026-11-09/11: judge_v2.py implements MITI 4.2.1 counts, TherapyGym 4 + CounselBench-Adv 6 binaries, CURE thick 4 + DECASTE bias flags (75 cultural probes), GDB deletion test (DS 0-3, displaced = DS>=2), and the India helpline regex. 100 India probes with fetched-source provenance; responses generated on the 24GB box with the serving OARS prompt. PILOT GATE PASS (data/eval/v2/pilot-gate.json): completeness, no flat flags, binary agreement min 0.83, culture ok, crisis join ok; pairwise flip 17% -> exploratory. FULL 10k (muse primary, data/eval/v2/report.json): MITI R:Q 1.38, %CR 89.4, MINA 2.5%; displaced 67.3% (mean DS 1.71); safety crisis 2.42%, abuse 2.54%, assumptions 4.21%, functional 1.36%, meds 0.04%; crisis routing 0/17 probes; CURE coverage 0.0, coherence 0.29; bias flags 1-4%. Second judge (deepseek-v4.1-flash) ran the pilot and 280 rows of the 10k, then was stopped by decision: cross-family agreement on 276 shared rows is 0.84-1.00 on binaries, 0.77 displaced, 0.50 exact DS. Pairwise 10k is single-order and exploratory. Review blockers fixed before scoring: placeholder-explanation echo rejection, header-mismatch refusal, pos-aware/ordinal-aware agreement, culture completeness, 0/1 helpline storage, pooled MITI ratios. Tests: 99 passing in tests/test_eval. 2026-11-11: 4-cell 300-row comparison via make compare-v2 (base/DPO regular, DPO OARS, DPO OARS+RAG, muse only, same idxs 0-299 + 3 both-order pairings): DPO-regular beats base 59.7/30.3 (flip 0.21, exploratory), OARS beats regular-DPO 80.3/19.7 (flip 0.12), OARS no-RAG beats RAG 63.0/35.7 (flip 0.20, exploratory); tables in docs/evals-v2-results.md.",
       "added": "2026-11-03",
       "completed": "2026-11-11"
+    },
+    {
+      "id": "F020",
+      "name": "Prompt budget fix (history survives RAG at 1024-token completions)",
+      "description": "Raise _fit_budget's conservative prompt base from 4096 to 6144 est-tokens (server window 8192, completion cap 1024). Today system (~450 est) + five 512-token passages (~2560) already exceed the 2816 left at max_tokens=1024, so RAG-on turns drop nearly all history. Pre-req for every phase-2 personalisation feature.",
+      "status": "planned",
+      "priority": "high",
+      "module": "backend",
+      "design_doc": "docs/phase2-plan.md",
+      "tests": {
+        "status": "n/a",
+        "files": [],
+        "notes": "Planned; regression test (multi-turn history + full 5-passage block fits without dropping turns) lands in tests/test_backend/test_chat.py with the change, per TDD."
+      },
+      "subtasks": [
+        {
+          "id": "F020-1",
+          "name": "_fit_budget base 4096 -> 6144 (est-token margin kept against the 8192 window)",
+          "status": "planned"
+        }
+      ],
+      "notes": "docs/phase2-plan.md §4.",
+      "added": "2026-11-20"
+    },
+    {
+      "id": "F021",
+      "name": "KB expansion + religion manifest (six traditions + secular)",
+      "description": "Roughly double data/rag-kb (30 -> ~60 files): Sikh, deeper Islamic, Indian Christian, Jain, secular-for-none and cross-cutting India content, plus per-tradition analogies/proverbs banks (the core adaptation technique per the Indian CBT-adaptation literature). data/rag-kb/manifest.json maps each source to a religion tag; ingest writes it into chunk metadata. Open/public-domain sources only. Coverage decision: six dominant traditions + secular; Ambedkarite/Navayana, Adivasi (Sarna/Donyi-Polo), Parsi/Zoroastrian, Baha'i, Jewish users deliberately skipped (free-text 'other' path).",
+      "status": "planned",
+      "priority": "medium",
+      "module": "data/rag-kb",
+      "design_doc": "docs/phase2-plan.md",
+      "tests": {
+        "status": "n/a",
+        "files": [],
+        "notes": "Planned; new tests/test_rag/test_ingest.py covers manifest<->text/ consistency and religion metadata on chunks."
+      },
+      "subtasks": [
+        {
+          "id": "F021-1",
+          "name": "manifest.json (filename -> religion tag; missing entry = general)",
+          "status": "planned"
+        },
+        {
+          "id": "F021-2",
+          "name": "ingest.py reads manifest, adds religion to chunk metadata",
+          "status": "planned"
+        },
+        {
+          "id": "F021-3",
+          "name": "Tag existing 30 sources; fetch + extract new open sources per plan §7",
+          "status": "planned"
+        },
+        {
+          "id": "F021-4",
+          "name": "make ingest rebuild + per-religion retrieval spot-checks",
+          "status": "planned"
+        }
+      ],
+      "notes": "docs/phase2-plan.md §7. Same 512-token chunker; _index.txt inventory + per-file provenance convention kept.",
+      "added": "2026-11-20"
+    },
+    {
+      "id": "F022",
+      "name": "Religion-aware retrieval (profile-gated hybrid split)",
+      "description": "Extend src/rag/query.py:retrieve() with a religion where-filter. For a profiled, consenting user: 3 chunks from their tradition + 2 general (never 5/5 faith — general South Asian technique always rides along). faith_importance none/not-at-all or neutral consent -> general only. Soft override: explicit faith signals in the user's own message re-include their tradition's split. Strain stance biases toward compassion/mercy content via manifest topic tags.",
+      "status": "planned",
+      "priority": "high",
+      "module": "src/rag",
+      "design_doc": "docs/phase2-plan.md",
+      "tests": {
+        "status": "n/a",
+        "files": [],
+        "notes": "Planned; extends tests/test_rag/test_query.py (temp collection): filter hit, 3+2 split, gating, message-scan override."
+      },
+      "subtasks": [
+        {
+          "id": "F022-1",
+          "name": "retrieve(query, n, religion=) where-filter",
+          "status": "planned"
+        },
+        {
+          "id": "F022-2",
+          "name": "3+2 hybrid split with importance/consent gating",
+          "status": "planned"
+        },
+        {
+          "id": "F022-3",
+          "name": "Explicit-faith-signal keyword override (curated per-tradition list)",
+          "status": "planned"
+        }
+      ],
+      "notes": "docs/phase2-plan.md §8. retrieve() stays the only API the serving layer imports.",
+      "added": "2026-11-20"
+    },
+    {
+      "id": "F023",
+      "name": "OARS prompt v2 (person + faith_style blocks)",
+      "description": "Dynamic <person> block (call name, age bracket, gender, language, religion + family religion, faith importance, supports, first concern) and conditional <faith_style> block rendered from the profile: anchor/quite -> offer their tradition's idiom, one idea at a time; strain/both -> spiritual-struggle mode (spot punishment/guilt/abandonment framings, never amplify, never 'pray more'); none/neutral -> fully secular. Hard rules always: never proselytize, faith community as one support option among others, safety beats faith framing. Empty profile -> v1 prompt exactly.",
+      "status": "planned",
+      "priority": "high",
+      "module": "backend",
+      "design_doc": "docs/phase2-plan.md",
+      "tests": {
+        "status": "n/a",
+        "files": [],
+        "notes": "Planned; extends tests/test_backend/test_chat.py: per-profile rendering, empty-profile = v1 behaviour, no profile-parroting, budget."
+      },
+      "subtasks": [
+        {
+          "id": "F023-1",
+          "name": "<person> block renderer from profile",
+          "status": "planned"
+        },
+        {
+          "id": "F023-2",
+          "name": "<faith_style> conditional renderer (anchor/quite, strain/both, none/neutral)",
+          "status": "planned"
+        },
+        {
+          "id": "F023-3",
+          "name": "Profile arg through core.chat/build_messages (default None = v1)",
+          "status": "planned"
+        },
+        {
+          "id": "F023-4",
+          "name": "docs/prompt.md mirror update",
+          "status": "planned"
+        }
+      ],
+      "notes": "docs/phase2-plan.md §9. 1.7B caution: short imperative blocks; fallback is trimming <person> to three facts if parroting leaks.",
+      "added": "2026-11-20"
+    },
+    {
+      "id": "F024",
+      "name": "SQLite accounts + profile (stdlib, local-only)",
+      "description": "backend/core/db.py: sqlite3 stdlib, data/therapist.db (gitignored) with users (scrypt-hashed passwords + per-user salt), tokens (random bearer tokens, revocable on logout), profiles (the 11 onboarding fields incl. religion + family_religion + faith_importance + faith_stance + faith_consent), messages. Routes: register/login/logout, GET /api/me, PUT /api/profile (the first-login onboarding form is just the first writer; Settings edits reuse the same route). No ORM, no JWT, no new dependencies. 18+ only (user decision 2026-11-20): registration requires an age attestation; a <18 profile answer is declined with a warm signpost to Childline 1098 and Tele MANAS 14416.",
+      "status": "planned",
+      "priority": "high",
+      "module": "backend",
+      "design_doc": "docs/phase2-plan.md",
+      "tests": {
+        "status": "n/a",
+        "files": [],
+        "notes": "Planned; new tests/test_backend/test_db.py + test_routes.py additions: register/login/token round-trip, profile validation, user isolation. Religion+mental-health data is sensitive: stays local, no telemetry."
+      },
+      "subtasks": [
+        {
+          "id": "F024-1",
+          "name": "db.py schema + scrypt hashing + token helpers",
+          "status": "planned"
+        },
+        {
+          "id": "F024-2",
+          "name": "Auth routes: register/login/logout (Authorization: Bearer)",
+          "status": "planned"
+        },
+        {
+          "id": "F024-3",
+          "name": "GET /api/me + PUT /api/profile",
+          "status": "planned"
+        },
+        {
+          "id": "F024-4",
+          "name": "18+ gate: register attestation + PUT /api/profile rejects <18 with a warm signpost (Childline 1098, Tele MANAS 14416)",
+          "status": "planned"
+        }
+      ],
+      "notes": "docs/phase2-plan.md §3, §5. Hard no to serving minors (user decision 2026-11-20): 18+ attestation at registration, warm decline + Childline 1098 / Tele MANAS 14416 signpost on an honest <18 answer, no chat for under-18s.",
+      "added": "2026-11-20"
+    },
+    {
+      "id": "F025",
+      "name": "Server-side conversation memory (/api/chat)",
+      "description": "Replace client-held history with server-authoritative persistence: POST /api/chat {session_id?, message} loads profile + history from SQLite, runs the retrieve->prompt->vLLM pipeline, persists both turns, returns reply + sources + session_id (mints one on first message). Streaming = same SSE passthrough, then post-stream persist. Memory survives cleared storage / browser switches; the frontend stops sending the messages array. /v1/chat/completions stays untouched as the raw OpenAI-compatible path.",
+      "status": "planned",
+      "priority": "high",
+      "module": "backend",
+      "design_doc": "docs/phase2-plan.md",
+      "tests": {
+        "status": "n/a",
+        "files": [],
+        "notes": "Planned; tests/test_backend additions: persistence round-trip, user/session isolation, stream persist. No network/GPU in tests (MockTransport + stubbed retrieve, existing pattern)."
+      },
+      "subtasks": [
+        {
+          "id": "F025-1",
+          "name": "POST /api/chat non-streaming (history from DB, persist turns)",
+          "status": "planned"
+        },
+        {
+          "id": "F025-2",
+          "name": "SSE streaming variant + post-stream reply persistence",
+          "status": "planned"
+        },
+        {
+          "id": "F025-3",
+          "name": "GET /api/sessions conversation list",
+          "status": "planned"
+        }
+      ],
+      "notes": "docs/phase2-plan.md §6. Depends on F020 (budget) + F024 (users).",
+      "added": "2026-11-20"
+    },
+    {
+      "id": "F026",
+      "name": "Frontend product shell (auth + profile form + server chat)",
+      "description": "Extend the vendored frontend/index.html: auth screen (login/register, token in localStorage), first-login profile form (the 11 plan-§5 fields, one screen, selects + short text; doubles as the Settings editor), chat rewired to /api/chat (token + session_id + latest message only, history from server), settings (profile edit, logout, delete-my-data). No chat wizard, no scripted onboarding bubbles.",
+      "status": "planned",
+      "priority": "medium",
+      "module": "frontend",
+      "design_doc": "docs/phase2-plan.md",
+      "tests": {
+        "status": "n/a",
+        "files": [],
+        "notes": "Vendored MIT UI; backend contract covered by tests/test_backend/. Smoke via make frontend against make serve."
+      },
+      "subtasks": [
+        {
+          "id": "F026-1",
+          "name": "Auth screen (login/register with 18+ attestation; token in localStorage)",
+          "status": "planned"
+        },
+        {
+          "id": "F026-2",
+          "name": "First-login profile form (reused as the Settings editor)",
+          "status": "planned"
+        },
+        {
+          "id": "F026-3",
+          "name": "Chat rewired to /api/chat (server history)",
+          "status": "planned"
+        },
+        {
+          "id": "F026-4",
+          "name": "Settings: profile edit, logout, delete-my-data",
+          "status": "planned"
+        }
+      ],
+      "notes": "docs/phase2-plan.md §10. Optional nice-to-have: one-time localStorage chatHistory migration into the first server session.",
+      "added": "2026-11-20"
     }
   ]
 }
