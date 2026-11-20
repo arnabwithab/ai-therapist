@@ -4,12 +4,13 @@ import itertools
 import time
 import uuid
 
-from fastapi import FastAPI, HTTPException
+from fastapi import Depends, FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
 from backend.core import chat as core
+from backend.core import db
 
 app = FastAPI(title="ai-therapist")
 
@@ -35,6 +36,69 @@ class ChatRequest(BaseModel):
     repetition_penalty: float = 1.1
     max_tokens: int = 256
     stream: bool = False
+
+
+class RegisterRequest(BaseModel):
+    username: str
+    password: str
+    age_18_plus: bool = False
+
+
+class LoginRequest(BaseModel):
+    username: str
+    password: str
+
+
+def _current_user(authorization: str | None = Header(default=None)) -> int:
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(401, "missing bearer token")
+    user_id = db.user_id_for_token(authorization[7:])
+    if user_id is None:
+        raise HTTPException(401, "invalid token")
+    return user_id
+
+
+@app.post("/api/auth/register")
+def register(req: RegisterRequest):
+    if not req.age_18_plus:
+        raise HTTPException(400, "18+ attestation required")
+    try:
+        user_id = db.create_user(req.username, req.password)
+    except ValueError as e:
+        raise HTTPException(409 if "taken" in str(e) else 400, str(e)) from e
+    return {"username": req.username.strip(), "token": db.issue_token(user_id)}
+
+
+@app.post("/api/auth/login")
+def login(req: LoginRequest):
+    user_id = db.verify_user(req.username, req.password)
+    if user_id is None:
+        raise HTTPException(401, "invalid username or password")
+    return {"username": req.username.strip(), "token": db.issue_token(user_id)}
+
+
+@app.post("/api/auth/logout")
+def logout(authorization: str | None = Header(default=None)):
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(401, "missing bearer token")
+    db.revoke_token(authorization[7:])
+    return {"status": "ok"}
+
+
+@app.get("/api/me")
+def me(user_id: int = Depends(_current_user)):
+    return {"username": db.username_for(user_id), "profile": db.get_profile(user_id)}
+
+
+@app.put("/api/profile")
+def put_profile(fields: dict, user_id: int = Depends(_current_user)):
+    try:
+        saved = db.put_profile(user_id, fields)
+    except db.MinorError as e:
+        raise HTTPException(403, str(e)) from e
+    except ValueError as e:
+        raise HTTPException(400, str(e)) from e
+    return saved
 
 
 @app.get("/health")

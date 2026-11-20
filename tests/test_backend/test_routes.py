@@ -1,9 +1,11 @@
 """Route tests — model and RAG are stubbed, only HTTP behaviour is exercised."""
 
+import pytest
 from fastapi.testclient import TestClient
 
 from backend import app as app_module
 from backend.core import chat as core
+from backend.core import db as db_module
 
 
 def _client(monkeypatch, reply="Sleep well."):
@@ -163,6 +165,86 @@ def test_completions_answers_cors_preflight():
     )
     assert r.status_code == 200, r.text
     assert r.headers["access-control-allow-origin"] == "*"
+
+
+# --- F024 auth + profile routes (DB swapped to tmp_path, no network) ---
+
+
+@pytest.fixture()
+def tdb(monkeypatch, tmp_path):
+    monkeypatch.setattr(db_module, "DB_PATH", tmp_path / "t.db")
+    return TestClient(app_module.app)
+
+
+def _auth(token):
+    return {"Authorization": f"Bearer {token}"}
+
+
+def test_register_login_me_profile_round_trip(tdb):
+    r = tdb.post(
+        "/api/auth/register", json={"username": "ara", "password": "s3cret-pw", "age_18_plus": True}
+    )
+    assert r.status_code == 200, r.text
+    token = r.json()["token"]
+    assert tdb.get("/api/me", headers=_auth(token)).json()["username"] == "ara"
+
+    r = tdb.put("/api/profile", headers=_auth(token), json={"call_name": "Ara", "religion": "Sikh"})
+    assert r.status_code == 200, r.text
+    assert tdb.get("/api/me", headers=_auth(token)).json()["profile"]["call_name"] == "Ara"
+
+    r = tdb.post("/api/auth/login", json={"username": "ara", "password": "s3cret-pw"})
+    assert r.status_code == 200 and r.json()["token"]
+
+
+def test_users_isolated(tdb):
+    a = tdb.post(
+        "/api/auth/register", json={"username": "a", "password": "pw-a-long1", "age_18_plus": True}
+    ).json()["token"]
+    b = tdb.post(
+        "/api/auth/register", json={"username": "b", "password": "pw-b-long1", "age_18_plus": True}
+    ).json()["token"]
+    tdb.put("/api/profile", headers=_auth(a), json={"call_name": "Aya"})
+    assert tdb.get("/api/me", headers=_auth(b)).json()["profile"] == {}
+
+
+def test_register_requires_attestation(tdb):
+    r = tdb.post(
+        "/api/auth/register",
+        json={"username": "ara", "password": "s3cret-pw", "age_18_plus": False},
+    )
+    assert r.status_code == 400
+    r = tdb.post("/api/auth/register", json={"username": "ara", "password": "s3cret-pw"})
+    assert r.status_code in (400, 422)
+
+
+def test_register_duplicate_is_409_and_login_wrong_pw_is_401(tdb):
+    body = {"username": "ara", "password": "s3cret-pw", "age_18_plus": True}
+    assert tdb.post("/api/auth/register", json=body).status_code == 200
+    assert tdb.post("/api/auth/register", json=body).status_code == 409
+    assert (
+        tdb.post("/api/auth/login", json={"username": "ara", "password": "nope-nope"}).status_code
+        == 401
+    )
+
+
+def test_bad_token_is_401_and_logout_revokes(tdb):
+    assert tdb.get("/api/me").status_code == 401
+    assert tdb.get("/api/me", headers=_auth("bogus")).status_code == 401
+    token = tdb.post(
+        "/api/auth/register", json={"username": "ara", "password": "s3cret-pw", "age_18_plus": True}
+    ).json()["token"]
+    assert tdb.post("/api/auth/logout", headers=_auth(token)).status_code == 200
+    assert tdb.get("/api/me", headers=_auth(token)).status_code == 401
+
+
+def test_profile_under_18_warmly_declined(tdb):
+    token = tdb.post(
+        "/api/auth/register",
+        json={"username": "kid", "password": "pw-kid-long1", "age_18_plus": True},
+    ).json()["token"]
+    r = tdb.put("/api/profile", headers=_auth(token), json={"age_bracket": "<18"})
+    assert r.status_code == 403, r.text
+    assert "1098" in r.text and "14416" in r.text
 
 
 def test_completions_answers_cors_preflight_from_non_localhost_origin():

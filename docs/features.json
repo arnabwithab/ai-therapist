@@ -3,11 +3,11 @@
   "last_updated": "2026-11-20",
   "summary": {
     "total": 23,
-    "completed": 20,
+    "completed": 21,
     "in_progress": 0,
-    "planned": 3,
+    "planned": 2,
     "deferred": 0,
-    "tests_passing": 166,
+    "tests_passing": 181,
     "tests_failing": 0,
     "tests_missing": 0
   },
@@ -906,39 +906,43 @@
       "id": "F024",
       "name": "SQLite accounts + profile (stdlib, local-only)",
       "description": "backend/core/db.py: sqlite3 stdlib, data/therapist.db (gitignored) with users (scrypt-hashed passwords + per-user salt), tokens (random bearer tokens, revocable on logout), profiles (the 11 onboarding fields incl. religion + family_religion + faith_importance + faith_stance + faith_consent), messages. Routes: register/login/logout, GET /api/me, PUT /api/profile (the first-login onboarding form is just the first writer; Settings edits reuse the same route). No ORM, no JWT, no new dependencies. 18+ only (user decision 2026-11-20): registration requires an age attestation; a <18 profile answer is declined with a warm signpost to Childline 1098 and Tele MANAS 14416.",
-      "status": "planned",
+      "status": "completed",
       "priority": "high",
       "module": "backend",
       "design_doc": "docs/phase2-plan.md",
       "tests": {
-        "status": "n/a",
-        "files": [],
-        "notes": "Planned; new tests/test_backend/test_db.py + test_routes.py additions: register/login/token round-trip, profile validation, user isolation. Religion+mental-health data is sensitive: stays local, no telemetry."
+        "status": "passing",
+        "files": [
+          "tests/test_backend/test_db.py",
+          "tests/test_backend/test_routes.py"
+        ],
+        "notes": "15 new tests green (9 db + 6 routes, tmp_path DB, no network). Full backend file: 28 passed."
       },
       "subtasks": [
         {
           "id": "F024-1",
           "name": "db.py schema + scrypt hashing + token helpers",
-          "status": "planned"
+          "status": "completed"
         },
         {
           "id": "F024-2",
           "name": "Auth routes: register/login/logout (Authorization: Bearer)",
-          "status": "planned"
+          "status": "completed"
         },
         {
           "id": "F024-3",
           "name": "GET /api/me + PUT /api/profile",
-          "status": "planned"
+          "status": "completed"
         },
         {
           "id": "F024-4",
           "name": "18+ gate: register attestation + PUT /api/profile rejects <18 with a warm signpost (Childline 1098, Tele MANAS 14416)",
-          "status": "planned"
+          "status": "completed"
         }
       ],
-      "notes": "docs/phase2-plan.md §3, §5. Hard no to serving minors (user decision 2026-11-20): 18+ attestation at registration, warm decline + Childline 1098 / Tele MANAS 14416 signpost on an honest <18 answer, no chat for under-18s.",
-      "added": "2026-11-20"
+      "notes": "docs/phase2-plan.md §3, §5. Done 2026-11-20: db.py (users/tokens/profiles + messages scaffold for F025, THERAPIST_DB override), thin routes in app.py. MinorError carries the decline text so the route stays thin. .gitignore now covers data/therapist.db (it did not before).",
+      "added": "2026-11-20",
+      "completed": "2026-11-20"
     },
     {
       "id": "F025",
