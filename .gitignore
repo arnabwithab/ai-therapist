@@ -20,6 +20,8 @@ models
 SSH.md
 # F024 local auth DB (users + scrypt hashes + profiles stay on-disk only)
 data/therapist.db
+data/therapist.db-shm
+data/therapist.db-wal
 # F019 v2 judge outputs (rerunnable via make evals-v2 / compare-v2; docs carry the numbers)
 data/eval/v2/
 data/eval/v2-invalid-0800/
