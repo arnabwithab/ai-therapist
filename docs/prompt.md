@@ -1,19 +1,25 @@
-# Serving prompt (F012)
+# Serving prompt (F012, v2 blocks F023)
 
 Source of truth in code: `backend/core/chat.py` (`_PROMPT_TEMPLATE`,
-`CRISIS_RESOURCES`, `build_messages`). This file mirrors it for easy access —
+`CRISIS_RESOURCES`, `render_person`, `render_faith_style`, `build_system_prompt`,
+`build_messages`). This file mirrors it for easy access —
 if the two disagree, the code wins; update both.
 
 ## Message structure per turn
 
 ```
-[system]   role + voice + RAG rules + safety + example  (always exactly one)
+[system]   role + voice + RAG rules + safety + example + optional <person>/<faith_style>  (always exactly one)
 [user/assistant...]   recent history, oldest dropped first past budget
 [user]     <retrieved_techniques>…</retrieved_techniques> + closer line (only if passages)
 ```
 
 - History is truncated oldest-first so the estimated prompt fits
-  `4096 − max_tokens − 256` tokens (`_fit_budget`, chars/4 estimate).
+  `6144 − max_tokens − 256` tokens (`_fit_budget`, chars/4 estimate).
+  `_fit_budget` sizes the full system message including any profile blocks.
+- `build_messages(turns, passages, profile=None)`: empty profile renders the
+  v1 prompt byte-identical. A non-empty profile appends `<person>` and/or
+  `<faith_style>` to the single system message; the per-turn user text is the
+  last `user` turn.
 - Sampling, matching training: temp 0.7, top_p 0.8, top_k 20,
   repetition_penalty 1.1, max_tokens 256 (server-clamped).
 
@@ -124,3 +130,40 @@ passage text
 </retrieved_techniques>
 The above is background for you only, not part of the conversation. Now respond to the person's last message.
 ```
+
+## Profile blocks (F023)
+
+Rendered only from a non-empty profile; empty profile keeps the v1 prompt
+exactly. `render_person` skips blank/`prefer not to say` fields (never echoed).
+Retrieval is profile-gated separately in `src/rag/query.py:resolve_religion`
+(closure in `chat`/`chat_stream`); presentation gates per turn below, so a
+faith passage that rides along on retrieval override is still inadmissible
+unless the user directly asked about faith.
+
+```
+<person>
+What they told us at intake — use naturally, don't recite:
+- Calls themselves {call_name}; {age_bracket}; {gender}.
+- Most comfortable in {language_pref} — match it.
+- Follows {religion}; grew up in a {family_religion} family.
+- Faith matters {faith_importance} to them right now.
+- Supports: {supports}. First shared concern: {concern}.
+Treat these as starting points to confirm in conversation, not fixed facts.
+</person>
+
+<faith_style>
+anchor/quite + consent yes: faith is a live resource, own idiom in plain words,
+tradition ideas only as an option, one idea at a time, never a prescription,
+never more than one religious idea per reply.
+strain/both: struggle-aware — mercy/forgiveness/compassion, never amplify guilt,
+never more devotion as a fix, compulsive ritualizing -> professional (scrupulosity).
+only_if_raised: faith idiom only when this message raises faith, else fully
+secular this turn. no/neutral consent: fully secular, no God-language; faith
+passages inadmissible unless directly asked.
+always: never proselytize; faith community is ONE support option among friends,
+family, professionals; family-faith gaps stay neutral; safety beats faith framing.
+</faith_style>
+```
+
+Budget: `<person>`+`<faith_style>` ≤ 250 est-tokens; short imperative blocks keep
+the 1.7B model from parroting the profile back ("use naturally, don't recite").

@@ -7,10 +7,11 @@ so there is nothing to store, expire, or lose.
 import json
 import logging
 import os
+import re
 
 import httpx
 
-from src.rag.query import retrieve
+from src.rag.query import GENERIC_FAITH_WORDS, detect_faith_signal, resolve_religion, retrieve
 
 log = logging.getLogger(__name__)
 
@@ -146,22 +147,179 @@ def _estimate_tokens(text):
     return max(1, len(text) // 4)
 
 
-def build_messages(turns, passages):
+def _blank(value):
+    """Blank or an opted-out 'prefer not to say' answer (never echoed)."""
+    if value is None:
+        return True
+    s = str(value).strip()
+    if not s:
+        return True
+    return re.sub(r"\s+", " ", re.sub(r"[-_]+", " ", s.lower())).strip() == "prefer not to say"
+
+
+def render_person(profile):
+    """Render the <person> block, or None for an empty/unusable profile."""
+    if not profile:
+        return None
+    lines = []
+    parts = []
+    if not _blank(profile.get("call_name")):
+        parts.append(f"Calls themselves {str(profile['call_name']).strip()}")
+    for key in ("age_bracket", "gender"):
+        if not _blank(profile.get(key)):
+            parts.append(str(profile[key]).strip())
+    if parts:
+        lines.append("- " + "; ".join(parts) + ".")
+    if not _blank(profile.get("language_pref")):
+        lines.append(f"- Most comfortable in {str(profile['language_pref']).strip()} — match it.")
+    rel_ok, fam_ok = not _blank(profile.get("religion")), not _blank(profile.get("family_religion"))
+    if rel_ok and fam_ok:
+        lines.append(
+            f"- Follows {str(profile['religion']).strip()};"
+            f" grew up in a {str(profile['family_religion']).strip()} family."
+        )
+    elif rel_ok:
+        lines.append(f"- Follows {str(profile['religion']).strip()}.")
+    elif fam_ok:
+        lines.append(f"- Grew up in a {str(profile['family_religion']).strip()} family.")
+    if not _blank(profile.get("faith_importance")):
+        lines.append(
+            f"- Faith matters {str(profile['faith_importance']).strip()} to them right now."
+        )
+    sup_ok, con_ok = not _blank(profile.get("supports")), not _blank(profile.get("concern"))
+    if sup_ok and con_ok:
+        lines.append(
+            f"- Supports: {str(profile['supports']).strip()}."
+            f" First shared concern: {str(profile['concern']).strip()}."
+        )
+    elif sup_ok:
+        lines.append(f"- Supports: {str(profile['supports']).strip()}.")
+    elif con_ok:
+        lines.append(f"- First shared concern: {str(profile['concern']).strip()}.")
+    if not lines:
+        return None
+    return (
+        "<person>\nWhat they told us at intake — use naturally, don't recite:\n"
+        + "\n".join(lines)
+        + "\nTreat these as starting points to confirm in conversation, not fixed facts.\n</person>"
+    )
+
+
+def _user_raised_faith(text):
+    """Light per-turn faith-signal check (specific idiom or generic God-language)."""
+    if not text or not str(text).strip():
+        return False
+    if detect_faith_signal(text) is not None:
+        return True
+    low = str(text).lower()
+    return any(re.search(r"\b" + re.escape(w) + r"\b", low) for w in GENERIC_FAITH_WORDS)
+
+
+_HARD_RULES = (
+    "Never proselytize or push toward/away from any faith."
+    " Their faith community is ONE support option among friends, family, professionals."
+    " Family-faith gaps: stay neutral."
+    " Safety beats faith framing: crisis first, helplines first."
+)
+
+_SECULAR_CORE = (
+    "Keep support fully secular and human: no religious framing, no God-language, no scripture."
+    " If they bring up faith themselves, follow their lead without endorsing or challenging it."
+    " Treat any faith passages above as inadmissible unless they directly asked about faith."
+)
+
+_ONLY_QUIET_CORE = (
+    "Keep support fully secular this turn: no religious framing, no God-language, no scripture."
+    " They said to bring faith in only if they raise it, and they have not."
+    " Treat any faith passages above as inadmissible."
+)
+
+_ONLY_RAISED_CORE = (
+    "Bring in their faith only when they raise it themselves."
+    " Then mirror their own idiom in plain words, one idea at a time, as an option"
+    " — never more than one religious idea per reply, never a prescription."
+)
+
+_ANCHOR_CORE = (
+    "Their faith is a live resource. Mirror their own idiom in plain words when it fits."
+    " Offer tradition ideas only as an option, one idea at a time,"
+    " never a prescription, never more than one religious idea per reply."
+)
+
+_STRAIN_CORE = (
+    "Watch for spiritual struggle: feeling punished or abandoned, guilt about sin or devotion,"
+    " or repeated prayer to quiet anxiety. Their tradition also carries"
+    " mercy, forgiveness and compassion. Never amplify guilt, never suggest more devotion as a fix."
+    " If ritualizing looks compulsive, name it kindly and encourage a professional"
+    " who understands scrupulosity."
+)
+
+
+def render_faith_style(profile, user_text=""):
+    """Render the <faith_style> block, or None when the profile carries no signal."""
+    if not profile:
+        return None
+    imp = str(profile.get("faith_importance") or "")
+    consent = str(profile.get("faith_consent") or "")
+    stance = str(profile.get("faith_stance") or "")
+    if _blank(imp) and _blank(consent) and _blank(stance):
+        return None
+    imp_l, con_l, sta_l = imp.strip().lower(), consent.strip().lower(), stance.strip().lower()
+    gated = (not _blank(imp) and ("none" in imp_l or "not at all" in imp_l)) or (
+        not _blank(consent) and (con_l == "no" or "neutral" in con_l)
+    )
+    if gated:
+        # shortcut: retrieval's explicit-signal override may still surface faith hits, so the
+        # secular block marks them inadmissible unless the user directly asked about faith.
+        core_text = _SECULAR_CORE
+    elif not _blank(stance) and ("weigh" in sta_l or "strain" in sta_l or "both" in sta_l):
+        core_text = _STRAIN_CORE
+    elif not _blank(consent) and "only" in con_l:
+        # shortcut: F022 retrieval leaves only_if_raised ungated, so presentation gates per-turn —
+        # faith idiom only when this message raises faith, secular that turn otherwise.
+        core_text = _ONLY_RAISED_CORE if _user_raised_faith(user_text) else _ONLY_QUIET_CORE
+    elif not _blank(imp) or not _blank(consent):
+        core_text = _ANCHOR_CORE
+    else:
+        return None
+    return f"<faith_style>\n{core_text} {_HARD_RULES}\n</faith_style>"
+
+
+def build_system_prompt(profile=None, user_text=""):
+    """V1 prompt byte-identical for an empty profile; person+faith blocks otherwise."""
+    if not profile:
+        return SYSTEM_PROMPT
+    person = render_person(profile)
+    faith = render_faith_style(profile, user_text=user_text)
+    if person is None and faith is None:
+        return SYSTEM_PROMPT
+    return "\n\n".join([SYSTEM_PROMPT] + [b for b in (person, faith) if b])
+
+
+def _last_user_text(turns):
+    for m in reversed(list(turns or [])):
+        if m.get("role") == "user" and str(m.get("content") or "").strip():
+            return m["content"]
+    return ""
+
+
+def build_messages(turns, passages, profile=None):
     """One system message, then turns, then the retrieved block (if any)."""
-    messages = [{"role": "system", "content": SYSTEM_PROMPT}] + list(turns)
+    system = build_system_prompt(profile, user_text=_last_user_text(turns))
+    messages = [{"role": "system", "content": system}] + list(turns)
     if passages:
         messages.append(_retrieved_message(passages))
     return messages
 
 
-def _fit_budget(turns, passages, max_tokens):
+def _fit_budget(turns, passages, max_tokens, profile=None):
     """Drop oldest turns until the estimated prompt fits the server window."""
     # Conservative 6144 budget against the 8192 server window: history is cut
     # early, but prompt + completion always fits with room for estimator error.
     budget = 6144 - max_tokens - 256
     turns = list(turns)
     while len(turns) > 1:
-        size = sum(_estimate_tokens(m["content"]) for m in build_messages(turns, passages))
+        size = sum(_estimate_tokens(m["content"]) for m in build_messages(turns, passages, profile))
         if size <= budget:
             break
         turns.pop(0)
@@ -248,11 +406,26 @@ def chat_stream(
     history=None,
     client=None,
     retrieve_fn=None,
+    profile=None,
 ):
     """Streaming turn: same retrieval + prompt build, chunks relayed from vLLM."""
     if not user_text or not user_text.strip():
         raise ValueError("empty user turn")
-    retrieve_fn = retrieve_fn or retrieve
+    if retrieve_fn is None:
+        if profile:
+            _prof = profile
+            retrieve_fn = lambda q, n=5: retrieve(
+                q,
+                n=n,
+                religion=resolve_religion(
+                    _prof.get("religion"),
+                    _prof.get("faith_importance"),
+                    _prof.get("faith_consent"),
+                    user_text=q,
+                ),
+            )
+        else:
+            retrieve_fn = retrieve
     try:
         passages = retrieve_fn(user_text, n=rag_top_k)
     except Exception as e:
@@ -261,12 +434,13 @@ def chat_stream(
         list(history or []) + [{"role": "user", "content": user_text.strip()}],
         passages,
         max_tokens,
+        profile,
     )
     own_client = client is None
     client = client or httpx.Client(base_url=VLLM_URL, timeout=TIMEOUT_S)
     stream = generate_stream(
         client,
-        build_messages(turns, passages),
+        build_messages(turns, passages, profile),
         temperature=temperature,
         top_p=top_p,
         top_k=top_k,
@@ -292,11 +466,26 @@ def chat(
     history=None,
     client=None,
     retrieve_fn=None,
+    profile=None,
 ):
     """Full turn: retrieve passages, inject, generate. Returns reply + sources."""
     if not user_text or not user_text.strip():
         raise ValueError("empty user turn")
-    retrieve_fn = retrieve_fn or retrieve
+    if retrieve_fn is None:
+        if profile:
+            _prof = profile
+            retrieve_fn = lambda q, n=5: retrieve(
+                q,
+                n=n,
+                religion=resolve_religion(
+                    _prof.get("religion"),
+                    _prof.get("faith_importance"),
+                    _prof.get("faith_consent"),
+                    user_text=q,
+                ),
+            )
+        else:
+            retrieve_fn = retrieve
     try:
         passages = retrieve_fn(user_text, n=rag_top_k)
     except Exception as e:
@@ -305,13 +494,14 @@ def chat(
         list(history or []) + [{"role": "user", "content": user_text.strip()}],
         passages,
         max_tokens,
+        profile,
     )
     own_client = client is None
     client = client or httpx.Client(base_url=VLLM_URL, timeout=TIMEOUT_S)
     try:
         content, _ = generate(
             client,
-            build_messages(turns, passages),
+            build_messages(turns, passages, profile),
             temperature=temperature,
             top_p=top_p,
             top_k=top_k,

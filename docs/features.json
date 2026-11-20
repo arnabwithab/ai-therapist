@@ -3,11 +3,11 @@
   "last_updated": "2026-11-20",
   "summary": {
     "total": 23,
-    "completed": 19,
+    "completed": 20,
     "in_progress": 0,
-    "planned": 4,
+    "planned": 3,
     "deferred": 0,
-    "tests_passing": 155,
+    "tests_passing": 166,
     "tests_failing": 0,
     "tests_missing": 0
   },
@@ -865,39 +865,42 @@
       "id": "F023",
       "name": "OARS prompt v2 (person + faith_style blocks)",
       "description": "Dynamic <person> block (call name, age bracket, gender, language, religion + family religion, faith importance, supports, first concern) and conditional <faith_style> block rendered from the profile: anchor/quite -> offer their tradition's idiom, one idea at a time; strain/both -> spiritual-struggle mode (spot punishment/guilt/abandonment framings, never amplify, never 'pray more'); none/neutral -> fully secular. Hard rules always: never proselytize, faith community as one support option among others, safety beats faith framing. Empty profile -> v1 prompt exactly.",
-      "status": "planned",
+      "status": "completed",
       "priority": "high",
       "module": "backend",
       "design_doc": "docs/phase2-plan.md",
       "tests": {
-        "status": "n/a",
-        "files": [],
-        "notes": "Planned; extends tests/test_backend/test_chat.py: per-profile rendering, empty-profile = v1 behaviour, no profile-parroting, budget."
+        "status": "passing",
+        "files": [
+          "tests/test_backend/test_chat.py"
+        ],
+        "notes": "28 tests green (17 pre-existing + 11 F023: empty->None/v1-exact, omissions, anchor, strain, gated, only-if-raised per-turn, no-parrot, budget, single-system, passthrough, None-is-v1)."
       },
       "subtasks": [
         {
           "id": "F023-1",
           "name": "<person> block renderer from profile",
-          "status": "planned"
+          "status": "completed"
         },
         {
           "id": "F023-2",
           "name": "<faith_style> conditional renderer (anchor/quite, strain/both, none/neutral)",
-          "status": "planned"
+          "status": "completed"
         },
         {
           "id": "F023-3",
           "name": "Profile arg through core.chat/build_messages (default None = v1)",
-          "status": "planned"
+          "status": "completed"
         },
         {
           "id": "F023-4",
           "name": "docs/prompt.md mirror update",
-          "status": "planned"
+          "status": "completed"
         }
       ],
-      "notes": "docs/phase2-plan.md §9. 1.7B caution: short imperative blocks; fallback is trimming <person> to three facts if parroting leaks.",
-      "added": "2026-11-20"
+      "notes": "docs/phase2-plan.md §9. Per-turn presentation gating: only_if_raised offers idiom only when the message raises faith, no/neutral stays secular even on retrieval override (both recorded as shortcut comments).",
+      "added": "2026-11-20",
+      "completed": "2026-11-20"
     },
     {
       "id": "F024",
