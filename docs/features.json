@@ -3,11 +3,11 @@
   "last_updated": "2026-11-20",
   "summary": {
     "total": 23,
-    "completed": 17,
+    "completed": 18,
     "in_progress": 0,
-    "planned": 6,
+    "planned": 5,
     "deferred": 0,
-    "tests_passing": 140,
+    "tests_passing": 149,
     "tests_failing": 0,
     "tests_missing": 0
   },
@@ -826,34 +826,37 @@
       "id": "F022",
       "name": "Religion-aware retrieval (profile-gated hybrid split)",
       "description": "Extend src/rag/query.py:retrieve() with a religion where-filter. For a profiled, consenting user: 3 chunks from their tradition + 2 general (never 5/5 faith — general South Asian technique always rides along). faith_importance none/not-at-all or neutral consent -> general only. Soft override: explicit faith signals in the user's own message re-include their tradition's split. Strain stance biases toward compassion/mercy content via manifest topic tags.",
-      "status": "planned",
+      "status": "completed",
       "priority": "high",
       "module": "src/rag",
       "design_doc": "docs/phase2-plan.md",
       "tests": {
-        "status": "n/a",
-        "files": [],
-        "notes": "Planned; extends tests/test_rag/test_query.py (temp collection): filter hit, 3+2 split, gating, message-scan override."
+        "status": "passing",
+        "files": [
+          "tests/test_rag/test_query.py"
+        ],
+        "notes": "12 tests green (3 pre-existing + 9 F022: filter hit, 3+2 shape, backfill, zero-hit fallback, source_filter $and, backward-compat single-arg, resolve_religion gating, muslim->islam mapping, namaaz/God-punishing override, detect_faith_signal params)."
       },
       "subtasks": [
         {
           "id": "F022-1",
           "name": "retrieve(query, n, religion=) where-filter",
-          "status": "planned"
+          "status": "completed"
         },
         {
           "id": "F022-2",
           "name": "3+2 hybrid split with importance/consent gating",
-          "status": "planned"
+          "status": "completed"
         },
         {
           "id": "F022-3",
           "name": "Explicit-faith-signal keyword override (curated per-tradition list)",
-          "status": "planned"
+          "status": "completed"
         }
       ],
-      "notes": "docs/phase2-plan.md §8. retrieve() stays the only API the serving layer imports.",
-      "added": "2026-11-20"
+      "notes": "docs/phase2-plan.md §8. retrieve() stays the only API the serving layer imports; 2-arg protocol (user_text, n) unchanged so chat.py untouched — F023 closes over resolve_religion. Done 2026-11-20.",
+      "added": "2026-11-20",
+      "completed": "2026-11-20"
     },
     {
       "id": "F023",
