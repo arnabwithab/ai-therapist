@@ -357,7 +357,7 @@ def generate(
         resp.raise_for_status()
         body = resp.json()
         msg = body["choices"][0]["message"]
-        return msg.get("content", "").strip(), body.get("usage")
+        return (msg.get("content") or "").strip(), body.get("usage")
     except (httpx.HTTPError, KeyError, IndexError, ValueError) as e:
         raise ModelError(f"model call failed: {e}") from e
 

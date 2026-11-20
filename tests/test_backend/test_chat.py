@@ -137,6 +137,14 @@ def test_generate_timeout_raises_model_error():
         core.generate(client, [{"role": "user", "content": "hi"}])
 
 
+def test_generate_null_content_returns_empty_string():
+    # reasoning models (Qwen3 via vLLM) can return content: null when the
+    # completion holds only thinking traces — must not 500 (live traceback).
+    client = _mock_client(payload=_completion(text=None))
+    content, _ = core.generate(client, [{"role": "user", "content": "hi"}])
+    assert content == ""
+
+
 def test_chat_wires_retrieve_and_model():
     client = _mock_client(payload=_completion("Sleep well."))
     out = core.chat("insomnia", client=client, retrieve_fn=lambda q, n=5: _passages())
