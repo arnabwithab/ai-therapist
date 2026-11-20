@@ -227,6 +227,13 @@ def test_system_prompt_guards_substance_free_openers():
     assert "don't presume feelings or problems" in core.SYSTEM_PROMPT
 
 
+def test_system_prompt_caps_length_and_bans_passage_people():
+    # regression: wall-of-text replies + passage genders leaking into stories.
+    assert "never more than 6 sentences" in core.SYSTEM_PROMPT
+    assert "example people and situations" in core.SYSTEM_PROMPT
+    assert "never he/him unless they said so" in core.SYSTEM_PROMPT
+
+
 def test_empty_profiles_render_none_and_v1_exact():
     assert core.render_person(None) is None
     assert core.render_person({}) is None
