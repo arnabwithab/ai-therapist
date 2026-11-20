@@ -1,15 +1,15 @@
 {
   "project": "ai-therapist",
-  "last_updated": "2026-11-11",
+  "last_updated": "2026-11-20",
   "summary": {
-    "total": 17,
+    "total": 16,
     "completed": 16,
     "in_progress": 0,
     "planned": 0,
-    "deferred": 1,
+    "deferred": 0,
     "tests_passing": 99,
     "tests_failing": 0,
-    "tests_missing": 5
+    "tests_missing": 0
   },
   "eval_coverage": {
     "legend": {
@@ -185,7 +185,7 @@
       "module": "data/finetune",
       "design_doc": "docs/slm-finetuning.md",
       "tests": {
-        "status": "missing",
+        "status": "n/a",
         "files": [],
         "notes": "Notebook asserts presence of both SFT datasets."
       },
@@ -219,7 +219,7 @@
       "module": "notebooks",
       "design_doc": "docs/slm-finetuning.md",
       "tests": {
-        "status": "missing",
+        "status": "n/a",
         "files": [],
         "notes": "No separate harness (needs GPU + gitignored data) — the notebook asserts for itself: non-degenerate source counts, zero blank/NaN turns, qwen_lora/ written. Verified out-of-repo with stubbed unsloth/model: 2775 CounselChat - 163 blank and 3512 Amod - 4 blank -> 6120 examples; save cell without HF_TOKEN saves qwen_lora/ and skips both pushes; disabling the blank filter makes the notebook's own assert fire."
       },
@@ -258,7 +258,7 @@
       "module": "notebooks",
       "design_doc": "docs/slm-finetuning.md",
       "tests": {
-        "status": "missing",
+        "status": "n/a",
         "files": [],
         "notes": "Requires F004 (Amod) and F005 dual-path gating — both complete."
       },
@@ -292,7 +292,7 @@
       "module": "notebooks",
       "design_doc": "docs/slm-finetuning.md",
       "tests": {
-        "status": "missing",
+        "status": "n/a",
         "files": [],
         "notes": ""
       },
@@ -501,7 +501,7 @@
       "module": "notebooks",
       "design_doc": "docs/slm-finetuning.md",
       "tests": {
-        "status": "missing",
+        "status": "n/a",
         "files": [],
         "notes": "Notebook asserts for itself (counts, blank-filter, qwen_lora/ written); log_history.json emitted every run."
       },
@@ -704,24 +704,6 @@
       "notes": "Smoke-verified locally up to the model call (real Chroma retrieval + prompt build, ConnectError only — no vLLM here). Judge pushes scores per batch when --hf-repo is set. Caveat: OARS replies are 3-6 sentences vs base long paragraphs, so Informativeness/Helpfulness may dip on style alone. Coverage matrix: see eval_coverage table (regular-prompt+RAG cell filled 2026-10-31: 1.7B-DPO 3.27). Note: generate_rag.py hardcodes the OARS path via build_messages, so the regular cell needs a prompt-style switch (or a standalone run reusing mbench-rag-judge.csv passages with the paper preamble). Judged 2026-10-26: 4B OARS no-RAG Overall 3.31 and OARS+RAG Overall 3.32 (both n=10000 contiguous; RAG delta +0.01, no measurable effect); sections added 2026-10-27. Same-day cleanup: vLLM regen section removed (redundant with canonical 3.84; equivalence note folded into DPO+OARS section); charts reconsolidated (11-run master + per-model), evals-oars.png removed. 2026-10-31 (supersedes that layout): master rebuilt as best-per-model (4B base 4.06, 1.7B DPO 3.84, 0.6B DPO 3.03), 1.7B chart to x5 series (regular+RAG added); eval/plot_evals.py + make plots regenerate both from judge CSVs. F017-15/16 stay completed (work happened).",
       "added": "2026-10-21",
       "completed": "2026-10-31"
-    },
-    {
-      "id": "F018",
-      "name": "Rethinking post-training for Qwen3-1.7B",
-      "description": "Rethink how the 1.7B is post-trained: whether DPO-from-base over PsyCoPref is still the right stage, what data/objective the serving behaviour actually needs, and how the training distribution should match the OARS serving prompt. Design first; no build until the approach is decided. Related: F016 (DPO loop), F017 (serving-path evals), F019 (evals v2).",
-      "status": "deferred",
-      "priority": "high",
-      "module": "notebooks",
-      "design_doc": "docs/slm-finetuning.md",
-      "tests": {
-        "status": "missing",
-        "files": [],
-        "notes": ""
-      },
-      "subtasks": [],
-      "notes": "Motivation from the eval ladder: DPO-1.7B scores 3.84 with the regular paper preamble but only 3.19 under the OARS serving prompt (Guidance 2.91 -> 1.53), and 2.91 with RAG on top — the model was trained on raw concern -> long-answer pairs while serving asks for short, non-directive replies with retrieved passages. Also open: adapter emits </think> on all 10k rows despite the no-think header, eating the token budget; 4B SFT regressed hard (3.21 vs 4.06), so the SFT stage is suspect too. Scope to be decided — candidates include DPO data closer to the serving voice, SFT-on-OARS-style targets, RAG-aware training, or dropping SFT entirely. Nothing designed or built yet.",
-      "added": "2026-10-30",
-      "completed": null
     },
     {
       "id": "F019",
