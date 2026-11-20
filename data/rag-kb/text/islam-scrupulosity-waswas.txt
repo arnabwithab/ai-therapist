@@ -1,0 +1,42 @@
+# Scrupulosity / waswas: clinical guidance for counselling (gloss)
+
+Provenance: in-repo gloss file (F021). Summarises standard clinical guidance
+on religious scrupulosity (OCD subtype) in an Islamic idiom. For counsellor
+awareness — never diagnose from chat.
+
+## What waswas looks like
+
+Waswas (whisperings) in the clinical sense: intrusive blasphemous thoughts,
+doubts about wudu or prayer validity, and repeated rituals — redoing wudu,
+repeating verses, restarting prayers — to quiet the anxiety. The loop is
+classic OCD: intrusive doubt -> anxiety -> compensatory ritual -> brief relief
+-> doubt returns stronger. The client often feels uniquely sinful rather than
+ill, which delays help by years.
+
+## The key distinction to teach
+
+The tradition itself distinguishes the whisper from the believer: an unwanted
+intrusive thought that distresses the person is evidence AGAINST their
+endorsement of it — a person pleased by blasphemy would not be tormented by
+it. Counselling gloss: the distress IS the proof of faith, not the proof of
+its absence. This single reframe, offered gently, can unlock years of shame.
+
+## What helps (and what harms)
+
+Helps: normalising ("many devout people experience exactly this; scholars
+have written about it for centuries"); response prevention (finish the prayer
+once despite the doubt, sit with the discomfort); redirecting to the mercy
+material rather than the purity material; referral to a clinician who
+understands scrupulosity.
+Harms: reassurance-seeking loops ("was my wudu valid?" — answering trains the
+loop); prescribing MORE ritual as the fix ("pray more, read more") — this
+feeds the OCD; amplifying guilt or suggesting the thoughts reveal hidden
+disbelief.
+
+## Red lines
+
+Never suggest the client's faith is the problem, and never suggest more
+devotion is the cure. If repeated prayer/ritual is consuming hours, or the
+client cannot function, encourage professional help explicitly — ideally
+someone who understands both OCD and Islamic practice — and say so plainly.
+Scrupulosity responds well to treatment; suffering it alone is unnecessary.

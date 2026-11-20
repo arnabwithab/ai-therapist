@@ -2,6 +2,7 @@
 
 import argparse
 import glob
+import json
 import logging
 import os
 import re
@@ -29,6 +30,48 @@ def _chapter_for(text, offset):
     return chapter
 
 
+ALLOWED_RELIGIONS = {
+    "hindu",
+    "islam",
+    "sikh",
+    "christian",
+    "buddhist",
+    "jain",
+    "secular",
+    "general",
+}
+
+
+def load_manifest(kb_dir=None):
+    """Map source filename -> religion tag.
+
+    Reads manifest.json (sibling of kb_dir, else config.MANIFEST_PATH).
+    Missing file -> {}. Unknown tags warn and fall back to "general".
+    """
+    if kb_dir is None:
+        path = config.MANIFEST_PATH
+    else:
+        path = os.path.join(os.path.dirname(os.path.normpath(kb_dir)), "manifest.json")
+    try:
+        with open(path, encoding="utf-8") as f:
+            raw = json.load(f)
+    except FileNotFoundError:
+        return {}
+    manifest = {}
+    for name, entry in raw.items():
+        tag = entry.get("religion", "general") if isinstance(entry, dict) else "general"
+        if tag not in ALLOWED_RELIGIONS:
+            log.warning("unknown religion tag %r for %s, using general", tag, name)
+            tag = "general"
+        manifest[name] = tag
+    return manifest
+
+
+def religion_for(filename, manifest):
+    """Religion tag for a source file; missing entry -> "general"."""
+    return manifest.get(filename, "general")
+
+
 def load_documents(kb_dir):
     docs = []
     for path in sorted(glob.glob(os.path.join(kb_dir, "*.txt"))):
@@ -53,6 +96,7 @@ def main():
     if not docs:
         raise SystemExit(f"no .txt files in {args.kb_dir}")
     log.info("%d source files", len(docs))
+    manifest = load_manifest(args.kb_dir)
 
     client = chromadb.PersistentClient(path=config.CHROMA_DIR)
     if args.reset:
@@ -65,6 +109,7 @@ def main():
     model = SentenceTransformer(config.EMBED_MODEL, device=config.EMBED_DEVICE)
     total = 0
     for name, text in docs:
+        religion = religion_for(name, manifest)
         chunks = chunk_text(
             text,
             source=name,
@@ -93,6 +138,7 @@ def main():
                         "source": c["source"],
                         "chapter": c["chapter"],
                         "chunk_id": c["chunk_id"],
+                        "religion": religion,
                     }
                     for c in batch
                 ],

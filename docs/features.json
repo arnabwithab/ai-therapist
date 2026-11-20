@@ -3,11 +3,11 @@
   "last_updated": "2026-11-20",
   "summary": {
     "total": 23,
-    "completed": 18,
+    "completed": 19,
     "in_progress": 0,
-    "planned": 5,
+    "planned": 4,
     "deferred": 0,
-    "tests_passing": 149,
+    "tests_passing": 155,
     "tests_failing": 0,
     "tests_missing": 0
   },
@@ -788,39 +788,42 @@
       "id": "F021",
       "name": "KB expansion + religion manifest (six traditions + secular)",
       "description": "Roughly double data/rag-kb (30 -> ~60 files): Sikh, deeper Islamic, Indian Christian, Jain, secular-for-none and cross-cutting India content, plus per-tradition analogies/proverbs banks (the core adaptation technique per the Indian CBT-adaptation literature). data/rag-kb/manifest.json maps each source to a religion tag; ingest writes it into chunk metadata. Open/public-domain sources only. Coverage decision: six dominant traditions + secular; Ambedkarite/Navayana, Adivasi (Sarna/Donyi-Polo), Parsi/Zoroastrian, Baha'i, Jewish users deliberately skipped (free-text 'other' path).",
-      "status": "planned",
+      "status": "completed",
       "priority": "medium",
       "module": "data/rag-kb",
       "design_doc": "docs/phase2-plan.md",
       "tests": {
-        "status": "n/a",
-        "files": [],
-        "notes": "Planned; new tests/test_rag/test_ingest.py covers manifest<->text/ consistency and religion metadata on chunks."
+        "status": "passing",
+        "files": [
+          "tests/test_rag/test_ingest.py"
+        ],
+        "notes": "6 tests green: every .txt resolves to an allowed tag, no orphan manifest keys, tags in allowed set, missing->{} / unknown->general, religion metadata attach + where-filter on temp collection."
       },
       "subtasks": [
         {
           "id": "F021-1",
           "name": "manifest.json (filename -> religion tag; missing entry = general)",
-          "status": "planned"
+          "status": "completed"
         },
         {
           "id": "F021-2",
           "name": "ingest.py reads manifest, adds religion to chunk metadata",
-          "status": "planned"
+          "status": "completed"
         },
         {
           "id": "F021-3",
           "name": "Tag existing 30 sources; fetch + extract new open sources per plan §7",
-          "status": "planned"
+          "status": "completed"
         },
         {
           "id": "F021-4",
           "name": "make ingest rebuild + per-religion retrieval spot-checks",
-          "status": "planned"
+          "status": "completed"
         }
       ],
-      "notes": "docs/phase2-plan.md §7. Same 512-token chunker; _index.txt inventory + per-file provenance convention kept.",
-      "added": "2026-11-20"
+      "notes": "docs/phase2-plan.md §7. Same 512-token chunker; _index.txt inventory + per-file provenance convention kept. New content is 13 in-repo gloss files only (no web fetching — full §7 paper fetching flagged as follow-up). make ingest rebuild + retrieval spot-checks not run here (no re-ingest in this task); F022 covers retrieval. Coverage decision kept: six dominant traditions + secular; Ambedkarite/Navayana, Adivasi, Parsi, Baha'i, Jewish skipped per plan §7.",
+      "added": "2026-11-20",
+      "completed": "2026-11-20"
     },
     {
       "id": "F022",

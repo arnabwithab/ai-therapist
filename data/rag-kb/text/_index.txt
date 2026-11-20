@@ -28,3 +28,16 @@ satvavajaya-nootropic.txt | ~4767 words
 sufi-psychotherapy-hamdani.txt | ~4129 words
 vipassana-health-review.txt | ~5821 words
 yoga-mental-health-bjpsych.txt | ~9386 words
+analogies-hindu-gita-doha.txt | ~493 words | in-repo gloss (F021): Gita verses + Kabir dohas with counselling gloss
+sikh-concepts-gloss.txt | ~381 words | in-repo gloss (F021): naam simran, sangat, seva, chardi kala, hukam, five vices
+islam-concepts-sabr-tawakkul.txt | ~376 words | in-repo gloss (F021): sabr, tawakkul, shukr, dua, mercy
+islam-quran-framing-94-5-6.txt | ~331 words | in-repo gloss (F021): 94:5-6, mercy, dua/istighfar, night prayer
+islam-scrupulosity-waswas.txt | ~316 words | in-repo gloss (F021): waswas/scrupulosity clinical guidance
+analogies-christian-bible.txt | ~385 words | in-repo gloss (F021): Ps 55:22, Mt 11:28-30, laments, prodigal son, Gethsemane (KJV/WEB)
+jain-anekantavada-gloss.txt | ~315 words | in-repo gloss (F021): anekantavada, syadvada, aparigraha, ksama
+buddhist-second-arrow-sallatha.txt | ~263 words | in-repo gloss (F021): Sallatha Sutta second-arrow pain vs suffering
+secular-values-act.txt | ~358 words | in-repo gloss (F021): secular ACT-style values/acceptance/defusion/self-compassion
+india-stigma-log-kya-kahenge.txt | ~300 words | in-repo gloss (F021): stigma, vernacular terms, faith as bridge
+india-family-dynamics.txt | ~269 words | in-repo gloss (F021): joint-family systems, flashpoints, boundaries, caregiver burden
+india-exams-pressure.txt | ~291 words | in-repo gloss (F021): JEE/NEET/UPSC pressure, comparison, shame spirals, sustainable prep
+india-nazar-karma-models.txt | ~322 words | in-repo gloss (F021): nazar, karma-as-blame, jinn idioms — explore not pathologise
