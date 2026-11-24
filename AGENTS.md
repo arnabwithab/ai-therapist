@@ -36,11 +36,12 @@ make clean    # removes build artifacts, caches, __pycache__ etc.
 ## Directory Structure
 ```
 ai-therapist/
-├── src/rag/            # chunk.py, ingest.py, query.py, config.py
+├── src/
+│   ├── rag/            # chunk.py, ingest.py, query.py, config.py
+│   └── serving/        # vLLM/llama.cpp/SGLang/TensorRT-LLM artifacts
 ├── backend/            # FastAPI routes (app.py) + core/ (chat.py; db.py in phase 2)
 ├── frontend/           # vendored single-file chat UI (index.html)
 ├── public/             # charts and static images
-├── scripts/serving/    # vLLM/llama.cpp/SGLang/TensorRT-LLM artifacts
 ├── notebooks/          # Unsloth finetune notebooks (Qwen3_4B-Instruct.ipynb)
 ├── data/
 │   ├── finetune/       # SFT/DPO datasets (gitignored contents)
