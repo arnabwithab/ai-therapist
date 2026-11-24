@@ -21,7 +21,9 @@ if the two disagree, the code wins; update both.
   `<faith_style>` to the single system message; the per-turn user text is the
   last `user` turn.
 - Sampling, matching training: temp 0.7, top_p 0.8, top_k 20,
-  repetition_penalty 1.1, max_tokens 256 (server-clamped).
+  repetition_penalty 1.1. The product path (`/api/chat` and
+  `/v1/chat/completions`) requests 1024 completion tokens so the DPO adapter’s
+  thinking traces fit; the library default is 256.
 
 ## Complete prompt template
 
