@@ -1,6 +1,6 @@
 <h1 align="center">AI counsellor</h1>
 
-<p align="center">Finetuned SLM for counselling, served with RAG over South Asian techniques, with a voice interface layer.</p>
+<p align="center">Building an AI therapist for India: a system that can hold a supportive counselling conversation in text, while being of value to everyday Indians, leveraging finetuned SLMs, and RAG over Indian counselling techniques. </p>
 
 <p align="center">
   <a href="https://huggingface.co/collections/arnabwithab/counselling-slms"><img src="https://img.shields.io/badge/Models-counselling--slms-yellow?logo=huggingface" alt="counselling SLMs on Hugging Face"></a>
