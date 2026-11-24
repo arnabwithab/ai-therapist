@@ -100,9 +100,7 @@ async def run(args):
 
         async def bounded(prompt):
             async with semaphore:
-                return await one_request(
-                    client, url, args.model, prompt, args.max_tokens
-                )
+                return await one_request(client, url, args.model, prompt, args.max_tokens)
 
         wall_start = time.perf_counter()
         rows = await asyncio.gather(*(bounded(prompt) for prompt in tasks))
