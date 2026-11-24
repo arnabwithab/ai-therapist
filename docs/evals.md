@@ -1,12 +1,12 @@
 # Evals
 
-![MentalBench-Align Overall means: best run per model](evals-judge-means.png)
+![MentalBench-Align Overall means: best run per model](../public/evals-judge-means.png)
 
-![Qwen3-4B per-dimension: base, SFT, DPO, OARS, OARS+RAG](evals-4b.png)
+![Qwen3-4B per-dimension: base, SFT, DPO, OARS, OARS+RAG](../public/evals-4b.png)
 
-![Qwen3-1.7B per-dimension: base, DPO, OARS, OARS+RAG, regular+RAG](evals-1p7b.png)
+![Qwen3-1.7B per-dimension: base, DPO, OARS, OARS+RAG, regular+RAG](../public/evals-1p7b.png)
 
-![Qwen3-0.6B per-dimension: base vs DPO](evals-0p6b.png)
+![Qwen3-0.6B per-dimension: base vs DPO](../public/evals-0p6b.png)
 
 ## Coverage: what has been generated and judged
 

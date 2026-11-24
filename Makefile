@@ -98,7 +98,7 @@ judge-eval: ## judge any eval CSV with the same rubric (BASELINE=.. RESP_COL=.. 
 	uv run python -m eval.mbench_baseline.judge --baseline $(BASELINE) --resp-col $(RESP_COL) --out $(OUT) --all --hf-repo $(HF_EVAL_REPO)
 
 plots: ## regenerate the two live eval charts (means + 1.7B); 4B/0.6B PNGs frozen 2026-10-27
-	uv run --with matplotlib python -m eval.plot_evals --outdir docs
+	uv run --with matplotlib python -m eval.plot_evals --outdir public
 
 strip-think: ## strip <think> blocks for judging (IN=.. COL=.. OUT=..)
 	test -n "$(IN)$(COL)$(OUT)" || (echo "set IN=.. COL=.. OUT=.." && exit 1)

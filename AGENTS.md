@@ -39,14 +39,19 @@ ai-therapist/
 ├── src/rag/            # chunk.py, ingest.py, query.py, config.py
 ├── backend/            # FastAPI routes (app.py) + core/ (chat.py; db.py in phase 2)
 ├── frontend/           # vendored single-file chat UI (index.html)
+├── public/             # charts and static images
+├── scripts/serving/    # vLLM/llama.cpp/SGLang/TensorRT-LLM artifacts
 ├── notebooks/          # Unsloth finetune notebooks (Qwen3_4B-Instruct.ipynb)
 ├── data/
 │   ├── finetune/       # SFT/DPO datasets (gitignored contents)
 │   └── rag-kb/         # RAG sources: raw/ + text/ (+ manifest.json, phase 2)
 ├── docs/
-│   ├── research.md
-│   ├── slm-finetuning.md   # v1 training/eval record (frozen)
-│   └── phase2-plan.md      # phase 2 design source
+│   ├── phase1-plan.md       # v1 research + finetuning record (frozen)
+│   ├── phase2-plan.md       # phase 2 design source
+│   ├── evals.md / evals-v2.md / evals-v2-results.md
+│   ├── prompt.md
+│   ├── citations.md
+│   └── report.md
 ├── chroma/              # Chroma persist dir (gitignored, rebuilt via make ingest)
 ├── Makefile
 ├── .env.example
@@ -82,7 +87,7 @@ Hosting undecided; persistent disk confirmed. Keep everything runnable with zero
 - Always use `uv`, never pip
 - Keep `docs/features.json` current: flip a feature/subtask status, refresh `last_updated` and the `summary` counts whenever work lands
 - Never modify `docs/` unless explicitly asked (the exception: keeping `docs/features.json` in sync is mandatory)
-- Training + evals are frozen (v1 closed 2026-11-20): don't extend `eval/`, don't retrain. Read `docs/phase2-plan.md` before backend/RAG/frontend work; `docs/slm-finetuning.md` is the frozen v1 record
+- Training + evals are frozen (v1 closed 2026-11-20): don't extend `eval/`, don't retrain. Read `docs/phase2-plan.md` before backend/RAG/frontend work; `docs/phase1-plan.md` is the frozen v1 record
 - New workflow step? Add a Makefile target
 - If something feels out of scope, flag it rather than silently doing it
 

@@ -1,6 +1,6 @@
 {
   "project": "ai-therapist",
-  "last_updated": "2026-11-20",
+  "last_updated": "2026-11-24",
   "summary": {
     "total": 23,
     "completed": 23,
@@ -107,7 +107,7 @@
       "status": "completed",
       "priority": "high",
       "module": "src/rag",
-      "design_doc": "docs/research.md",
+      "design_doc": "docs/phase1-plan.md",
       "tests": {
         "status": "passing",
         "files": [
@@ -154,7 +154,7 @@
       "status": "completed",
       "priority": "medium",
       "module": "data/rag-kb",
-      "design_doc": "docs/research.md",
+      "design_doc": "docs/phase1-plan.md",
       "tests": {
         "status": "n/a",
         "files": [],
@@ -183,7 +183,7 @@
       "status": "completed",
       "priority": "high",
       "module": "data/finetune",
-      "design_doc": "docs/slm-finetuning.md",
+      "design_doc": "docs/phase1-plan.md",
       "tests": {
         "status": "n/a",
         "files": [],
@@ -217,7 +217,7 @@
       "status": "completed",
       "priority": "high",
       "module": "notebooks",
-      "design_doc": "docs/slm-finetuning.md",
+      "design_doc": "docs/phase1-plan.md",
       "tests": {
         "status": "n/a",
         "files": [],
@@ -256,7 +256,7 @@
       "status": "completed",
       "priority": "high",
       "module": "notebooks",
-      "design_doc": "docs/slm-finetuning.md",
+      "design_doc": "docs/phase1-plan.md",
       "tests": {
         "status": "n/a",
         "files": [],
@@ -290,7 +290,7 @@
       "status": "completed",
       "priority": "medium",
       "module": "notebooks",
-      "design_doc": "docs/slm-finetuning.md",
+      "design_doc": "docs/phase1-plan.md",
       "tests": {
         "status": "n/a",
         "files": [],
@@ -319,7 +319,7 @@
       "status": "completed",
       "priority": "medium",
       "module": "notebooks",
-      "design_doc": "docs/slm-finetuning.md",
+      "design_doc": "docs/phase1-plan.md",
       "tests": {
         "status": "passing",
         "files": [
@@ -350,7 +350,7 @@
       "status": "completed",
       "priority": "high",
       "module": "eval",
-      "design_doc": "docs/slm-finetuning.md",
+      "design_doc": "docs/phase1-plan.md",
       "tests": {
         "status": "passing",
         "files": [
@@ -386,7 +386,7 @@
       "status": "completed",
       "priority": "high",
       "module": "eval",
-      "design_doc": "docs/slm-finetuning.md",
+      "design_doc": "docs/phase1-plan.md",
       "tests": {
         "status": "passing",
         "files": [
@@ -499,7 +499,7 @@
       "status": "completed",
       "priority": "high",
       "module": "notebooks",
-      "design_doc": "docs/slm-finetuning.md",
+      "design_doc": "docs/phase1-plan.md",
       "tests": {
         "status": "n/a",
         "files": [],
@@ -538,7 +538,7 @@
       "status": "completed",
       "priority": "high",
       "module": "eval",
-      "design_doc": "docs/slm-finetuning.md",
+      "design_doc": "docs/phase1-plan.md",
       "tests": {
         "status": "passing",
         "files": [
@@ -609,7 +609,7 @@
       "status": "completed",
       "priority": "high",
       "module": "eval",
-      "design_doc": "docs/slm-finetuning.md",
+      "design_doc": "docs/phase1-plan.md",
       "tests": {
         "status": "passing",
         "files": [

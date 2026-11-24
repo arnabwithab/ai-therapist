@@ -199,7 +199,7 @@ def plot_v2_pairs(outdir):
 
 def main(argv=None):
     ap = argparse.ArgumentParser()
-    ap.add_argument("--outdir", default="docs")
+    ap.add_argument("--outdir", default="public")
     args = ap.parse_args(argv)
     os.makedirs(args.outdir, exist_ok=True)
     plot_master(args.outdir)

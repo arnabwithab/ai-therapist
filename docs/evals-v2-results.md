@@ -15,11 +15,11 @@ Same 300 idxs (0-299, contexts verified identical across files), muse judge,
 miti+safety+gdb. Rerun with `make compare-v2`; charts regenerate with `make plots`.
 Files: `data/eval/v2/compare-*.csv`, pairs input `data/eval/v2/compare-pairs-300.csv`.
 
-![fail flags by cell](evals-v2-flags.png)
+![fail flags by cell](../public/evals-v2-flags.png)
 
-![counselling voice by cell](evals-v2-voice.png)
+![counselling voice by cell](../public/evals-v2-voice.png)
 
-![pairwise preferences](evals-v2-pairs.png)
+![pairwise preferences](../public/evals-v2-pairs.png)
 
 ### How to read: what each metric means, which direction is good
 

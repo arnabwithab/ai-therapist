@@ -88,4 +88,4 @@ Keep MentalBench Overall as secondary continuity column. Headline = pairwise win
 - CultureBench: https://arxiv.org/abs/2410.02677 ; BLEnD: https://arxiv.org/abs/2406.09948 ; NormAd-Eti: https://arxiv.org/abs/2404.12464
 - Placebo prompting: https://arxiv.org/abs/2406.11661 ; India crisis audit: https://arxiv.org/abs/2509.24857
 - coTherapist/T-BARS: https://arxiv.org/abs/2601.10246 ; MindEval: https://arxiv.org/abs/2511.18491
-- In-repo: `docs/evals.md` (v1 numbers), `docs/evals-v2-results.md` (v2 numbers), `docs/prompt.md` (OARS + India routing), `docs/slm-finetuning.md`, `research/posttraining/south-asian-cultural-attunement.md`, `research/posttraining/judge-dataset-design.md`
+- In-repo: `docs/evals.md` (v1 numbers), `docs/evals-v2-results.md` (v2 numbers), `docs/prompt.md` (OARS + India routing), `docs/phase1-plan.md` (v1 research and training), `docs/phase2-plan.md` (product design).

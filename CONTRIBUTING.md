@@ -32,5 +32,5 @@ Small, reviewable PRs. Read [AGENTS.md](AGENTS.md) first — it takes precedence
 ## Docs
 
 - Don't modify `docs/` unprompted — exception: keep `docs/features.json` in sync (flip subtask status, refresh `last_updated` and `summary` counts when work lands).
-- Check `docs/slm-finetuning.md` before touching training/eval — it takes precedence.
+- Check `docs/phase1-plan.md` before touching training/eval — it takes precedence.
 - If something feels out of scope, flag it rather than silently doing it.

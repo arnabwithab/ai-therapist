@@ -20,7 +20,7 @@ def load(path):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--csv", default="data/eval/post-training-1p7b.csv")
-    parser.add_argument("--out", default="docs/post-training-1p7b.png")
+    parser.add_argument("--out", default="public/post-training-1p7b.png")
     args = parser.parse_args()
 
     rows = load(args.csv)
