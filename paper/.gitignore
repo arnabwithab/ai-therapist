@@ -1,0 +1,6 @@
+# Working sources, figures and build artefacts stay local.
+# Only the final presentation and report are tracked.
+*
+!.gitignore
+!aiTherapist_Sonia_Panel4.pdf
+!aiTherapist_Sonia_Panel4.pptx
